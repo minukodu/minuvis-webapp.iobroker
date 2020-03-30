@@ -8,7 +8,12 @@ Web: http://knx-user-forum.de Mail: mfd.gfx@gmail.com User: mfd
 
 Big thanks to authors for this icon set.
 
+## Quick Start:
 
+- goto https://github.com/SVallant/minuvis-webapp.iobroker/releases
+- download and put on your WebServer on WEBROOT/minikodu/
+
+### OR
 
 - Clone repository
 - npm install
