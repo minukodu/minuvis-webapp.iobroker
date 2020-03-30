@@ -11,7 +11,7 @@ Big thanks to authors for this icon set.
 ## Quick Start:
 
 - goto https://github.com/SVallant/minuvis-webapp.iobroker/releases
-- download and put on your WebServer on WEBROOT/minikodu/
+- download and put on your WebServer on WEBROOT/minukodu/
 
 ### OR
 
