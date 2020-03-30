@@ -1,0 +1,217 @@
+/* mfd-Icons */
+@import url("mfd-icons.css");
+/* Ende mfd-Icons */
+
+.overlay.notconnected {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11,11,11,0.7);
+  color: #fff;
+  z-index: 9999;
+}    
+.overlay.connected {
+  display: none;
+}
+
+.overlay.inner {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+@media (max-width: 900px) {
+    ons-row {
+      flex-direction: column;
+    }
+}
+ons-col {
+  min-width: 50%;
+  border-left: 1px solid #5c5c5c;
+}
+.dunkel ons-row {
+  background: #363636;
+}
+
+.hell ons-row {
+  background: #fff;
+}
+.hell ons-col {
+  background: #fff; 
+  border-left: 1px solid #cccccc;
+}
+.hell iframe {
+  background: #777; 
+}
+
+.dunkel .list-header--material {
+  background: #111;
+  padding: 0;
+}
+.notification {
+  background-color: #fe3824 !important;
+}
+ons-col.icon-col {
+  min-width: 0%;
+  border-left: none;
+}
+ons-col.slider-col {
+  min-width: 30%;
+  border-left: none;
+}
+span.chart-col,
+span.alarm-col {
+  min-width: 100% !important;
+}
+
+ons-col.chart-col,
+ons-col.alarm-col {
+  min-width: 100% !important;
+}
+
+/* start valueSwitcher */
+
+.valueSwitcherValue{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 80%;
+  line-height: 100%;
+}
+
+.button--outline .valueSwitcherValue{
+  color: #ffffff;
+}
+
+/* end valueSwitcher */
+
+/* Ende FLOT Iframe */
+
+.iframeoutput.loading {
+  visibility: hidden;
+}
+
+/* Ende FLOT Iframe */
+
+/* Start Alarmsystem */
+
+.alarmtable  {
+  font-size: 80%;
+  border: 1px solid #666666;
+  width: 100%;
+}
+
+.alarmtable td,
+.alarmtable th {
+  padding: 0 5px;
+}
+
+.alarmtable .titlerow {
+  background: #00828B;
+}
+
+.alarmtable span {
+  display: inline-block;
+  width: 100%;
+}
+.alarmtable .datum,
+.alarmtable .uhrzeit {
+  border: none;
+  float: none;
+  border-right: none;
+  width: 100%;
+}
+
+.alarmtable .uhrzeit {
+  font-weight: bold;
+}
+
+.alarmtable .mstimegoes,
+.alarmtable .mstimecomes,
+.alarmtable .mstimequit,
+.alarmtable .quitbutton{
+  text-align: center;
+}
+
+.alarmtable.anstehend .mstimegoes{
+  display: none;
+}
+
+.alarmtable.anstehend .mstimequit{
+  display: none;
+}
+
+.alarmtable .varname{
+  display: none;
+}
+
+.alarmtable .alarmclass{
+  text-align: center;
+  display: none;
+}
+
+.alarmtable .alarmarea{
+  text-align: center;
+}
+
+.alarmtable tr.quittiert,
+.alarmtable .quittiert {
+  background: #999999;
+  color:black;
+}
+
+.alarmtable .class-s{
+  background: red;
+  color:white;
+}
+
+.alarmtable .class-s.quittiert{
+  background: #ff6666;
+}
+
+.alarmtable .class-w{
+  background: yellow;
+  color:black;
+}
+
+.alarmtable .class-w.quittiert{
+  background: #f3f3ae;
+}
+
+.alarmtable .button {
+  margin: 5px 0px;
+}
+
+.alarmtable .rt-td .button {
+  margin: 0;
+}
+
+.alarmtable .pagination-bottom span {
+    display: inline;
+    width: auto;
+}
+
+.alarmtable .rt-thead .rt-td.-sort-asc, 
+.alarmtable .rt-thead .rt-th.-sort-asc {
+    box-shadow: inset 0 3px 0 0 #FFFFFF !important;
+}
+.alarmtable .rt-thead .rt-td.-sort-desc, 
+.alarmtable .rt-thead .rt-th.-sort-desc {
+    box-shadow: inset 0 -3px 0 0 #FFFFFF !important;
+}
+
+.alarmtable .rt-thead .rt-td, 
+.alarmtable .rt-thead .rt-th {
+    background: #00828B !important;
+    border-right: 1px solid #303030 !important;
+}
+
+.alarmtable .rt-tbody .rt-td {
+    border-right: 1px solid #303030 !important;
+}
+
+/* Ende Alarmsystem */
+
