@@ -1,1 +1,0 @@
-npm install --save @babel/polyfill && npm install --save socket.io-react && npm install --save onsenui && npm install --save react-onsenui && npm install --save prop-types && npm install --save react-chartjs-2 && npm install --save rheostat && npm install --save react-container-dimensions && npm install --save chart.js

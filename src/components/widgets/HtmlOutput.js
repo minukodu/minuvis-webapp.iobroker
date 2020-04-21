@@ -9,7 +9,7 @@ export default class HtmlOutput extends React.Component {
     this._stateId_subscribed = false;
     this.state = {
       val: "no data",
-      ts: moment(),
+      ts: moment()
     };
   }
 
@@ -33,7 +33,7 @@ export default class HtmlOutput extends React.Component {
             // eintragen
             this.setState({
               val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
+              ts: states[this.props.stateId].ts
             });
           }.bind(this)
         );
@@ -42,7 +42,7 @@ export default class HtmlOutput extends React.Component {
       // console.log("Read " + this.props.stateId);
       this.setState({
         val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts,
+        ts: this.props.states[this.props.stateId].ts
       });
     }
 
@@ -73,18 +73,17 @@ export default class HtmlOutput extends React.Component {
 
     val = styleToInject + val;
 
-    let title = (
+    let title =
       <ons-list-item>
         <Title title={this.props.title} titleIcon={this.props.titleIcon} />
       </ons-list-item>
-    );
 
     if (this.props.title == "NONE") {
       title = null;
     }
 
     return (
-      <ons-col id={this.props.UUID} class={"htmloutput"}>
+      <ons-col id={this.props.UUID}>
         <ons-list>
           <ons-list-header>
             <span

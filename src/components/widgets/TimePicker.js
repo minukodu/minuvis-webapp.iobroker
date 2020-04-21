@@ -10,23 +10,17 @@ export default class TimePicker extends React.Component {
     this._stateId_subscribed = false;
     this.state = {
       val: "00:00",
-      ts: moment(),
+      ts: moment()
     };
   }
 
   sendValue(e) {
-    // only if type = "input"; chrome on android fires 2 events: "change" + "input"
-    if (e.type === "input") {
-      this.props.socket.emit("setState", this.props.stateId, e.target.value);
-      console.log("TimePicker NewValue:");
-      console.log(e);
-      console.log(e.target.value);
-      // State nachführen
-      this.setState({
-        val: e.target.value,
-        ts: moment(),
-      });
-    }
+    this.props.socket.emit("setState", this.props.stateId, e.target.value);
+    // State nachführen
+    this.setState({
+      val: e.target.value,
+      ts: moment()
+    });
   }
 
   componentWillMount() {
@@ -43,13 +37,13 @@ export default class TimePicker extends React.Component {
         this.props.socket.emit(
           "getStates",
           [this.props.stateId],
-          function (err, states) {
+          function(err, states) {
             // console.log("Received States");
             // console.dir(states);
             // eintragen
             this.setState({
               val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
+              ts: states[this.props.stateId].ts
             });
           }.bind(this)
         );
@@ -58,7 +52,7 @@ export default class TimePicker extends React.Component {
       // console.log("Read " + this.props.stateId);
       this.setState({
         val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts,
+        ts: this.props.states[this.props.stateId].ts
       });
     }
 
@@ -90,7 +84,7 @@ export default class TimePicker extends React.Component {
     }
 
     return (
-      <ons-col id={this.props.UUID}>
+      <ons-col  id={this.props.UUID}>
         <ons-list>
           <ons-list-header>
             <span
@@ -101,7 +95,10 @@ export default class TimePicker extends React.Component {
             </span>
           </ons-list-header>
           <ons-list-item>
-            <Title title={this.props.title} titleIcon={this.props.titleIcon} />
+            <Title
+              title={this.props.title}
+              titleIcon={this.props.titleIcon}
+            />
             <div className="right">
               <Input
                 disable-auto-styling

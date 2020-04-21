@@ -1,6 +1,6 @@
 {
-  "name": "minuVis_webApp",
-  "version": "0.9.2",
+  "name": "hausapp",
+  "version": "0.1.0",
   "private": true,
   "homepage": "http://192.168.178.26/minukodu",
   "dependencies": {

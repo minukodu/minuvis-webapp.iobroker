@@ -49,16 +49,8 @@ ons-col {
 
 .dunkel .list-header--material {
   background: #111;
+  padding: 0;
 }
-
-.hell .list-header--material {
-  background: #ccc;
-}
-
-.list-header--material {
-  padding: 0 !important;
-}
-
 .notification {
   background-color: #fe3824 !important;
 }
@@ -80,42 +72,6 @@ ons-col.alarm-col {
   min-width: 100% !important;
 }
 
-/* start flotoutput */
-.flotoutput .list-item {
-  padding-left: 2px;
-}
-.flotoutput .list-item__center {
-  padding-top: 2px;
-}
-/* end flotoutput */
-
-/* start iframeoutput */
-.iframeoutput .list-item {
-  padding-left: 2px;
-}
-.iframeoutput .list-item__center {
-  padding-top: 2px;
-}
-/* end iframeoutput */
-
-/* start htmloutput */
-.htmloutput .list-item {
-  padding-left: 2px;
-}
-.htmloutput .list-item__center {
-  padding-top: 2px;
-}
-/* end htmloutput */
-
-/* start imgoutput */
-.imgoutput .list-item {
-  padding-left: 2px;
-}
-.imgoutput .list-item__center {
-  padding-top: 2px;
-}
-/* end imgoutput */
-
 /* start valueSwitcher */
 
 .valueSwitcherValue{
@@ -128,10 +84,6 @@ ons-col.alarm-col {
 
 .button--outline .valueSwitcherValue{
   color: #ffffff;
-}
-
-.hell .button--outline .valueSwitcherValue{
-  color: #1f1f21;
 }
 
 /* end valueSwitcher */

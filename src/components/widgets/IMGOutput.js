@@ -9,21 +9,22 @@ export default class IMGOutput extends React.Component {
     this.state = { imgkey: 0, lastUpdateDate: Date.now() };
     setInterval(
       () =>
-        this.setState((s) => ({
+        this.setState(s => ({
           imgkey: s.imgkey + 1,
-          lastUpdateDate: Date.now(),
+          lastUpdateDate: Date.now()
         })),
       this.props.IMGUpdateInterval
     );
   }
 
   render() {
-    let title = (
+
+    let title =
       <ons-list-item>
         <Title title={this.props.title} titleIcon={this.props.titleIcon} />
       </ons-list-item>
-    );
     let imgAltDesc = this.props.title;
+
 
     if (this.props.title == "NONE") {
       title = null;
@@ -31,7 +32,7 @@ export default class IMGOutput extends React.Component {
     }
 
     return (
-      <ons-col id={this.props.UUID} class={"imgoutput"}>
+      <ons-col id={this.props.UUID}>
         <ons-list>
           <ons-list-header>
             <span
