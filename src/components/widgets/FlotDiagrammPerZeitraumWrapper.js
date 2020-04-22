@@ -11,7 +11,7 @@ export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
     this.state = {
       range: this.props.ranges[this.props.defaultRange],
       timeFormat: this.props.timeFormat[this.props.defaultRange],
-      periodName: this.props.rangeNames[this.props.defaultRange]
+      periodName: this.props.rangeNames[this.props.defaultRange],
     };
   }
 
@@ -19,39 +19,37 @@ export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
     this.setState({
       range: this.props.ranges[0],
       timeFormat: this.props.timeFormat[0],
-      rangeName: this.props.rangeNames[0]
+      rangeName: this.props.rangeNames[0],
     });
   }
   setRange2() {
     this.setState({
       range: this.props.ranges[1],
       timeFormat: this.props.timeFormat[1],
-      rangeName: this.props.rangeNames[1]
+      rangeName: this.props.rangeNames[1],
     });
   }
   setRange3() {
     this.setState({
       range: this.props.ranges[2],
       timeFormat: this.props.timeFormat[2],
-      rangeName: this.props.rangeNames[2]
+      rangeName: this.props.rangeNames[2],
     });
   }
   setRange4() {
     this.setState({
       range: this.props.ranges[3],
       timeFormat: this.props.timeFormat[3],
-      rangeName: this.props.rangeNames[3]
+      rangeName: this.props.rangeNames[3],
     });
   }
 
   render() {
-
-    let title = <ons-list-item>
-                  <Title
-                    title={this.props.title}
-                    titleIcon={this.props.titleIcon}
-                  />
-                </ons-list-item>
+    let title = (
+      <ons-list-item>
+        <Title title={this.props.title} titleIcon={this.props.titleIcon} />
+      </ons-list-item>
+    );
 
     if (this.props.title == "NONE") {
       title = null;
@@ -59,10 +57,9 @@ export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
 
     return (
       <span className={this.props.additionalClass} style={{ minWidth: "50%" }}>
-        <ons-col>
+        <ons-col id={this.props.UUID} class={"flotoutput"}>
           <ons-list>
             <ons-list-header>
-              <span className="left titel">{this.props.title}</span>
               <span
                 className="right lastupdate"
                 style={{ float: "right", paddingRight: "5px" }}

@@ -15,6 +15,11 @@
   top: 0;
   left: 5px;
 }
+
+.hell .titleIcon.mfd-icon {
+  background-color: #1f1f21;
+}
+
 .list-item {
   min-height: 55px;
 }
@@ -28,18 +33,32 @@
   background-color: #fff;
   display: inline-block;
 }
+
+.hell .pageIcon.mfd-icon {
+  background-color: #1f1f21;
+}
+
 .sliderIcon.mfd-icon {
   width: 50px;
   height: 50px;
   background-color: #fff;
   display: inline-block;
 }
+
+.hell .sliderIcon.mfd-icon {
+  background-color: #1f1f21;
+}
+
 .valueSwitcherIcon.mfd-icon {
   background-color: #fff;
   display: block;
   width: 50px;
   height: 50px;
   margin: 0 auto;
+}
+
+.hell .valueSwitcherIcon.mfd-icon {
+  background-color: #1f1f21;
 }
 
 .mfd-icon.on,
