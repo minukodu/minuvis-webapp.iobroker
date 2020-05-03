@@ -101,7 +101,7 @@ export default class ValueSwitcher extends React.Component {
       ts = this.props.states[this.props.stateId].ts || moment();
     } else {
       // read from this.state
-      val = this.state.val;
+      val = this.state.val || 0;
       ts = this.state.ts;
     }
 

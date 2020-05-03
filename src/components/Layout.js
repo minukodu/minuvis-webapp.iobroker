@@ -76,6 +76,7 @@ export default class Layout extends React.Component {
   }
 
   render() {
+    console.log("Render Layout.js");
     // Init
     this.startpageKey = "";
     this.startpageConfig = {};
@@ -130,7 +131,16 @@ export default class Layout extends React.Component {
           </Ons.ListItem>
         );
 
-        // is startpage ??
+        
+        // console.log("pageId");
+        // console.log(pageId);
+
+        // set default  startpage
+        if ( pageId == 0 ) {
+          this.startpageKey = "start" + pageTitle;
+          this.startpageConfig = pageConfig;
+        }
+        // is new startpage ??
         if (
           this.props.appConfig.pages[pageId].startpage &&
           this.props.appConfig.pages[pageId].startpage === true

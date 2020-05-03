@@ -18,7 +18,7 @@ export default class HausController extends React.Component {
     this.socket = null;
 
     //#########################################################################
-    this.version = "0.9.2";
+    this.version = "1.0.0";
     //#########################################################################
     
 
@@ -154,7 +154,7 @@ export default class HausController extends React.Component {
   }
 
   render() {
-    console.log("Render ConfigLoader");
+    console.log("Render Hauscontroller");
     // console.log(this.state);
     console.log("Settings: " + JSON.stringify(this.state.appConfig.settings))
 

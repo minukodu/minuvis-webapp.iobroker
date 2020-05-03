@@ -11,7 +11,7 @@ Big thanks to authors for this icon set.
 ## Quick Start:
 
 - goto https://github.com/SVallant/minuvis-webapp.iobroker/releases
-- download and put on your WebServer on WEBROOT/minukodu/
+- download and put on your WebServer on WEBROOT/minuvis/app/
 
 ### OR
 
@@ -20,3 +20,12 @@ Big thanks to authors for this icon set.
 - npm start or npm build
 
 Love it !!
+
+## Changelog
+### 1.0.0 (2018-10-21)
+* (svallant) fix paths
+
+### 0.9.2 (2017-02-08)
+* (svallant) initial release
+
+

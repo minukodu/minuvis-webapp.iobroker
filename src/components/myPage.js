@@ -12,6 +12,7 @@ import Filler from "./widgets/Filler";
 import TimePicker from "./widgets/TimePicker";
 import FlotDiagrammPerZeitraumWrapper from "./widgets/FlotDiagrammPerZeitraumWrapper";
 import ValueSwitcher from "./widgets/ValueSwitcher";
+import TimeSwitch from "./widgets/TimeSwitch";
 import Footer from "./widgets/Footer";
 import CSSJSON from "cssjson";
 
@@ -236,6 +237,24 @@ export default class myPage extends React.Component {
               />
             );
             break;
+          case "timeswitch":
+            // console.log("insert timeswitch");
+            // console.log(widgetData);
+            pagewidgets.push(
+              <TimeSwitch
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                stateId={widgetData.stateId}
+                triggers={widgetData.triggers}
+                action={widgetData.action}
+              />
+            );
+            break;
           case "filler":
             pagewidgets.push(<Filler key={widgetData.UUID} UUID={widgetData.UUID} />);
             break;
@@ -251,6 +270,9 @@ export default class myPage extends React.Component {
     } // if WidgetData
 
     // inject css
+    console.log("this.props.pageConfig.css");
+    console.log(this.props.pageConfig.css);
+
     let styleToInject = "<style>" + CSSJSON.toCSS(this.props.pageConfig.css) + "</style>";
 
     return (

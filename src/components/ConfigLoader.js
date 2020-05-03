@@ -8,7 +8,7 @@ import {
   List,
   ListHeader,
   ListItem,
-  ProgressCircular
+  ProgressCircular,
 } from "react-onsenui";
 
 import HausController from "./HausController";
@@ -26,14 +26,14 @@ export default class ConfigLoader extends React.Component {
       appConfigFile: null,
       socketUrl: null,
       loadFileError: null,
-      usedStates: null
+      usedStates: null,
     };
     this.configFromLocalStorage = false;
     this.loadConfig = this.loadConfig.bind(this);
     this.findAllByKey = this.findAllByKey.bind(this);
   }
 
-  findAllByKey = function(obj, keyToFind) {
+  findAllByKey = function (obj, keyToFind) {
     return Object.entries(obj).reduce(
       (acc, [key, value]) =>
         key.startsWith(keyToFind)
@@ -50,7 +50,7 @@ export default class ConfigLoader extends React.Component {
     //####################################################
     // try to read localStorage
     let appConfigLocal = localStorage.getItem("appConfig") || {
-      noConfig: true
+      noConfig: true,
     };
     // console.log( appConfigLocal );
 
@@ -91,8 +91,15 @@ export default class ConfigLoader extends React.Component {
       console.log("url + file in querystring !");
       this.setState({
         appConfigFile: myUrlParsed.file,
-        socketUrl: myUrlParsed.url
+        socketUrl: myUrlParsed.url,
       });
+      // checkFileName
+      if (myUrlParsed.file.length < 6) {
+        this.setState({
+          loadFileError: "filename too short",
+        });
+        return;
+      }
       // Verbindung aufbauen
       const configSocket = io.connect(myUrlParsed.url);
       configSocket.on("connect", () => {
@@ -101,17 +108,22 @@ export default class ConfigLoader extends React.Component {
           "readFile",
           null,
           filePath + "/" + myUrlParsed.file,
-          function(error, fileData, mimeType) {
+          function (error, fileData, mimeType) {
             console.log(mimeType);
             // console.log(fileData);
             console.log(error);
             if (error) {
+              console.error(
+                new Date() + " Error loding file: " + myUrlParsed.file
+              );
+              console.error(error);
               this.setState({
-                loadFileError: "file " + error
+                loadFileError: "file " + error,
               });
             } else {
               let appConfig = JSON.parse(fileData);
               let usedStates = this.findAllByKey(appConfig, "stateId");
+              // console.log(fileData);
               console.log(appConfig);
               console.log(usedStates);
               this.setState({
@@ -119,7 +131,7 @@ export default class ConfigLoader extends React.Component {
                 hasAppConfig: true,
                 usedStates,
               });
-              localStorage.setItem('appConfig', fileData);
+              localStorage.setItem("appConfig", fileData);
             }
           }.bind(this)
         );
