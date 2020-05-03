@@ -22,10 +22,10 @@ Big thanks to authors for this icon set.
 Love it !!
 
 ## Changelog
-### 1.0.0 (2018-10-21)
+### 1.0.0 (2020-05-02)
 * (svallant) fix paths
 
-### 0.9.2 (2017-02-08)
+### 0.9.2 (2020-04-21)
 * (svallant) initial release
 
 
