@@ -17,7 +17,13 @@ export default class MySlider extends React.Component {
   }
 
   sendValue(e) {
-    this.props.socket.emit('setState', this.props.stateId, e.target.value);
+
+    let valueToSend = e.target.value;
+    if ( this.props.stateIdType === "number") {
+      valueToSend = parseInt(e.target.value, 10);
+    } 
+
+    this.props.socket.emit('setState', this.props.stateId,valueToSend);
     // State nachführen
     this.setState(
       {
@@ -76,12 +82,12 @@ export default class MySlider extends React.Component {
     let val = 0;
     let ts = moment();
     // read value and timestamp from props if available
-    if (typeof this.props.states[this.props.stateId] !== "undefined") {
+    if (this.props.states[this.props.stateId] && typeof this.props.states[this.props.stateId] !== "undefined") {
       val = this.props.states[this.props.stateId].val || 0;
       ts = this.props.states[this.props.stateId].ts || moment();
     } else {
       // read from this.state
-      val = this.state.val;
+      val = this.state.val || 0;
       ts = this.state.ts;
     }
 

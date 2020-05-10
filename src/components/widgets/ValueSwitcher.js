@@ -15,7 +15,13 @@ export default class ValueSwitcher extends React.Component {
   }
 
   sendValueElement(e) {
-    this.props.socket.emit("setState", this.props.stateId, e.target.value);
+
+    let valueToSend = e.target.value;
+    if (this.props.stateIdType === "number") {
+      valueToSend = parseInt(e.target.value, 10);
+    }
+
+    this.props.socket.emit("setState", this.props.stateId, valueToSend);
     // State nachführen
     this.setState({
       val: e.target.value,
@@ -24,7 +30,13 @@ export default class ValueSwitcher extends React.Component {
   }
 
   sendValue(value) {
-    this.props.socket.emit("setState", this.props.stateId, value);
+
+    let valueToSend = value;
+    if (this.props.stateIdType === "number") {
+      valueToSend = parseInt(value, 10);
+    }
+
+    this.props.socket.emit("setState", this.props.stateId, valueToSend);
     // State nachführen
     this.setState({
       val: value,
@@ -123,29 +135,29 @@ export default class ValueSwitcher extends React.Component {
     else if (this.props.nbOfButtons < 3) {
       displayBtn3 = "none";
       displayBtn4 = "none";
-      btnWidth = 96/2 ;
+      btnWidth = 96 / 2;
     }
     else if (this.props.nbOfButtons < 4) {
       displayBtn4 = "none";
-      btnWidth = 94/3;
+      btnWidth = 94 / 3;
     }
 
     console.log("Render ValueSwitcher");
     console.log('this.isNumeric(val) ? "number" : "text"');
     console.log(this.isNumeric(val) ? "number" : "text");
     console.log(val);
-   
+
     let title = <ons-list-item>
-                  <Title title={this.props.title} titleIcon={this.props.titleIcon} />
-                  <div className="right noLowLightIfDisabled">
-                    <output
-                      disable-auto-styling={"disable-auto-styling"}
-                      value={val.toString()}
-                    >
-                      {val.toString() + ((this.props.unit.length > 0) ? " " : "") + this.props.unit}
-                    </output>
-                  </div>
-                </ons-list-item>
+      <Title title={this.props.title} titleIcon={this.props.titleIcon} />
+      <div className="right noLowLightIfDisabled">
+        <output
+          disable-auto-styling={"disable-auto-styling"}
+          value={val.toString()}
+        >
+          {val.toString() + ((this.props.unit.length > 0) ? " " : "") + this.props.unit}
+        </output>
+      </div>
+    </ons-list-item>
 
     if (this.props.title == "NONE") {
       title = null;
@@ -162,11 +174,11 @@ export default class ValueSwitcher extends React.Component {
               {moment(ts).format("LLL")}
             </span>
           </ons-list-header>
-            {title}
+          {title}
           <ons-list-item className="valueSwitcherBtnList">
             <Button
               disable-auto-styling={"disable-auto-styling"}
-              modifier={(val == this.props.value1)?"":"outline"}
+              modifier={(val == this.props.value1) ? "" : "outline"}
               onClick={this.sendValue1.bind(this)}
               style={{ display: displayBtn1, width: btnWidth + "%", marginRight: btnMarginRight }}
             >
@@ -181,7 +193,7 @@ export default class ValueSwitcher extends React.Component {
             </Button>
             <Button
               disable-auto-styling={"disable-auto-styling"}
-              modifier={(val == this.props.value2)?"":"outline"}
+              modifier={(val == this.props.value2) ? "" : "outline"}
               onClick={this.sendValue2.bind(this)}
               style={{ display: displayBtn2, width: btnWidth + "%", marginRight: btnMarginRight }}
             >
@@ -196,7 +208,7 @@ export default class ValueSwitcher extends React.Component {
             </Button>
             <Button
               disable-auto-styling={"disable-auto-styling"}
-              modifier={(val == this.props.value3)?"":"outline"}
+              modifier={(val == this.props.value3) ? "" : "outline"}
               onClick={this.sendValue3.bind(this)}
               style={{ display: displayBtn3, width: btnWidth + "%", marginRight: btnMarginRight }}
             >
@@ -211,7 +223,7 @@ export default class ValueSwitcher extends React.Component {
             </Button>
             <Button
               disable-auto-styling={"disable-auto-styling"}
-              modifier={(val == this.props.value4)?"":"outline"}
+              modifier={(val == this.props.value4) ? "" : "outline"}
               onClick={this.sendValue4.bind(this)}
               style={{ display: displayBtn4, width: btnWidth + "%", marginRight: btnMarginRight }}
             >

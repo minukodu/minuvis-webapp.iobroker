@@ -76,6 +76,7 @@ export default class myPage extends React.Component {
                 title={widgetData.title}
                 titleIcon={widgetData.titleIcon}
                 stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
               />
             );
             break;
@@ -90,6 +91,7 @@ export default class myPage extends React.Component {
                 title={widgetData.title}
                 titleIcon={widgetData.titleIcon}
                 stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
                 min={widgetData.min}
                 max={widgetData.max}
                 step={widgetData.step}
@@ -140,6 +142,7 @@ export default class myPage extends React.Component {
                 title={widgetData.title}
                 titleIcon={widgetData.titleIcon}
                 stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
                 unit={widgetData.unit}
                 format={widgetData.format}
                 color={widgetData.color}
@@ -160,6 +163,7 @@ export default class myPage extends React.Component {
                 states={this.props.states}
                 title={widgetData.title}
                 stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
                 titleIcon={widgetData.titleIcon}
                 icon={widgetData.icon}
                 colorWhenTrue={widgetData.colorWhenTrue}
@@ -224,6 +228,7 @@ export default class myPage extends React.Component {
                 title={widgetData.title}
                 titleIcon={widgetData.titleIcon}
                 stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
                 unit={widgetData.unit || ""}
                 nbOfButtons={widgetData.nbOfButtons}
                 icon1={widgetData.icon1}
