@@ -21,11 +21,7 @@ export default class TimeSwitch extends React.Component {
       id: "0",
       action: {
         type: props.action.type,
-        valueType: "boolean",
-        onValue: props.action.onValue,
-        offValue: props.action.offValue,
-        booleanValue: true,
-        idsOfStatesToSet: props.action.idsOfStatesToSet,
+        name: "On"
       },
     };
 
@@ -146,14 +142,14 @@ export default class TimeSwitch extends React.Component {
   componentWillMount() {
     console.log("WillMount TimeSwitch");
     this.intervalSubscribe = setInterval(
-      this.subscribeAnsSetState.bind(this),
+      this.subscribeAndSetState.bind(this),
       2000
     );
   }
 
-  subscribeAnsSetState() {
+  subscribeAndSetState() {
     // console.dir(this.props.states);
-    console.log("subscribeAnsSetState TimeSwitch");
+    console.log("subscribeAndSetState TimeSwitch");
     if (this._stateId_subscribed !== true) {
       // Subscribe state
       console.log("TimeSwitch Subscribe " + this.props.stateId);
@@ -172,11 +168,11 @@ export default class TimeSwitch extends React.Component {
             val: states[this.props.stateId].val,
             ts: states[this.props.stateId].ts,
           });
-          // now set idsOfStatesToSet in triggers
+          // now set idsOfStatesToSet in onAction ans offAction
           let objVal = JSON.parse(states[this.props.stateId].val);
-          for (let trigger of objVal.triggers) {
-            trigger.action.idsOfStatesToSet = this.props.action.idsOfStatesToSet;
-          }
+          objVal.onAction.idsOfStatesToSet = this.props.action.idsOfStatesToSet;
+          objVal.offAction.idsOfStatesToSet = this.props.action.idsOfStatesToSet;
+          //set title
           objVal.name = this.props.title;
           console.log("objVal");
           console.log(objVal);
@@ -233,6 +229,11 @@ export default class TimeSwitch extends React.Component {
       );
     }
 
+
+    console.log("show triggers");
+    console.log(val);
+    
+
     let triggerList = [];
 
     let triggerCounter = 1;
@@ -240,7 +241,7 @@ export default class TimeSwitch extends React.Component {
     if (val && val.triggers) {
       if (val.triggers.length == 0) {
         triggerList.push(
-          <ListItem key={Date.now()}>
+          <ListItem key={performance.now()}>
             <div className="left">
               <Button
                 onClick={this.addTrigger.bind(this)}
@@ -277,8 +278,8 @@ export default class TimeSwitch extends React.Component {
             </div>
             <div className="center">
               {trigger.action.booleanValue
-                ? trigger.action.onValue.toString()
-                : trigger.action.offValue.toString()}
+                ? trigger.action.onText
+                : trigger.action.offText}
             </div>
             <div className="right">
               <div className="timeSwitchWeekdays">
@@ -297,7 +298,7 @@ export default class TimeSwitch extends React.Component {
     }
 
     return (
-      <Col id={this.props.UUID}>
+      <Col key={performance.now()} id={this.props.UUID}>
         <List>
           <ListHeader>
             <span
@@ -315,8 +316,8 @@ export default class TimeSwitch extends React.Component {
           showDialog={this.state.showDialog}
           submitDialog={this.submitDialog.bind(this)}
           trigger={this.triggerForDialog}
-          onValueText={this.props.action.onValue}
-          offValueText={this.props.action.offValue}
+          onValueText={this.props.action.onText}
+          offValueText={this.props.action.offText}
         />
       </Col>
     );

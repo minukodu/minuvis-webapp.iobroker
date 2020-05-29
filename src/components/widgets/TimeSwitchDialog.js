@@ -62,9 +62,9 @@ export default class TimeSwitchDialog extends React.Component {
     console.log(value);
     console.log(e.target.checked);
     if (value == "onValue") {
-      this.newTrigger.action.booleanValue = true;
+      this.newTrigger.action.name = "On";
     } else {
-      this.newTrigger.action.booleanValue = false;
+      this.newTrigger.action.name = "Off";
     }
     console.log(this.newTrigger);
   }
@@ -130,8 +130,8 @@ export default class TimeSwitchDialog extends React.Component {
         checked = false;
       }
       // action
-      onValueChecked = this.trigger.action.booleanValue;
-      offValueChecked = !this.trigger.action.booleanValue;
+      onValueChecked = this.trigger.action.name === "On";
+      offValueChecked = !onValueChecked;
     }
     // console.log(weekdaysValue);
 

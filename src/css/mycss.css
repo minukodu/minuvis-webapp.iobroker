@@ -38,6 +38,27 @@ ons-col {
   min-width: 50%;
   border-left: 1px solid #5c5c5c;
 }
+
+.list-header {
+  font-size: 8px !important;
+  min-height: 12px !important;
+  line-height: 12px !important;
+  color: #ccc !important;
+}
+
+.list-item {
+  min-height: 55px;
+}
+
+.compactMode .list-item {
+  min-height: 40px;
+}
+
+.compactMode .list-item__right {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .dunkel ons-row {
   background: #363636;
 }
@@ -72,6 +93,10 @@ ons-col {
 .notification.notification-quiet {
   background-color: #ccc !important;
   color: #000;
+}
+
+ons-list.list {
+  width: 100%;
 }
 
 ons-col.icon-col {

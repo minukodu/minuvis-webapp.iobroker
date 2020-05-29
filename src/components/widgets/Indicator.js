@@ -84,7 +84,7 @@ export default class Indicator extends React.Component {
         this.props.socket.emit(
           "getStates",
           [this.props.stateId],
-          function(err, states) {
+          function (err, states) {
             // console.log("Received States");
             // console.dir(states);
             // eintragen
@@ -132,24 +132,37 @@ export default class Indicator extends React.Component {
       iconColor = this.props.colorWhenTrue;
     }
 
+    let header =
+      <ons-list-header>
+        <span className="right lastupdate" style={{ float: 'right', paddingRight: '5px' }}>{moment(ts).format('LLL')}</span>
+      </ons-list-header>
+
+    let fontSize = "100%";
+    let compactModeClass = "";
+
+    if (this.props.compactMode === true) {
+      header = null;
+      fontSize = "80%";
+      compactModeClass = "compactMode";
+    }
+
     return (
-      <ons-col  id={this.props.UUID}>
+      <ons-col id={this.props.UUID}>
         <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment(ts).format("LLL")}
-            </span>
-          </ons-list-header>
+          {header}
           <ons-list-item>
-            <Title title={this.props.title} titleIcon={this.props.titleIcon} />
+            <Title
+              title={this.props.title}
+              titleIcon={this.props.titleIcon}
+              compactMode={this.props.compactMode}
+            />
             <div className="right">
               <span
                 style={{ background: iconColor }}
                 className={
                   "mfd-icon " +
+                  compactModeClass +
+                   " " +
                   this.props.additionalClass +
                   " " +
                   this.props.icon +

@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch } from "react-onsenui";
-import Title from "./Title"
+import Title from "./Title";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -10,7 +10,7 @@ export default class MySwitch extends React.Component {
     this._stateId_subscribed = false;
     this.state = {
       val: false,
-      ts: moment()
+      ts: moment(),
     };
   }
 
@@ -19,7 +19,7 @@ export default class MySwitch extends React.Component {
     // State nachführen
     this.setState({
       val: e.target.checked,
-      ts: moment()
+      ts: moment(),
     });
   }
 
@@ -71,7 +71,7 @@ export default class MySwitch extends React.Component {
             // eintragen
             this.setState({
               val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts
+              ts: states[this.props.stateId].ts,
             });
           }.bind(this)
         );
@@ -80,7 +80,7 @@ export default class MySwitch extends React.Component {
       // console.log("Read " + this.props.stateId);
       this.setState({
         val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts
+        ts: this.props.states[this.props.stateId].ts,
       });
     }
 
@@ -100,7 +100,6 @@ export default class MySwitch extends React.Component {
     // console.log(this.props.states);
     // console.log(this.props.states[this.props.stateId]);
     // console.log(typeof this.props.states[this.props.stateId]);
-    
 
     if (typeof this.props.states[this.props.stateId] !== "undefined") {
       val = this.props.states[this.props.stateId].val;
@@ -111,21 +110,33 @@ export default class MySwitch extends React.Component {
       ts = this.state.ts;
     }
 
+    let header = (
+      <ons-list-header>
+        <span
+          className="right lastupdate"
+          style={{ float: "right", paddingRight: "5px" }}
+        >
+          {moment(ts).format("LLL")}
+        </span>
+      </ons-list-header>
+    );
+
+    let compactModeClass = "";
+
+    if (this.props.compactMode === true) {
+      header = null;
+      compactModeClass = "compactMode";
+    }
+
     return (
       <ons-col id={this.props.UUID}>
         <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment(ts).format("LLL")}
-            </span>
-          </ons-list-header>
+          {header}
           <ons-list-item>
             <Title
               title={this.props.title}
               titleIcon={this.props.titleIcon}
+              compactMode={this.props.compactMode}
             />
             <div className="right">
               <Switch
@@ -133,6 +144,7 @@ export default class MySwitch extends React.Component {
                 disabled={!this.props.connected}
                 onChange={this.sendValue.bind(this)}
                 checked={this.stringToBoolean(val)}
+                class={compactModeClass}
               ></Switch>
             </div>
           </ons-list-item>
