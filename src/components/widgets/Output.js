@@ -56,7 +56,7 @@ export default class Output extends React.Component {
     // console.log(!this.props.connected);
   }
 
-  isNumeric (n) {
+  isNumeric(n) {
     return !isNaN(parseFloat(n)) && !isNaN(n - 0);
   }
 
@@ -95,18 +95,29 @@ export default class Output extends React.Component {
       }
     }
 
+    let header =
+      <ons-list-header>
+        <span className="right lastupdate" style={{ float: 'right', paddingRight: '5px' }}>{moment(ts).format('LLL')}</span>
+      </ons-list-header>
+
+    let fontSize = "100%";
+
+    if (this.props.compactMode === true){
+      header = null;
+      fontSize = "80%";
+    }
+
     return (
       <ons-col id={this.props.UUID}>
         <ons-list>
-          <ons-list-header>
-            <span className="right lastupdate" style={{ float: 'right', paddingRight: '5px' }}>{moment(ts).format('LLL')}</span>
-          </ons-list-header>
+          {header}
           <ons-list-item>
             <Title
               title={this.props.title}
               titleIcon={this.props.titleIcon}
+              compactMode={this.props.compactMode}
             />
-            <div className="right">
+            <div className="right" style={{ fontSize }}>
               <output style={{ color: fontColor }} data-iobroker={this.props.stateId}>{formatedValue}</output>&nbsp;{this.props.unit}
             </div>
           </ons-list-item>

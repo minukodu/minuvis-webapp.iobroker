@@ -13,7 +13,10 @@ import TimePicker from "./widgets/TimePicker";
 import FlotDiagrammPerZeitraumWrapper from "./widgets/FlotDiagrammPerZeitraumWrapper";
 import ValueSwitcher from "./widgets/ValueSwitcher";
 import TimeSwitch from "./widgets/TimeSwitch";
+import CompactModeWrapper from "./widgets/CompactModeWrapper";
+import LinkButton from "./widgets/LinkButton";
 import Footer from "./widgets/Footer";
+import Message from "./widgets/Message";
 import CSSJSON from "cssjson";
 
 export default class myPage extends React.Component {
@@ -45,14 +48,47 @@ export default class myPage extends React.Component {
     console.log(this.props);
 
     let pagewidgets = [];
+    let compactModeWrapper = {}
+    compactModeWrapper.widgets = [];
+    compactModeWrapper.title = "NONE";
+    compactModeWrapper.titleIcon = "audio_play";
+    compactModeWrapper.UUID = "0000";
+    let compactModeActive = false;
+    let widget = "";
 
     if (this.props.pageConfig.widgets) {
       for (var widgetId in this.props.pageConfig.widgets) {
         let widgetData = this.props.pageConfig.widgets[widgetId];
 
         switch (widgetData.type) {
-          case "iframe":
+          case "compactModeStart":
+            compactModeActive = true;
+            compactModeWrapper.title = widgetData.title;
+            compactModeWrapper.titleIcon = widgetData.titleIcon;
+            compactModeWrapper.UUID = widgetData.UUID;
+            ;
+            break;
+          case "compactModeEnd":
+            compactModeActive = false;
+            // now push all Widgets in Page
             pagewidgets.push(
+              <CompactModeWrapper
+                key={compactModeWrapper.UUID}
+                UUID={compactModeWrapper.UUID}
+                title={compactModeWrapper.title}
+                titleIcon={compactModeWrapper.titleIcon}
+              >
+                {compactModeWrapper.widgets}
+              </CompactModeWrapper>
+            );
+            compactModeWrapper.widgets = [];
+            compactModeWrapper.title = "NONE";
+            compactModeWrapper.titleIcon = "audio_play";
+            compactModeWrapper.UUID = "0000";
+            ;
+            break;
+          case "iframe":
+            widget =
               <IframeOutput
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -63,10 +99,10 @@ export default class myPage extends React.Component {
                 IframeHeight={widgetData.height}
                 IframeUpdateInterval={widgetData.updateTimeSek * 1000}
               />
-            );
+            pagewidgets.push(widget);
             break;
           case "switch":
-            pagewidgets.push(
+            widget =
               <MySwitch
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -77,11 +113,16 @@ export default class myPage extends React.Component {
                 titleIcon={widgetData.titleIcon}
                 stateId={widgetData.stateId}
                 stateIdType={widgetData.stateIdType || "undefined"}
+                compactMode={compactModeActive}
               />
-            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
             break;
           case "slider":
-            pagewidgets.push(
+            widget =
               <MySlider
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -99,10 +140,10 @@ export default class myPage extends React.Component {
                 maxIcon={widgetData.maxIcon}
                 unit={widgetData.unit}
               />
-            );
+            pagewidgets.push(widget);
             break;
           case "html":
-            pagewidgets.push(
+            widget =
               <HtmlOutput
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -114,10 +155,10 @@ export default class myPage extends React.Component {
                 stateId={widgetData.stateId}
                 css={this.props.pageConfig.css}
               />
-            );
+            pagewidgets.push(widget);
             break;
           case "imgoutput":
-            pagewidgets.push(
+            widget =
               <IMGOutput
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -129,10 +170,10 @@ export default class myPage extends React.Component {
                 IMGUrl={widgetData.url}
                 IMGUpdateInterval={widgetData.updateTimeSek * 1000}
               />
-            );
+            pagewidgets.push(widget);
             break;
           case "output":
-            pagewidgets.push(
+            widget =
               <Output
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -150,11 +191,16 @@ export default class myPage extends React.Component {
                 maxColor={widgetData.maxColor}
                 minValue={widgetData.minValue}
                 maxValue={widgetData.maxValue}
+                compactMode={compactModeActive}
               />
-            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
             break;
           case "indicator":
-            pagewidgets.push(
+            widget =
               <Indicator
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -168,11 +214,16 @@ export default class myPage extends React.Component {
                 icon={widgetData.icon}
                 colorWhenTrue={widgetData.colorWhenTrue}
                 colorWhenFalse={widgetData.colorWhenFalse}
+                compactMode={compactModeActive}
               />
-            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
             break;
           case "timepicker":
-            pagewidgets.push(
+            widget =
               <TimePicker
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -183,10 +234,10 @@ export default class myPage extends React.Component {
                 titleIcon={widgetData.titleIcon}
                 stateId={widgetData.stateId}
               />
-            );
+            pagewidgets.push(widget);
             break;
           case "flot":
-            pagewidgets.push(
+            widget =
               <FlotDiagrammPerZeitraumWrapper
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -215,10 +266,10 @@ export default class myPage extends React.Component {
                 defaultRange={1} // 0 .. 3;
                 additionalClass={""} //{"chart-col"} // z.B. "chart-col" für 100% Breite
               />
-            );
+            pagewidgets.push(widget);
             break;
           case "valueswitcher":
-            pagewidgets.push(
+            widget =
               <ValueSwitcher
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -240,12 +291,12 @@ export default class myPage extends React.Component {
                 icon4={widgetData.icon4}
                 value4={widgetData.value4}
               />
-            );
+            pagewidgets.push(widget);
             break;
           case "timeswitch":
             // console.log("insert timeswitch");
             // console.log(widgetData);
-            pagewidgets.push(
+            widget =
               <TimeSwitch
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
@@ -258,21 +309,40 @@ export default class myPage extends React.Component {
                 triggers={widgetData.triggers}
                 action={widgetData.action}
               />
-            );
+            pagewidgets.push(widget);
+            break;
+          case "linkbutton":
+            widget =
+              <LinkButton
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                pageLinks={this.props.pageLinks}
+                targetpage={widgetData.targetpage}
+              />
+            pagewidgets.push(widget);
             break;
           case "filler":
             pagewidgets.push(<Filler key={widgetData.UUID} UUID={widgetData.UUID} />);
             break;
           default:
             pagewidgets.push(
-              <Col>
-                <div>Widget {widgetData.type} nicht vorhanden</div>
-              </Col>
+              <Message
+                text={"Widget " + widgetData.type + " nicht vorhanden"}
+              />
             );
             break;
         } // switch
       } // for
     } // if WidgetData
+
+    // close open compactModeWrapper.widgets
+    if (compactModeActive === true) {
+      compactModeActive = false;
+      pagewidgets.push(compactModeWrapper.widgets);
+      compactModeWrapper.widgets = null;
+    }
 
     // inject css
     console.log("this.props.pageConfig.css");

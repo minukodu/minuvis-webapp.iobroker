@@ -15,14 +15,27 @@
   top: 0;
   left: 5px;
 }
+.compactMode.mfd-icon {
+  width: 40px;
+  height: 40px;
+}
+.compactMode.titleIcon.titel {
+  margin-left: 40px;
+  height: 40px;
+}
+.compactMode.titleIcon.mfd-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.compactMode.switch {
+  transform: scale(0.7);
+}
 
 .hell .titleIcon.mfd-icon {
   background-color: #1f1f21;
 }
 
-.list-item {
-  min-height: 55px;
-}
 .pageIconHolder {
   padding-top:0 !important;
   padding-bottom:0 !important;

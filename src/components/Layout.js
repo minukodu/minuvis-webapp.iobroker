@@ -71,6 +71,7 @@ export default class Layout extends React.Component {
     );
     route.props.flotUrls = this.props.flotUrls;
     route.props.version = this.props.version;
+    route.props.pageLinks = this.pageLinks;
 
     return React.createElement(route.component, route.props);
   }
@@ -102,6 +103,7 @@ export default class Layout extends React.Component {
     // console.log(this.props);
 
     let pageList = [];
+    this.pageLinks  = [];
     if (this.props.appConfig.pages) {
       // Menu-Item in Splitter
       for (var pageId in this.props.appConfig.pages) {
@@ -111,6 +113,9 @@ export default class Layout extends React.Component {
         let pageConfig = this.props.appConfig.pages[pageId];
         // global css to page
         pageConfig.css = this.props.appConfig.css || "";
+
+        // Create Array with possible Links
+        this.pageLinks[pageTitle] = this.loadPage.bind(this, myPage, pageTitle, pageConfig);
 
         // Create Menu-Entry
         pageList.push(
@@ -237,7 +242,7 @@ export default class Layout extends React.Component {
               component: myPage,
               props: {
                 key: this.startpageKey,
-                pageConfig: this.startpageConfig
+                pageConfig: this.startpageConfig,
               }
             }}
             renderPage={this.renderPage.bind(this)}
