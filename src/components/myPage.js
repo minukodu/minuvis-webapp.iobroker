@@ -281,6 +281,7 @@ export default class myPage extends React.Component {
                 stateId={widgetData.stateId}
                 stateIdType={widgetData.stateIdType || "undefined"}
                 unit={widgetData.unit || ""}
+                hideText={widgetData.hideText}
                 nbOfButtons={widgetData.nbOfButtons}
                 icon1={widgetData.icon1}
                 value1={widgetData.value1}

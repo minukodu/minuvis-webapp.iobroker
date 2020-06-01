@@ -163,6 +163,14 @@ export default class ValueSwitcher extends React.Component {
       title = null;
     }
 
+    this.hideTextClass = "";
+    if (this.props.hideText && this.props.hideText === true) {
+      this.hideTextClass = "hidden";
+    }
+    console.log("############ hideText");
+    console.log(this.props.hideText);
+    console.log(this.hideTextClass);
+    
     return (
       <ons-col id={this.props.UUID}>
         <ons-list>
@@ -187,7 +195,7 @@ export default class ValueSwitcher extends React.Component {
                   "valueSwitcherIcon min mfd-icon " + this.props.icon1
                 }
               ></span>
-              <span className={"valueSwitcherValue"}>
+              <span className={"valueSwitcherValue " + this.hideTextClass}>
                 {this.props.value1.toString() + ((this.props.unit.length > 0) ? " " : "") + this.props.unit}
               </span>
             </Button>
@@ -202,7 +210,7 @@ export default class ValueSwitcher extends React.Component {
                   "valueSwitcherIcon min mfd-icon " + this.props.icon2
                 }
               ></span>
-              <span className={"valueSwitcherValue"}>
+              <span className={"valueSwitcherValue " + this.hideTextClass}>
                 {this.props.value2.toString() + ((this.props.unit.length > 0) ? " " : "") + this.props.unit}
               </span>
             </Button>
@@ -217,7 +225,7 @@ export default class ValueSwitcher extends React.Component {
                   "valueSwitcherIcon min mfd-icon " + this.props.icon3
                 }
               ></span>
-              <span className={"valueSwitcherValue"}>
+              <span className={"valueSwitcherValue " + this.hideTextClass}>
                 {this.props.value3.toString() + ((this.props.unit.length > 0) ? " " : "") + this.props.unit}
               </span>
             </Button>
@@ -232,7 +240,7 @@ export default class ValueSwitcher extends React.Component {
                   "valueSwitcherIcon min mfd-icon " + this.props.icon4
                 }
               ></span>
-              <span className={"valueSwitcherValue"}>
+              <span className={"valueSwitcherValue " + this.hideTextClass}>
                 {this.props.value4.toString() + ((this.props.unit.length > 0) ? " " : "") + this.props.unit}
               </span>
             </Button>

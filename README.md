@@ -22,10 +22,13 @@ Big thanks to authors for this icon set.
 Love it !!
 
 ## Changelog
+### 1.2.0 (2020-06-01)
+* (svallant) added "hide Text" for valueswitcher-Widget
+
 ### 1.1.0 (2020-05-29)
 * (svallant) added compact-mode
 * (svallant) added linkbutton
-* (svallant) cerveral improvements
+* (svallant) serveral improvements
 
 ### 1.0.0 (2020-05-02)
 * (svallant) fix paths
