@@ -22,6 +22,9 @@ Big thanks to authors for this icon set.
 Love it !!
 
 ## Changelog
+### 1.2.1 (2020-06-05)
+* (svallant) added support for iOS "add to homescreen"
+
 ### 1.2.0 (2020-06-01)
 * (svallant) added "hide Text" for valueswitcher-Widget
 
