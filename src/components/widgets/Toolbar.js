@@ -24,6 +24,7 @@ export default class Toolbar extends React.Component {
             style={{ display: "block", height: "40px", width: "40px", float: "right" }}
           ></span>
           <span className="alarme-icon notification"
+            key={"PageAlarmeLink"}
             onClick={this.props.LinkAlarmPage}
             style={{ display: this.props.displayNbAlarm, verticalAlign: 0, marginRight: 10 }}>{this.props.nbAlarm}
           </span>

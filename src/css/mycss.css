@@ -2,6 +2,10 @@
 @import url("mfd-icons.css");
 /* Ende mfd-Icons */
 
+/* mdi-Icons */
+@import url("mdi-icons.css");
+/* Ende mdi-Icons */
+
 .hidden {
   display: none !important;
 }
@@ -46,6 +50,22 @@ ons-col {
   color: #ccc !important;
 }
 
+.filler .list-header,
+.compactModeWrapper .list-header  {
+  font-size: 12px !important;
+  min-height: 20px !important;
+  line-height: 20px !important;
+  color: #fff !important;
+  padding-left: 10px !important;
+}
+
+.compactModeWrapper .lastupdate {
+  font-size: 8px !important;
+  min-height: 20px !important;
+  line-height: 20px !important;
+  color: #ccc !important;
+}
+
 .list-item {
   min-height: 55px;
 }
@@ -57,6 +77,26 @@ ons-col {
 .compactMode .list-item__right {
   padding-top: 0;
   padding-bottom: 0;
+}
+
+.compactModeWrapperStart .titletext {
+  display: inline-block;
+  margin-left: -35px;
+  margin-top: 45px;
+}
+
+.compactModeWrapperStart .notitleIcon .titletext {
+  display: inline-block;
+  margin-left: -35px;
+  margin-top: 10px;
+}
+
+.notitleIcon .titletext {
+  margin-left: -50px;
+}
+
+.notitleIcon .titleIcon {
+  display: none;
 }
 
 .dunkel ons-row {
@@ -169,6 +209,10 @@ ons-col.alarm-col {
 
 .hell .button--outline .valueSwitcherValue {
   color: #1f1f21;
+}
+
+.valueSwitcherBtnList .button[disabled] {
+  opacity: 1;
 }
 
 /* end valueSwitcher */

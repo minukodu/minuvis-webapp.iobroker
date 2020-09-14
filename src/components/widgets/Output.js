@@ -115,6 +115,7 @@ export default class Output extends React.Component {
             <Title
               title={this.props.title}
               titleIcon={this.props.titleIcon}
+              titleIconFamily={this.props.titleIconFamily}
               compactMode={this.props.compactMode}
             />
             <div className="right" style={{ fontSize }}>

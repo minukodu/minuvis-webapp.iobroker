@@ -7,6 +7,7 @@ export default class Indicator extends React.Component {
   constructor() {
     super();
     this._stateId_subscribed = false;
+    this.alwaysTrue = false;
     this.state = {
       val: false,
       ts: moment()
@@ -74,7 +75,15 @@ export default class Indicator extends React.Component {
     // console.dir(this.props.states);
     // console.log(typeof this.props.states[this.props.stateId]);
 
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
+    // special case "always true" for value-switcher usecase
+    console.log("alway true: " + this.props.alwaysTrue)
+    if (this.props.alwaysTrue && this.props.alwaysTrue === true) {
+      this.alwaysTrue = true;
+    }
+    //console.log("always true prop: " + this.props.alwaysTrue)
+    //console.log("always true this: " + this.alwaysTrue)
+
+    if (typeof this.props.states[this.props.stateId] === "undefined" && this.alwaysTrue !== true) {
       if (this._stateId_subscribed === false) {
         // Subscribe state
         // console.log("Subscribe " + this.props.stateId);
@@ -96,11 +105,13 @@ export default class Indicator extends React.Component {
         );
       }
     } else {
-      // console.log("Read " + this.props.stateId);
-      this.setState({
-        val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts
-      });
+      if (this.alwaysTrue !== true) {
+        // console.log("Read " + this.props.stateId);
+        this.setState({
+          val: this.props.states[this.props.stateId].val,
+          ts: this.props.states[this.props.stateId].ts
+        });
+      }
     }
 
     // console.log("Switch connected:");
@@ -115,21 +126,32 @@ export default class Indicator extends React.Component {
     // init
     let val = false;
     let ts = moment();
-    // read value and timestamp from props if available
-    if (typeof this.props.states[this.props.stateId] !== "undefined") {
-      val = this.props.states[this.props.stateId].val;
-      ts = this.props.states[this.props.stateId].ts;
-    } else {
-      // read from this.state
-      val = this.state.val;
-      ts = this.state.ts;
-    }
+    if (this.alwaysTrue !== true) {
+      // read value and timestamp from props if available
+      if (typeof this.props.states[this.props.stateId] !== "undefined") {
+        val = this.props.states[this.props.stateId].val;
+        ts = this.props.states[this.props.stateId].ts;
+      } else {
+        // read from this.state
+        val = this.state.val;
+        ts = this.state.ts;
+      }
+  } else {
+    // always true
+    val = true;
+    ts = moment();
+  }
 
     let strValue = this.stringToBoolean(val, false).toString();
 
     let iconColor = this.props.colorWhenFalse;
+    let bgIconColor = "transparent";
     if (this.stringToBoolean(val, false)) {
       iconColor = this.props.colorWhenTrue;
+    }
+
+    if (this.props.iconFamily === "mfd-icon") {
+      bgIconColor = iconColor;
     }
 
     let header =
@@ -154,15 +176,18 @@ export default class Indicator extends React.Component {
             <Title
               title={this.props.title}
               titleIcon={this.props.titleIcon}
+              titleIconFamily={this.props.titleIconFamily}
               compactMode={this.props.compactMode}
             />
             <div className="right">
               <span
-                style={{ background: iconColor }}
+                style={{ background: bgIconColor, color: iconColor }}
                 className={
-                  "mfd-icon " +
+                  "indicatoricon " +
+                  this.props.iconFamily +
+                  " " +
                   compactModeClass +
-                   " " +
+                  " " +
                   this.props.additionalClass +
                   " " +
                   this.props.icon +

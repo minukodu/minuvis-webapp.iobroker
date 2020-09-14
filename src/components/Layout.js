@@ -127,7 +127,7 @@ export default class Layout extends React.Component {
             <div className="left pageIconHolder">
               <span
                 className={
-                  "pageIcon mfd-icon " + this.props.appConfig.pages[pageId].icon
+                  "pageIcon " + this.props.appConfig.pages[pageId].iconFamily + " " + this.props.appConfig.pages[pageId].icon
                 }
               ></span>
             </div>
@@ -163,7 +163,7 @@ export default class Layout extends React.Component {
     if (this.props.appConfig.alarmpage === true) {
       pageList.push(
         <Ons.ListItem
-          key={PageAlarme.name}
+          key={"PageAlarme"}
           onClick={this.loadPage.bind(this, PageAlarme, "PageAlarme", pageConfigAlarm)}
           tappable
         >
@@ -192,6 +192,7 @@ export default class Layout extends React.Component {
     pageConfigInfo.UUID = "PageInfo";
     pageConfigInfo.url = this.props.appConfig.dataprovider.url;
     pageConfigInfo.file = this.props.appConfig.dataprovider.fileName;
+    pageConfigInfo.css = this.props.appConfig.css || "";
 
     pageList.push(
       <Ons.ListItem

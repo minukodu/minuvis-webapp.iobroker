@@ -9,10 +9,21 @@ const openSourceLicensesHtml = () => {
     <th title='Field #2'>license</th>
     <th title='Field #3'>repository</th>
     </tr></thead>
-    <tbody><tr>
+    <tbody>
+    <tr>
     <td>knx-uf-iconset / MFD Icons</td>
     <td>CC BY-SA 3.0</td>
     <td>https://github.com/OpenAutomationProject/knx-uf-iconset</td>
+    </tr>
+    <tr>
+    <td>Material Design Icons Community Icons</td>
+    <td>SIL 1.1</td>
+    <td>https://github.com/Templarian/MaterialDesign</td>
+    </tr>
+    <tr>
+    <td>Google Material Design Icons</td>
+    <td>Apache 2.0</td>
+    <td>https://github.com/google/material-design-icons</td>
     </tr>
     <tr>
     <td>@babel/polyfill@7.0.0-beta.51</td>

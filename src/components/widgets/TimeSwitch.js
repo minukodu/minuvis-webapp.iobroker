@@ -220,7 +220,7 @@ export default class TimeSwitch extends React.Component {
     if (this.props.title !== "NONE") {
       title.push(
         <ListItem>
-          <Title title={this.props.title} titleIcon={this.props.titleIcon} />
+          <Title title={this.props.title} titleIcon={this.props.titleIcon} titleIconFamily={this.props.titleIconFamily} />
           {/* <div className="right">
             {"number of triggers:"}
             {val ? val.triggers.length : "no triggers"}

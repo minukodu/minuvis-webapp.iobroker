@@ -2,11 +2,13 @@
 WebApp for ioBroker
 
 
-We use, with others, the Iconset from
+We use, with others, the Iconsets from
 
 Web: http://knx-user-forum.de Mail: mfd.gfx@gmail.com User: mfd
 
-Big thanks to authors for this icon set.
+and the Material Design Icons Community Icons from https://github.com/Templarian/MaterialDesign
+
+Big thanks to authors for these icon sets.
 
 ## Quick Start:
 
@@ -22,6 +24,18 @@ Big thanks to authors for this icon set.
 Love it !!
 
 ## Changelog
+
+### 1.4.0 (2020-09-13)
+* (svallant) added "read-only" for valueswitcher-Widget
+* (svallant) added "show as indicator" with different colors for valueswitcher-Widget
+* (svallant) added "hightlightExactValueOnly" with different colors for valueswitcher-Widget
+* (svallant) added MaterialDesign-Icons
+* (svallant) added title-text to compactMode-Wrapper
+* (svallant) added title and icon for Filler-Widget
+* (svallant) added "show as small header" for Filler-Widget
+* (svallant) small css-impovement
+
+
 ### 1.2.1 (2020-06-05)
 * (svallant) added support for iOS "add to homescreen"
 

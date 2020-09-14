@@ -18,15 +18,16 @@ export default class HausController extends React.Component {
     this.socket = null;
 
     //#########################################################################
-    this.version = "1.2.1";
+    this.version = "1.4.0";
     //#########################################################################
-    
-
   }
 
   loadVariableNames = () => {
     let MyVariableNames = [];
     let states = {};
+
+    //##########################################################################
+    // TEST Alalmmeldesystem
     // AlarmAnzahl hinzufügen
     MyVariableNames.push(
       "myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehend"
@@ -37,9 +38,23 @@ export default class HausController extends React.Component {
     MyVariableNames.push(
       "myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehendNichtQuittiert"
     );
+    // AlarmListe Anstehend
+    MyVariableNames.push(
+      "myAlarme.VisuMeldungen.visuDaten.JSONAlarmeAnstehend"
+    );
+    // AlarmListe Historie
+    MyVariableNames.push("myAlarme.VisuMeldungen.visuDaten.JSONAlarmHistorie");
+    // AlarmListe Quittiervariable
+    MyVariableNames.push(
+      "myAlarme.VisuMeldungen.visuDaten.VarNameZumQuittieren"
+    );
+
     // dieser Wert wird im Header angezeigt
     this.StateIDNbAlarms =
       "myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehendNichtQuittiert";
+
+    //##########################################################################
+    //##########################################################################
 
     //console.info(MyVariableNames);
     for (let v in MyVariableNames) {
@@ -54,7 +69,7 @@ export default class HausController extends React.Component {
       this.usedVariables.push(this.props.usedStates[v]);
     }
     this.setState({
-      states
+      states,
     });
   };
 
@@ -71,7 +86,7 @@ export default class HausController extends React.Component {
     // Read settings
     //let settings = ReadSettings();
     this.setState({
-      settings: appConfig.settings
+      settings: appConfig.settings,
     });
     // hell/dunkel einstellen
     this.myStyleSheet = "css/onsen-css-components.css";
@@ -107,7 +122,7 @@ export default class HausController extends React.Component {
         let states = this.state.states;
         states[id] = state;
         this.setState({
-          states: states
+          states: states,
         });
       }.bind(this)
     );
@@ -156,7 +171,7 @@ export default class HausController extends React.Component {
   render() {
     console.log("Render Hauscontroller");
     // console.log(this.state);
-    console.log("Settings: " + JSON.stringify(this.state.appConfig.settings))
+    console.log("Settings: " + JSON.stringify(this.state.appConfig.settings));
 
     if (this.props.hasAppConfig === false) {
       return <div>trying to read config from ioBroker ...</div>;
@@ -171,7 +186,11 @@ export default class HausController extends React.Component {
             socket={this.socket}
             appConfig={this.state.appConfig}
             states={this.state.states}
-            nbAlarm={this.state.states[this.StateIDNbAlarms] ? this.state.states[this.StateIDNbAlarms].val : 0}
+            nbAlarm={
+              this.state.states[this.StateIDNbAlarms]
+                ? this.state.states[this.StateIDNbAlarms].val
+                : 0
+            }
             connected={this.state._socket_connected}
             version={this.version}
           />
