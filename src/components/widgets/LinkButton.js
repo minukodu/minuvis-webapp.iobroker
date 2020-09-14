@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "react-onsenui";
 
 export default class LinkButton extends React.Component {
-
   gotoTarget() {
     if (this.linkExists === true) {
       // console.log("this.props.pageLinks:");
@@ -13,10 +12,9 @@ export default class LinkButton extends React.Component {
 
   render() {
     //console.debug("Render LinkButton");
-    let title =
-      <span className={"valueSwitcherValue"}>
-        {this.props.title}
-      </span>
+    let title = (
+      <span className={"valueSwitcherValue"}>{this.props.title}</span>
+    );
 
     if (this.props.title === "ICONONLY") {
       title = null;
@@ -25,10 +23,11 @@ export default class LinkButton extends React.Component {
     this.linkExists = true;
     if (!this.props.pageLinks[this.props.targetpage]) {
       this.linkExists = false;
-      title =
+      title = (
         <span className={"valueSwitcherValue"}>
           {"Link does not exist !!!!"}
         </span>
+      );
     }
 
     return (
@@ -42,7 +41,10 @@ export default class LinkButton extends React.Component {
             >
               <span
                 className={
-                  "valueSwitcherIcon min mfd-icon " + this.props.titleIcon
+                  "valueSwitcherIcon min " +
+                  this.props.titleIconFamily +
+                  " " +
+                  this.props.titleIcon
                 }
               ></span>
               {title}

@@ -75,7 +75,7 @@ export default class HtmlOutput extends React.Component {
 
     let title = (
       <ons-list-item>
-        <Title title={this.props.title} titleIcon={this.props.titleIcon} />
+        <Title title={this.props.title} titleIcon={this.props.titleIcon} titleIconFamily={this.props.titleIconFamily} />
       </ons-list-item>
     );
 

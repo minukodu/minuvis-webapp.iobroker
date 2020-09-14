@@ -2,6 +2,7 @@ import React from "react";
 import * as Ons from "react-onsenui";
 import Toolbar from "./widgets/Toolbar";
 import Footer from "./widgets/Footer";
+import CSSJSON from "cssjson";
 import { openSourceLicensesHtml } from "./utils/OpenSourceLicenses";
 
 import moment from "moment";
@@ -25,14 +26,21 @@ export default class PageInfo extends React.Component {
     this.props.showMenu();
   }
 
-  pushPage() {}
+  pushPage() { }
 
   render() {
     console.info("Render PageInfo.js");
     console.info(this.props);
 
+    let styleToInject =
+      "<style>" + CSSJSON.toCSS(this.props.pageConfig.css) + "</style>";
+
     return (
       <Ons.Page renderToolbar={this.renderToolbar.bind(this)}>
+        <span
+          style={{ display: "none" }}
+          dangerouslySetInnerHTML={{ __html: styleToInject }}
+        ></span>
         <ons-row>
           <ons-col id={"appVersion"}>
             <ons-list>

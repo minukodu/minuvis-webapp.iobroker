@@ -100,6 +100,9 @@ export default class MySwitch extends React.Component {
     // console.log(this.props.states);
     // console.log(this.props.states[this.props.stateId]);
     // console.log(typeof this.props.states[this.props.stateId]);
+    // console.log("this.props.titleIconFamily");
+    // console.log(this.props.titleIconFamily);
+    
 
     if (typeof this.props.states[this.props.stateId] !== "undefined") {
       val = this.props.states[this.props.stateId].val;
@@ -136,6 +139,7 @@ export default class MySwitch extends React.Component {
             <Title
               title={this.props.title}
               titleIcon={this.props.titleIcon}
+              titleIconFamily={this.props.titleIconFamily}
               compactMode={this.props.compactMode}
             />
             <div className="right">

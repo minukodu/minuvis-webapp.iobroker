@@ -20,7 +20,7 @@ export default class IMGOutput extends React.Component {
   render() {
     let title = (
       <ons-list-item>
-        <Title title={this.props.title} titleIcon={this.props.titleIcon} />
+        <Title title={this.props.title} titleIcon={this.props.titleIcon} titleIconFamily={this.props.titleIconFamily} />
       </ons-list-item>
     );
     let imgAltDesc = this.props.title;

@@ -101,7 +101,7 @@ export default class TimePicker extends React.Component {
             </span>
           </ons-list-header>
           <ons-list-item>
-            <Title title={this.props.title} titleIcon={this.props.titleIcon} />
+          <Title title={this.props.title} titleIcon={this.props.titleIcon} titleIconFamily={this.props.titleIconFamily} />
             <div className="right">
               <Input
                 disable-auto-styling
