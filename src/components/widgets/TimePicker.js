@@ -89,19 +89,34 @@ export default class TimePicker extends React.Component {
       title = this.props.title;
     }
 
+    let header =
+      <ons-list-header>
+        <span
+          className="right lastupdate"
+          style={{ float: "right", paddingRight: "5px" }}
+        >
+          {moment(ts).format("LLL")}
+        </span>
+      </ons-list-header>
+
+    let compactModeClass = "";
+
+    if (this.props.compactMode === true) {
+      header = null;
+      compactModeClass = "compactMode";
+    }
+
     return (
-      <ons-col id={this.props.UUID}>
+      <ons-col id={this.props.UUID} class={compactModeClass}>
         <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment(ts).format("LLL")}
-            </span>
-          </ons-list-header>
+          {header}
           <ons-list-item>
-          <Title title={this.props.title} titleIcon={this.props.titleIcon} titleIconFamily={this.props.titleIconFamily} />
+            <Title
+              title={this.props.title}
+              titleIcon={this.props.titleIcon}
+              titleIconFamily={this.props.titleIconFamily}
+              compactMode={this.props.compactMode}
+            />
             <div className="right">
               <Input
                 disable-auto-styling

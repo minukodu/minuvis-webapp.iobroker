@@ -51,7 +51,7 @@ ons-col {
 }
 
 .filler .list-header,
-.compactModeWrapper .list-header  {
+.compactModeWrapper .list-header {
   font-size: 12px !important;
   min-height: 20px !important;
   line-height: 20px !important;
@@ -89,6 +89,10 @@ ons-col {
   display: inline-block;
   margin-left: -35px;
   margin-top: 10px;
+}
+
+.compactMode.switch {
+  transform: scale(0.7);
 }
 
 .notitleIcon .titletext {
@@ -147,6 +151,27 @@ ons-col.slider-col {
   min-width: 30%;
   border-left: none;
 }
+
+.sliderIconMax {
+  min-width: 0%;
+  border-left: none;
+  width: 40px;
+  text-align: center;
+  line-height: 31px;
+}
+
+.sliderIconMin {
+  min-width: 0%;
+  border-left: none;
+  width: 40px;
+  text-align: center;
+  line-height: 31px;
+}
+
+.range--material__input {
+  background-image: linear-gradient(#fff, #fff) !important;
+}
+
 span.chart-col,
 span.alarm-col {
   min-width: 100% !important;
@@ -213,6 +238,15 @@ ons-col.alarm-col {
 
 .valueSwitcherBtnList .button[disabled] {
   opacity: 1;
+}
+
+.compactMode .valueSwitcherBtnList .valueSwitcherIcon,
+.compactMode .valueSwitcherBtnList .valueSwitcherValue {
+  transform: scale(0.8);
+}
+
+.compactMode .valueSwitcherBtnList .button {
+  padding: 0;
 }
 
 /* end valueSwitcher */

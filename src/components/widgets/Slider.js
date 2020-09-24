@@ -117,67 +117,82 @@ export default class MySlider extends React.Component {
       title = null;
     }
 
+    let header = (
+      <ons-list-header>
+        <span
+          className="right lastupdate"
+          style={{ float: "right", paddingRight: "5px" }}
+        >
+          {moment(ts).format("LLL")}
+        </span>
+      </ons-list-header>
+    );
+
+    let compactModeClass = "";
+    let disableAutoStyling = "true";
+    let modifier = null;
+
+    if (this.props.compactMode === true) {
+      title = null;
+      header = null;
+      compactModeClass = "compactMode";
+      disableAutoStyling = "false";
+      modifier = "material";
+
+    }
+
     return (
-      <ons-col id={this.props.UUID}>
+      <ons-col id={this.props.UUID} class={"sliderWidget " + compactModeClass} >
         <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment(ts).format("LLL")}
-            </span>
-          </ons-list-header>
+          {header}
           {title}
-          <ons-list-item>
-            <ons-col
-              style={{
-                minWidth: 0 + "%",
-                borderLeft: "none",
-                width: 40 + "px",
-                textAlign: "center",
-                lineHeight: 31 + "px",
-              }}
-            >
-              <span
-                className={
-                  "sliderIcon min  " +
-                  this.props.minIconFamily +
-                  " " +
-                  minIcon
-                }
-              ></span>
-            </ons-col>
-            <ons-col style={{ minWidth: 80 + "%", borderLeft: "none" }}>
-              <Range
-                disable-auto-styling
-                disabled={!this.props.connected}
-                onChange={this.sendValue.bind(this)}
-                value={parseInt(val, 10)}
-                min={this.props.min}
-                max={this.props.max}
-                step={this.props.step}
-                style={{ width: 100 + "%" }}
-              ></Range>
-            </ons-col>
-            <ons-col
-              style={{
-                minWidth: 0 + "%",
-                borderLeft: "none",
-                width: 40 + "px",
-                textAlign: "center",
-                lineHeight: 31 + "px",
-              }}
-            >
-              <span
-                className={
-                  "sliderIcon max " +
-                  this.props.maxIconFamily +
-                  " " +
-                  maxIcon
-                }
-              ></span>
-            </ons-col>
+          <ons-list-item style={{ padding: 0 }}>
+            <div style={{ display: "flex", width: "100%", flexDirection: "row", flexWrap: "nowrap" }}>
+              <ons-col
+                class={"sliderIconMin"}
+                style={{ flexBasis: "50px", minWidth: "50px" }}
+              >
+                <span
+                  className={
+                    "sliderIcon min  " +
+                    compactModeClass +
+                    " " +
+                    this.props.minIconFamily +
+                    " " +
+                    minIcon
+                  }
+                ></span>
+              </ons-col>
+              <ons-col style={{ minWidthhh: 80 + "%", borderLeft: "none", flexBasis: "auto", flexGrow: 1, alignSelf: "center" }}>
+                <Range
+                  disable-auto-styling={disableAutoStyling}
+                  modifier={modifier}
+                  disabled={!this.props.connected}
+                  onChange={this.sendValue.bind(this)}
+                  value={parseInt(val, 10)}
+                  min={this.props.min}
+                  max={this.props.max}
+                  step={this.props.step}
+                  style={{ width: 100 + "%" }}
+                  className={compactModeClass}
+                ></Range>
+              </ons-col>
+              <ons-col
+                class={"sliderIconMax"}
+                style={{ flexBasis: "50px", minWidth: "50px" }}
+              >
+                <span
+                  className={
+                    "sliderIcon max " +
+                    compactModeClass +
+                    " " +
+                    this.props.maxIconFamily +
+                    " " +
+                    maxIcon
+                  }
+                ></span>
+              </ons-col>
+            </div>
           </ons-list-item>
         </ons-list>
       </ons-col>

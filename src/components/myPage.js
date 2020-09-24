@@ -148,9 +148,14 @@ export default class myPage extends React.Component {
                 maxIcon={widgetData.maxIcon}
                 maxIconFamily={widgetData.maxIconFamily}
                 unit={widgetData.unit}
+                compactMode={compactModeActive}
               />
             );
-            pagewidgets.push(widget);
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
             break;
           case "html":
             widget = (
@@ -254,9 +259,14 @@ export default class myPage extends React.Component {
                 titleIcon={widgetData.titleIcon}
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
+                compactMode={compactModeActive}
               />
             );
-            pagewidgets.push(widget);
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
             break;
           case "flot":
             widget = (
@@ -328,9 +338,14 @@ export default class myPage extends React.Component {
                 indicatorColor2={widgetData.indicatorColor2 || "#FFFFFF"}
                 indicatorColor3={widgetData.indicatorColor3 || "#FFFFFF"}
                 indicatorColor4={widgetData.indicatorColor4 || "#FFFFFF"}
+                compactMode={compactModeActive}
               />
             );
-            pagewidgets.push(widget);
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
             break;
           case "timeswitch":
             // console.log("insert timeswitch");
