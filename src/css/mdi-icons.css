@@ -76,7 +76,7 @@
   width: 40px;
   height: 40px;
   font-size: 30px;
-  line-height: 30px;
+  line-height: 40px;
 }
 .compactMode.titleIcon.titel {
   margin-left: 40px;
@@ -89,9 +89,12 @@
   line-height: 30px;
 }
 
-.compactMode.switch {
-  transform: scale(0.7);
-}
+.compactMode.sliderIcon.mdi-icon {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  line-height: 30px;
+} 
 
 .hell .titleIcon.mdi-icon {
   color: #1f1f21;

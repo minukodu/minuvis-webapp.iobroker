@@ -25,6 +25,12 @@ Love it !!
 
 ## Changelog
 
+### 1.5.0 (2020-09-24)
+* (svallant) compact-mode for valueswitcher-widget
+* (svallant) compact-mode for timepicker-widget
+* (svallant) compact-mode for slider-widget
+* (svallant) some css improvements
+
 ### 1.4.0 (2020-09-13)
 * (svallant) added "read-only" for valueswitcher-Widget
 * (svallant) added "show as indicator" with different colors for valueswitcher-Widget
@@ -34,7 +40,6 @@ Love it !!
 * (svallant) added title and icon for Filler-Widget
 * (svallant) added "show as small header" for Filler-Widget
 * (svallant) small css-impovement
-
 
 ### 1.2.1 (2020-06-05)
 * (svallant) added support for iOS "add to homescreen"

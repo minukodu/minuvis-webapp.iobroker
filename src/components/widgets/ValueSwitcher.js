@@ -107,7 +107,7 @@ export default class ValueSwitcher extends React.Component {
 
     console.log("Render ValueSwitcher");
     console.log("Buttons: " + this.props.nbOfButtons);
-    
+
 
     // init
     let val = 0;
@@ -177,10 +177,21 @@ export default class ValueSwitcher extends React.Component {
           title={this.props.title}
           titleIcon={this.props.titleIcon}
           titleIconFamily={this.props.titleIconFamily}
+          compactMode={this.props.compactMode}
         />
         {valueText}
       </ons-list-item>
     );
+    let header = (
+      <ons-list-header>
+        <span
+          className="right lastupdate"
+          style={{ float: "right", paddingRight: "5px" }}
+        >
+          {moment(ts).format("LLL")}
+        </span>
+      </ons-list-header>
+    )
 
     if (this.props.title == "NONE") {
       title = null;
@@ -194,51 +205,61 @@ export default class ValueSwitcher extends React.Component {
     console.log(this.props.hideText);
     console.log(this.hideTextClass);
 
+    // console.log("############ ValueSwitcher values");
+    // console.log(this.props.stateIdType);
+    // console.log(this.props.hightlightExactValueOnly);
+    // console.log(val);
+    // console.log(this.props.value1);
+    // console.log(this.props.value2);
+    // console.log(this.props.value3);
+    // console.log(this.props.value4);
+
+
     // highlight Buttons
-    if ( this.props.stateIdType !== "number" || this.props.hightlightExactValueOnly === true ) {
-      if ( val == this.props.value1 ) { highlightBtnNr = 1 };
-      if ( val == this.props.value2 ) { highlightBtnNr = 2 };
-      if ( val == this.props.value3 ) { highlightBtnNr = 3 };
-      if ( val == this.props.value4 ) { highlightBtnNr = 4 };
-    } else if ( this.props.stateIdType === "number" ) {
-      if ( val <= this.props.value1 ) { highlightBtnNr = 1 };
-      if ( val > this.props.value1 && val <= this.props.value2 ) { highlightBtnNr = 2 };
-      if ( val > this.props.value2 && val <= this.props.value3 ) { highlightBtnNr = 3 };
-      if ( val > this.props.value3 ) { highlightBtnNr = 4 };
-    } 
+    if (this.props.stateIdType !== "number" || this.props.hightlightExactValueOnly === true) {
+      if (val == this.props.value1) { highlightBtnNr = 1 };
+      if (val == this.props.value2) { highlightBtnNr = 2 };
+      if (val == this.props.value3) { highlightBtnNr = 3 };
+      if (val == this.props.value4) { highlightBtnNr = 4 };
+    } else if (this.props.stateIdType === "number") {
+      if (val <= this.props.value1) { highlightBtnNr = 1 };
+      if (val > this.props.value1 && val <= this.props.value2) { highlightBtnNr = 2 };
+      if (val > this.props.value2 && val <= this.props.value3) { highlightBtnNr = 3 };
+      if (val > this.props.value3) { highlightBtnNr = 4 };
+    }
 
 
     // make icons for indicator
     let indicatorIcon = this.props.icon1;
     let indicatorIconFamily = this.props.iconFamily1;
     let indicatorColor = this.props.indicatorColor1;
-    
-    if ( highlightBtnNr === 2 ) {
+
+    if (highlightBtnNr === 2) {
       indicatorIcon = this.props.icon2;
       indicatorIconFamily = this.props.iconFamily2;
       indicatorColor = this.props.indicatorColor2;
-    } else if ( highlightBtnNr === 3 ) {
+    } else if (highlightBtnNr === 3) {
       indicatorIcon = this.props.icon3;
       indicatorIconFamily = this.props.iconFamily3;
       indicatorColor = this.props.indicatorColor3;
-    } else if ( highlightBtnNr === 4 ) {
+    } else if (highlightBtnNr === 4) {
       indicatorIcon = this.props.icon4;
       indicatorIconFamily = this.props.iconFamily4;
       indicatorColor = this.props.indicatorColor4;
     }
 
+    let compactModeClass = "";
+
+    if (this.props.compactMode === true) {
+      header = null;
+      title = null;
+      compactModeClass = "compactMode";
+    }
 
     let valueswitcher = (
-      <ons-col id={this.props.UUID}>
+      <ons-col id={this.props.UUID} class={compactModeClass}>
         <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment(ts).format("LLL")}
-            </span>
-          </ons-list-header>
+          {header}
           {title}
           <ons-list-item class="valueSwitcherBtnList">
             <Button
@@ -253,7 +274,7 @@ export default class ValueSwitcher extends React.Component {
               }}
             >
               <span
-                className={"valueSwitcherIcon min " + this.props.iconFamily1 + " " + this.props.icon1}
+                className={"valueSwitcherIcon min " + this.props.iconFamily1 + " " + this.props.icon1 + " " + compactModeClass}
               ></span>
               <span className={"valueSwitcherValue " + this.hideTextClass}>
                 {this.props.value1.toString() +
@@ -273,7 +294,7 @@ export default class ValueSwitcher extends React.Component {
               }}
             >
               <span
-                className={"valueSwitcherIcon min " + this.props.iconFamily2 + " " + this.props.icon2}
+                className={"valueSwitcherIcon min " + this.props.iconFamily2 + " " + this.props.icon2 + " " + compactModeClass}
               ></span>
               <span className={"valueSwitcherValue " + this.hideTextClass}>
                 {this.props.value2.toString() +
@@ -293,7 +314,7 @@ export default class ValueSwitcher extends React.Component {
               }}
             >
               <span
-                className={"valueSwitcherIcon min " + this.props.iconFamily3 + " " + this.props.icon3}
+                className={"valueSwitcherIcon min " + this.props.iconFamily3 + " " + this.props.icon3 + " " + compactModeClass}
               ></span>
               <span className={"valueSwitcherValue " + this.hideTextClass}>
                 {this.props.value3.toString() +
@@ -313,7 +334,7 @@ export default class ValueSwitcher extends React.Component {
               }}
             >
               <span
-                className={"valueSwitcherIcon min " + this.props.iconFamily4 + " " + this.props.icon4}
+                className={"valueSwitcherIcon min " + this.props.iconFamily4 + " " + this.props.icon4 + " " + compactModeClass}
               ></span>
               <span className={"valueSwitcherValue " + this.hideTextClass}>
                 {this.props.value4.toString() +
@@ -343,14 +364,14 @@ export default class ValueSwitcher extends React.Component {
         colorWhenTrue={indicatorColor}
         colorWhenFalse={"#222222"}
         alwaysTrue={true}
-        compactMode={false}
+        compactMode={this.props.compactMode}
       />
     );
 
-    if (this.props.showAsIndicator && this.props.showAsIndicator === true ) {
+    if (this.props.showAsIndicator && this.props.showAsIndicator === true) {
       return indicator;
     } else {
       return valueswitcher;
-    } 
+    }
   }
 }

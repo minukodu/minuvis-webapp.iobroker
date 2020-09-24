@@ -28,6 +28,11 @@
   height: 40px;
 }
 
+.compactMode.sliderIcon.mfd-icon {
+  width: 40px;
+  height: 40px;
+} 
+
 .compactMode.switch {
   transform: scale(0.7);
 }
