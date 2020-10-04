@@ -25,6 +25,10 @@ Love it !!
 
 ## Changelog
 
+### 1.6.0 (2020-10-02)
+* (svallant) new datepicker-widget
+* (svallant) EXPERIMENTAL: new jsontable-widget
+
 ### 1.5.0 (2020-09-24)
 * (svallant) compact-mode for valueswitcher-widget
 * (svallant) compact-mode for timepicker-widget

@@ -107,6 +107,10 @@ ons-col {
   background: #363636;
 }
 
+.dunkel ::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
 .hell ons-row {
   background: #fff;
 }

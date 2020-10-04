@@ -4,12 +4,14 @@ import Toolbar from "./widgets/Toolbar";
 import IframeOutput from "./widgets/IframeOutput";
 import MySwitch from "./widgets/Switch";
 import MySlider from "./widgets/Slider";
+import JsonTable from "./widgets/JsonTable";
 import HtmlOutput from "./widgets/HtmlOutput";
 import IMGOutput from "./widgets/IMGOutput";
 import Output from "./widgets/Output";
 import Indicator from "./widgets/Indicator";
 import Filler from "./widgets/Filler";
 import TimePicker from "./widgets/TimePicker";
+import DatePicker from "./widgets/DatePicker";
 import FlotDiagrammPerZeitraumWrapper from "./widgets/FlotDiagrammPerZeitraumWrapper";
 import ValueSwitcher from "./widgets/ValueSwitcher";
 import TimeSwitch from "./widgets/TimeSwitch";
@@ -157,6 +159,22 @@ export default class myPage extends React.Component {
               pagewidgets.push(widget);
             }
             break;
+          case "jsontable":
+            widget = (
+              <JsonTable
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                titleIconFamily={widgetData.titleIconFamily}
+                stateId={widgetData.stateId}
+              />
+            );
+            pagewidgets.push(widget);
+            break;
           case "html":
             widget = (
               <HtmlOutput
@@ -250,6 +268,27 @@ export default class myPage extends React.Component {
           case "timepicker":
             widget = (
               <TimePicker
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                titleIconFamily={widgetData.titleIconFamily}
+                stateId={widgetData.stateId}
+                compactMode={compactModeActive}
+              />
+            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
+            break;
+          case "datepicker":
+            widget = (
+              <DatePicker
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
                 connected={this.props.connected}
