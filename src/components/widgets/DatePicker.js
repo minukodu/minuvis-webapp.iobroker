@@ -9,7 +9,7 @@ export default class DatePicker extends React.Component {
     super();
     this._stateId_subscribed = false;
     this.state = {
-      val: "00:00",
+      val: "01.01.1970",
       ts: moment(),
     };
   }
@@ -17,10 +17,13 @@ export default class DatePicker extends React.Component {
   sendValue(e) {
     // only if type = "input"; chrome on android fires 2 events: "change" + "input"
     if (e.type === "input") {
-      this.props.socket.emit("setState", this.props.stateId, e.target.value);
+
+      let formattedOutput = moment(e.target.value).format(this.props.format);
+
+      this.props.socket.emit("setState", this.props.stateId, formattedOutput);
       console.log("DatePicker NewValue:");
       console.log(e);
-      console.log(e.target.value);
+      console.log("##############" + formattedOutput);
       // State nachführen
       this.setState({
         val: e.target.value,
@@ -69,8 +72,9 @@ export default class DatePicker extends React.Component {
   }
 
   render() {
-    // console.debug("Render Output");
-
+    console.log("Render DatePicker");
+    // console.log(this.props.format)
+    
     // init
     let val = "01.01.1970";
     let ts = moment();
@@ -78,16 +82,20 @@ export default class DatePicker extends React.Component {
     if (typeof this.props.states[this.props.stateId] !== "undefined") {
       val = this.props.states[this.props.stateId].val;
       ts = this.props.states[this.props.stateId].ts;
+      val = moment(val,this.props.format).format("YYYY-MM-DD");
     } else {
       // read from this.state
       val = this.state.val;
       ts = this.state.ts;
+      val = moment(val).format("YYYY-MM-DD");
     }
 
     let title = "";
     if (this.props.title !== "NONE") {
       title = this.props.title;
     }
+
+    
 
     let header =
       <ons-list-header>

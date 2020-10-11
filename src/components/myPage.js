@@ -160,6 +160,8 @@ export default class myPage extends React.Component {
             }
             break;
           case "jsontable":
+            console.log("josntable DATA");
+            console.log(widgetData);
             widget = (
               <JsonTable
                 key={widgetData.UUID}
@@ -171,6 +173,8 @@ export default class myPage extends React.Component {
                 titleIcon={widgetData.titleIcon}
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
+                colheader={widgetData.colheader}
+                colsize={widgetData.colsize}
               />
             );
             pagewidgets.push(widget);
@@ -277,6 +281,7 @@ export default class myPage extends React.Component {
                 titleIcon={widgetData.titleIcon}
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
+                format={widgetData.format}
                 compactMode={compactModeActive}
               />
             );
@@ -298,6 +303,7 @@ export default class myPage extends React.Component {
                 titleIcon={widgetData.titleIcon}
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
+                format={widgetData.format}
                 compactMode={compactModeActive}
               />
             );

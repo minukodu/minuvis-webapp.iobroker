@@ -25,6 +25,11 @@ Love it !!
 
 ## Changelog
 
+### 1.7.0 (2020-10-11)
+* (svallant) format for datepicker-widget
+* (svallant) format for timepicker-widget
+* (svallant) headertext and column-width for jsontable-widget
+
 ### 1.6.0 (2020-10-02)
 * (svallant) new datepicker-widget
 * (svallant) EXPERIMENTAL: new jsontable-widget
