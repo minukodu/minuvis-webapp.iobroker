@@ -17,10 +17,15 @@ export default class TimePicker extends React.Component {
   sendValue(e) {
     // only if type = "input"; chrome on android fires 2 events: "change" + "input"
     if (e.type === "input") {
-      this.props.socket.emit("setState", this.props.stateId, e.target.value);
-      console.log("TimePicker NewValue:");
+
+      let formattedOutput = moment("01.01.1970 " + e.target.value).format(this.props.format);
+
+      this.props.socket.emit("setState", this.props.stateId, formattedOutput);
+      console.log("DatePicker NewValue:");
       console.log(e);
-      console.log(e.target.value);
+      console.log("##############" + formattedOutput);
+      console.log("##############" + e.target.value);
+      console.log("##############" + this.props.format);
       // State nachführen
       this.setState({
         val: e.target.value,
@@ -69,7 +74,7 @@ export default class TimePicker extends React.Component {
   }
 
   render() {
-    // console.debug("Render Output");
+    // console.debug("Render TimePicker");
 
     // init
     let val = "00:00";
@@ -78,10 +83,14 @@ export default class TimePicker extends React.Component {
     if (typeof this.props.states[this.props.stateId] !== "undefined") {
       val = this.props.states[this.props.stateId].val;
       ts = this.props.states[this.props.stateId].ts;
+      console.log("##############" + val);
+      val = moment("01.01.1970 " + val,"DD.MM.YYYY " + this.props.format).format("HH:mm");
+      console.log("##############" + val);
     } else {
       // read from this.state
       val = this.state.val;
       ts = this.state.ts;
+      val = moment("01.01.1970 " + val).format("HH:mm");
     }
 
     let title = "";

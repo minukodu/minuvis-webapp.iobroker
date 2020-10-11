@@ -23,13 +23,11 @@ export default class JsonTable extends React.Component {
     this._stateId_subscribed = false;
     this.state = {
       val: "[{}]",
-      ts: moment()
+      ts: moment(),
     };
   }
 
-
   componentWillMount() {
-
     // console.dir(this.props.states);
     // console.log(typeof this.props.states[this.props.stateId]);
 
@@ -37,32 +35,31 @@ export default class JsonTable extends React.Component {
       if (this._stateId_subscribed === false) {
         // Subscribe state
         // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit('subscribe', this.props.stateId);
+        this.props.socket.emit("subscribe", this.props.stateId);
         this._stateId_subscribed = true;
         // Read state
-        this.props.socket.emit('getStates', [this.props.stateId], function (err, states) {
-          // console.log("Received States");
-          // console.dir(states);
-          // eintragen
-          this.setState(
-            {
+        this.props.socket.emit(
+          "getStates",
+          [this.props.stateId],
+          function (err, states) {
+            // console.log("Received States");
+            // console.dir(states);
+            // eintragen
+            this.setState({
               val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts
-            }
-          );
-        }.bind(this));
-
+              ts: states[this.props.stateId].ts,
+            });
+          }.bind(this)
+        );
       }
     } else {
       // console.log("Read " + this.props.stateId);
       try {
-        this.setState(
-          {
-            val: this.props.states[this.props.stateId].val,
-            ts: this.props.states[this.props.stateId].ts
-          }
-        );
-      } catch (e) { };
+        this.setState({
+          val: this.props.states[this.props.stateId].val,
+          ts: this.props.states[this.props.stateId].ts,
+        });
+      } catch (e) {}
     }
   }
 
@@ -75,34 +72,45 @@ export default class JsonTable extends React.Component {
     // read value and timestamp from props if available
     console.log(this.props.stateId);
     console.log(this.props.states[this.props.stateId]);
-    if (typeof this.props.states[this.props.stateId] !== "undefined" && this.props.states[this.props.stateId] && this.props.states[this.props.stateId].val) {
+    if (
+      typeof this.props.states[this.props.stateId] !== "undefined" &&
+      this.props.states[this.props.stateId] &&
+      this.props.states[this.props.stateId].val
+    ) {
       val = this.props.states[this.props.stateId].val;
       ts = this.props.states[this.props.stateId].ts;
     }
 
     //val = '[{"ts":1601652352418,"time":"2020-10-02T17:25:52.418","zone":"Badezimmer","trigger":"Motion Bathroom","targetsAll":"Bathroom Light","targetsSet":"","targetsSkipped":"Bathroom Light","motionTimer":10,"alwaysOffTimer":0}]';
 
-
-
     let newData = JSON.parse(val);
     // check if data is object
-    if (typeof newData === 'object' && newData !== null) {
+    if (typeof newData === "object" && newData !== null) {
       data = newData;
     }
     console.log(data);
 
+    // column headers
+    let colHeaders = this.props.colheader.split(",");
+    // column widths
+    let colSizes = this.props.colsize.split(",");
 
     let columns = [];
     let keys = Object.keys(data[0]);
     for (let key in keys) {
       console.log(keys[key]);
-      let column = {
-        Header: keys[key],
-        accessor: keys[key],
-        className: "jsontable-" + keys[key],
-        minWidth: 100,
-      };
-      columns.push(column);
+
+      if (colSizes[key] && colSizes[key] === "0") {
+        // do not show column
+      } else {
+        let column = {
+          Header: colHeaders[key] || keys[key],
+          accessor: keys[key],
+          className: "jsontable-" + keys[key],
+          minWidth: parseInt(colSizes[key], 10) || 100,
+        };
+        columns.push(column);
+      }
     }
     console.log(columns);
 
