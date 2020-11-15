@@ -1,33 +1,46 @@
 import React from "react";
-import { Input } from "react-onsenui";
+import { HuePicker } from "react-color";
 import Title from "./Title";
 import moment from "moment";
 moment.locale("de-DE");
 
-export default class TimePicker extends React.Component {
+export default class HueColorPicker extends React.Component {
   constructor() {
     super();
     this._stateId_subscribed = false;
     this.state = {
-      val: "00:00",
+      val: "#ff0000",
       ts: moment(),
     };
+    this.ts = moment();
+    this.val = "#FF0000";
+    this.changing = false;
   }
 
-  sendValue(e) {
-    // only if type = "input"; chrome on android fires 2 events: "change" + "input"
-    if (e.type === "input") {
-      this.props.socket.emit("setState", this.props.stateId, e.target.value);
-      console.log("TimePicker NewValue:");
-      console.log(e);
-      console.log(e.target.value);
-      // State nachführen
-      this.setState({
-        val: e.target.value,
-        ts: moment(),
-      });
+  handleRBGColorChangeComplete = (color, event) => {
+    var valToSend = color.hex;
+    if (this.props.formatWithWhite === true) {
+      valToSend = valToSend + "00";
     }
-  }
+
+    this.props.socket.emit("setState", this.props.stateId, valToSend);
+    // console.debug(this.props.stateId + " :: " + valToSend);
+    // State nachführen
+    this.setState({
+      val: color.hex,
+      ts: moment(),
+    });
+    this.changing = false;
+    // console.debug("ChangeComplete HueColorPicker");
+    // console.log("this.changing: " + this.changing);
+  };
+
+  handleRBGColorChange = (color, event) => {
+    this.changing = true;
+    this.val = color.hex;
+    // console.debug("Change HueColorPicker");
+    // console.log("this.changing: " + this.changing);
+  };
 
   componentWillMount() {
     // console.dir(this.props.states);
@@ -69,35 +82,46 @@ export default class TimePicker extends React.Component {
   }
 
   render() {
-    // console.debug("Render Output");
+    // console.debug("Render HueColorPicker");
+    // console.log("this.changing: " + this.changing);
+    //console.log(this.props);
 
-    // init
-    let val = "00:00";
-    let ts = moment();
     // read value and timestamp from props if available
-    if (typeof this.props.states[this.props.stateId] !== "undefined") {
-      val = this.props.states[this.props.stateId].val;
-      ts = this.props.states[this.props.stateId].ts;
+    if (
+      this.props.states[this.props.stateId] &&
+      typeof this.props.states[this.props.stateId] !== "undefined" &&
+      this.changing === false
+    ) {
+      this.val = this.props.states[this.props.stateId].val;
+      this.ts = this.props.states[this.props.stateId].ts;
     } else {
       // read from this.state
-      val = this.state.val;
-      ts = this.state.ts;
+      this.val = this.state.val;
+      this.ts = this.state.ts;
     }
+
+    if (this.val === null) {
+      this.val = "#ff0000";
+    }
+    this.val = this.val.substring(0, 7); //cut all other characters there is no white
+
+    console.log("val: " + this.val);
 
     let title = "";
     if (this.props.title !== "NONE") {
       title = this.props.title;
     }
 
-    let header =
+    let header = (
       <ons-list-header>
         <span
           className="right lastupdate"
           style={{ float: "right", paddingRight: "5px" }}
         >
-          {moment(ts).format("LLL")}
+          {moment(this.ts).format("LLL")}
         </span>
       </ons-list-header>
+    );
 
     let compactModeClass = "";
 
@@ -117,14 +141,13 @@ export default class TimePicker extends React.Component {
               titleIconFamily={this.props.titleIconFamily}
               compactMode={this.props.compactMode}
             />
-            <div className="right">
-              <Input
-                disable-auto-styling
-                data-iobroker={this.props.stateId}
-                onChange={this.sendValue.bind(this)}
-                type={"time"}
-                value={val}
-              ></Input>
+            <div className="hue-picker right">
+              <HuePicker
+                color={this.val}
+                onChangeComplete={this.handleRBGColorChangeComplete}
+                onChange={this.handleRBGColorChange}
+                height={"7px"}
+              />
             </div>
           </ons-list-item>
         </ons-list>

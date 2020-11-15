@@ -4,26 +4,32 @@ import Title from "./Title";
 import moment from "moment";
 moment.locale("de-DE");
 
-export default class TimePicker extends React.Component {
+export default class ColorPicker extends React.Component {
   constructor() {
     super();
     this._stateId_subscribed = false;
     this.state = {
-      val: "00:00",
+      val: "#ff0000",
       ts: moment(),
     };
   }
 
   sendValue(e) {
     // only if type = "input"; chrome on android fires 2 events: "change" + "input"
+    console.log("change ColorInput");
+    console.log(e.target.value);
+
+    var valToSend = e.target.value;
+    // if (this.props.formatWithWhite === true) {
+    //   valToSend = valToSend + "00";
+    // }
+
     if (e.type === "input") {
-      this.props.socket.emit("setState", this.props.stateId, e.target.value);
-      console.log("TimePicker NewValue:");
-      console.log(e);
-      console.log(e.target.value);
+
+      this.props.socket.emit("setState", this.props.stateId, valToSend)
       // State nachführen
       this.setState({
-        val: e.target.value,
+        val: e.target.value, // not valToSend
         ts: moment(),
       });
     }
@@ -69,10 +75,11 @@ export default class TimePicker extends React.Component {
   }
 
   render() {
-    // console.debug("Render Output");
+    // console.debug("Render TimePicker");
+    // console.debug(this.props);
 
     // init
-    let val = "00:00";
+    let val = "#ff0000";
     let ts = moment();
     // read value and timestamp from props if available
     if (typeof this.props.states[this.props.stateId] !== "undefined") {
@@ -83,6 +90,9 @@ export default class TimePicker extends React.Component {
       val = this.state.val;
       ts = this.state.ts;
     }
+
+    if (val === null) { val = "#ff0000"};
+    val = val.substring(0, 7); //cut all other characters there is no white
 
     let title = "";
     if (this.props.title !== "NONE") {
@@ -122,8 +132,9 @@ export default class TimePicker extends React.Component {
                 disable-auto-styling
                 data-iobroker={this.props.stateId}
                 onChange={this.sendValue.bind(this)}
-                type={"time"}
+                type={"color"}
                 value={val}
+                className={"colorInput"}
               ></Input>
             </div>
           </ons-list-item>
