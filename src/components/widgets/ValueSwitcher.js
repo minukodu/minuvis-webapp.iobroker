@@ -18,7 +18,7 @@ export default class ValueSwitcher extends React.Component {
   sendValueElement(e) {
     let valueToSend = e.target.value;
     if (this.props.stateIdType === "number") {
-      valueToSend = parseInt(e.target.value, 10);
+      valueToSend = parseFloat(e.target.value);
     }
 
     this.props.socket.emit("setState", this.props.stateId, valueToSend);
@@ -36,7 +36,7 @@ export default class ValueSwitcher extends React.Component {
 
     let valueToSend = value;
     if (this.props.stateIdType === "number") {
-      valueToSend = parseInt(value, 10);
+      valueToSend = parseFloat(value);
     }
 
     this.props.socket.emit("setState", this.props.stateId, valueToSend);
@@ -57,10 +57,6 @@ export default class ValueSwitcher extends React.Component {
   }
   sendValue4() {
     this.sendValue(this.props.value4);
-  }
-
-  isNumeric(n) {
-    return !isNaN(parseFloat(n)) && !isNaN(n - 0);
   }
 
   componentWillMount() {
@@ -150,9 +146,6 @@ export default class ValueSwitcher extends React.Component {
     }
 
     console.log("Render ValueSwitcher");
-    console.log('this.isNumeric(val) ? "number" : "text"');
-    console.log(this.isNumeric(val) ? "number" : "text");
-    console.log(val);
 
     let valueText = (
       <div className="right noLowLightIfDisabled">

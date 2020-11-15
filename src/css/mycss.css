@@ -176,6 +176,18 @@ ons-col.slider-col {
   background-image: linear-gradient(#fff, #fff) !important;
 }
 
+.hue-picker {
+  width: 50%;
+}
+
+.compactColor-picker {
+  width: 50%;
+}
+
+.colorInput {
+  width: 75px;
+}
+
 span.chart-col,
 span.alarm-col {
   min-width: 100% !important;
@@ -275,6 +287,15 @@ ons-col.alarm-col {
 }
 
 /* Ende TimeSwitch */
+
+/* Start ColorPicker */
+
+.hue-horizontal div {
+  height: 14px !important;
+  width: 14px !important;
+  margin-top: -1px;
+}
+/* Ende ColorPicker */
 
 /* Start Alarmsystem */
 

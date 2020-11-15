@@ -4,6 +4,7 @@ import Toolbar from "./widgets/Toolbar";
 import IframeOutput from "./widgets/IframeOutput";
 import MySwitch from "./widgets/Switch";
 import MySlider from "./widgets/Slider";
+import MyRange from "./widgets/Range";
 import JsonTable from "./widgets/JsonTable";
 import HtmlOutput from "./widgets/HtmlOutput";
 import IMGOutput from "./widgets/IMGOutput";
@@ -12,6 +13,8 @@ import Indicator from "./widgets/Indicator";
 import Filler from "./widgets/Filler";
 import TimePicker from "./widgets/TimePicker";
 import DatePicker from "./widgets/DatePicker";
+import ColorPicker from "./widgets/ColorPicker";
+import HueColorPicker from "./widgets/HueColorPicker";
 import FlotDiagrammPerZeitraumWrapper from "./widgets/FlotDiagrammPerZeitraumWrapper";
 import ValueSwitcher from "./widgets/ValueSwitcher";
 import TimeSwitch from "./widgets/TimeSwitch";
@@ -159,6 +162,37 @@ export default class myPage extends React.Component {
               pagewidgets.push(widget);
             }
             break;
+            case "range":
+              widget = (
+                <MyRange
+                  key={widgetData.UUID}
+                  UUID={widgetData.UUID}
+                  connected={this.props.connected}
+                  socket={this.props.socket}
+                  states={this.props.states}
+                  title={widgetData.title}
+                  titleIcon={widgetData.titleIcon}
+                  titleIconFamily={widgetData.titleIconFamily}
+                  stateId={widgetData.stateId}
+                  stateIdType={widgetData.stateIdType || "undefined"}
+                  min={widgetData.min}
+                  max={widgetData.max}
+                  step={widgetData.step}
+                  minIcon={widgetData.minIcon}
+                  minIconFamily={widgetData.minIconFamily}
+                  maxIcon={widgetData.maxIcon}
+                  maxIconFamily={widgetData.maxIconFamily}
+                  unit={widgetData.unit}
+                  updateOnComplete={widgetData.updateOnComplete}
+                  compactMode={compactModeActive}
+                />
+              );
+              if (compactModeActive) {
+                compactModeWrapper.widgets.push(widget);
+              } else {
+                pagewidgets.push(widget);
+              }
+              break;  
           case "jsontable":
             console.log("josntable DATA");
             console.log(widgetData);
@@ -281,7 +315,6 @@ export default class myPage extends React.Component {
                 titleIcon={widgetData.titleIcon}
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
-                format={widgetData.format}
                 compactMode={compactModeActive}
               />
             );
@@ -304,6 +337,50 @@ export default class myPage extends React.Component {
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
                 format={widgetData.format}
+                compactMode={compactModeActive}
+              />
+            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
+            break;
+          case "colorpicker":
+            widget = (
+              <ColorPicker
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                titleIconFamily={widgetData.titleIconFamily}
+                stateId={widgetData.stateId}
+                formatWithWhite={widgetData.formatWithWhite}
+                compactMode={compactModeActive}
+              />
+            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
+            break;
+          case "huecolorpicker":
+            widget = (
+              <HueColorPicker
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                titleIconFamily={widgetData.titleIconFamily}
+                stateId={widgetData.stateId}
+                formatWithWhite={widgetData.formatWithWhite}
                 compactMode={compactModeActive}
               />
             );
