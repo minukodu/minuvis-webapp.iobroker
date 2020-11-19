@@ -18,6 +18,7 @@ import HueColorPicker from "./widgets/HueColorPicker";
 import FlotDiagrammPerZeitraumWrapper from "./widgets/FlotDiagrammPerZeitraumWrapper";
 import ValueSwitcher from "./widgets/ValueSwitcher";
 import TimeSwitch from "./widgets/TimeSwitch";
+import OpenStreetMap from "./widgets/OpenStreetMap";
 import CompactModeWrapper from "./widgets/CompactModeWrapper";
 import LinkButton from "./widgets/LinkButton";
 import Footer from "./widgets/Footer";
@@ -46,7 +47,7 @@ export default class myPage extends React.Component {
     this.props.showMenu();
   }
 
-  pushPage() { }
+  pushPage() {}
 
   render() {
     console.log("render mypage " + this.props.pageConfig.title);
@@ -93,6 +94,25 @@ export default class myPage extends React.Component {
             compactModeWrapper.titleIcon = "audio_play";
             compactModeWrapper.titleIconFamily = "mfd-icon";
             compactModeWrapper.UUID = "0000";
+            break;
+          case "openstreetmap":
+            widget = (
+              <OpenStreetMap
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                titleIconFamily={widgetData.titleIconFamily}
+                stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
+                height={widgetData.height}
+                zoom={widgetData.zoom}
+              />
+            );
+            pagewidgets.push(widget);
             break;
           case "iframe":
             widget = (
@@ -162,37 +182,37 @@ export default class myPage extends React.Component {
               pagewidgets.push(widget);
             }
             break;
-            case "range":
-              widget = (
-                <MyRange
-                  key={widgetData.UUID}
-                  UUID={widgetData.UUID}
-                  connected={this.props.connected}
-                  socket={this.props.socket}
-                  states={this.props.states}
-                  title={widgetData.title}
-                  titleIcon={widgetData.titleIcon}
-                  titleIconFamily={widgetData.titleIconFamily}
-                  stateId={widgetData.stateId}
-                  stateIdType={widgetData.stateIdType || "undefined"}
-                  min={widgetData.min}
-                  max={widgetData.max}
-                  step={widgetData.step}
-                  minIcon={widgetData.minIcon}
-                  minIconFamily={widgetData.minIconFamily}
-                  maxIcon={widgetData.maxIcon}
-                  maxIconFamily={widgetData.maxIconFamily}
-                  unit={widgetData.unit}
-                  updateOnComplete={widgetData.updateOnComplete}
-                  compactMode={compactModeActive}
-                />
-              );
-              if (compactModeActive) {
-                compactModeWrapper.widgets.push(widget);
-              } else {
-                pagewidgets.push(widget);
-              }
-              break;  
+          case "range":
+            widget = (
+              <MyRange
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                titleIconFamily={widgetData.titleIconFamily}
+                stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
+                min={widgetData.min}
+                max={widgetData.max}
+                step={widgetData.step}
+                minIcon={widgetData.minIcon}
+                minIconFamily={widgetData.minIconFamily}
+                maxIcon={widgetData.maxIcon}
+                maxIconFamily={widgetData.maxIconFamily}
+                unit={widgetData.unit}
+                updateOnComplete={widgetData.updateOnComplete}
+                compactMode={compactModeActive}
+              />
+            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
+            break;
           case "jsontable":
             console.log("josntable DATA");
             console.log(widgetData);
