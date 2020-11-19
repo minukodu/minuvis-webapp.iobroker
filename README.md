@@ -25,6 +25,9 @@ Love it !!
 
 ## Changelog
 
+### 1.9.0 (2020-11-20)
+* (svallant) new openstreetmap-widget
+
 ### 1.8.0 (2020-11-15)
 * (svallant) new colorpicker-widget
 * (svallant) new huecolorpicker-widget
