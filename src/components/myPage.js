@@ -1,6 +1,8 @@
 import React from "react";
 import { Page, Row, Col } from "react-onsenui";
 import Toolbar from "./widgets/Toolbar";
+import GridChanger from "./widgets/GridChanger";
+import TimeStamp from "./widgets/TimeStamp";
 import IframeOutput from "./widgets/IframeOutput";
 import MySwitch from "./widgets/Switch";
 import MySlider from "./widgets/Slider";
@@ -47,7 +49,7 @@ export default class myPage extends React.Component {
     this.props.showMenu();
   }
 
-  pushPage() {}
+  pushPage() { }
 
   render() {
     console.log("render mypage " + this.props.pageConfig.title);
@@ -129,6 +131,24 @@ export default class myPage extends React.Component {
               />
             );
             pagewidgets.push(widget);
+            break;
+          case "timestamp":
+            widget = (
+              <TimeStamp
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                stateId={widgetData.stateId}
+                compactMode={compactModeActive}
+              />
+            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
             break;
           case "switch":
             widget = (
@@ -229,6 +249,10 @@ export default class myPage extends React.Component {
                 stateId={widgetData.stateId}
                 colheader={widgetData.colheader}
                 colsize={widgetData.colsize}
+                colsize={widgetData.colsize}
+                lineBreaks={widgetData.lineBreaks}
+                contentTypes={widgetData.contentTypes}
+                rowsPerPage={widgetData.rowsPerPage || 5}
               />
             );
             pagewidgets.push(widget);
@@ -519,6 +543,16 @@ export default class myPage extends React.Component {
                 titleIconFamily={widgetData.titleIconFamily}
                 pageLinks={this.props.pageLinks}
                 targetpage={widgetData.targetpage}
+              />
+            );
+            pagewidgets.push(widget);
+            break;
+          case "gridChanger":
+            widget = (
+              <GridChanger
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                nbOfRows={widgetData.nbOfRows}
               />
             );
             pagewidgets.push(widget);

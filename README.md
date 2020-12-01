@@ -25,6 +25,11 @@ Love it !!
 
 ## Changelog
 
+### 1.10.0 (2020-12-01)
+* (svallant) new timestamp-widget
+* (svallant) new gridchanger-widget
+* (svallant) improvements of jsontable-widget
+
 ### 1.9.0 (2020-11-20)
 * (svallant) new openstreetmap-widget
 
