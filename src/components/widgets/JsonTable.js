@@ -94,20 +94,49 @@ export default class JsonTable extends React.Component {
     let colHeaders = this.props.colheader.split(",");
     // column widths
     let colSizes = this.props.colsize.split(",");
-
+    // lineBreaks
+    let lineBreaks = this.props.lineBreaks.split(",");
+    // contentTypes
+    let contentTypes = this.props.contentTypes.split(",");
+    console.log("contentTypes");
+    console.log(contentTypes);
+    
+    
     let columns = [];
     let keys = Object.keys(data[0]);
     for (let key in keys) {
       console.log(keys[key]);
-
       if (colSizes[key] && colSizes[key] === "0") {
         // do not show column
       } else {
+        // init
+        let cWidth = parseInt(colSizes[key], 10) || 100;
+        let accessor = keys[key];
+
+        // handle lineBreaks
+        if (lineBreaks[key] && lineBreaks[key] === "1") {
+          accessor = d =>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: "<span style='white-space: normal;'>" + d[keys[key]] + "</span>"
+            }}
+        />
+        }
+        // handle imgUrl = contentType = i
+        if ( contentTypes[key] === "i") {
+          accessor = d =>
+          <div
+          dangerouslySetInnerHTML={{
+            __html: "<img width='" + cWidth + "' src='" +  d[keys[key]] + "'/>"
+          }}
+        />
+        } 
         let column = {
           Header: colHeaders[key] || keys[key],
-          accessor: keys[key],
+          id: keys[key],
+          accessor,
           className: "jsontable-" + keys[key],
-          minWidth: parseInt(colSizes[key], 10) || 100,
+          minWidth: cWidth,
         };
         columns.push(column);
       }
@@ -129,7 +158,7 @@ export default class JsonTable extends React.Component {
     }
 
     return (
-      <ons-col>
+      <ons-col id={this.props.UUID}>
         <ons-list>
           <ons-list-header>
             <span
@@ -145,8 +174,8 @@ export default class JsonTable extends React.Component {
               className={"jsontable alarmtable"}
               data={data}
               columns={columns}
-              defaultPageSize={5}
-              minRows={5}
+              defaultPageSize={this.props.rowsPerPage}
+              minRows={this.props.rowsPerPage}
               previousText="prev"
               nextText="next"
               loadingText="Loading..."

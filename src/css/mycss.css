@@ -66,6 +66,14 @@ ons-col {
   color: #ccc !important;
 }
 
+.timestamp .lastupdate,
+.timestamp.list-header {
+  font-size: 8px !important;
+  min-height: 12px !important;
+  line-height: 12px !important;
+  color: #ccc !important;
+}
+
 .list-item {
   min-height: 55px;
 }
