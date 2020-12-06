@@ -1,6 +1,6 @@
 {
   "name": "minuvis-webapp",
-  "version": "1.9.0",
+  "version": "1.11.0",
   "private": true,
   "homepage": "http://192.168.178.26/minuvis/app",
   "dependencies": {
