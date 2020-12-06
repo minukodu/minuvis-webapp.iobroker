@@ -16,9 +16,13 @@ export default class ValueSwitcher extends React.Component {
   }
 
   sendValueElement(e) {
+    
     let valueToSend = e.target.value;
     if (this.props.stateIdType === "number") {
       valueToSend = parseFloat(e.target.value);
+    } 
+    else if (this.props.stateIdType === "boolean") {
+      valueToSend = this.stringToBoolean(e.target.value);
     }
 
     this.props.socket.emit("setState", this.props.stateId, valueToSend);
@@ -37,6 +41,9 @@ export default class ValueSwitcher extends React.Component {
     let valueToSend = value;
     if (this.props.stateIdType === "number") {
       valueToSend = parseFloat(value);
+    }
+    else if (this.props.stateIdType === "boolean") {
+      valueToSend = this.stringToBoolean(value);
     }
 
     this.props.socket.emit("setState", this.props.stateId, valueToSend);
@@ -57,6 +64,33 @@ export default class ValueSwitcher extends React.Component {
   }
   sendValue4() {
     this.sendValue(this.props.value4);
+  }
+
+  stringToBoolean(val) {
+    if (val === null) {
+      return false;
+    }
+    if (typeof val === "number") {
+      return Boolean(val);
+    }
+    if (typeof val !== "string") {
+      return val;
+    }
+    switch (val.toLowerCase().trim()) {
+      case "on":
+      case "true":
+      case "yes":
+      case "1":
+        return true;
+      case "off":
+      case "false":
+      case "no":
+      case "0":
+      case null:
+        return false;
+      default:
+        return Boolean(val);
+    }
   }
 
   componentWillMount() {
@@ -114,11 +148,11 @@ export default class ValueSwitcher extends React.Component {
       typeof this.props.states[this.props.stateId] !== "undefined" &&
       this.props.states[this.props.stateId]
     ) {
-      val = this.props.states[this.props.stateId].val || 0;
-      ts = this.props.states[this.props.stateId].ts || moment();
+      val = this.props.states[this.props.stateId].val;
+      ts = this.props.states[this.props.stateId].ts;
     } else {
       // read from this.state
-      val = this.state.val || 0;
+      val = this.state.val;
       ts = this.state.ts;
     }
 
@@ -147,13 +181,24 @@ export default class ValueSwitcher extends React.Component {
 
     console.log("Render ValueSwitcher");
 
+    let valueString = "--";
+    if (this.props.stateIdType === "boolean" && val === true ) {
+      valueString = "true";
+    }
+    if (this.props.stateIdType === "boolean" &&  val === false ) {
+      valueString = "false";
+    }
+    if (this.props.stateIdType !== "boolean" && val) {
+      valueString = val.toString();
+    }
+
     let valueText = (
       <div className="right noLowLightIfDisabled">
         <output
           disable-auto-styling={"disable-auto-styling"}
-          value={val.toString()}
+          value={valueString}
         >
-          {val.toString() +
+          {valueString +
             (this.props.unit.length > 0 ? " " : "") +
             this.props.unit}
         </output>

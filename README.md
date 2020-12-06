@@ -25,6 +25,9 @@ Love it !!
 
 ## Changelog
 
+### 1.11.0 (2020-12-06)
+* (svallant) fix for boolean values for valueswitcher
+
 ### 1.10.0 (2020-12-01)
 * (svallant) new timestamp-widget
 * (svallant) new gridchanger-widget
