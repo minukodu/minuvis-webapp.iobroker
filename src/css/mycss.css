@@ -305,6 +305,43 @@ ons-col.alarm-col {
 }
 /* Ende ColorPicker */
 
+/* Start Donut */
+
+.donutWidget .track {
+  stroke: rgba(0, 130, 139, 0.5);
+}
+.donutWidget circle.progress {
+  stroke: #00828b;
+}
+.donutWidget .thumb {
+  fill:#00828b;
+  stroke: #00828b;
+}
+.donutWidget .text {
+  fill: #fff;
+}
+
+.hell .donutWidget .track {
+  stroke: rgba(55, 71, 79, 0.5);
+}
+.hell .donutWidget .progress {
+  stroke:#0076ff;
+}
+.hell .donutWidget .thumb {
+  fill:#0076ff;
+  stroke: #0076ff;
+}
+.hell .donutWidget .text {
+  fill: #1f1f21;
+}
+
+.donutWidget.compactMode svg {
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
+
+/* Ende Donut */
+
 /* Start Alarmsystem */
 
 .alarmtable {

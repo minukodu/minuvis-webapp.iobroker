@@ -21,7 +21,7 @@ export default class MyRange extends React.Component {
   RangeOnChange(value) {
     let valueToSend = value;
     if (this.props.stateIdType === "number") {
-      valueToSend = parseInt(value, 10);
+      valueToSend = parseFloat(value);
     }
     // Send only if not updateOnComplete
     if ( this.props.updateOnComplete === false ) {
@@ -40,7 +40,7 @@ export default class MyRange extends React.Component {
 	RangeOnChangeComplete(value) {
     let valueToSend = value;
     if (this.props.stateIdType === "number") {
-      valueToSend = parseInt(value, 10);
+      valueToSend = parseFloat(value);
     }
 
 		this.props.socket.emit('setState', this.props.stateId, valueToSend);
@@ -226,7 +226,7 @@ export default class MyRange extends React.Component {
                   maxValue={this.props.max}
                   minValue={this.props.min}
                   step={this.props.step}
-                  value={parseInt(this.val, 10)}
+                  value={parseFloat(this.val)}
                   onChange={this.RangeOnChange.bind(this)}
                   onChangeComplete={this.RangeOnChangeComplete.bind(this)}
                   onChangeStart={this.RangeOnChangeStart.bind(this)}

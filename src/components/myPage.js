@@ -7,6 +7,7 @@ import IframeOutput from "./widgets/IframeOutput";
 import MySwitch from "./widgets/Switch";
 import MySlider from "./widgets/Slider";
 import MyRange from "./widgets/Range";
+import Donut from "./widgets/Donut";
 import JsonTable from "./widgets/JsonTable";
 import HtmlOutput from "./widgets/HtmlOutput";
 import IMGOutput from "./widgets/IMGOutput";
@@ -224,6 +225,39 @@ export default class myPage extends React.Component {
                 maxIconFamily={widgetData.maxIconFamily}
                 unit={widgetData.unit}
                 updateOnComplete={widgetData.updateOnComplete}
+                compactMode={compactModeActive}
+              />
+            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
+            break;
+          case "donut":
+            widget = (
+              <Donut
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                titleIconFamily={widgetData.titleIconFamily}
+                stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
+                min={widgetData.min}
+                max={widgetData.max}
+                step={widgetData.step}
+                unit={widgetData.unit}
+                updateOnComplete={widgetData.updateOnComplete}
+                readOnly={widgetData.readOnly}
+                color={widgetData.color}
+                minColor={widgetData.minColor}
+                maxColor={widgetData.maxColor}
+                minValue={widgetData.minValue}
+                maxValue={widgetData.maxValue}
                 compactMode={compactModeActive}
               />
             );

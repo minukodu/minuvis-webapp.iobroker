@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 1.12.0 (2021-01-21)
+* (svallant) new donut-widget
+* (svallant) improvement of range-widget (fraction number as step possible)
 
 ### 1.11.0 (2020-12-06)
 * (svallant) fix for boolean values for valueswitcher
