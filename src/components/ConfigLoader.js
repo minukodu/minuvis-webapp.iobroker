@@ -31,6 +31,7 @@ export default class ConfigLoader extends React.Component {
     this.configFromLocalStorage = false;
     this.loadConfig = this.loadConfig.bind(this);
     this.findAllByKey = this.findAllByKey.bind(this);
+    this.meta = "0_userdata.0";
   }
 
   findAllByKey = function (obj, keyToFind) {
@@ -106,7 +107,7 @@ export default class ConfigLoader extends React.Component {
         console.info(new Date() + " Connected ConfigSocket");
         configSocket.emit(
           "readFile",
-          null,
+          this.meta,
           filePath + "/" + myUrlParsed.file,
           function (error, fileData, mimeType) {
             console.log(mimeType);
