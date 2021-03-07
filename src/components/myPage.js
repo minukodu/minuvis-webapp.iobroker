@@ -304,9 +304,14 @@ export default class myPage extends React.Component {
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
                 css={this.props.pageConfig.css}
+                compactMode={compactModeActive}
               />
             );
-            pagewidgets.push(widget);
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
             break;
           case "imgoutput":
             widget = (

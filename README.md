@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 1.13.0 (2021-03-07)
+* (svallant) compact.mode for html-widget
+
 ### 1.12.1 (2021-01-21)
 * (svallant) fix bug when reading file from "0_userdata.0"
 

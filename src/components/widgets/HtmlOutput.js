@@ -79,21 +79,33 @@ export default class HtmlOutput extends React.Component {
       </ons-list-item>
     );
 
+    let header = (
+      <ons-list-header>
+        <span
+          className="right lastupdate"
+          style={{ float: "right", paddingRight: "5px" }}
+        >
+          {moment(ts).format("LLL")}
+        </span>
+      </ons-list-header>
+    );
+
     if (this.props.title == "NONE") {
       title = null;
     }
 
+
+    let compactModeClass = "";
+    if (this.props.compactMode === true) {
+      title = null;
+      header = null;
+      compactModeClass = "compactmode";
+    }
+
     return (
-      <ons-col id={this.props.UUID} class={"htmloutput"}>
+      <ons-col id={this.props.UUID} class={"htmloutput " + compactModeClass}>
         <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment(ts).format("LLL")}
-            </span>
-          </ons-list-header>
+          {header}
           {title}
           <ons-list-item>
             <div style={{ width: 100 + "%" }}>

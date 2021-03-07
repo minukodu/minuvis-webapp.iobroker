@@ -18,7 +18,7 @@ export default class HausController extends React.Component {
     this.socket = null;
 
     //#########################################################################
-    this.version = "1.12.1";
+    this.version = "1.13.0";
     //#########################################################################
   }
 
