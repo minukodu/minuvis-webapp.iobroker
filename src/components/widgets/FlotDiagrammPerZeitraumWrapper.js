@@ -1,7 +1,6 @@
 import React from "react";
-import { Segment, Button } from "react-onsenui";
+import { Modal, Segment, Button, List, ListItem, ListHeader, Fab } from "react-onsenui";
 import FlotDiagrammPerZeitraum from "./FlotDiagrammPerZeitraum";
-import Title from "./Title";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -12,6 +11,7 @@ export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
       range: this.props.ranges[this.props.defaultRange],
       timeFormat: this.props.timeFormat[this.props.defaultRange],
       periodName: this.props.rangeNames[this.props.defaultRange],
+      showModal: false,
     };
   }
 
@@ -44,76 +44,131 @@ export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
     });
   }
 
-  render() {
-    let title = (
-      <ons-list-item>
-        <Title title={this.props.title} titleIcon={this.props.titleIcon} titleIconFamily={this.props.titleIconFamily} />
-      </ons-list-item>
-    );
+  showModal() {
+    this.setState({ showModal: true });
+  }
+  hideModal() {
+    this.setState({ showModal: false });
+  }
 
-    if (this.props.title == "NONE") {
-      title = null;
+  render() {
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment().format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
+      );
     }
 
-    return (
-      <span className={this.props.additionalClass} style={{ minWidth: "50%" }}>
-        <ons-col id={this.props.UUID} class={"flotoutput"}>
-          <ons-list>
-            <ons-list-header>
-              <span
-                className="right lastupdate"
-                style={{ float: "right", paddingRight: "5px" }}
-              >
-                {moment().format("LLL")}
-              </span>
-            </ons-list-header>
-            {title}
-            <ons-list-item>
-              <Segment
-                index={this.props.defaultRange}
-                disable-auto-styling
-                style={{ marginLeft: "5%", width: "90%" }}
-              >
-                <Button
-                  disable-auto-styling
-                  onClick={this.setRange1.bind(this)}
-                >
-                  {this.props.rangeNames[0]}
-                </Button>
-                <Button
-                  disable-auto-styling
-                  onClick={this.setRange2.bind(this)}
-                >
-                  {this.props.rangeNames[1]}
-                </Button>
-                <Button
-                  disable-auto-styling
-                  onClick={this.setRange3.bind(this)}
-                >
-                  {this.props.rangeNames[2]}
-                </Button>
-                <Button
-                  disable-auto-styling
-                  onClick={this.setRange4.bind(this)}
-                >
-                  {this.props.rangeNames[3]}
-                </Button>
-              </Segment>
-            </ons-list-item>
-          </ons-list>
-          <FlotDiagrammPerZeitraum
-            title="NONE"
-            FlotUrl={this.props.FlotUrl}
-            FlotWidth={this.props.FlotWidth}
-            FlotHeight={this.props.FlotHeight}
-            FlotRange={this.state.range}
-            FlotTimeFormat={this.state.timeFormat}
-            FlotWindowBG={this.props.FlotWindowBG}
-            FlotZoom={this.props.FlotZoom}
-            FlotHoverDetail={this.props.FlotHoverDetail}
-          />
-        </ons-col>
-      </span>
+    let widgetHeight = this.props.widgetHeight;
+
+    if (this.props.showInModal === true) {
+      // minus 2 or minimum 2
+      widgetHeight = this.props.modalWidgetHeight > 2 ? this.props.modalWidgetHeight - 2 : 2;
+    };
+
+    let height = widgetHeight * this.props.rowHeight;
+    let flotHeight = height - 80;
+    height = height + "px";
+    flotHeight = flotHeight + "px";
+
+    console.log("height " + height + " flotHeight " + flotHeight);
+    console.log(this.props.modalWidgetHeight);
+
+    var flotWidget = (
+      <List id={this.props.UUID} className="flotoutput" style={{ height }}>
+        {timestamp}
+        <ListItem>
+          <Segment
+            index={this.props.defaultRange}
+            disable-auto-styling
+            style={{ marginLeft: "5%", width: "90%" }}
+          >
+            <Button
+              disable-auto-styling
+              onClick={this.setRange1.bind(this)}
+            >
+              {this.props.rangeNames[0]}
+            </Button>
+            <Button
+              disable-auto-styling
+              onClick={this.setRange2.bind(this)}
+            >
+              {this.props.rangeNames[1]}
+            </Button>
+            <Button
+              disable-auto-styling
+              onClick={this.setRange3.bind(this)}
+            >
+              {this.props.rangeNames[2]}
+            </Button>
+            <Button
+              disable-auto-styling
+              onClick={this.setRange4.bind(this)}
+            >
+              {this.props.rangeNames[3]}
+            </Button>
+          </Segment>
+        </ListItem>
+        <FlotDiagrammPerZeitraum
+          title="NONE"
+          FlotUrl={this.props.FlotUrl}
+          FlotWidth={this.props.FlotWidth}
+          FlotHeight={flotHeight}
+          FlotRange={this.state.range}
+          FlotTimeFormat={this.state.timeFormat}
+          FlotWindowBG={this.props.FlotWindowBG}
+          FlotZoom={this.props.FlotZoom}
+          FlotHoverDetail={this.props.FlotHoverDetail}
+        />
+      </List>
     );
+
+    console.log("showInModal");
+    console.log(this.props.showInModal);
+
+
+    if (this.props.showInModal === true) {
+      return (
+        <List className="modalflotoutput" style={{ height }}>
+          <ListItem>
+            <div className="center">
+              <div className="centerFab" style={{ margin: "auto" }}>
+                <Fab
+                  mini
+                  className="fab--mini"
+                  onClick={this.showModal.bind(this)}>
+                  <i className="mdi-icon chart-areaspline fab--mini--icon" />
+                </Fab>
+              </div>
+            </div>
+            <Modal isOpen={this.state.showModal}>
+              <List className="iconbar">
+                <ListItem>
+                  <div className="right">
+                    <Fab
+                      mini
+                      className="fab--mini"
+                      modifier="material"
+                      onClick={this.hideModal.bind(this)}>
+                      <i className="mdi-icon window-close fab--mini--icon" />
+                    </Fab>
+                  </div>
+                </ListItem>
+              </List>
+              {flotWidget}
+            </Modal>
+          </ListItem >
+        </List >
+      );
+    } else {
+      return flotWidget;
+    }
   }
 }

@@ -3541,11 +3541,6 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jerairrest/react-chartjs-2</td>
     </tr>
     <tr>
-    <td>react-react-circular-input@0.2.2</td>
-    <td>MIT</td>
-    <td>https://github.com/petecorreia/react-circular-input</td>
-    </tr>
-    <tr>
     <td>react-color@2.14.1</td>
     <td>MIT</td>
     <td>https://github.com/casesandberg/react-color</td>

@@ -3,6 +3,8 @@ import { Page, Row, List, ListItem, Button } from 'react-onsenui';
 import Toolbar from './widgets/Toolbar';
 import BetterAlarmTable from './widgets/BetterAlarmTable';
 import Footer from "./widgets/Footer";
+import Banner from "./widgets/Banner";
+
 
 export default class PageAlarme extends React.Component {
   constructor(props) {
@@ -53,9 +55,18 @@ export default class PageAlarme extends React.Component {
   pushPage() { }
 
   render() {
+    // console.log("render PAgeAlarm");
+    // console.log(this.props);
+
+
     return (
 
       <Page renderToolbar={this.renderToolbar.bind(this)}>
+        <Banner
+          config={this.props.pageConfig.banner}
+          connected={this.props.connected}
+          socket={this.props.socket}
+          states={this.props.states} />
         <Row>
           <List>
             <ListItem>

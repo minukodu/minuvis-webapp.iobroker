@@ -1,6 +1,6 @@
 import React from "react";
-import StyleLoader from "./settings/StyleLoader";
 import io from "socket.io-client";
+import ons from "onsenui";
 import {
   Page,
   Row,
@@ -10,12 +10,10 @@ import {
   ListItem,
   ProgressCircular,
 } from "react-onsenui";
-
-import HausController from "./HausController";
+import StyleLoader from "./StyleLoader";
+import MainController from "./MainController";
 
 var queryString = require("querystring");
-
-const myStyleSheet = "css/dark-onsen-css-components.css";
 
 export default class ConfigLoader extends React.Component {
   constructor() {
@@ -31,17 +29,18 @@ export default class ConfigLoader extends React.Component {
     this.configFromLocalStorage = false;
     this.loadConfig = this.loadConfig.bind(this);
     this.findAllByKey = this.findAllByKey.bind(this);
+    this.styleLoader = null;
     this.meta = "0_userdata.0";
   }
 
   findAllByKey = function (obj, keyToFind) {
     return Object.entries(obj).reduce(
       (acc, [key, value]) =>
-        key.startsWith(keyToFind)
+        (key == keyToFind)
           ? acc.concat(value)
           : typeof value === "object"
-          ? acc.concat(this.findAllByKey(value, keyToFind))
-          : acc,
+            ? acc.concat(this.findAllByKey(value, keyToFind))
+            : acc,
       []
     );
   };
@@ -81,7 +80,7 @@ export default class ConfigLoader extends React.Component {
           hasAppConfig: true,
           usedStates,
         });
-      } catch (e) {}
+      } catch (e) { }
     }
 
     if (
@@ -112,14 +111,18 @@ export default class ConfigLoader extends React.Component {
           function (error, fileData, mimeType) {
             console.log(mimeType);
             // console.log(fileData);
-            console.log(error);
+            // console.log(error);
             if (error) {
               console.error(
-                new Date() + " Error loding file: " + myUrlParsed.file
+                new Date() + " Error loading file: " + myUrlParsed.file
               );
-              console.error(error);
+               console.error(error);
+               let errorText = JSON.stringify(error);
+               if (Object.getOwnPropertyNames(error).length === 0){
+                errorText = "not found";  
+               } ;
               this.setState({
-                loadFileError: "file " + error,
+                loadFileError: "file " + errorText,
               });
             } else {
               let appConfig = JSON.parse(fileData);
@@ -152,10 +155,14 @@ export default class ConfigLoader extends React.Component {
     console.log("Render ConfigLoader");
     console.log(this.state);
 
+    //############################################
+    ons.platform.select("android");
+    //############################################
+
     if (this.state.hasAppConfig === false) {
       return (
         <div>
-          <StyleLoader stylesheetPath={myStyleSheet} />
+          <StyleLoader theme={null} />
           <Page>
             <Row>
               <Col>
@@ -195,11 +202,14 @@ export default class ConfigLoader extends React.Component {
       );
     } else {
       return (
-        <HausController
-          appConfig={this.state.appConfig}
-          hasAppConfig={this.state.hasAppConfig}
-          usedStates={this.state.usedStates}
-        />
+        <div>
+          <StyleLoader theme={this.state.appConfig.theme} />
+          <MainController
+            appConfig={this.state.appConfig}
+            hasAppConfig={this.state.hasAppConfig}
+            usedStates={this.state.usedStates}
+          />
+        </div>
       );
     }
   }

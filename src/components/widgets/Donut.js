@@ -1,15 +1,16 @@
 import React from "react";
+import { List, ListItem, ListHeader } from "react-onsenui";
 import {
   CircularInput,
   CircularTrack,
   CircularProgress,
-  CircularThumb,
-} from "react-circular-input";
-import Title from "./Title";
+  CircularThumb
+} from 'react-circular-input'
+import RoundSlider from "../utils/RoundSlider";
 import moment from "moment";
 moment.locale("de-DE");
 
-import { countDecimals, stepperFloat, fixOutputFloat } from "../utils/Utils";
+import { stepperFloat, fixOutputFloat } from "../utils/Utils";
 
 export default class Donut extends React.Component {
   constructor() {
@@ -28,11 +29,10 @@ export default class Donut extends React.Component {
   }
 
   circleOnChange(value) {
+
     // console.log("circleOnChange: " + value);
 
-    let valueToSend =
-      parseFloat(value) * (parseFloat(this.max) - parseFloat(this.min)) +
-      parseFloat(this.min);
+    let valueToSend = parseFloat(value) * (parseFloat(this.max) - parseFloat(this.min)) + parseFloat(this.min);
 
     // console.log("circleOnChange toSend: " + valueToSend);
 
@@ -45,7 +45,7 @@ export default class Donut extends React.Component {
     }
     // Send only if not updateOnComplete
     if (this.props.updateOnComplete === false) {
-      this.props.socket.emit("setState", this.props.stateId, valueToSend);
+      this.props.socket.emit('setState', this.props.stateId, valueToSend);
     }
     //this.props.socket.emit('setState', this.props.stateId, valueToSend);
     //console.debug(this.props.stateId + " :: " + valueToSend);
@@ -59,32 +59,23 @@ export default class Donut extends React.Component {
   }
 
   circleOnChangeEnd(value) {
+
     console.log("circleOnChangeEnd: " + value);
 
-    let valueToSend =
-      parseFloat(value) * (parseFloat(this.max) - parseFloat(this.min)) +
-      parseFloat(this.min);
+    let valueToSend = parseFloat(value) * (parseFloat(this.max) - parseFloat(this.min)) + parseFloat(this.min);
 
-    valueToSend = stepperFloat(
-      valueToSend.toFixed(this.decimals),
-      this.props.step
-    );
+    valueToSend = valueToSend = stepperFloat(valueToSend.toFixed(this.decimals), this.props.step);
 
-    console.log("circleOnChangeEnd toSend: " + valueToSend);
+    // console.log("circleOnChangeEnd toSend: " + valueToSend);
 
     if (this.props.stateIdType === "number") {
       valueToSend = parseFloat(valueToSend);
     }
     // Send only if not updateOnComplete
     // if (this.props.updateOnComplete === false) {
-    this.props.socket.emit(
-      "setState",
-      this.props.stateId,
-      valueToSend,
-      function (error, message) {
-        this.changing = false;
-      }.bind(this)
-    );
+    this.props.socket.emit('setState', this.props.stateId, valueToSend, function (error, message) {
+      this.changing = false;
+    }.bind(this));
     // }
     //this.props.socket.emit('setState', this.props.stateId, valueToSend);
     //console.debug(this.props.stateId + " :: " + valueToSend);
@@ -94,23 +85,14 @@ export default class Donut extends React.Component {
       ts: moment(),
     });
     this.val = valueToSend;
-  }
-  sendValue(e) {
-    let valueToSend = e.target.value;
-    if (this.props.stateIdType === "number") {
-      valueToSend = parseInt(e.target.value, 10);
-    }
 
-    this.props.socket.emit("setState", this.props.stateId, valueToSend);
-    // State nachführen
-    this.setState({
-      val: e.target.value,
-      ts: moment(),
-    });
+
+
   }
+
 
   componentWillMount() {
-    // console.log("componentWillMount Switch");
+    // console.log("componentWillMount Donut");
     // console.dir(this.props.states);
     // console.log(typeof this.props.states[this.props.stateId]);
 
@@ -151,7 +133,8 @@ export default class Donut extends React.Component {
 
   render() {
     // console.log("render Donut");
-    // console.log(this.props);
+    // console.log(this.props.states[this.props.stateId]);
+    // console.log(this.changing);
     // console.log("this.val: " + this.val);
     // console.log("this.ts: " + this.ts);
     // console.log("this.changing: " + this.changing);
@@ -171,74 +154,74 @@ export default class Donut extends React.Component {
       this.ts = this.state.ts;
     }
 
-    console.log("this.val: " + this.val);
-    console.log("this.ts: " + this.ts);
+    // console.log("Donut value:");
+    // console.log("this.val: " + this.val);
+    // console.log("this.ts: " + this.ts);
 
-    let title = (
-      <Title
-        title={this.props.title}
-        titleIcon={this.props.titleIcon}
-        titleIconFamily={this.props.titleIconFamily}
-      />
-    );
-
-    if (this.props.title == "NONE") {
-      title = null;
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(this.ts).format("DD.MM.YY HH.mm")}
+          </span>
+        </ListHeader>
+      );
     }
 
-    let header = (
-      <ons-list-header>
-        <span
-          className="right lastupdate"
-          style={{ float: "right", paddingRight: "5px" }}
-        >
-          {moment(this.ts).format("LLL")}
-        </span>
-      </ons-list-header>
-    );
+    this.min = this.props.min;
+    this.max = this.props.max;
 
-    let compactModeClass = "";
-    let disableAutoStyling = "true";
-    let modifier = null;
 
-    if (this.props.compactMode === true) {
-      title = null;
-      header = null;
-      compactModeClass = "compactMode";
-      disableAutoStyling = "false";
-      modifier = "material";
+    // check min and max
+    if (this.min >= this.max) {
+      console.log("donut :: min >= max : " + this.min + "<=" + this.max);
+      this.max = this.min + 10;
     }
+
+    // limit min / max
+    if (this.val < this.min) { this.val = this.min; };
+    if (this.val > this.max) { this.val = this.max; };
+
+
+
 
     // circular
-    const rangeValue =
-      (parseFloat(this.val) - parseFloat(this.min)) /
-      (parseFloat(this.max) - parseFloat(this.min));
+    const rangeValue = (parseFloat(this.val) - parseFloat(this.min)) / (parseFloat(this.max) - parseFloat(this.min));
     console.log("rangeValue: " + rangeValue);
 
-    this.decimals = countDecimals(this.props.step);
-    console.log("this.decimals: " + this.decimals);
+    // this.decimals = countDecimals(this.props.step);
+    // console.log("this.decimals: " + this.decimals);
+
+    // decimals
+    this.decimals = this.props.decimals;
+    if (this.decimals < 0) { this.decimals = 0 };
+    if (this.decimals > 5) { this.decimals = 5 };
+
 
     // set default
     let onChangeFunction = (value) => this.circleOnChange(value);
     let onChangeEndFunction = (value) => this.circleOnChangeEnd(value);
     let progessStrokeWidth = 3;
-    let progessStroke = "#00828b";
-    let progressStyle = null;
+    let progessStroke = "var(--highlight-color)";
     let thumb = (
       <CircularThumb
         key={"cth_" + this.props.UUID}
-        className="thumb"
         r={6}
         strokeWidth={2}
-        // fill={"#00828b"}
-        // stroke={"#00828b"}
+        fill={"var(--highlight-color)"}
+        stroke={"var(--highlight-color)"}
       />
     );
     // calculate size:
-    let inputRadius = 70; // 70px radius
-    let textFontsize = 20; // 20px fontSize
+    let inputRadius = this.props.widgetHeight / 3 * 75; // 3 grids high = 70px radius
+    let textFontsize = this.props.widgetHeight / 3 * 20; // 3 grids high = 20px fontSize
 
-    // handle readOnly
+
+    // handle readOnly    
     if (this.props.readOnly === true) {
       onChangeFunction = null;
       onChangeEndFunction = null;
@@ -251,73 +234,55 @@ export default class Donut extends React.Component {
       if (this.val >= this.props.maxValue) {
         progessStroke = this.props.maxColor;
       }
-      progressStyle = {};
-      progressStyle.stroke = progessStroke;
-    } 
-    
-    this.min = this.props.min;
-    this.max = this.props.max;
-    
-    // check min and max
-    if (this.min >= this.max) {
-      console.log("donut :: min >= max : " + this.min + "<=" + this.max);
-      this.max = this.min + 10;
     }
 
-    // limit min / max
-    if (this.val < this.min) {
-      this.val = this.min;
-    }
-    if (this.val > this.max) {
-      this.val = this.max;
-    }
+    let height = this.props.widgetHeight * 60;
+    let width = height;
 
     return (
-      <ons-col id={this.props.UUID} class={"donutWidget " + compactModeClass}>
-        <ons-list>
-          {header}
-          <ons-list-item>
-            {title}
-            <div className="right">
-              <div style={{ margin: "auto" }}>
-                <CircularInput
-                  key={"ci_" + this.props.UUID}
-                  value={rangeValue}
-                  radius={inputRadius}
-                  onChange={onChangeFunction}
-                  onChangeEnd={onChangeEndFunction}
-                >
-                  <CircularTrack
-                    key={"ct_" + this.props.UUID}
-                    className="track"
-                    strokeWidth={2}
-                    // stroke="rgba(0, 130, 139, 0.5)"
-                  />
-                  <CircularProgress
-                    key={"cp_" + this.props.UUID}
-                    className="progress"
-                    strokeWidth={progessStrokeWidth}
-                    // stroke={progessStroke}
-                    style={progressStyle}
-                  />
-                  {thumb}
-                  <text
-                    className="text"
-                    x={inputRadius}
-                    y={inputRadius}
-                    fontSize={textFontsize + "px"}
-                    // fill="#fff"
-                    textAnchor="middle"
-                    dy="0.3em"
-                  >
-                    {fixOutputFloat(this.val, this.decimals) + this.props.unit}
-                  </text>
-                </CircularInput>
-              </div>
-            </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+      <List id={this.props.UUID} class={"donutWidget"} >
+        {timestamp}
+
+        <ListItem>
+          <div
+            id={"rs-" + this.props.UUID}
+            style={{
+              width: width + "px",
+              height: height + "px",
+              margin: "auto",
+            }}>
+            <RoundSlider
+              parentId={"rs-" + this.props.UUID}
+              settings={this.props}
+            />
+          </div>
+        </ListItem>
+
+        {/* <ListItem>
+          <div style={{ margin: "auto" }}>
+            <CircularInput
+              key={"ci_" + this.props.UUID}
+              value={rangeValue}
+              radius={inputRadius}
+              onChange={onChangeFunction}
+              onChangeEnd={onChangeEndFunction}>
+              <CircularTrack
+                key={"ct_" + this.props.UUID}
+                strokeWidth={2}
+                stroke="var(--material-switch-active-background-color)" />
+              <CircularProgress
+                key={"cp_" + this.props.UUID}
+                strokeWidth={progessStrokeWidth}
+                stroke={progessStroke}
+              />
+              {thumb}
+              <text x={inputRadius} y={inputRadius} fontSize={textFontsize + "px"} fill="var(--text-color)" textAnchor="middle" dy="0.3em">
+                {fixOutputFloat(this.val, this.decimals) + this.props.unit}
+              </text>
+            </CircularInput>
+          </div>
+        </ListItem> */}
+      </List>
     );
   }
 }

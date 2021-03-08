@@ -1,9 +1,10 @@
 import React from "react";
-import { Input } from "react-onsenui";
+import { Col, List, ListItem, ListHeader } from "react-onsenui";
 import InputRange from 'react-input-range';
-import Title from "./Title";
 import moment from "moment";
 moment.locale("de-DE");
+
+import { fixOutputFloat } from "../utils/Utils";
 
 export default class MyRange extends React.Component {
   constructor() {
@@ -16,6 +17,7 @@ export default class MyRange extends React.Component {
     this.ts = moment();
     this.val = 0;
     this.changing = false;
+    this.decimals = 0;
   }
 
   RangeOnChange(value) {
@@ -24,11 +26,11 @@ export default class MyRange extends React.Component {
       valueToSend = parseFloat(value);
     }
     // Send only if not updateOnComplete
-    if ( this.props.updateOnComplete === false ) {
+    if (this.props.updateOnComplete === false) {
       this.props.socket.emit('setState', this.props.stateId, valueToSend);
     }
     //this.props.socket.emit('setState', this.props.stateId, valueToSend);
-		console.debug(this.props.stateId + " :: " + value);
+    console.debug(this.props.stateId + " :: " + value);
     // State nachführen
     this.setState({
       val: value,
@@ -37,13 +39,13 @@ export default class MyRange extends React.Component {
     this.val = value;
   }
 
-	RangeOnChangeComplete(value) {
+  RangeOnChangeComplete(value) {
     let valueToSend = value;
     if (this.props.stateIdType === "number") {
       valueToSend = parseFloat(value);
     }
 
-		this.props.socket.emit('setState', this.props.stateId, valueToSend);
+    this.props.socket.emit('setState', this.props.stateId, valueToSend);
     // State nachführen
     this.setState({
       val: value,
@@ -51,23 +53,23 @@ export default class MyRange extends React.Component {
     });
     this.val = value;
     this.changing = false;
-    console.debug("RangeOnChangeComplete");
-		console.debug(this.props.stateId + " :: " + value);
+    // console.debug("RangeOnChangeComplete");
+    // console.debug(this.props.stateId + " :: " + value);
   }
-  
+
   RangeOnChangeStart() {
     // State nachführen
     // this.setState({
     //   changing : true
     // });
     this.changing = true;
-  
+
   }
 
   sendValue(e) {
     let valueToSend = e.target.value;
     if (this.props.stateIdType === "number") {
-      valueToSend = parseInt(e.target.value, 10);
+      valueToSend = parseFloat(e.target.value);
     }
 
     this.props.socket.emit("setState", this.props.stateId, valueToSend);
@@ -79,7 +81,7 @@ export default class MyRange extends React.Component {
   }
 
   componentWillMount() {
-    // console.log("componentWillMount Switch");
+    // console.log("componentWillMount myRange");
     // console.dir(this.props.states);
     // console.log(typeof this.props.states[this.props.stateId]);
 
@@ -134,125 +136,82 @@ export default class MyRange extends React.Component {
       this.val = this.props.states[this.props.stateId].val || 0;
       this.ts = this.props.states[this.props.stateId].ts;
     } else {
-    // read from this.state
+      // read from this.state
       this.val = this.val || 0;
       this.ts = this.state.ts;
-     }
+    }
 
-    console.log("this.val: " + this.val);
-    console.log("this.ts: " + this.ts);
+    // console.log("this.val: " + this.val);
+    // console.log("this.ts: " + this.ts);
+
+    // decimals
+    this.decimals = this.props.decimals;
+    if (this.decimals < 0) { this.decimals = 0 };
+    if (this.decimals > 5) { this.decimals = 5 };
 
     let maxIcon = this.props.maxIcon || "text_max";
     let minIcon = this.props.minIcon || "text_min";
 
-    let title = (
-      <ons-list-item>
-        <Title
-          title={this.props.title}
-          titleIcon={this.props.titleIcon}
-          titleIconFamily={this.props.titleIconFamily}
-        />
-        <div className="right">
-          <Input
-            disable-auto-styling
-            disabled={!this.props.connected}
-            onChange={this.sendValue.bind(this)}
-            type="number"
-            placeholder=""
-            value={this.val.toString()}
-            min={this.props.min}
-            max={this.props.max}
-            step={this.props.step}
-          ></Input>
-          {this.props.unit}
-        </div>
-      </ons-list-item>
-    );
-
-    if (this.props.title == "NONE") {
-      title = null;
-    }
-
-    let header = (
-      <ons-list-header>
-        <span
-          className="right lastupdate"
-          style={{ float: "right", paddingRight: "5px" }}
-        >
-          {moment(this.ts).format("LLL")}
-        </span>
-      </ons-list-header>
-    );
-
-    let compactModeClass = "";
-    let disableAutoStyling = "true";
-    let modifier = null;
-
-    if (this.props.compactMode === true) {
-      title = null;
-      header = null;
-      compactModeClass = "compactMode";
-      disableAutoStyling = "false";
-      modifier = "material";
-
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(this.ts).format("DD.MM.YY HH.mm")}
+          </span>
+        </ListHeader>
+      );
     }
 
     return (
-      <ons-col id={this.props.UUID} class={"sliderWidget " + compactModeClass} >
-        <ons-list>
-          {header}
-          {title}
-          <ons-list-item style={{ padding: 0 }}>
-            <div style={{ display: "flex", width: "100%", flexDirection: "row", flexWrap: "nowrap" }}>
-              <ons-col
-                class={"sliderIconMin"}
-                style={{ flexBasis: "50px", minWidth: "50px" }}
-              >
-                <span
-                  className={
-                    "sliderIcon min  " +
-                    compactModeClass +
-                    " " +
-                    this.props.minIconFamily +
-                    " " +
-                    minIcon
-                  }
-                ></span>
-              </ons-col>
-              <ons-col style={{ minWidthhh: 80 + "%", borderLeft: "none", flexBasis: "auto", flexGrow: 1, alignSelf: "center" }}>
-                <InputRange
-                  formatLabel={value => `${value} ${this.props.unit}`}
-                  disabled={!this.props.connected}
-                  maxValue={this.props.max}
-                  minValue={this.props.min}
-                  step={this.props.step}
-                  value={parseFloat(this.val)}
-                  onChange={this.RangeOnChange.bind(this)}
-                  onChangeComplete={this.RangeOnChangeComplete.bind(this)}
-                  onChangeStart={this.RangeOnChangeStart.bind(this)}
-                  className={compactModeClass}
-                  style={{ width: 100 + "%" }}
-                />
-              </ons-col>
-              <ons-col
-                class={"sliderIconMax"}
-                style={{ flexBasis: "50px", minWidth: "50px" }}
-              >
-                <span
-                  className={
-                    "sliderIcon max " +
-                    compactModeClass +
-                    " " +
-                    this.props.maxIconFamily +
-                    " " +
-                    maxIcon
-                  }
-                ></span>
-              </ons-col>
-            </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+      <List id={this.props.UUID} class={"sliderWidget"} >
+        {timestamp}
+        <ListItem style={{ padding: 0 }}>
+          <div style={{ display: "flex", width: "100%", flexDirection: "row", flexWrap: "nowrap" }}>
+            <Col
+              class={"sliderIconMin"}
+              style={{ flexBasis: "50px", minWidth: "50px" }}
+            >
+              <span
+                className={
+                  "sliderIcon min  " +
+                  this.props.minIconFamily +
+                  " " + minIcon
+                }
+              ></span>
+            </Col>
+            <Col style={{ minWidthhh: 80 + "%", borderLeft: "none", flexBasis: "auto", flexGrow: 1, alignSelf: "center" }}>
+              <InputRange
+                formatLabel={value => `${fixOutputFloat(this.val, this.decimals)} ${this.props.unit}`}
+                disabled={!this.props.connected}
+                maxValue={this.props.max}
+                minValue={this.props.min}
+                step={this.props.step}
+                value={parseFloat(this.val)}
+                onChange={this.RangeOnChange.bind(this)}
+                onChangeComplete={this.RangeOnChangeComplete.bind(this)}
+                onChangeStart={this.RangeOnChangeStart.bind(this)}
+                style={{ width: 100 + "%" }}
+              />
+            </Col>
+            <Col
+              class={"sliderIconMax"}
+              style={{ flexBasis: "50px", minWidth: "50px" }}
+            >
+              <span
+                className={
+                  "sliderIcon max " +
+                  this.props.maxIconFamily +
+                  " " + maxIcon
+                }
+              ></span>
+            </Col>
+          </div>
+        </ListItem>
+      </List>
     );
   }
 }

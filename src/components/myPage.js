@@ -1,10 +1,13 @@
 import React from "react";
-import { Page, Row, Col } from "react-onsenui";
+import { Page } from "react-onsenui";
 import Toolbar from "./widgets/Toolbar";
 import GridChanger from "./widgets/GridChanger";
+import MyCard from "./widgets/MyCard";
 import TimeStamp from "./widgets/TimeStamp";
 import IframeOutput from "./widgets/IframeOutput";
 import MySwitch from "./widgets/Switch";
+import TextInput from "./widgets/TextInput";
+import ImgButton from "./widgets/ImgButton";
 import MySlider from "./widgets/Slider";
 import MyRange from "./widgets/Range";
 import Donut from "./widgets/Donut";
@@ -13,7 +16,7 @@ import HtmlOutput from "./widgets/HtmlOutput";
 import IMGOutput from "./widgets/IMGOutput";
 import Output from "./widgets/Output";
 import Indicator from "./widgets/Indicator";
-import Filler from "./widgets/Filler";
+import HeadLine from "./widgets/HeadLine";
 import TimePicker from "./widgets/TimePicker";
 import DatePicker from "./widgets/DatePicker";
 import ColorPicker from "./widgets/ColorPicker";
@@ -22,8 +25,9 @@ import FlotDiagrammPerZeitraumWrapper from "./widgets/FlotDiagrammPerZeitraumWra
 import ValueSwitcher from "./widgets/ValueSwitcher";
 import TimeSwitch from "./widgets/TimeSwitch";
 import OpenStreetMap from "./widgets/OpenStreetMap";
-import CompactModeWrapper from "./widgets/CompactModeWrapper";
 import LinkButton from "./widgets/LinkButton";
+import DateTime from "./widgets/DateTime";
+import Banner from "./widgets/Banner";
 import Footer from "./widgets/Footer";
 import Message from "./widgets/Message";
 import CSSJSON from "cssjson";
@@ -66,37 +70,58 @@ export default class myPage extends React.Component {
     let compactModeActive = false;
     let widget = "";
 
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    let innerWidth = window.innerWidth;
+    let nbOfCols = 18;
+    // if (innerWidth < 1200) { nbOfCols = 12 }
+    // if (innerWidth < 600) { nbOfCols = 6 }
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+
     if (this.props.pageConfig.widgets) {
+
+      //////////////////////////////////////////////////////////////////////////////////////////////
+      var gridBoxes = [];
+      var maxRow = 1;
+      //////////////////////////////////////////////////////////////////////////////////////////////
+
       for (var widgetId in this.props.pageConfig.widgets) {
         let widgetData = this.props.pageConfig.widgets[widgetId];
 
+
         switch (widgetData.type) {
-          case "compactModeStart":
-            compactModeActive = true;
-            compactModeWrapper.title = widgetData.title;
-            compactModeWrapper.titleIcon = widgetData.titleIcon;
-            compactModeWrapper.titleIconFamily = widgetData.titleIconFamily;
-            compactModeWrapper.UUID = widgetData.UUID;
-            break;
-          case "compactModeEnd":
-            compactModeActive = false;
-            // now push all Widgets in Page
-            pagewidgets.push(
-              <CompactModeWrapper
-                key={compactModeWrapper.UUID}
-                UUID={compactModeWrapper.UUID}
-                title={compactModeWrapper.title}
-                titleIcon={compactModeWrapper.titleIcon}
-                titleIconFamily={compactModeWrapper.titleIconFamily}
-              >
-                {compactModeWrapper.widgets}
-              </CompactModeWrapper>
+          case "card":
+            widget = (
+              <MyCard
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                widgetHeight={widgetData.widgetHeight}
+                rowHeight={67}
+                showInModal={widgetData.showInModal}
+                modalWidgetHeight={widgetData.modalWidgetHeight}
+                widgets={widgetData.widgets}
+              />
             );
-            compactModeWrapper.widgets = [];
-            compactModeWrapper.title = "NONE";
-            compactModeWrapper.titleIcon = "audio_play";
-            compactModeWrapper.titleIconFamily = "mfd-icon";
-            compactModeWrapper.UUID = "0000";
+            pagewidgets.push(widget);
+            break;
+          case "datetime":
+            widget = (
+              <DateTime
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                widgetHeight={widgetData.widgetHeight}
+                rowHeight={67}
+                fontSize={widgetData.fontSize}
+                format={widgetData.format}
+                timeOffsetMin={widgetData.timeOffsetMin}
+                showAnalog={widgetData.showAnalog}
+                timestamp={widgetData.timestamp}
+              />
+            );
+            pagewidgets.push(widget);
             break;
           case "openstreetmap":
             widget = (
@@ -111,8 +136,11 @@ export default class myPage extends React.Component {
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
                 stateIdType={widgetData.stateIdType || "undefined"}
-                height={widgetData.height}
+                widgetHeight={widgetData.widgetHeight}
+                rowHeight={67}
                 zoom={widgetData.zoom}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             pagewidgets.push(widget);
@@ -129,6 +157,10 @@ export default class myPage extends React.Component {
                 IframeWidth={widgetData.width || "100%"}
                 IframeHeight={widgetData.height}
                 IframeUpdateInterval={widgetData.updateTimeSek * 1000}
+                widgetWidth={widgetData.widgetWidth}
+                widgetHeight={widgetData.widgetHeight}
+                rowHeight={67}
+                timestamp={widgetData.timestamp}
               />
             );
             pagewidgets.push(widget);
@@ -143,6 +175,8 @@ export default class myPage extends React.Component {
                 states={this.props.states}
                 stateId={widgetData.stateId}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -165,6 +199,8 @@ export default class myPage extends React.Component {
                 stateId={widgetData.stateId}
                 stateIdType={widgetData.stateIdType || "undefined"}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -172,6 +208,48 @@ export default class myPage extends React.Component {
             } else {
               pagewidgets.push(widget);
             }
+            break;
+          case "textInput":
+            widget = (
+              <TextInput
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                title={widgetData.title}
+                titleIcon={widgetData.titleIcon}
+                titleIconFamily={widgetData.titleIconFamily}
+                stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
+                compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
+              />
+            );
+            if (compactModeActive) {
+              compactModeWrapper.widgets.push(widget);
+            } else {
+              pagewidgets.push(widget);
+            }
+            break;
+          case "imgButton":
+            widget = (
+              <ImgButton
+                key={widgetData.UUID}
+                UUID={widgetData.UUID}
+                connected={this.props.connected}
+                socket={this.props.socket}
+                states={this.props.states}
+                stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
+                bgImage={widgetData.bgImage}
+                setValue={widgetData.setValue}
+              />
+            );
+            pagewidgets.push(widget);
             break;
           case "slider":
             widget = (
@@ -195,6 +273,8 @@ export default class myPage extends React.Component {
                 maxIconFamily={widgetData.maxIconFamily}
                 unit={widgetData.unit}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -219,6 +299,7 @@ export default class myPage extends React.Component {
                 min={widgetData.min}
                 max={widgetData.max}
                 step={widgetData.step}
+                decimals={widgetData.decimals}
                 minIcon={widgetData.minIcon}
                 minIconFamily={widgetData.minIconFamily}
                 maxIcon={widgetData.maxIcon}
@@ -226,6 +307,8 @@ export default class myPage extends React.Component {
                 unit={widgetData.unit}
                 updateOnComplete={widgetData.updateOnComplete}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -250,6 +333,7 @@ export default class myPage extends React.Component {
                 min={widgetData.min}
                 max={widgetData.max}
                 step={widgetData.step}
+                decimals={widgetData.decimals}
                 unit={widgetData.unit}
                 updateOnComplete={widgetData.updateOnComplete}
                 readOnly={widgetData.readOnly}
@@ -258,14 +342,14 @@ export default class myPage extends React.Component {
                 maxColor={widgetData.maxColor}
                 minValue={widgetData.minValue}
                 maxValue={widgetData.maxValue}
-                compactMode={compactModeActive}
+                icon={widgetData.icon}
+                iconFamily={widgetData.iconFamily}
+                widgetWidth={widgetData.widgetWidth}
+                widgetHeight={widgetData.widgetHeight}
+                timestamp={widgetData.timestamp}
               />
             );
-            if (compactModeActive) {
-              compactModeWrapper.widgets.push(widget);
-            } else {
-              pagewidgets.push(widget);
-            }
+            pagewidgets.push(widget);
             break;
           case "jsontable":
             console.log("josntable DATA");
@@ -287,6 +371,8 @@ export default class myPage extends React.Component {
                 lineBreaks={widgetData.lineBreaks}
                 contentTypes={widgetData.contentTypes}
                 rowsPerPage={widgetData.rowsPerPage || 5}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             pagewidgets.push(widget);
@@ -304,14 +390,11 @@ export default class myPage extends React.Component {
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
                 css={this.props.pageConfig.css}
-                compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
-            if (compactModeActive) {
-              compactModeWrapper.widgets.push(widget);
-            } else {
-              pagewidgets.push(widget);
-            }
+            pagewidgets.push(widget);
             break;
           case "imgoutput":
             widget = (
@@ -324,8 +407,13 @@ export default class myPage extends React.Component {
                 title={widgetData.title}
                 titleIcon={widgetData.titleIcon}
                 titleIconFamily={widgetData.titleIconFamily}
+                stateId={widgetData.stateId}
+                stateIdType={widgetData.stateIdType || "undefined"}
                 IMGUrl={widgetData.url}
-                IMGUpdateInterval={widgetData.updateTimeSek * 1000}
+                IMGUpdateInterval={30000} //{widgetData.updateTimeSek * 1000}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
+                urlFromState={widgetData.urlFromState}
               />
             );
             pagewidgets.push(widget);
@@ -351,6 +439,8 @@ export default class myPage extends React.Component {
                 minValue={widgetData.minValue}
                 maxValue={widgetData.maxValue}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -378,6 +468,8 @@ export default class myPage extends React.Component {
                 colorWhenFalse={widgetData.colorWhenFalse}
                 alwaysTrue={false}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -399,6 +491,8 @@ export default class myPage extends React.Component {
                 titleIconFamily={widgetData.titleIconFamily}
                 stateId={widgetData.stateId}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -421,6 +515,8 @@ export default class myPage extends React.Component {
                 stateId={widgetData.stateId}
                 format={widgetData.format}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -443,6 +539,8 @@ export default class myPage extends React.Component {
                 stateId={widgetData.stateId}
                 formatWithWhite={widgetData.formatWithWhite}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -465,6 +563,8 @@ export default class myPage extends React.Component {
                 stateId={widgetData.stateId}
                 formatWithWhite={widgetData.formatWithWhite}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -503,6 +603,12 @@ export default class myPage extends React.Component {
                 ]}
                 defaultRange={1} // 0 .. 3;
                 additionalClass={""} //{"chart-col"} // z.B. "chart-col" für 100% Breite
+                widgetWidth={widgetData.widgetWidth}
+                widgetHeight={widgetData.widgetHeight}
+                rowHeight={67}
+                timestamp={widgetData.timestamp}
+                showInModal={widgetData.showInModal}
+                modalWidgetHeight={widgetData.modalWidgetHeight}
               />
             );
             pagewidgets.push(widget);
@@ -544,6 +650,8 @@ export default class myPage extends React.Component {
                 indicatorColor3={widgetData.indicatorColor3 || "#FFFFFF"}
                 indicatorColor4={widgetData.indicatorColor4 || "#FFFFFF"}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -568,6 +676,8 @@ export default class myPage extends React.Component {
                 stateId={widgetData.stateId}
                 triggers={widgetData.triggers}
                 action={widgetData.action}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             pagewidgets.push(widget);
@@ -577,11 +687,15 @@ export default class myPage extends React.Component {
               <LinkButton
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
-                title={widgetData.title}
-                titleIcon={widgetData.titleIcon}
-                titleIconFamily={widgetData.titleIconFamily}
+                linkText={widgetData.linkText}
+                linkIcon={widgetData.linkIcon}
+                linkIconFamily={widgetData.linkIconFamily}
                 pageLinks={this.props.pageLinks}
                 targetpage={widgetData.targetpage}
+                extLink={widgetData.extLink}
+                extUrl={widgetData.extUrl}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             pagewidgets.push(widget);
@@ -597,15 +711,19 @@ export default class myPage extends React.Component {
             pagewidgets.push(widget);
             break;
           case "filler":
+          case "headline":  
             widget = (
-              <Filler
+              <HeadLine
                 key={widgetData.UUID}
                 UUID={widgetData.UUID}
                 title={widgetData.title}
+                fontSize={widgetData.fontSize}
                 titleIcon={widgetData.titleIcon}
                 titleIconFamily={widgetData.titleIconFamily}
                 showAsHeader={widgetData.showAsHeader || false}
                 compactMode={compactModeActive}
+                widgetWidth={widgetData.widgetWidth}
+                timestamp={widgetData.timestamp}
               />
             );
             if (compactModeActive) {
@@ -622,6 +740,49 @@ export default class myPage extends React.Component {
             );
             break;
         } // switch
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        console.log(this.props.windowWidth);
+        var borderClasses = "";
+        if (widgetData.borderTop && widgetData.borderTop === true) {
+          borderClasses += "borderTop ";
+        }
+        if (widgetData.borderRight && widgetData.borderRight === true) {
+          borderClasses += "borderRight ";
+        }
+        if (widgetData.borderBottom && widgetData.borderBottom === true) {
+          borderClasses += "borderBottom ";
+        }
+        if (widgetData.borderLeft && widgetData.borderLeft === true) {
+          borderClasses += "borderLeft ";
+        }
+        // only 1 high  if schowInModal
+        if (widgetData.showInModal === true) {
+          widgetData.widgetHeight = 1;
+        };
+
+        gridBoxes.push(
+          <div
+            className={"gridBox " + borderClasses}
+            style={{
+              gridColumnStart: widgetData.widgetPosX + 1,
+              gridColumnEnd: widgetData.widgetPosX + widgetData.widgetWidth + 1,
+              gridRowStart: widgetData.widgetPosY + 1,
+              gridRowEnd: widgetData.widgetPosY + widgetData.widgetHeight + 1,
+              overflow: "hidden",
+            }}
+          >
+            {widget}
+          </div>
+        );
+
+        if ((widgetData.widgetPosY + widgetData.widgetHeight) > maxRow) {
+          maxRow = parseFloat(widgetData.widgetPosY) + parseFloat(widgetData.widgetHeight);
+        }
+        //////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
       } // for
     } // if WidgetData
 
@@ -639,13 +800,52 @@ export default class myPage extends React.Component {
     let styleToInject =
       "<style>" + CSSJSON.toCSS(this.props.pageConfig.css) + "</style>";
 
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    let pageGrid = [];
+    let rowStyle = "repeat(" + maxRow + ", 67px)";  // 55px ListItem 12 px ListHeader
+    let colWidth = 100 / nbOfCols;
+    let colStyle = "repeat(" + nbOfCols + ", " + colWidth + "%)";
+
+    // console.log("maxRow="+ maxRow);
+    // console.log(rowStyle);
+    //console.log(innerWidth);
+
+
+    pageGrid.push(
+      <div
+        className="gridWrapper"
+        style={{
+          display: "grid",
+          gridGap: "0px",
+          gridTemplateColumns: colStyle,
+          gridTemplateRows: rowStyle,
+          margin: "0 auto",
+          width: "99%"
+        }}
+      >
+        {gridBoxes}
+      </div>
+    );
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    console.log("render myPage");
+    console.log(this.props);
+    console.log(this.props.socket);
+
     return (
       <Page renderToolbar={this.renderToolbar.bind(this)}>
         <span
           style={{ display: "none" }}
           dangerouslySetInnerHTML={{ __html: styleToInject }}
         ></span>
-        <Row>{pagewidgets}</Row>
+        <Banner
+          config={this.props.pageConfig.banner}
+          connected={this.props.connected}
+          socket={this.props.socket}
+          states={this.props.states} />
+        <div>{pageGrid}</div>
+        {/* <Row>{pagewidgets}</Row> */}
         <Footer version={this.props.version} />
       </Page>
     );

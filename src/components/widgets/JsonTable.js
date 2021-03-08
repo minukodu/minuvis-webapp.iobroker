@@ -1,7 +1,6 @@
 import React from "react";
+import { Button, List, ListItem, ListHeader } from "react-onsenui";
 import ReactTable from "react-table";
-import Title from "./Title";
-import { Button } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -143,33 +142,25 @@ export default class JsonTable extends React.Component {
     }
     console.log(columns);
 
-    let title = "";
-    if (this.props.title !== "NONE") {
-      title = (
-        <ons-list-item>
-          <Title
-            title={this.props.title}
-            titleIcon={this.props.titleIcon}
-            titleIconFamily={this.props.titleIconFamily}
-            compactMode={false}
-          />
-        </ons-list-item>
+
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(ts).format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
       );
     }
 
     return (
-      <ons-col id={this.props.UUID}>
-        <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment().format("LLL")}
-            </span>
-          </ons-list-header>
-          {title}
-          <ons-list-item>
+      <List id={this.props.UUID}>
+          {timestamp}
+          <ListItem>
             <ReactTable
               className={"jsontable alarmtable"}
               data={data}
@@ -188,9 +179,8 @@ export default class JsonTable extends React.Component {
               PreviousComponent={PrevButton}
               NextComponent={NextButton}
             />
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </ListItem>
+      </List>
     );
   }
 }

@@ -2,26 +2,23 @@ import React from "react";
 
 export default class Title extends React.Component {
   render() {
-    let fontSize = "100%";
     let compactModeClass = "";
     let titleIconClass = "titleIcon";
 
-    if (this.props.compactMode === true) {
-      fontSize = "80%";
-      compactModeClass = "compactMode";
-    }
+    let fontSize = this.props.fontSize || 100;
 
     let title = "";
+    let titleText = this.props.title || "NONE";
     let titleIcon = this.props.titleIcon || "audio_play";
     let titleIconFamily = this.props.titleIconFamily || "mfd-icon";
 
-    if (this.props.title === "ICONONLY") {
+    if (titleText === "ICONONLY") {
       title = "";
-    } else if (this.props.title.indexOf("NOICON_") == 0) {
-      title = this.props.title.substr(7); // cut 7 characters
+    } else if (titleText.indexOf("NOICON_") == 0) {
+      title = titleText.substr(7); // cut 7 characters
       titleIconClass = "titleIcon notitleIcon";
-    } else if (this.props.title !== "NONE") {
-      title = this.props.title;
+    } else if (titleText !== "NONE") {
+      title = titleText;
     } else {
       return <div className={"left titel " + titleIconClass}></div>;
     }
@@ -30,8 +27,8 @@ export default class Title extends React.Component {
 
     return (
       <div
-        className={"left titel " + titleIconClass + " " + compactModeClass}
-        style={{ fontSize }}
+        className={"titel " + titleIconClass}
+        style={{ fontSize: fontSize + "%" }}
       >
         <span
           className={
@@ -43,7 +40,7 @@ export default class Title extends React.Component {
             titleIcon
           }
         ></span>
-        <span className={"titletext"}>{title}</span>
+        <span className={"titletext"} >{title}</span>
       </div>
     );
   }

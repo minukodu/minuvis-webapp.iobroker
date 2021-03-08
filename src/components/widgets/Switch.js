@@ -1,6 +1,5 @@
 import React from "react";
-import { Switch } from "react-onsenui";
-import Title from "./Title";
+import { Switch, List, ListItem, ListHeader } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -52,8 +51,6 @@ export default class MySwitch extends React.Component {
 
   componentWillMount() {
     // console.log("componentWillMount Switch");
-    // console.dir(this.props.states);
-    // console.log(typeof this.props.states[this.props.stateId]);
 
     if (typeof this.props.states[this.props.stateId] === "undefined") {
       if (this._stateId_subscribed === false) {
@@ -83,26 +80,12 @@ export default class MySwitch extends React.Component {
         ts: this.props.states[this.props.stateId].ts,
       });
     }
-
-    // console.log("Switch connected:");
-    // console.log(this.props);
-    // console.log(this.props.connected);
-    // console.log(!this.props.connected);
   }
 
   render() {
     // init
     let val = false;
     let ts = moment();
-    // read value and timestamp from props if available
-    // console.log("render switch");
-    // console.log(this.props.stateId);
-    // console.log(this.props.states);
-    // console.log(this.props.states[this.props.stateId]);
-    // console.log(typeof this.props.states[this.props.stateId]);
-    // console.log("this.props.titleIconFamily");
-    // console.log(this.props.titleIconFamily);
-    
 
     if (typeof this.props.states[this.props.stateId] !== "undefined") {
       val = this.props.states[this.props.stateId].val;
@@ -113,47 +96,34 @@ export default class MySwitch extends React.Component {
       ts = this.state.ts;
     }
 
-    let header = (
-      <ons-list-header>
-        <span
-          className="right lastupdate"
-          style={{ float: "right", paddingRight: "5px" }}
-        >
-          {moment(ts).format("LLL")}
-        </span>
-      </ons-list-header>
-    );
-
-    let compactModeClass = "";
-
-    if (this.props.compactMode === true) {
-      header = null;
-      compactModeClass = "compactMode";
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(ts).format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
+      );
     }
 
     return (
-      <ons-col id={this.props.UUID}>
-        <ons-list>
-          {header}
-          <ons-list-item>
-            <Title
-              title={this.props.title}
-              titleIcon={this.props.titleIcon}
-              titleIconFamily={this.props.titleIconFamily}
-              compactMode={this.props.compactMode}
-            />
-            <div className="right">
+        <List id={this.props.UUID}>
+          {timestamp}
+          <ListItem>
+            <div className="center">
               <Switch
-                disable-auto-styling
                 disabled={!this.props.connected}
                 onChange={this.sendValue.bind(this)}
                 checked={this.stringToBoolean(val)}
-                class={compactModeClass}
+                class={"switchMargin"}
               ></Switch>
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </ListItem>
+        </List>
     );
   }
 }

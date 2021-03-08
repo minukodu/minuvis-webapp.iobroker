@@ -1,6 +1,6 @@
 import React from "react";
+import { List, ListItem, ListHeader } from "react-onsenui";
 import { HuePicker } from "react-color";
-import Title from "./Title";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -107,51 +107,37 @@ export default class HueColorPicker extends React.Component {
 
     console.log("val: " + this.val);
 
-    let title = "";
-    if (this.props.title !== "NONE") {
-      title = this.props.title;
-    }
-
-    let header = (
-      <ons-list-header>
-        <span
-          className="right lastupdate"
-          style={{ float: "right", paddingRight: "5px" }}
-        >
-          {moment(this.ts).format("LLL")}
-        </span>
-      </ons-list-header>
-    );
-
-    let compactModeClass = "";
-
-    if (this.props.compactMode === true) {
-      header = null;
-      compactModeClass = "compactMode";
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(this.ts).format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
+      );
     }
 
     return (
-      <ons-col id={this.props.UUID} class={compactModeClass}>
-        <ons-list>
-          {header}
-          <ons-list-item>
-            <Title
-              title={this.props.title}
-              titleIcon={this.props.titleIcon}
-              titleIconFamily={this.props.titleIconFamily}
-              compactMode={this.props.compactMode}
-            />
-            <div className="hue-picker right">
+      <List id={this.props.UUID}>
+        {timestamp}
+        <ListItem>
+          <div className="hue-picker center">
+            <div style={{ margin: "auto", width: "80%" }}>
               <HuePicker
                 color={this.val}
                 onChangeComplete={this.handleRBGColorChangeComplete}
                 onChange={this.handleRBGColorChange}
                 height={"7px"}
+                width={"100%"}
               />
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </div>
+        </ListItem>
+      </List>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "./Title";
+import { List, ListItem, ListHeader } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -46,10 +46,6 @@ export default class HtmlOutput extends React.Component {
       });
     }
 
-    // console.log("Switch connected:");
-    // console.log(this.props);
-    // console.log(this.props.connected);
-    // console.log(!this.props.connected);
   }
 
   render() {
@@ -73,41 +69,24 @@ export default class HtmlOutput extends React.Component {
 
     val = styleToInject + val;
 
-    let title = (
-      <ons-list-item>
-        <Title title={this.props.title} titleIcon={this.props.titleIcon} titleIconFamily={this.props.titleIconFamily} />
-      </ons-list-item>
-    );
-
-    let header = (
-      <ons-list-header>
-        <span
-          className="right lastupdate"
-          style={{ float: "right", paddingRight: "5px" }}
-        >
-          {moment(ts).format("LLL")}
-        </span>
-      </ons-list-header>
-    );
-
-    if (this.props.title == "NONE") {
-      title = null;
-    }
-
-
-    let compactModeClass = "";
-    if (this.props.compactMode === true) {
-      title = null;
-      header = null;
-      compactModeClass = "compactmode";
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(ts).format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
+      );
     }
 
     return (
-      <ons-col id={this.props.UUID} class={"htmloutput " + compactModeClass}>
-        <ons-list>
-          {header}
-          {title}
-          <ons-list-item>
+      <List id={this.props.UUID} class={"htmloutput"}>
+          {timestamp}
+          <ListItem>
             <div style={{ width: 100 + "%" }}>
               <div
                 className="htmloutput"
@@ -115,9 +94,8 @@ export default class HtmlOutput extends React.Component {
                 dangerouslySetInnerHTML={{ __html: val }}
               ></div>
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </ListItem>
+      </List>
     );
   }
 }

@@ -9,7 +9,8 @@
 .hidden {
   display: none !important;
 }
-.vishidden {
+.vishidden,
+.noIcon {
   visibility: hidden !important;
 }
 .overlay.notconnected {
@@ -47,17 +48,18 @@ ons-col {
   font-size: 8px !important;
   min-height: 12px !important;
   line-height: 12px !important;
-  color: #ccc !important;
+  color: var(--text-color);
+  background: var(--list-header-background-color);
 }
 
-.filler .list-header,
+/* .filler .list-header,
 .compactModeWrapper .list-header {
   font-size: 12px !important;
   min-height: 20px !important;
   line-height: 20px !important;
   color: #fff !important;
   padding-left: 10px !important;
-}
+} */
 
 .compactModeWrapper .lastupdate {
   font-size: 8px !important;
@@ -76,6 +78,44 @@ ons-col {
 
 .list-item {
   min-height: 55px;
+}
+
+.button.modalCloseButton {
+  margin: auto;
+  padding: 0;
+  padding-left: 5px;
+}
+.button.modalCloseButton i {
+  height: 40px;
+  width: 40px;
+  line-height: 38px;
+  color: #fff;
+  margin: auto;
+  font-size: 32px;
+}
+
+.modal__content {
+  background: rgba(0, 0, 0, 0.2) !important;
+  padding: 50px !important;
+}
+
+.fab--mini {
+  background: var(--fab-background-color) !important;
+}
+
+.fab--mini--icon {
+  color: var(--fab-text-color);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 23px;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+.titletext {
+  padding-top: 5px;
+  display: inline-block;
 }
 
 .compactMode .list-item {
@@ -111,32 +151,71 @@ ons-col {
   display: none;
 }
 
-.dunkel ons-row {
-  background: #363636;
+.list-item,
+.list-item__center,
+.list-item__left,
+.list-item__right {
+  border-bottom: 1px solid var(--material-list-item-separator-color);
+  background-image: none !important;
+} 
+
+/* start grid styles */
+
+.gridBox,
+.gridBox .list,
+.gridBox .list-item,
+.gridBox .col,
+.gridBox .list-item__center,
+.gridBox .list-item__left,
+.gridBox .list-item__right,
+.gridBox ons-col {
+  border: none;
+  background-image: none !important;
 }
 
-.dunkel ::-webkit-calendar-picker-indicator {
-  filter: invert(1);
+.gridBox {
+  background-color: var(--list-background-color);
 }
 
-.hell ons-row {
-  background: #fff;
+.gridBox.borderTop {
+  border-top: 1px solid var(--list-item-separator-color);
 }
-.hell ons-col {
-  background: #fff;
-  border-left: 1px solid #cccccc;
+.gridBox.borderRight {
+  border-right: 1px solid var(--list-item-separator-color);
 }
-.hell iframe {
-  background: #777;
+.gridBox.borderBottom {
+  border-bottom: 1px solid var(--list-item-separator-color);
 }
-
-.dunkel .list-header--material {
-  background: #111;
+.gridBox.borderLeft {
+  border-left: 1px solid var(--list-item-separator-color);
 }
 
-.hell .list-header--material {
-  background: #ccc;
+.gridBox ons-list.list {
+  width: 100%;
+  height: 100%;
 }
+
+ons-modal ons-list.list,
+.banner.list {
+  height: auto;
+}
+
+.banner .list-item,
+.banner .center {
+  min-height: 0px;
+  padding: 0;
+  margin: 0;
+}
+
+ons-modal .iconbar {
+  background: transparent;
+}
+
+ons-card .gridBox {
+  background: transparent;
+}
+
+/* end grid styles */
 
 .list-header--material {
   padding: 0 !important;
@@ -149,10 +228,6 @@ ons-col {
 .notification.notification-quiet {
   background-color: #ccc !important;
   color: #000;
-}
-
-ons-list.list {
-  width: 100%;
 }
 
 ons-col.icon-col {
@@ -180,6 +255,10 @@ ons-col.slider-col {
   line-height: 31px;
 }
 
+/* .sliderWidget .list-item__center {
+  padding: 4px 6px 0 0;
+} */
+
 .range--material__input {
   background-image: linear-gradient(#fff, #fff) !important;
 }
@@ -193,7 +272,7 @@ ons-col.slider-col {
 }
 
 .colorInput {
-  width: 75px;
+  width: 100%;
 }
 
 span.chart-col,
@@ -205,6 +284,19 @@ ons-col.chart-col,
 ons-col.alarm-col {
   min-width: 100% !important;
 }
+
+.centerWidget {
+  position: relative;
+  margin: 0 auto;
+}
+
+/* start myCard */
+.mycard {
+  box-shadow: 2px 2px 6px 3px rgba(0, 0, 0, 0.5) !important;
+  margin: 15px !important;
+}
+
+/* end myCard */
 
 /* start flotoutput */
 .flotoutput .list-item {
@@ -234,13 +326,59 @@ ons-col.alarm-col {
 /* end htmloutput */
 
 /* start imgoutput */
-.imgoutput .list-item {
+/* .imgoutput .list-item {
   padding-left: 2px;
-}
+} */
 .imgoutput .list-item__center {
   padding-top: 2px;
 }
+.imgoutput img {
+  margin: 0 auto;
+  width: 100%;
+}
+
 /* end imgoutput */
+
+/* start imgButton */
+.imgButtonCenter {
+  margin: auto;
+}
+
+.imgButton .button {
+  min-height: auto;
+  line-height: normal;
+}
+.imgButton .ripple {
+  display: none;
+}
+
+/* .imgButton.isEqual .button {
+  transform: scale(1);
+} */
+
+/* end imgButton */
+
+/* start Switch */
+.switchMargin {
+  margin: 0 auto;
+}
+/* end Switch */
+
+/* start Indicator */
+
+.indicatoriconCenter {
+  position: relative;
+  margin: 0 auto;
+  width: 55px;
+  height: 55px;
+  background: transparent;
+}
+
+.indicatoriconCenter.mdi-icon {
+  width: 40px;
+  height: 40px;
+}
+/* end Indicator */
 
 /* start valueSwitcher */
 
@@ -252,8 +390,12 @@ ons-col.alarm-col {
   line-height: 100%;
 }
 
+.button .valueSwitcherValue {
+  color: var(--button-bar-active-text-color);
+}
+
 .button--outline .valueSwitcherValue {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .hell .button--outline .valueSwitcherValue {
@@ -305,43 +447,6 @@ ons-col.alarm-col {
 }
 /* Ende ColorPicker */
 
-/* Start Donut */
-
-.donutWidget .track {
-  stroke: rgba(0, 130, 139, 0.5);
-}
-.donutWidget circle.progress {
-  stroke: #00828b;
-}
-.donutWidget .thumb {
-  fill:#00828b;
-  stroke: #00828b;
-}
-.donutWidget .text {
-  fill: #fff;
-}
-
-.hell .donutWidget .track {
-  stroke: rgba(55, 71, 79, 0.5);
-}
-.hell .donutWidget .progress {
-  stroke:#0076ff;
-}
-.hell .donutWidget .thumb {
-  fill:#0076ff;
-  stroke: #0076ff;
-}
-.hell .donutWidget .text {
-  fill: #1f1f21;
-}
-
-.donutWidget.compactMode svg {
-  margin-top: 10px; 
-  margin-bottom: 10px;
-}
-
-/* Ende Donut */
-
 /* Start Alarmsystem */
 
 .alarmtable {
@@ -356,7 +461,8 @@ ons-col.alarm-col {
 }
 
 .alarmtable .titlerow {
-  background: #00828b;
+  background: var(--highlight-color);
+  color: var(--text-color);
 }
 
 .alarmtable span {
@@ -451,7 +557,8 @@ ons-col.alarm-col {
 
 .alarmtable .rt-thead .rt-td,
 .alarmtable .rt-thead .rt-th {
-  background: #00828b !important;
+  background: var(--highlight-color) !important;
+  color: var(--button-bar-active-text-color) !important;
   border-right: 1px solid #303030 !important;
 }
 

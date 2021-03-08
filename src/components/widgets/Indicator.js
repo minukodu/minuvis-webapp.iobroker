@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "./Title";
+import { List, ListItem, ListHeader } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -136,11 +136,11 @@ export default class Indicator extends React.Component {
         val = this.state.val;
         ts = this.state.ts;
       }
-  } else {
-    // always true
-    val = true;
-    ts = moment();
-  }
+    } else {
+      // always true
+      val = true;
+      ts = moment();
+    }
 
     let strValue = this.stringToBoolean(val, false).toString();
 
@@ -154,41 +154,35 @@ export default class Indicator extends React.Component {
       bgIconColor = iconColor;
     }
 
-    let header =
-      <ons-list-header>
-        <span className="right lastupdate" style={{ float: 'right', paddingRight: '5px' }}>{moment(ts).format('LLL')}</span>
-      </ons-list-header>
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span className="right lastupdate" style={{ float: 'right', paddingRight: '5px' }}>{moment(ts).format('DD.MM.YY HH:mm')}</span>
+        </ListHeader>
+      )
+    }
 
     let fontSize = "100%";
     let compactModeClass = "";
 
     if (this.props.compactMode === true) {
-      header = null;
+      timestamp = null;
       fontSize = "80%";
       compactModeClass = "compactMode";
     }
 
     return (
-      <ons-col id={this.props.UUID}>
-        <ons-list>
-          {header}
-          <ons-list-item>
-            <Title
-              title={this.props.title}
-              titleIcon={this.props.titleIcon}
-              titleIconFamily={this.props.titleIconFamily}
-              compactMode={this.props.compactMode}
-            />
-            <div className="right">
+      <List id={this.props.UUID}>
+        {timestamp}
+        <ListItem>
+          <div className="center">
+            <div className={"indicatoriconCenter " + this.props.iconFamily}>
               <span
                 style={{ background: bgIconColor, color: iconColor }}
                 className={
                   "indicatoricon " +
                   this.props.iconFamily +
-                  " " +
-                  compactModeClass +
-                  " " +
-                  this.props.additionalClass +
                   " " +
                   this.props.icon +
                   " " +
@@ -196,9 +190,9 @@ export default class Indicator extends React.Component {
                 }
               ></span>
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </div>
+        </ListItem>
+      </List>
     );
   }
 }

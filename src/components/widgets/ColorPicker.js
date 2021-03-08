@@ -1,6 +1,5 @@
 import React from "react";
-import { Input } from "react-onsenui";
-import Title from "./Title";
+import { Input, List, ListItem, ListHeader } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -68,14 +67,10 @@ export default class ColorPicker extends React.Component {
       });
     }
 
-    // console.log("Switch connected:");
-    // console.log(this.props);
-    // console.log(this.props.connected);
-    // console.log(!this.props.connected);
   }
 
   render() {
-    // console.debug("Render TimePicker");
+    // console.debug("Render ColorPicker");
     // console.debug(this.props);
 
     // init
@@ -91,43 +86,30 @@ export default class ColorPicker extends React.Component {
       ts = this.state.ts;
     }
 
-    if (val === null) { val = "#ff0000"};
+    if (val === null) { val = "#ff0000" };
     val = val.substring(0, 7); //cut all other characters there is no white
 
-    let title = "";
-    if (this.props.title !== "NONE") {
-      title = this.props.title;
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(ts).format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
+      );
     }
 
-    let header =
-      <ons-list-header>
-        <span
-          className="right lastupdate"
-          style={{ float: "right", paddingRight: "5px" }}
-        >
-          {moment(ts).format("LLL")}
-        </span>
-      </ons-list-header>
-
-    let compactModeClass = "";
-
-    if (this.props.compactMode === true) {
-      header = null;
-      compactModeClass = "compactMode";
-    }
 
     return (
-      <ons-col id={this.props.UUID} class={compactModeClass}>
-        <ons-list>
-          {header}
-          <ons-list-item>
-            <Title
-              title={this.props.title}
-              titleIcon={this.props.titleIcon}
-              titleIconFamily={this.props.titleIconFamily}
-              compactMode={this.props.compactMode}
-            />
-            <div className="right">
+      <List id={this.props.UUID}>
+        {timestamp}
+        <ListItem>
+          <div className="center">
+            <div style={{ margin: "auto", width: "80%" }}>
               <Input
                 disable-auto-styling
                 data-iobroker={this.props.stateId}
@@ -137,9 +119,9 @@ export default class ColorPicker extends React.Component {
                 className={"colorInput"}
               ></Input>
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </div>
+        </ListItem>
+      </List>
     );
   }
 }

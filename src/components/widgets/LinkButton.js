@@ -1,5 +1,7 @@
 import React from "react";
-import { Button } from "react-onsenui";
+import { Button, List, ListItem, ListHeader } from "react-onsenui";
+import moment from "moment";
+moment.locale("de-DE");
 
 export default class LinkButton extends React.Component {
   gotoTarget() {
@@ -12,46 +14,88 @@ export default class LinkButton extends React.Component {
 
   render() {
     //console.debug("Render LinkButton");
-    let title = (
-      <span className={"valueSwitcherValue"}>{this.props.title}</span>
+    let linkText = (
+      <span className={"valueSwitcherValue"}>{this.props.linkText}</span>
     );
 
-    if (this.props.title === "ICONONLY") {
-      title = null;
+    if (this.props.linkText === "ICONONLY") {
+      linkText = null;
     }
     // check if Link exists
     this.linkExists = true;
-    if (!this.props.pageLinks[this.props.targetpage]) {
+    if (this.props.extLink !== true && !this.props.pageLinks[this.props.targetpage]) {
       this.linkExists = false;
-      title = (
+      linkText = (
         <span className={"valueSwitcherValue"}>
           {"Link does not exist !!!!"}
         </span>
       );
     }
 
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment().format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
+      );
+    }
+
+    let button = (
+      <Button
+        disable-auto-styling={"disable-auto-styling"}
+        onClick={this.gotoTarget.bind(this)}
+        style={{ width: "98%", marginRight: 0 }}
+      >
+        <span
+          className={
+            "valueSwitcherIcon min " +
+            this.props.linkIconFamily +
+            " " +
+            this.props.linkIcon
+          }
+        ></span>
+        {linkText}
+      </Button>
+    );
+
+    if (this.props.extLink === true) {
+      button = (
+        <Button
+          disable-auto-styling={"disable-auto-styling"}
+          style={{ width: "98%", marginRight: 0 }}
+        >
+          <a
+            href={this.props.extUrl}
+            style={{ textDecoration: "none" }}
+          >
+            <span
+              className={
+                "valueSwitcherIcon min " +
+                this.props.linkIconFamily +
+                " " +
+                this.props.linkIcon
+              }
+            ></span>
+            {linkText}
+          </a>
+        </Button>
+
+      );
+    }
+
     return (
-      <ons-col id={this.props.UUID}>
-        <ons-list>
-          <ons-list-item>
-            <Button
-              disable-auto-styling={"disable-auto-styling"}
-              onClick={this.gotoTarget.bind(this)}
-              style={{ width: "98%", marginRight: 0 }}
-            >
-              <span
-                className={
-                  "valueSwitcherIcon min " +
-                  this.props.titleIconFamily +
-                  " " +
-                  this.props.titleIcon
-                }
-              ></span>
-              {title}
-            </Button>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+      <List id={this.props.UUID}>
+        {timestamp}
+        <ListItem>
+          {button}
+        </ListItem>
+      </List>
     );
   }
 }

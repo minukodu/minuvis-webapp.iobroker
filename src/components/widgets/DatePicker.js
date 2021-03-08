@@ -1,6 +1,5 @@
 import React from "react";
-import { Input } from "react-onsenui";
-import Title from "./Title";
+import { Input, List, ListItem, ListHeader } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -74,7 +73,7 @@ export default class DatePicker extends React.Component {
   render() {
     console.log("Render DatePicker");
     // console.log(this.props.format)
-    
+
     // init
     let val = "01.01.1970";
     let ts = moment();
@@ -82,7 +81,7 @@ export default class DatePicker extends React.Component {
     if (typeof this.props.states[this.props.stateId] !== "undefined") {
       val = this.props.states[this.props.stateId].val;
       ts = this.props.states[this.props.stateId].ts;
-      val = moment(val,this.props.format).format("YYYY-MM-DD");
+      val = moment(val, this.props.format).format("YYYY-MM-DD");
     } else {
       // read from this.state
       val = this.state.val;
@@ -90,42 +89,26 @@ export default class DatePicker extends React.Component {
       val = moment(val).format("YYYY-MM-DD");
     }
 
-    let title = "";
-    if (this.props.title !== "NONE") {
-      title = this.props.title;
-    }
-
-    
-
-    let header =
-      <ons-list-header>
-        <span
-          className="right lastupdate"
-          style={{ float: "right", paddingRight: "5px" }}
-        >
-          {moment(ts).format("LLL")}
-        </span>
-      </ons-list-header>
-
-    let compactModeClass = "";
-
-    if (this.props.compactMode === true) {
-      header = null;
-      compactModeClass = "compactMode";
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(ts).format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
+      );
     }
 
     return (
-      <ons-col id={this.props.UUID} class={compactModeClass}>
-        <ons-list>
-          {header}
-          <ons-list-item>
-            <Title
-              title={this.props.title}
-              titleIcon={this.props.titleIcon}
-              titleIconFamily={this.props.titleIconFamily}
-              compactMode={this.props.compactMode}
-            />
-            <div className="right">
+      <List id={this.props.UUID}>
+        {timestamp}
+        <ListItem>
+          <div className="right">
+            <div style={{ margin: "auto", width: "100%" }}>
               <Input
                 disable-auto-styling
                 data-iobroker={this.props.stateId}
@@ -134,9 +117,9 @@ export default class DatePicker extends React.Component {
                 value={val}
               ></Input>
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </div>
+        </ListItem>
+      </List>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "./Title";
+import { List, ListItem, ListHeader } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -15,7 +15,7 @@ export default class OpenStreetMap extends React.Component {
     this.val = "[" + this.lng + "," + this.lat + "]";
     this.ts = moment();
     this.zommFaktor = 10000;
-    this.boxZoom = 50/this.zommFaktor;
+    this.boxZoom = 50 / this.zommFaktor;
     this.setState({
       val: this.val,
       ts: this.ts,
@@ -72,7 +72,7 @@ export default class OpenStreetMap extends React.Component {
     console.log(this.val);
     console.log(this.props.zoom);
 
-    this.boxZoom = parseFloat(this.props.zoom)/this.zommFaktor;
+    this.boxZoom = parseFloat(this.props.zoom) / this.zommFaktor;
 
     try {
       let objVal = JSON.parse(this.val);
@@ -101,49 +101,43 @@ export default class OpenStreetMap extends React.Component {
       "," +
       this.lng;
 
-    let title = (
-      <ons-list-item>
-        <Title
-          title={this.props.title}
-          titleIcon={this.props.titleIcon}
-          titleIconFamily={this.props.titleIconFamily}
-        />
-      </ons-list-item>
-    );
-
-    if (this.props.title == "NONE") {
-      title = null;
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment().format("DD.MM.YY HH.mm")}
+          </span>
+        </ListHeader>
+      );
     }
+    let height = this.props.widgetHeight * this.props.rowHeight;
+    height = height + "px";
 
     return (
-      <ons-col id={this.props.UUID} class={"openstreetmap iframeoutput"}>
-        <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment().format("LLL")}
-            </span>
-          </ons-list-header>
-          {title}
-          <ons-list-item>
+      <List id={this.props.UUID} class={"openstreetmap iframeoutput"}>
+          {timestamp}
+          <ListItem>
             <div
               className="openstreetmap iframeoutput"
-              style={{ width: 100 + "%" }}
+              style={{
+                width: "100%"
+              }}
             >
               <iframe
                 src={src}
                 style={{
                   width: "100%",
-                  height: this.props.height,
+                  height: height,
                 }}
                 frameBorder="0"
               />
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </ListItem>
+      </List>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from "./Title";
+import { List, ListItem, ListHeader } from "react-onsenui";
 import numeral from "numeral";
 import moment from 'moment';
 moment.locale('de-DE');
@@ -95,35 +95,33 @@ export default class Output extends React.Component {
       }
     }
 
-    let header =
-      <ons-list-header>
-        <span className="right lastupdate" style={{ float: 'right', paddingRight: '5px' }}>{moment(ts).format('LLL')}</span>
-      </ons-list-header>
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(ts).format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
+      );
+    }
 
     let fontSize = "100%";
 
-    if (this.props.compactMode === true){
-      header = null;
-      fontSize = "80%";
-    }
-
     return (
-      <ons-col id={this.props.UUID}>
-        <ons-list>
-          {header}
-          <ons-list-item>
-            <Title
-              title={this.props.title}
-              titleIcon={this.props.titleIcon}
-              titleIconFamily={this.props.titleIconFamily}
-              compactMode={this.props.compactMode}
-            />
-            <div className="right" style={{ fontSize }}>
+      <List id={this.props.UUID}>
+        {timestamp}
+        <ListItem>
+          <div className="center" style={{ fontSize }}>
+            <div className="centerWidget">
               <output style={{ color: fontColor }} data-iobroker={this.props.stateId}>{formatedValue}</output>&nbsp;{this.props.unit}
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </div>
+        </ListItem>
+      </List>
     );
   }
 

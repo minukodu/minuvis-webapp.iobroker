@@ -1,6 +1,5 @@
 import React from "react";
-import { Button } from "react-onsenui";
-import Title from "./Title";
+import { Button, List, ListItem, ListHeader } from "react-onsenui";
 import Indicator from "./Indicator";
 import moment from "moment";
 moment.locale("de-DE");
@@ -16,11 +15,11 @@ export default class ValueSwitcher extends React.Component {
   }
 
   sendValueElement(e) {
-    
+
     let valueToSend = e.target.value;
     if (this.props.stateIdType === "number") {
       valueToSend = parseFloat(e.target.value);
-    } 
+    }
     else if (this.props.stateIdType === "boolean") {
       valueToSend = this.stringToBoolean(e.target.value);
     }
@@ -182,10 +181,10 @@ export default class ValueSwitcher extends React.Component {
     console.log("Render ValueSwitcher");
 
     let valueString = "--";
-    if (this.props.stateIdType === "boolean" && val === true ) {
+    if (this.props.stateIdType === "boolean" && val === true) {
       valueString = "true";
     }
-    if (this.props.stateIdType === "boolean" &&  val === false ) {
+    if (this.props.stateIdType === "boolean" && val === false) {
       valueString = "false";
     }
     if (this.props.stateIdType !== "boolean" && val) {
@@ -209,30 +208,18 @@ export default class ValueSwitcher extends React.Component {
       valueText = null;
     }
 
-    let title = (
-      <ons-list-item>
-        <Title
-          title={this.props.title}
-          titleIcon={this.props.titleIcon}
-          titleIconFamily={this.props.titleIconFamily}
-          compactMode={this.props.compactMode}
-        />
-        {valueText}
-      </ons-list-item>
-    );
-    let header = (
-      <ons-list-header>
-        <span
-          className="right lastupdate"
-          style={{ float: "right", paddingRight: "5px" }}
-        >
-          {moment(ts).format("LLL")}
-        </span>
-      </ons-list-header>
-    )
-
-    if (this.props.title == "NONE") {
-      title = null;
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(ts).format("DD.MM.YY HH.mm")}
+          </span>
+        </ListHeader>
+      )
     }
 
     this.hideTextClass = "";
@@ -288,101 +275,92 @@ export default class ValueSwitcher extends React.Component {
 
     let compactModeClass = "";
 
-    if (this.props.compactMode === true) {
-      header = null;
-      title = null;
-      compactModeClass = "compactMode";
-    }
-
     let valueswitcher = (
-      <ons-col id={this.props.UUID} class={compactModeClass}>
-        <ons-list>
-          {header}
-          {title}
-          <ons-list-item class="valueSwitcherBtnList">
-            <Button
-              disable-auto-styling={"disable-auto-styling"}
-              modifier={highlightBtnNr === 1 ? "" : "outline"}
-              onClick={this.sendValue1.bind(this)}
-              disabled={this.props.readOnly}
-              style={{
-                display: displayBtn1,
-                width: btnWidth + "%",
-                marginRight: btnMarginRight,
-              }}
-            >
-              <span
-                className={"valueSwitcherIcon min " + this.props.iconFamily1 + " " + this.props.icon1 + " " + compactModeClass}
-              ></span>
-              <span className={"valueSwitcherValue " + this.hideTextClass}>
-                {this.props.value1.toString() +
-                  (this.props.unit.length > 0 ? " " : "") +
-                  this.props.unit}
-              </span>
-            </Button>
-            <Button
-              disable-auto-styling={"disable-auto-styling"}
-              modifier={highlightBtnNr === 2 ? "" : "outline"}
-              onClick={this.sendValue2.bind(this)}
-              disabled={this.props.readOnly}
-              style={{
-                display: displayBtn2,
-                width: btnWidth + "%",
-                marginRight: btnMarginRight,
-              }}
-            >
-              <span
-                className={"valueSwitcherIcon min " + this.props.iconFamily2 + " " + this.props.icon2 + " " + compactModeClass}
-              ></span>
-              <span className={"valueSwitcherValue " + this.hideTextClass}>
-                {this.props.value2.toString() +
-                  (this.props.unit.length > 0 ? " " : "") +
-                  this.props.unit}
-              </span>
-            </Button>
-            <Button
-              disable-auto-styling={"disable-auto-styling"}
-              modifier={highlightBtnNr === 3 ? "" : "outline"}
-              onClick={this.sendValue3.bind(this)}
-              disabled={this.props.readOnly}
-              style={{
-                display: displayBtn3,
-                width: btnWidth + "%",
-                marginRight: btnMarginRight,
-              }}
-            >
-              <span
-                className={"valueSwitcherIcon min " + this.props.iconFamily3 + " " + this.props.icon3 + " " + compactModeClass}
-              ></span>
-              <span className={"valueSwitcherValue " + this.hideTextClass}>
-                {this.props.value3.toString() +
-                  (this.props.unit.length > 0 ? " " : "") +
-                  this.props.unit}
-              </span>
-            </Button>
-            <Button
-              disable-auto-styling={"disable-auto-styling"}
-              modifier={highlightBtnNr === 4 ? "" : "outline"}
-              onClick={this.sendValue4.bind(this)}
-              disabled={this.props.readOnly}
-              style={{
-                display: displayBtn4,
-                width: btnWidth + "%",
-                marginRight: btnMarginRight,
-              }}
-            >
-              <span
-                className={"valueSwitcherIcon min " + this.props.iconFamily4 + " " + this.props.icon4 + " " + compactModeClass}
-              ></span>
-              <span className={"valueSwitcherValue " + this.hideTextClass}>
-                {this.props.value4.toString() +
-                  (this.props.unit.length > 0 ? " " : "") +
-                  this.props.unit}
-              </span>
-            </Button>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+      <List id={this.props.UUID} class={compactModeClass}>
+        {timestamp}
+        <ListItem class="valueSwitcherBtnList">
+          <Button
+            disable-auto-styling={"disable-auto-styling"}
+            modifier={highlightBtnNr === 1 ? "" : "outline"}
+            onClick={this.sendValue1.bind(this)}
+            disabled={this.props.readOnly}
+            style={{
+              display: displayBtn1,
+              width: btnWidth + "%",
+              marginRight: btnMarginRight,
+            }}
+          >
+            <span
+              className={"valueSwitcherIcon min " + this.props.iconFamily1 + " " + this.props.icon1 + " " + compactModeClass}
+            ></span>
+            <span className={"valueSwitcherValue " + this.hideTextClass}>
+              {this.props.value1.toString() +
+                (this.props.unit.length > 0 ? " " : "") +
+                this.props.unit}
+            </span>
+          </Button>
+          <Button
+            disable-auto-styling={"disable-auto-styling"}
+            modifier={highlightBtnNr === 2 ? "" : "outline"}
+            onClick={this.sendValue2.bind(this)}
+            disabled={this.props.readOnly}
+            style={{
+              display: displayBtn2,
+              width: btnWidth + "%",
+              marginRight: btnMarginRight,
+            }}
+          >
+            <span
+              className={"valueSwitcherIcon min " + this.props.iconFamily2 + " " + this.props.icon2 + " " + compactModeClass}
+            ></span>
+            <span className={"valueSwitcherValue " + this.hideTextClass}>
+              {this.props.value2.toString() +
+                (this.props.unit.length > 0 ? " " : "") +
+                this.props.unit}
+            </span>
+          </Button>
+          <Button
+            disable-auto-styling={"disable-auto-styling"}
+            modifier={highlightBtnNr === 3 ? "" : "outline"}
+            onClick={this.sendValue3.bind(this)}
+            disabled={this.props.readOnly}
+            style={{
+              display: displayBtn3,
+              width: btnWidth + "%",
+              marginRight: btnMarginRight,
+            }}
+          >
+            <span
+              className={"valueSwitcherIcon min " + this.props.iconFamily3 + " " + this.props.icon3 + " " + compactModeClass}
+            ></span>
+            <span className={"valueSwitcherValue " + this.hideTextClass}>
+              {this.props.value3.toString() +
+                (this.props.unit.length > 0 ? " " : "") +
+                this.props.unit}
+            </span>
+          </Button>
+          <Button
+            disable-auto-styling={"disable-auto-styling"}
+            modifier={highlightBtnNr === 4 ? "" : "outline"}
+            onClick={this.sendValue4.bind(this)}
+            disabled={this.props.readOnly}
+            style={{
+              display: displayBtn4,
+              width: btnWidth + "%",
+              marginRight: btnMarginRight,
+            }}
+          >
+            <span
+              className={"valueSwitcherIcon min " + this.props.iconFamily4 + " " + this.props.icon4 + " " + compactModeClass}
+            ></span>
+            <span className={"valueSwitcherValue " + this.hideTextClass}>
+              {this.props.value4.toString() +
+                (this.props.unit.length > 0 ? " " : "") +
+                this.props.unit}
+            </span>
+          </Button>
+        </ListItem>
+      </List >
     );
 
     let indicator = (
@@ -403,6 +381,7 @@ export default class ValueSwitcher extends React.Component {
         colorWhenFalse={"#222222"}
         alwaysTrue={true}
         compactMode={this.props.compactMode}
+        timestamp={this.props.timestamp}
       />
     );
 

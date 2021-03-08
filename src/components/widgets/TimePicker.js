@@ -1,6 +1,5 @@
 import React from "react";
-import { Input } from "react-onsenui";
-import Title from "./Title";
+import { Input, List, ListItem, ListHeader } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -84,40 +83,26 @@ export default class TimePicker extends React.Component {
       ts = this.state.ts;
     }
 
-    let title = "";
-    if (this.props.title !== "NONE") {
-      title = this.props.title;
-    }
-
-    let header =
-      <ons-list-header>
-        <span
-          className="right lastupdate"
-          style={{ float: "right", paddingRight: "5px" }}
-        >
-          {moment(ts).format("LLL")}
-        </span>
-      </ons-list-header>
-
-    let compactModeClass = "";
-
-    if (this.props.compactMode === true) {
-      header = null;
-      compactModeClass = "compactMode";
+    let timestamp = null;
+    if (this.props.timestamp && this.props.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(ts).format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
+      );
     }
 
     return (
-      <ons-col id={this.props.UUID} class={compactModeClass}>
-        <ons-list>
-          {header}
-          <ons-list-item>
-            <Title
-              title={this.props.title}
-              titleIcon={this.props.titleIcon}
-              titleIconFamily={this.props.titleIconFamily}
-              compactMode={this.props.compactMode}
-            />
-            <div className="right">
+      <List id={this.props.UUID}>
+        {timestamp}
+        <ListItem>
+          <div className="right">
+            <div style={{ margin: "auto", width: "100%" }}>
               <Input
                 disable-auto-styling
                 data-iobroker={this.props.stateId}
@@ -126,9 +111,9 @@ export default class TimePicker extends React.Component {
                 value={val}
               ></Input>
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </div>
+        </ListItem>
+      </List>
     );
   }
 }
