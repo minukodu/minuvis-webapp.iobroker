@@ -87,14 +87,19 @@ export default class IMGOutput extends React.Component {
     if ( this.props.urlFromState && this.props.urlFromState === true ) {
       imgUrl = this.props.states[this.props.stateId].val || "";
     }
+    let imgStyle = { height: "100%", width: "auto" }; // scale 100% Width
+    if ( this.props.scaleWidth && this.props.scaleWidth === true ) {
+      imgStyle = { height: "auto", width: "100%" };
+    } 
 
     return (
-      <List id={this.props.UUID} className="imgoutput">
+      <List id={this.props.UUID} style={{height: "100%"}} className="imgoutput">
         {timestamp}
-        <ListItem>
-          <div className="imgoutput">
+        <ListItem style={{height: "100%"}}>
+          <div className="imgoutput" style={{height: "100%"}}>
             <img
               key={this.state.imgKey}
+              style={imgStyle}
               src={imgUrl + "?ts=" + this.state.lastUpdateDate}
             />
           </div>

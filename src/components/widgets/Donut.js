@@ -236,7 +236,7 @@ export default class Donut extends React.Component {
       }
     }
 
-    let height = this.props.widgetHeight * 60;
+    let height = this.props.widgetHeight * 57;
     let width = height;
 
     return (

@@ -52,22 +52,6 @@ ons-col {
   background: var(--list-header-background-color);
 }
 
-/* .filler .list-header,
-.compactModeWrapper .list-header {
-  font-size: 12px !important;
-  min-height: 20px !important;
-  line-height: 20px !important;
-  color: #fff !important;
-  padding-left: 10px !important;
-} */
-
-.compactModeWrapper .lastupdate {
-  font-size: 8px !important;
-  min-height: 20px !important;
-  line-height: 20px !important;
-  color: #ccc !important;
-}
-
 .timestamp .lastupdate,
 .timestamp.list-header {
   font-size: 8px !important;
@@ -118,38 +102,31 @@ ons-col {
   display: inline-block;
 }
 
-.compactMode .list-item {
-  min-height: 40px;
-}
-
-.compactMode .list-item__right {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.compactModeWrapperStart .titletext {
-  display: inline-block;
-  margin-left: -35px;
-  margin-top: 45px;
-}
-
-.compactModeWrapperStart .notitleIcon .titletext {
-  display: inline-block;
-  margin-left: -35px;
-  margin-top: 10px;
-}
-
-.compactMode.switch {
-  transform: scale(0.7);
-}
+/* .titleIcon .titletext {
+  margin-left: 55px;
+} */
 
 .notitleIcon .titletext {
-  margin-left: -50px;
+  margin-left: 0px;
 }
+
+.title.center {
+  justify-content: center;
+}
+
+.title .titleIcon {
+  float: left;
+  position: relative;
+} 
 
 .notitleIcon .titleIcon {
   display: none;
 }
+
+
+
+
+
 
 .list-item,
 .list-item__center,
@@ -157,7 +134,7 @@ ons-col {
 .list-item__right {
   border-bottom: 1px solid var(--material-list-item-separator-color);
   background-image: none !important;
-} 
+}
 
 /* start grid styles */
 
@@ -334,7 +311,6 @@ ons-col.alarm-col {
 }
 .imgoutput img {
   margin: 0 auto;
-  width: 100%;
 }
 
 /* end imgoutput */
@@ -390,6 +366,16 @@ ons-col.alarm-col {
   line-height: 100%;
 }
 
+.valueSwitcherBtnList {
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+.valueSwitcherBtnList .center {
+  padding: 0;
+  margin: 0;
+}
+
 .button .valueSwitcherValue {
   color: var(--button-bar-active-text-color);
 }
@@ -404,15 +390,6 @@ ons-col.alarm-col {
 
 .valueSwitcherBtnList .button[disabled] {
   opacity: 1;
-}
-
-.compactMode .valueSwitcherBtnList .valueSwitcherIcon,
-.compactMode .valueSwitcherBtnList .valueSwitcherValue {
-  transform: scale(0.8);
-}
-
-.compactMode .valueSwitcherBtnList .button {
-  padding: 0;
 }
 
 /* end valueSwitcher */

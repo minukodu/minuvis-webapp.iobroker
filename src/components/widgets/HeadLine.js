@@ -14,20 +14,23 @@ export default function HeadLine(props) {
     );
   }
   let fontSize = props.fontSize || 100;
+  let classes = props.classes || "left";
 
   return (
     <Col
       id={props.UUID}
-      className="filler headline">
+      className={"filler headline " + classes} >
       <List>
         {header}
-        <ListItem>
+        <ListItem style={{ padding: 0 }}>
           <Title
             title={props.title}
             titleIcon={props.titleIcon}
             titleIconFamily={props.titleIconFamily}
             fontSize={fontSize}
             compactMode={props.compactMode}
+            classes={classes}
+            widgetHeight={props.widgetHeight}
           />
         </ListItem>
       </List>

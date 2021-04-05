@@ -16,7 +16,7 @@ export default class MainController extends React.Component {
     this.socket = null;
 
     //#########################################################################
-    this.version = "2.0.0-alpha";
+    this.version = "2.0.0-alpha.2";
     //#########################################################################
   }
 

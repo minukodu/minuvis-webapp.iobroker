@@ -247,6 +247,7 @@ export default class myPage extends React.Component {
                 timestamp={widgetData.timestamp}
                 bgImage={widgetData.bgImage}
                 setValue={widgetData.setValue}
+                scaleWidth={widgetData.scaleWidth}
               />
             );
             pagewidgets.push(widget);
@@ -414,6 +415,7 @@ export default class myPage extends React.Component {
                 widgetWidth={widgetData.widgetWidth}
                 timestamp={widgetData.timestamp}
                 urlFromState={widgetData.urlFromState}
+                scaleWidth={widgetData.scaleWidth}
               />
             );
             pagewidgets.push(widget);
@@ -723,7 +725,9 @@ export default class myPage extends React.Component {
                 showAsHeader={widgetData.showAsHeader || false}
                 compactMode={compactModeActive}
                 widgetWidth={widgetData.widgetWidth}
+                widgetHeight={widgetData.widgetHeight}
                 timestamp={widgetData.timestamp}
+                classes={widgetData.classes}
               />
             );
             if (compactModeActive) {

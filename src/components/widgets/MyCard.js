@@ -175,6 +175,7 @@ export default class MyCard extends React.Component {
                 timestamp={widgetData.timestamp}
                 bgImage={widgetData.bgImage}
                 setValue={widgetData.setValue}
+                scaleWidth={widgetData.scaleWidth}
               />
             );
             pagewidgets.push(widget);
@@ -330,6 +331,7 @@ export default class MyCard extends React.Component {
                 widgetWidth={widgetData.widgetWidth}
                 timestamp={widgetData.timestamp}
                 urlFromState={widgetData.urlFromState}
+                scaleWidth={widgetData.scaleWidth}
               />
             );
             pagewidgets.push(widget);
@@ -555,6 +557,7 @@ export default class MyCard extends React.Component {
                 extUrl={widgetData.extUrl}
                 widgetWidth={widgetData.widgetWidth}
                 timestamp={widgetData.timestamp}
+                classes={widgetData.classes}
               />
             );
             pagewidgets.push(widget);
@@ -571,7 +574,9 @@ export default class MyCard extends React.Component {
                 titleIconFamily={widgetData.titleIconFamily}
                 showAsHeader={widgetData.showAsHeader || false}
                 widgetWidth={widgetData.widgetWidth}
+                widgetHeight={widgetData.widgetHeight}
                 timestamp={widgetData.timestamp}
+
               />
             );
             pagewidgets.push(widget);

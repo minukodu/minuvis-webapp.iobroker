@@ -24,6 +24,10 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.0.0-alpha.2 (2021-04-05)
+* (svallant) scaleWidth for imgoutpout and imgbutton
+* (svallant) classes for headline
+
 ### 2.0.0-alpha (2021-03-08)
 * (svallant) new grid with 18 rows, every widget has X rows and Y columns
 * (svallant) new widget-border property 

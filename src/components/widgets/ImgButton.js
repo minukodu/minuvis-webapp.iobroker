@@ -91,6 +91,7 @@ export default class ImgButton extends React.Component {
 
   render() {
     // init
+    // console.log("init imgButton");
     // console.log(this.props);
     let val = "false";
     let ts = moment();
@@ -135,11 +136,16 @@ export default class ImgButton extends React.Component {
 
     // check image
     let buttomImage = "no image";
+    let imgStyle = { height: "100%", width: "auto" }; // scale 100% Width
+    if ( this.props.scaleWidth && this.props.scaleWidth === true ) {
+      imgStyle = { height: "auto", width: "100%" };
+    } 
     if (this.props.bgImage.length > 5) {
       buttomImage = (
         <img
-          className="imgButtonImage"
-          style={{ width: "100%", height: "auto" }}
+          className={"imgButtonImage"}
+          // style={{ width: "100%", height: "auto" }}
+          style={imgStyle}
           src={this.props.bgImage}
         />
       )
@@ -149,9 +155,9 @@ export default class ImgButton extends React.Component {
         {timestamp}
         <ListItem style={{ height: "100%" }}>
           <div className="center">
-            <div className={"imgButton imgButtonCenter " + equalClass}>
+            <div className={"imgButton imgButtonCenter " + equalClass} style={{ height: "95%", display: "grid" }}>
               <Button
-                style={{ margin: "auto", padding: 0, background: "transparent" }}
+                style={{ height: "100%", margin: "auto", padding: 0, background: "transparent" }}
                 onClick={this.sendValue.bind(this)} >
                 {buttomImage}
               </Button>
