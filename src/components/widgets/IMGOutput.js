@@ -19,58 +19,20 @@ export default class IMGOutput extends React.Component {
           imgkey: s.imgkey + 1,
           lastUpdateDate: Date.now(),
         })),
-      this.props.IMGUpdateInterval
+      30000 // 5 minutes
     );
-  }
-
-  componentWillMount() {
-    // console.dir(this.props.states);
-    // console.log(typeof this.props.states[this.props.stateId]);
-    if (this.props.urlFromState && this.props.urlFromState === true) {
-      if (this.props.stateId && this.props.stateId.length > 5) {
-        if (typeof this.props.states[this.props.stateId] === "undefined") {
-          if (this._stateId_subscribed === false) {
-            // Subscribe state
-            // console.log("Subscribe " + this.props.stateId);
-            this.props.socket.emit("subscribe", this.props.stateId);
-            this._stateId_subscribed = true;
-            // Read state
-            this.props.socket.emit(
-              "getStates",
-              [this.props.stateId],
-              function (err, states) {
-                // console.log("Received States");
-                // console.dir(states);
-                // eintragen
-                this.setState({
-                  val: states[this.props.stateId].val,
-                  ts: states[this.props.stateId].ts,
-                });
-              }.bind(this)
-            );
-          }
-        } else {
-          // console.log("Read " + this.props.stateId);
-          this.setState({
-            val: this.props.states[this.props.stateId].val,
-            ts: this.props.states[this.props.stateId].ts,
-          });
-        }
-      }
-    }
-
   }
 
   render() {
     // console.log("render ImgOutput");
     // console.log(this.state);
-    // console.log(this.props.stateId);
-    // console.log(this.props.states[this.props.stateId].val);
+    // console.log(this.props.widgetData.stateId);
+    // console.log(this.props.widgetData.states[this.props.widgetData.stateId].val);
 
     let ts = this.state.ts || moment();
 
     let timestamp = null;
-    if (this.props.timestamp && this.props.timestamp === true) {
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
       timestamp = (
         <ListHeader>
           <span
@@ -83,20 +45,28 @@ export default class IMGOutput extends React.Component {
       );
     }
 
-    let imgUrl = this.props.IMGUrl;
-    if ( this.props.urlFromState && this.props.urlFromState === true ) {
-      imgUrl = this.props.states[this.props.stateId].val || "";
+    let imgUrl = this.props.widgetData.url;
+    if (
+      this.props.widgetData.urlFromState &&
+      this.props.widgetData.urlFromState === true
+    ) {
+      if (
+        this.props.widgetData.states[this.props.widgetData.stateId] &&
+        this.props.widgetData.states[this.props.widgetData.stateId].received === true
+      ) {
+        imgUrl = this.props.widgetData.states[this.props.widgetData.stateId].val;
+      }
     }
     let imgStyle = { height: "100%", width: "auto" }; // scale 100% Width
-    if ( this.props.scaleWidth && this.props.scaleWidth === true ) {
+    if (this.props.widgetData.scaleWidth && this.props.widgetData.scaleWidth === true) {
       imgStyle = { height: "auto", width: "100%" };
-    } 
+    }
 
     return (
-      <List id={this.props.UUID} style={{height: "100%"}} className="imgoutput">
+      <List id={this.props.widgetData.UUID} style={{ height: "100%" }} className="imgoutput">
         {timestamp}
-        <ListItem style={{height: "100%"}}>
-          <div className="imgoutput" style={{height: "100%"}}>
+        <ListItem style={{ height: "100%" }}>
+          <div className="imgoutput" style={{ height: "100%" }}>
             <img
               key={this.state.imgKey}
               style={imgStyle}

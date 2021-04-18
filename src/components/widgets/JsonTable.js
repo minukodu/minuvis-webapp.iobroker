@@ -26,42 +26,6 @@ export default class JsonTable extends React.Component {
     };
   }
 
-  componentWillMount() {
-    // console.dir(this.props.states);
-    // console.log(typeof this.props.states[this.props.stateId]);
-
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // console.log("Received States");
-            // console.dir(states);
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      // console.log("Read " + this.props.stateId);
-      try {
-        this.setState({
-          val: this.props.states[this.props.stateId].val,
-          ts: this.props.states[this.props.stateId].ts,
-        });
-      } catch (e) {}
-    }
-  }
-
   render() {
     // init
     let val = '[{"noData":"noData"}]';
@@ -69,15 +33,14 @@ export default class JsonTable extends React.Component {
     let ts = moment();
 
     // read value and timestamp from props if available
-    console.log(this.props.stateId);
-    console.log(this.props.states[this.props.stateId]);
+    // console.log(this.props.widgetData.stateId);
+    // console.log(this.props.widgetData.states[this.props.widgetData.stateId]);
     if (
-      typeof this.props.states[this.props.stateId] !== "undefined" &&
-      this.props.states[this.props.stateId] &&
-      this.props.states[this.props.stateId].val
+      this.props.widgetData.states[this.props.widgetData.stateId] &&
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true
     ) {
-      val = this.props.states[this.props.stateId].val;
-      ts = this.props.states[this.props.stateId].ts;
+      val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+      ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     }
 
     //val = '[{"ts":1601652352418,"time":"2020-10-02T17:25:52.418","zone":"Badezimmer","trigger":"Motion Bathroom","targetsAll":"Bathroom Light","targetsSet":"","targetsSkipped":"Bathroom Light","motionTimer":10,"alwaysOffTimer":0}]';
@@ -90,13 +53,13 @@ export default class JsonTable extends React.Component {
     console.log(data);
 
     // column headers
-    let colHeaders = this.props.colheader.split(",");
+    let colHeaders = this.props.widgetData.colheader.split(",");
     // column widths
-    let colSizes = this.props.colsize.split(",");
+    let colSizes = this.props.widgetData.colsize.split(",");
     // lineBreaks
-    let lineBreaks = this.props.lineBreaks.split(",");
+    let lineBreaks = this.props.widgetData.lineBreaks.split(",");
     // contentTypes
-    let contentTypes = this.props.contentTypes.split(",");
+    let contentTypes = this.props.widgetData.contentTypes.split(",");
     console.log("contentTypes");
     console.log(contentTypes);
     
@@ -144,7 +107,7 @@ export default class JsonTable extends React.Component {
 
 
     let timestamp = null;
-    if (this.props.timestamp && this.props.timestamp === true) {
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
       timestamp = (
         <ListHeader>
           <span
@@ -158,15 +121,15 @@ export default class JsonTable extends React.Component {
     }
 
     return (
-      <List id={this.props.UUID}>
+      <List id={this.props.widgetData.UUID}>
           {timestamp}
           <ListItem>
             <ReactTable
               className={"jsontable alarmtable"}
               data={data}
               columns={columns}
-              defaultPageSize={this.props.rowsPerPage}
-              minRows={this.props.rowsPerPage}
+              defaultPageSize={this.props.widgetData.rowsPerPage}
+              minRows={this.props.widgetData.rowsPerPage || 5}
               previousText="prev"
               nextText="next"
               loadingText="Loading..."

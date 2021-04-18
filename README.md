@@ -24,6 +24,13 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.0.0-beta.1 (2021-04-18)
+* (svallant) color for headline
+* (svallant) "noIcon"-Icon to hide icon
+* (svallant) code- and performance improvements
+* (svallant) configfile version check
+* (svallant) "noIcon"-icon
+
 ### 2.0.0-alpha.2 (2021-04-05)
 * (svallant) scaleWidth for imgoutpout and imgbutton
 * (svallant) classes for headline

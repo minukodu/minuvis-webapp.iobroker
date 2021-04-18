@@ -14,10 +14,6 @@ export default class MainController extends React.Component {
     this.StateIDNbAlarms = "";
     this.usedVariables = [];
     this.socket = null;
-
-    //#########################################################################
-    this.version = "2.0.0-alpha.2";
-    //#########################################################################
   }
 
   loadVariableNames = () => {
@@ -58,6 +54,7 @@ export default class MainController extends React.Component {
     for (let v in MyVariableNames) {
       states[MyVariableNames[v]] = {};
       states[MyVariableNames[v]].val = null;
+      states[MyVariableNames[v]].received = false;
       this.usedVariables.push(MyVariableNames[v]);
     }
     for (let v in this.props.usedStates) {
@@ -108,6 +105,7 @@ export default class MainController extends React.Component {
         // "normale" Variable
         let states = this.state.states;
         states[id] = state;
+        states[id].received = true;
         this.setState({
           states: states,
         });
@@ -118,7 +116,7 @@ export default class MainController extends React.Component {
       console.info(new Date() + " Connected HausController");
 
       // variablen subscriben und holen
-      this.socket.emit("name", "minukodu.0");
+      this.socket.emit("name", "minuvis.0");
       this.socket.emit("subscribe", this.usedVariables);
       console.log("Variables subscribed");
 
@@ -131,6 +129,13 @@ export default class MainController extends React.Component {
             new Date() + " Received " + Object.keys(_states).length + " states."
           );
           let states = _states;
+          // console.log("states");
+          // console.log(states);
+          for (var stateID in states) {
+            if (states[stateID]) {
+              states[stateID].received = true;
+            }
+          }
           //console.debug (states);
           this.setState({
             socket: this.socket,
@@ -178,7 +183,7 @@ export default class MainController extends React.Component {
                 : 0
             }
             connected={this.state._socket_connected}
-            version={this.version}
+            version={this.props.version}
           />
         </div>
       );

@@ -437,9 +437,13 @@ export default class RoundSlider extends React.Component {
         //console.log("iconSize: " + iconSize);
 
         let displayIcon = "block";
-        if ( this.parentRect.height < 70 ) {
+        if (this.parentRect.height < 70) {
             displayIcon = "none";
         }
+        if (this.props.settings.iconFamily === "noIcon") {
+            displayIcon = "none";
+        }
+
         return (
             <div>
                 <svg
@@ -497,10 +501,10 @@ export default class RoundSlider extends React.Component {
                     style={{
                         display: displayIcon,
                         position: "absolute",
-                        left: 
+                        left:
                             this.props.settings.iconFamily === "mdi-icon"
-                                ? "calc(50% - " + (iconSize * 0.5 ) / 2 + "px)"
-                                : "calc(50% - " + (iconSize * 0.7 ) / 2 + "px)",
+                                ? "calc(50% - " + (iconSize * 0.5) / 2 + "px)"
+                                : "calc(50% - " + (iconSize * 0.7) / 2 + "px)",
                         top:
                             this.props.settings.iconFamily === "mdi-icon"
                                 ? this.parentRect.height - iconSize / 2 + "px"

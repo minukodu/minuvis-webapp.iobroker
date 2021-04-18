@@ -44,6 +44,14 @@ ons-col {
   border-left: 1px solid #5c5c5c;
 }
 
+.ConfigMessageLink {
+  background: white;
+  color: black;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin: 10px;
+}
+
 .list-header {
   font-size: 8px !important;
   min-height: 12px !important;
@@ -240,6 +248,10 @@ ons-col.slider-col {
   background-image: linear-gradient(#fff, #fff) !important;
 }
 
+.sliderWidget .input-range {
+  min-height: 50px;
+}
+
 .hue-picker {
   width: 50%;
 }
@@ -392,6 +404,15 @@ ons-col.alarm-col {
   opacity: 1;
 }
 
+.valueSwitcherBtnList .btn-noIcon {
+  min-height: 63px;
+  align-items: center;
+}
+
+.valueSwitcherBtnList .btn-noIcon .valueSwitcherIcon {
+  display: none;
+}
+
 /* end valueSwitcher */
 
 /* Start FLOT Iframe */
@@ -423,6 +444,17 @@ ons-col.alarm-col {
   margin-top: -1px;
 }
 /* Ende ColorPicker */
+
+/* Start LinkButton */
+
+.linkbutton .button {
+  align-items: center;
+  justify-content: center;
+  min-height: 37px;
+}
+
+
+/* Ende LinkButton */
 
 /* Start Alarmsystem */
 

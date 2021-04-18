@@ -6,7 +6,6 @@ moment.locale("de-DE");
 export default class TextInput extends React.Component {
   constructor() {
     super();
-    this._stateId_subscribed = false;
     this.state = {
       val: false,
       ts: moment(),
@@ -18,7 +17,7 @@ export default class TextInput extends React.Component {
     console.log("onChange TextInput");
     console.log(e);
     console.log(e.target.value);
-    this.props.socket.emit("setState", this.props.stateId, e.target.value);
+    this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, e.target.value);
     // State nachführen
     this.setState({
       val: e.target.value,
@@ -26,47 +25,17 @@ export default class TextInput extends React.Component {
     });
   }
 
-  componentWillMount() {
-    // console.log("componentWillMount Switch");
-
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // console.log("Received States");
-            // console.dir(states);
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      // console.log("Read " + this.props.stateId);
-      this.setState({
-        val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts,
-      });
-    }
-  }
-
   render() {
     // init
     let val = "";
     let ts = moment();
 
-    if (this.props.states[this.props.stateId] && typeof this.props.states[this.props.stateId] !== "undefined") {
-      val = this.props.states[this.props.stateId].val;
-      ts = this.props.states[this.props.stateId].ts;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateId] &&
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true
+    ) {
+      val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+      ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     } else {
       // read from this.state
       val = this.state.val;
@@ -77,7 +46,7 @@ export default class TextInput extends React.Component {
     ts = ts || moment();
 
     let timestamp = null;
-    if (this.props.timestamp && this.props.timestamp === true) {
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
       timestamp = (
         <ListHeader>
           <span
@@ -91,14 +60,14 @@ export default class TextInput extends React.Component {
     }
 
     return (
-      <List id={this.props.UUID}>
+      <List id={this.props.widgetData.UUID}>
         {timestamp}
         <ListItem>
           <div className="center">
             <Input
               style={{ width: "99%" }}
               value={val.toString()}
-              disabled={!this.props.connected}
+              disabled={!this.props.widgetData.connected}
               onChange={this.sendValue.bind(this)}
             ></Input>
           </div>

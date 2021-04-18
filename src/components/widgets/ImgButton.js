@@ -6,7 +6,6 @@ moment.locale("de-DE");
 export default class ImgButton extends React.Component {
   constructor() {
     super();
-    this._stateId_subscribed = false;
     this.state = {
       val: "false",
       ts: moment(),
@@ -16,15 +15,15 @@ export default class ImgButton extends React.Component {
   sendValue() {
 
     // check Value and target-type
-    var valueToSend = this.props.setValue;
-    if (this.props.stateIdType === "boolean") {
-      valueToSend = this.stringToBoolean(this.props.setValue);
-    } else if (this.props.stateIdType === "number") {
-      valueToSend = parseFloat(this.props.setValue);
+    var valueToSend = this.props.widgetData.setValue;
+    if (this.props.widgetData.stateIdType === "boolean") {
+      valueToSend = this.stringToBoolean(this.props.widgetData.setValue);
+    } else if (this.props.widgetData.stateIdType === "number") {
+      valueToSend = parseFloat(this.props.widgetData.setValue);
     }
     // Send
-    console.log("imgButton Send: " + this.props.stateId + ":" + valueToSend);
-    this.props.socket.emit("setState", this.props.stateId, valueToSend);
+    console.log("imgButton Send: " + this.props.widgetData.stateId + ":" + valueToSend);
+    this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, valueToSend);
 
   }
 
@@ -55,40 +54,6 @@ export default class ImgButton extends React.Component {
     }
   }
 
-  componentWillMount() {
-    // console.log("componentWillMount ImgButton");
-
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      // console.log("Read " + this.props.stateId);
-      if (this.props.states[this.props.stateId] != null) {
-        this.setState({
-          val: this.props.states[this.props.stateId].val,
-          ts: this.props.states[this.props.stateId].ts,
-        });
-      };
-    }
-
-  }
-
   render() {
     // init
     // console.log("init imgButton");
@@ -96,9 +61,11 @@ export default class ImgButton extends React.Component {
     let val = "false";
     let ts = moment();
 
-    if (typeof this.props.states[this.props.stateId] !== "undefined" && this.props.states[this.props.stateId] != null) {
-      val = this.props.states[this.props.stateId].val;
-      ts = this.props.states[this.props.stateId].ts;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateId] && 
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true ) {
+      val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+      ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     } else {
       // read from this.state
       val = this.state.val;
@@ -106,7 +73,7 @@ export default class ImgButton extends React.Component {
     }
 
     let timestamp = null;
-    if (this.props.timestamp && this.props.timestamp === true) {
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
       timestamp = (
         <ListHeader>
           <span
@@ -123,35 +90,35 @@ export default class ImgButton extends React.Component {
     if (val === null) {val = "false"};
     
     let valueString = val.toString();
-    if (this.props.stateIdType === "boolean" && val === true) {
+    if (this.props.widgetData.stateIdType === "boolean" && val === true) {
       valueString = "true";
     }
-    if (this.props.stateIdType === "boolean" && val === false) {
+    if (this.props.widgetData.stateIdType === "boolean" && val === false) {
       valueString = "false";
     }
     let equalClass = "notEqual";
-    if (valueString == this.props.setValue) {
+    if (valueString == this.props.widgetData.setValue) {
       equalClass = "isEqual";
     }
 
     // check image
     let buttomImage = "no image";
     let imgStyle = { height: "100%", width: "auto" }; // scale 100% Width
-    if ( this.props.scaleWidth && this.props.scaleWidth === true ) {
+    if ( this.props.widgetData.scaleWidth && this.props.widgetData.scaleWidth === true ) {
       imgStyle = { height: "auto", width: "100%" };
     } 
-    if (this.props.bgImage.length > 5) {
+    if (this.props.widgetData.bgImage.length > 5) {
       buttomImage = (
         <img
           className={"imgButtonImage"}
           // style={{ width: "100%", height: "auto" }}
           style={imgStyle}
-          src={this.props.bgImage}
+          src={this.props.widgetData.bgImage}
         />
       )
     }
     return (
-      <List id={this.props.UUID} style={{ height: "100%" }}>
+      <List id={this.props.widgetData.UUID} style={{ height: "100%" }}>
         {timestamp}
         <ListItem style={{ height: "100%" }}>
           <div className="center">

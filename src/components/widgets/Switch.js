@@ -6,7 +6,6 @@ moment.locale("de-DE");
 export default class MySwitch extends React.Component {
   constructor() {
     super();
-    this._stateId_subscribed = false;
     this.state = {
       val: false,
       ts: moment(),
@@ -14,7 +13,7 @@ export default class MySwitch extends React.Component {
   }
 
   sendValue(e) {
-    this.props.socket.emit("setState", this.props.stateId, e.target.checked);
+    this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, e.target.checked);
     // State nachführen
     this.setState({
       val: e.target.checked,
@@ -49,47 +48,17 @@ export default class MySwitch extends React.Component {
     }
   }
 
-  componentWillMount() {
-    // console.log("componentWillMount Switch");
-
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // console.log("Received States");
-            // console.dir(states);
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      // console.log("Read " + this.props.stateId);
-      this.setState({
-        val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts,
-      });
-    }
-  }
-
   render() {
     // init
     let val = false;
     let ts = moment();
 
-    if (typeof this.props.states[this.props.stateId] !== "undefined") {
-      val = this.props.states[this.props.stateId].val;
-      ts = this.props.states[this.props.stateId].ts;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateId] &&
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true
+    ) {
+      val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+      ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     } else {
       // read from this.state
       val = this.state.val;
@@ -97,7 +66,7 @@ export default class MySwitch extends React.Component {
     }
 
     let timestamp = null;
-    if (this.props.timestamp && this.props.timestamp === true) {
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
       timestamp = (
         <ListHeader>
           <span
@@ -111,19 +80,19 @@ export default class MySwitch extends React.Component {
     }
 
     return (
-        <List id={this.props.UUID}>
-          {timestamp}
-          <ListItem>
-            <div className="center">
-              <Switch
-                disabled={!this.props.connected}
-                onChange={this.sendValue.bind(this)}
-                checked={this.stringToBoolean(val)}
-                class={"switchMargin"}
-              ></Switch>
-            </div>
-          </ListItem>
-        </List>
+      <List id={this.props.widgetData.UUID}>
+        {timestamp}
+        <ListItem>
+          <div className="center">
+            <Switch
+              disabled={!this.props.widgetData.connected}
+              onChange={this.sendValue.bind(this)}
+              checked={this.stringToBoolean(val)}
+              class={"switchMargin"}
+            ></Switch>
+          </div>
+        </ListItem>
+      </List>
     );
   }
 }

@@ -13,12 +13,15 @@ export default class IframeOutput extends React.Component {
           iframeKey: s.iframeKey + 1,
           lastUpdateDate: Date.now(),
         })),
-      this.props.IframeUpdateInterval
+      this.props.widgetData.updateTimeSek * 1000
     );
   }
   render() {
+    // console.log("render Iframe");
+    // console.log(this.props);
+    
     let timestamp = null;
-    if (this.props.timestamp && this.props.timestamp === true) {
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
       timestamp = (
         <ListHeader>
           <span
@@ -30,19 +33,19 @@ export default class IframeOutput extends React.Component {
         </ListHeader>
       );
     }
-    let height = this.props.widgetHeight * this.props.rowHeight;
+    let height = this.props.widgetData.widgetHeight * this.props.widgetData.rowHeight;
     height = height + "px";
 
     return (
-      <List id={this.props.UUID} class={"iframeoutput"}>
+      <List id={this.props.widgetData.UUID} class={"iframeoutput"}>
         {timestamp}
         <ListItem>
           <div className="iframeoutput" style={{ width: 100 + "%" }}>
             <iframe
               key={this.state.iframeKey}
-              src={this.props.IframeUrl}
+              src={this.props.widgetData.url}
               style={{
-                width: this.props.IframeWidth,
+                width: "100%",
                 height: height,
               }}
               frameBorder="0"

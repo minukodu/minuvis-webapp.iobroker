@@ -29,20 +29,24 @@ export default class Title extends React.Component {
       return <div className={"left titel " + titleIconClass}></div>;
     }
     let transform = "scale(" + fontSize / 100 + ") translate(" + (fontSize - 100) * 0 + "px, " + (fontSize - 100) * 0.07 + "px)";
-    let iconSize = 55*fontSize/100;
-    let iconFontSize = 35*fontSize/100;
+    let iconSize = 55 * fontSize / 100;
+    let iconFontSize = 35 * fontSize / 100;
     let widgetHeight = this.props.widgetHeight * 67;
-    let marginTop = (widgetHeight - iconSize) /2;
-    
+    let marginTop = (widgetHeight - iconSize) / 2;
+    let backgroundColor = "transparent";
+    if (titleIconFamily === "mfd-icon") {
+      backgroundColor = this.props.color;
+    }
+
 
     return (
       <div
         className={"title " + titleIconClass + " " + this.props.classes}
-        style={{ fontSize: fontSize + "%", padding: 0, paddingLeft: paddingLeft + "px"}}
+        style={{ fontSize: fontSize + "%", color: this.props.color, padding: 0, paddingLeft: paddingLeft + "px" }}
       >
         <div style={{ position: "relative", display: "flex", alignItems: "center", marginTop: marginTop + "px", marginRight: "10px", }}>
           <div
-            style={{ fontSize: iconFontSize + "px", lineHeight: (iconSize + iconFontSize)/2 - 5 +"px", width: iconSize +"px", height: iconSize +"px",  }}
+            style={{ color: this.props.color, backgroundColor: backgroundColor, fontSize: iconFontSize + "px", lineHeight: (iconSize + iconFontSize) / 2 - 5 + "px", width: iconSize + "px", height: iconSize + "px", }}
             className={
               "titleIcon " +
               compactModeClass +
@@ -52,7 +56,9 @@ export default class Title extends React.Component {
               titleIcon
             }
           ></div>
-          <div className={"titletext"} >{title}</div>
+          <div className={"titletext"}>
+            {title}
+          </div>
         </div>
       </div>
     );

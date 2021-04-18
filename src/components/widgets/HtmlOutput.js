@@ -6,46 +6,10 @@ moment.locale("de-DE");
 export default class HtmlOutput extends React.Component {
   constructor() {
     super();
-    this._stateId_subscribed = false;
     this.state = {
       val: "no data",
       ts: moment(),
     };
-  }
-
-  componentWillMount() {
-    // console.dir(this.props.states);
-    // console.log(typeof this.props.states[this.props.stateId]);
-
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // console.log("Received States");
-            // console.dir(states);
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      // console.log("Read " + this.props.stateId);
-      this.setState({
-        val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts,
-      });
-    }
-
   }
 
   render() {
@@ -55,9 +19,12 @@ export default class HtmlOutput extends React.Component {
     let val = "no data";
     let ts = moment();
     // read value and timestamp from props if available
-    if (typeof this.props.states[this.props.stateId] !== "undefined") {
-      val = this.props.states[this.props.stateId].val;
-      ts = this.props.states[this.props.stateId].ts;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateId] &&
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true 
+    ) {
+      val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+      ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     } else {
       // read from this.state
       val = this.state.val;
@@ -65,12 +32,12 @@ export default class HtmlOutput extends React.Component {
     }
 
     // inject css
-    let styleToInject = ""; // now globally in myPage.js "<style>" + CSSJSON.toCSS(this.props.css) + "</style>";
+    let styleToInject = ""; // now globally in myPage.js "<style>" + CSSJSON.toCSS(this.props.widgetData.css) + "</style>";
 
     val = styleToInject + val;
 
     let timestamp = null;
-    if (this.props.timestamp && this.props.timestamp === true) {
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
       timestamp = (
         <ListHeader>
           <span
@@ -84,7 +51,7 @@ export default class HtmlOutput extends React.Component {
     }
 
     return (
-      <List id={this.props.UUID} class={"htmloutput"}>
+      <List id={this.props.widgetData.UUID} class={"htmloutput"}>
           {timestamp}
           <ListItem>
             <div style={{ width: 100 + "%" }}>

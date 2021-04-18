@@ -71,55 +71,6 @@ export default class Indicator extends React.Component {
     }
   }
 
-  componentWillMount() {
-    // console.dir(this.props.states);
-    // console.log(typeof this.props.states[this.props.stateId]);
-
-    // special case "always true" for value-switcher usecase
-    console.log("alway true: " + this.props.alwaysTrue)
-    if (this.props.alwaysTrue && this.props.alwaysTrue === true) {
-      this.alwaysTrue = true;
-    }
-    //console.log("always true prop: " + this.props.alwaysTrue)
-    //console.log("always true this: " + this.alwaysTrue)
-
-    if (typeof this.props.states[this.props.stateId] === "undefined" && this.alwaysTrue !== true) {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // console.log("Received States");
-            // console.dir(states);
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      if (this.alwaysTrue !== true) {
-        // console.log("Read " + this.props.stateId);
-        this.setState({
-          val: this.props.states[this.props.stateId].val,
-          ts: this.props.states[this.props.stateId].ts
-        });
-      }
-    }
-
-    // console.log("Switch connected:");
-    // console.log(this.props);
-    // console.log(this.props.connected);
-    // console.log(!this.props.connected);
-  }
-
   render() {
     //console.debug("Render Indicator");
 
@@ -128,9 +79,11 @@ export default class Indicator extends React.Component {
     let ts = moment();
     if (this.alwaysTrue !== true) {
       // read value and timestamp from props if available
-      if (typeof this.props.states[this.props.stateId] !== "undefined") {
-        val = this.props.states[this.props.stateId].val;
-        ts = this.props.states[this.props.stateId].ts;
+      if (
+        this.props.widgetData.states[this.props.widgetData.stateId] &&
+        this.props.widgetData.states[this.props.widgetData.stateId].received) {
+        val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+        ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
       } else {
         // read from this.state
         val = this.state.val;
@@ -144,18 +97,18 @@ export default class Indicator extends React.Component {
 
     let strValue = this.stringToBoolean(val, false).toString();
 
-    let iconColor = this.props.colorWhenFalse;
+    let iconColor = this.props.widgetData.colorWhenFalse;
     let bgIconColor = "transparent";
     if (this.stringToBoolean(val, false)) {
-      iconColor = this.props.colorWhenTrue;
+      iconColor = this.props.widgetData.colorWhenTrue;
     }
 
-    if (this.props.iconFamily === "mfd-icon") {
+    if (this.props.widgetData.iconFamily === "mfd-icon") {
       bgIconColor = iconColor;
     }
 
     let timestamp = null;
-    if (this.props.timestamp && this.props.timestamp === true) {
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
       timestamp = (
         <ListHeader>
           <span className="right lastupdate" style={{ float: 'right', paddingRight: '5px' }}>{moment(ts).format('DD.MM.YY HH:mm')}</span>
@@ -163,28 +116,24 @@ export default class Indicator extends React.Component {
       )
     }
 
-    let fontSize = "100%";
-    let compactModeClass = "";
-
-    if (this.props.compactMode === true) {
-      timestamp = null;
-      fontSize = "80%";
-      compactModeClass = "compactMode";
+    let displayIcon = "block";
+    if (this.props.widgetData.iconFamily === "noIcon") {
+      displayIcon = "none";
     }
 
     return (
-      <List id={this.props.UUID}>
+      <List id={this.props.widgetData.UUID}>
         {timestamp}
         <ListItem>
           <div className="center">
-            <div className={"indicatoriconCenter " + this.props.iconFamily}>
+            <div className={"indicatoriconCenter " + this.props.widgetData.iconFamily}>
               <span
-                style={{ background: bgIconColor, color: iconColor }}
+                style={{ display: displayIcon, background: bgIconColor, color: iconColor }}
                 className={
                   "indicatoricon " +
-                  this.props.iconFamily +
+                  this.props.widgetData.iconFamily +
                   " " +
-                  this.props.icon +
+                  this.props.widgetData.icon +
                   " " +
                   strValue
                 }

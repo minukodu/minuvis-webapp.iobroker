@@ -7,30 +7,31 @@ export default function HeadLine(props) {
   console.log(props);
 
   let header = null;
-  if (props.timestamp && props.timestamp === true) {
+  if (props.widgetData.timestamp && props.widgetData.timestamp === true) {
     header = (
       <ListHeader>
       </ListHeader>
     );
   }
-  let fontSize = props.fontSize || 100;
-  let classes = props.classes || "left";
+  let fontSize = props.widgetData.fontSize || 100;
+  let classes = props.widgetData.classes || "left";
 
   return (
     <Col
-      id={props.UUID}
+      id={props.widgetData.UUID}
       className={"filler headline " + classes} >
       <List>
         {header}
         <ListItem style={{ padding: 0 }}>
           <Title
-            title={props.title}
-            titleIcon={props.titleIcon}
-            titleIconFamily={props.titleIconFamily}
+            title={props.widgetData.title}
+            titleIcon={props.widgetData.titleIcon}
+            titleIconFamily={props.widgetData.titleIconFamily}
             fontSize={fontSize}
-            compactMode={props.compactMode}
+            compactMode={props.widgetData.compactMode}
             classes={classes}
-            widgetHeight={props.widgetHeight}
+            widgetHeight={props.widgetData.widgetHeight}
+            color={props.widgetData.color}
           />
         </ListItem>
       </List>

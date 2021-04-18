@@ -36,19 +36,19 @@ export default class Donut extends React.Component {
 
     // console.log("circleOnChange toSend: " + valueToSend);
 
-    valueToSend = stepperFloat(valueToSend, this.props.step);
+    valueToSend = stepperFloat(valueToSend, this.props.widgetData.step);
 
     // console.log("circleOnChange toSend after stepper: " + valueToSend);
 
-    if (this.props.stateIdType === "number") {
+    if (this.props.widgetData.stateIdType === "number") {
       valueToSend = parseFloat(valueToSend);
     }
     // Send only if not updateOnComplete
-    if (this.props.updateOnComplete === false) {
-      this.props.socket.emit('setState', this.props.stateId, valueToSend);
+    if (this.props.widgetData.updateOnComplete === false) {
+      this.props.widgetData.socket.emit('setState', this.props.widgetData.stateId, valueToSend);
     }
-    //this.props.socket.emit('setState', this.props.stateId, valueToSend);
-    //console.debug(this.props.stateId + " :: " + valueToSend);
+    //this.props.widgetData.socket.emit('setState', this.props.widgetData.stateId, valueToSend);
+    //console.debug(this.props.widgetData.stateId + " :: " + valueToSend);
     // State nachführen
     this.setState({
       val: valueToSend,
@@ -64,21 +64,21 @@ export default class Donut extends React.Component {
 
     let valueToSend = parseFloat(value) * (parseFloat(this.max) - parseFloat(this.min)) + parseFloat(this.min);
 
-    valueToSend = valueToSend = stepperFloat(valueToSend.toFixed(this.decimals), this.props.step);
+    valueToSend = valueToSend = stepperFloat(valueToSend.toFixed(this.decimals), this.props.widgetData.step);
 
     // console.log("circleOnChangeEnd toSend: " + valueToSend);
 
-    if (this.props.stateIdType === "number") {
+    if (this.props.widgetData.stateIdType === "number") {
       valueToSend = parseFloat(valueToSend);
     }
     // Send only if not updateOnComplete
-    // if (this.props.updateOnComplete === false) {
-    this.props.socket.emit('setState', this.props.stateId, valueToSend, function (error, message) {
+    // if (this.props.widgetData.updateOnComplete === false) {
+    this.props.widgetData.socket.emit('setState', this.props.widgetData.stateId, valueToSend, function (error, message) {
       this.changing = false;
     }.bind(this));
     // }
-    //this.props.socket.emit('setState', this.props.stateId, valueToSend);
-    //console.debug(this.props.stateId + " :: " + valueToSend);
+    //this.props.widgetData.socket.emit('setState', this.props.widgetData.stateId, valueToSend);
+    //console.debug(this.props.widgetData.stateId + " :: " + valueToSend);
     // State nachführen
     this.setState({
       val: valueToSend,
@@ -90,64 +90,21 @@ export default class Donut extends React.Component {
 
   }
 
-
-  componentWillMount() {
-    // console.log("componentWillMount Donut");
-    // console.dir(this.props.states);
-    // console.log(typeof this.props.states[this.props.stateId]);
-
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // console.log("Received States");
-            // console.dir(states);
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      // console.log("Read " + this.props.stateId);
-      this.setState({
-        val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts,
-      });
-    }
-
-    // console.log("Switch connected:");
-    // console.log(this.props);
-    // console.log(this.props.connected);
-    // console.log(!this.props.connected);
-  }
-
   render() {
     // console.log("render Donut");
-    // console.log(this.props.states[this.props.stateId]);
+    // console.log(this.props.widgetData.states[this.props.widgetData.stateId]);
     // console.log(this.changing);
     // console.log("this.val: " + this.val);
     // console.log("this.ts: " + this.ts);
     // console.log("this.changing: " + this.changing);
     // read value and timestamp from props if available
     if (
-      this.props.states[this.props.stateId] &&
-      typeof this.props.states[this.props.stateId] !== "undefined" &&
+      this.props.widgetData.states[this.props.widgetData.stateId] &&
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true &&
       this.changing === false
-      // this.props.states[this.props.stateId].ts &&
-      // this.props.states[this.props.stateId].ts !== this.ts
     ) {
-      this.val = this.props.states[this.props.stateId].val || 0;
-      this.ts = this.props.states[this.props.stateId].ts;
+      this.val = this.props.widgetData.states[this.props.widgetData.stateId].val || 0;
+      this.ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     } else {
       // read from this.state
       this.val = this.val || 0;
@@ -159,7 +116,7 @@ export default class Donut extends React.Component {
     // console.log("this.ts: " + this.ts);
 
     let timestamp = null;
-    if (this.props.timestamp && this.props.timestamp === true) {
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
       timestamp = (
         <ListHeader>
           <span
@@ -172,8 +129,8 @@ export default class Donut extends React.Component {
       );
     }
 
-    this.min = this.props.min;
-    this.max = this.props.max;
+    this.min = this.props.widgetData.min;
+    this.max = this.props.widgetData.max;
 
 
     // check min and max
@@ -186,18 +143,15 @@ export default class Donut extends React.Component {
     if (this.val < this.min) { this.val = this.min; };
     if (this.val > this.max) { this.val = this.max; };
 
-
-
-
     // circular
     const rangeValue = (parseFloat(this.val) - parseFloat(this.min)) / (parseFloat(this.max) - parseFloat(this.min));
     console.log("rangeValue: " + rangeValue);
 
-    // this.decimals = countDecimals(this.props.step);
+    // this.decimals = countDecimals(this.props.widgetData.step);
     // console.log("this.decimals: " + this.decimals);
 
     // decimals
-    this.decimals = this.props.decimals;
+    this.decimals = this.props.widgetData.decimals;
     if (this.decimals < 0) { this.decimals = 0 };
     if (this.decimals > 5) { this.decimals = 5 };
 
@@ -209,7 +163,7 @@ export default class Donut extends React.Component {
     let progessStroke = "var(--highlight-color)";
     let thumb = (
       <CircularThumb
-        key={"cth_" + this.props.UUID}
+        key={"cth_" + this.props.widgetData.UUID}
         r={6}
         strokeWidth={2}
         fill={"var(--highlight-color)"}
@@ -217,71 +171,45 @@ export default class Donut extends React.Component {
       />
     );
     // calculate size:
-    let inputRadius = this.props.widgetHeight / 3 * 75; // 3 grids high = 70px radius
-    let textFontsize = this.props.widgetHeight / 3 * 20; // 3 grids high = 20px fontSize
+    let inputRadius = this.props.widgetData.widgetHeight / 3 * 75; // 3 grids high = 70px radius
+    let textFontsize = this.props.widgetData.widgetHeight / 3 * 20; // 3 grids high = 20px fontSize
 
 
     // handle readOnly    
-    if (this.props.readOnly === true) {
+    if (this.props.widgetData.readOnly === true) {
       onChangeFunction = null;
       onChangeEndFunction = null;
       progessStrokeWidth = 10;
       thumb = null;
-      progessStroke = this.props.color;
-      if (this.val <= this.props.minValue) {
-        progessStroke = this.props.minColor;
+      progessStroke = this.props.widgetData.color;
+      if (this.val <= this.props.widgetData.minValue) {
+        progessStroke = this.props.widgetData.minColor;
       }
-      if (this.val >= this.props.maxValue) {
-        progessStroke = this.props.maxColor;
+      if (this.val >= this.props.widgetData.maxValue) {
+        progessStroke = this.props.widgetData.maxColor;
       }
     }
 
-    let height = this.props.widgetHeight * 57;
+    let height = this.props.widgetData.widgetHeight * 57;
     let width = height;
 
     return (
-      <List id={this.props.UUID} class={"donutWidget"} >
+      <List id={this.props.widgetData.UUID} class={"donutWidget"} >
         {timestamp}
-
         <ListItem>
           <div
-            id={"rs-" + this.props.UUID}
+            id={"rs-" + this.props.widgetData.UUID}
             style={{
               width: width + "px",
               height: height + "px",
               margin: "auto",
             }}>
             <RoundSlider
-              parentId={"rs-" + this.props.UUID}
-              settings={this.props}
+              parentId={"rs-" + this.props.widgetData.UUID}
+              settings={this.props.widgetData}
             />
           </div>
         </ListItem>
-
-        {/* <ListItem>
-          <div style={{ margin: "auto" }}>
-            <CircularInput
-              key={"ci_" + this.props.UUID}
-              value={rangeValue}
-              radius={inputRadius}
-              onChange={onChangeFunction}
-              onChangeEnd={onChangeEndFunction}>
-              <CircularTrack
-                key={"ct_" + this.props.UUID}
-                strokeWidth={2}
-                stroke="var(--material-switch-active-background-color)" />
-              <CircularProgress
-                key={"cp_" + this.props.UUID}
-                strokeWidth={progessStrokeWidth}
-                stroke={progessStroke}
-              />
-              {thumb}
-              <text x={inputRadius} y={inputRadius} fontSize={textFontsize + "px"} fill="var(--text-color)" textAnchor="middle" dy="0.3em">
-                {fixOutputFloat(this.val, this.decimals) + this.props.unit}
-              </text>
-            </CircularInput>
-          </div>
-        </ListItem> */}
       </List>
     );
   }
