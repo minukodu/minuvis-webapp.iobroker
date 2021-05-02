@@ -50,7 +50,7 @@ export default class myPage extends React.Component {
     this.props.showMenu();
   }
 
-  pushPage() {}
+  pushPage() { }
 
   render() {
     console.log("render mypage " + this.props.pageConfig.title);
@@ -83,6 +83,7 @@ export default class myPage extends React.Component {
 
         switch (widgetData.type) {
           case "card":
+            widgetData.pageLinks = this.props.pageLinks;
             widget = <MyCard widgetData={widgetData} />;
             break;
           case "datetime":
@@ -144,6 +145,7 @@ export default class myPage extends React.Component {
             widget = <ValueSwitcher widgetData={widgetData} />;
             break;
           case "linkbutton":
+            widgetData.pageLinks = this.props.pageLinks;
             widget = <LinkButton widgetData={widgetData} />;
             break;
           case "filler":

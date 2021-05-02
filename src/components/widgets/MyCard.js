@@ -125,6 +125,7 @@ export default class MyCard extends React.Component {
             widget = <ValueSwitcher widgetData={widgetData} />;
             break;
           case "linkbutton":
+            widgetData.pageLinks = this.props.widgetData.pageLinks;
             widget = <LinkButton widgetData={widgetData} />;
             break;
           case "filler":

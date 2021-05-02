@@ -70,6 +70,7 @@ ons-col {
 
 .list-item {
   min-height: 55px;
+  height: 100%;
 }
 
 .button.modalCloseButton {
@@ -106,7 +107,8 @@ ons-col {
 }
 
 .titletext {
-  padding-top: 5px;
+  /* padding-top: 5px; */
+  padding-left: 10px;
   display: inline-block;
 }
 
@@ -130,11 +132,6 @@ ons-col {
 .notitleIcon .titleIcon {
   display: none;
 }
-
-
-
-
-
 
 .list-item,
 .list-item__center,

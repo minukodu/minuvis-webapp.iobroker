@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.0.0-rc.1 (2021-05-02)
+* (svallant) bug-fix in linkbutton
+
 ### 2.0.0-beta.1 (2021-04-18)
 * (svallant) color for headline
 * (svallant) "noIcon"-Icon to hide icon
