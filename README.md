@@ -24,6 +24,11 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.0.0-rc.2 (2021-05-07)
+* (svallant) zoom for output-widget
+* (svallant) zoom for switch-widget
+* (svallant) update for app-icon
+
 ### 2.0.0-rc.1 (2021-05-02)
 * (svallant) bug-fix in linkbutton
 

@@ -122,7 +122,7 @@ export default class Indicator extends React.Component {
     }
 
     return (
-      <List id={this.props.widgetData.UUID}>
+      <List id={this.props.widgetData.UUID} className="indicator">
         {timestamp}
         <ListItem>
           <div className="center">

@@ -79,8 +79,9 @@ export default class MySwitch extends React.Component {
       );
     }
 
+
     return (
-      <List id={this.props.widgetData.UUID}>
+      <List id={this.props.widgetData.UUID} className="switch" style={{ transform: "scale(" + (this.props.widgetData.zoom || 100)/100 + ")" }}>
         {timestamp}
         <ListItem>
           <div className="center">

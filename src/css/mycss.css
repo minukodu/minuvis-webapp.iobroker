@@ -68,8 +68,16 @@ ons-col {
   color: #ccc !important;
 }
 
+ons-splitter .list-item {
+  border-bottom: none;
+}
+
 .list-item {
   min-height: 55px;
+}
+
+.switch .list-item,
+.output .list-item {
   height: 100%;
 }
 
@@ -127,7 +135,7 @@ ons-col {
 .title .titleIcon {
   float: left;
   position: relative;
-} 
+}
 
 .notitleIcon .titleIcon {
   display: none;
@@ -274,6 +282,9 @@ ons-col.alarm-col {
 .centerWidget {
   position: relative;
   margin: 0 auto;
+}
+.output .centerWidget {
+  padding-bottom: 6px;
 }
 
 /* start myCard */
@@ -449,7 +460,6 @@ ons-col.alarm-col {
   justify-content: center;
   min-height: 37px;
 }
-
 
 /* Ende LinkButton */
 

@@ -27,7 +27,7 @@ export default class Output extends React.Component {
     let val = "---";
     let ts = moment();
     // read value and timestamp from props if available
-    if (this.props.widgetData.states[this.props.widgetData.stateId]  && this.props.widgetData.states[this.props.widgetData.stateId].received === true ) {
+    if (this.props.widgetData.states[this.props.widgetData.stateId] && this.props.widgetData.states[this.props.widgetData.stateId].received === true) {
       val = this.props.widgetData.states[this.props.widgetData.stateId].val;
       ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     } else {
@@ -71,7 +71,7 @@ export default class Output extends React.Component {
     let fontSize = "100%";
 
     return (
-      <List id={this.props.widgetData.UUID}>
+      <List id={this.props.widgetData.UUID} className="output" style={{ transform: "scale(" + (this.props.widgetData.zoom || 100) / 100 + ")" }}>
         {timestamp}
         <ListItem>
           <div className="center" style={{ fontSize }}>
