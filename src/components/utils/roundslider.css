@@ -1,0 +1,44 @@
+:host {
+    display: inline-block;
+    width: 100%;
+  }
+  svg {
+    overflow: visible;
+    display: block;
+  }
+  path {
+    transition: stroke 0.5s ease-out, stroke-width 200ms ease-out;
+  }
+  .slider {
+    fill: none;
+    stroke-width: var(--round-slider-path-width, 3);
+    stroke-linecap: var(--round-slider-linecap, round);
+  }
+  svg[disabled] .bar {
+    stroke: var(--round-slider-disabled-bar-color, darkgray);
+  }
+  g.handles {
+    stroke: var(--highlight-color);
+    stroke-linecap: round;
+    cursor: var(--round-slider-handle-cursor, pointer);
+  }
+  g.low.handle {
+    stroke: var(--round-slider-low-handle-color);
+  }
+  g.high.handle {
+    stroke: var(--round-slider-high-handle-color);
+  }
+  g .overflow {
+    stroke: rgba(0,0,0,0)
+  }
+  svg[disabled] g.handles {
+    stroke: var(--round-slider-disabled-bar-color, darkgray);
+  }
+  .handle:focus {
+    outline: unset;
+  }
+  .valueText {
+    font-size: 0.02em;
+  }
+
+  

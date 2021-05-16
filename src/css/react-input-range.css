@@ -5,7 +5,7 @@
 
 .input-range__slider {
   appearance: none;
-  background: #00828b;
+  background: var(--material-switch-active-thumb-color);
   border: 0px solid #aaa;
   border-radius: 7px;
   cursor: pointer;
@@ -38,7 +38,7 @@
 }
 
 .input-range__label {
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "Roboto", "Noto", sans-serif;
   font-size: 0.8rem;
   transform: translateZ(0);
@@ -80,7 +80,7 @@
 }
 
 .input-range__track {
-  background: #eeeeee;
+  background:  var(--material-switch-active-background-color);
   border-radius: 0.3rem;
   cursor: pointer;
   display: block;
@@ -101,7 +101,7 @@
 }
 
 .input-range__track--active {
-  background: #00828b;
+  background: var(--material-switch-active-thumb-color);
 }
 
 .input-range {

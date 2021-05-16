@@ -2,48 +2,64 @@ import React from "react";
 
 export default class Title extends React.Component {
   render() {
-    let fontSize = "100%";
     let compactModeClass = "";
     let titleIconClass = "titleIcon";
 
-    if (this.props.compactMode === true) {
-      fontSize = "80%";
-      compactModeClass = "compactMode";
-    }
+    let fontSize = this.props.fontSize || 100;
 
     let title = "";
+    let titleText = this.props.title || "NONE";
     let titleIcon = this.props.titleIcon || "audio_play";
     let titleIconFamily = this.props.titleIconFamily || "mfd-icon";
 
-    if (this.props.title === "ICONONLY") {
+    let paddingLeft = 0;
+    if (titleText === "ICONONLY") {
       title = "";
-    } else if (this.props.title.indexOf("NOICON_") == 0) {
-      title = this.props.title.substr(7); // cut 7 characters
+    } else if (titleText.indexOf("NOICON_") == 0) {
+      title = titleText.substr(7); // cut 7 characters
       titleIconClass = "titleIcon notitleIcon";
-    } else if (this.props.title !== "NONE") {
-      title = this.props.title;
+      paddingLeft = 10;
+    } else if (titleIconFamily === "noIcon") {
+      titleIconClass = "titleIcon notitleIcon";
+      title = titleText;
+      paddingLeft = 10;
+    } else if (titleText !== "NONE") {
+      title = titleText;
     } else {
       return <div className={"left titel " + titleIconClass}></div>;
     }
-
+    let transform = "scale(" + fontSize / 100 + ") translate(" + (fontSize - 100) * 0 + "px, " + (fontSize - 100) * 0.07 + "px)";
+    let iconSize = 55 * fontSize / 100;
+    let iconFontSize = 35 * fontSize / 100;
+    let widgetHeight = this.props.widgetHeight * 67;
+    let marginTop = (widgetHeight - iconSize) / 2;
+    let backgroundColor = "transparent";
+    if (titleIconFamily === "mfd-icon") {
+      backgroundColor = this.props.color;
+    }
 
 
     return (
       <div
-        className={"left titel " + titleIconClass + " " + compactModeClass}
-        style={{ fontSize }}
+        className={"title " + titleIconClass + " " + this.props.classes}
+        style={{ fontSize: fontSize + "%", color: this.props.color, padding: 0, paddingLeft: paddingLeft + "px" }}
       >
-        <span
-          className={
-            "titleIcon " +
-            compactModeClass +
-            " " +
-            titleIconFamily +
-            " " +
-            titleIcon
-          }
-        ></span>
-        <span className={"titletext"}>{title}</span>
+        <div style={{ position: "relative", display: "flex", alignItems: "center", marginTop: marginTop + "px", marginRight: "10px", }}>
+          <div
+            style={{ color: this.props.color, backgroundColor: backgroundColor, fontSize: iconFontSize + "px", lineHeight: (iconSize + iconFontSize) / 2 - 5 + "px", width: iconSize + "px", height: iconSize + "px", }}
+            className={
+              "titleIcon " +
+              compactModeClass +
+              " " +
+              titleIconFamily +
+              " " +
+              titleIcon
+            }
+          ></div>
+          <div className={"titletext"}>
+            {title}
+          </div>
+        </div>
       </div>
     );
   }
