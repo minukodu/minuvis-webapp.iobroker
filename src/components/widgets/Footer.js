@@ -1,19 +1,18 @@
 import React from "react";
+import { List, ListItem } from "react-onsenui";
 
 export default class Footer extends React.Component {
   render() {
     return (
-      <ons-col className={"appFooter"}>
-        <ons-list>
-          <ons-list-item>
+        <List className={"appFooter"}>
+          <ListItem>
             <div className="right" style={{ fontSize: "10px" }}>
               <output>
                 {"minuvis for web version " + this.props.version}{" "}
               </output>
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </ListItem>
+        </List>
     );
   }
 }

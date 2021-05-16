@@ -41,13 +41,13 @@ export default class CompactModeWrapper extends React.Component {
             </span>
           </ons-list-header>
         </ons-list>
-        <ons-row style={{ flexDirection: "row" }}>
-          <ons-col class="compactModeWrapperStart" style={{ minWidth: "25%", width: "25%" }}>
+        <ons-row style={{ flexDirection: "row", flexWrap: "nowrap" }}>
+          <ons-col class="compactModeWrapperStart" style={{ flexBasis: "40px", minWidth: "80px" }}>
             <div style={{ position: "relative", minHeight: minHeight }}>
               {titleIcon}
             </div>
           </ons-col>
-          <ons-col style={{ minWidth: "75%", width: "75%" }} class="compactMode">{this.props.children}</ons-col>
+          <ons-col style={{ flexBasis: "auto", flexGrow: 1 }} class="compactMode">{this.props.children}</ons-col>
         </ons-row>
 
       </ons-col>

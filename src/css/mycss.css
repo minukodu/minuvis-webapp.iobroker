@@ -9,7 +9,8 @@
 .hidden {
   display: none !important;
 }
-.vishidden {
+.vishidden,
+.noIcon {
   visibility: hidden !important;
 }
 .overlay.notconnected {
@@ -43,84 +44,168 @@ ons-col {
   border-left: 1px solid #5c5c5c;
 }
 
+.ConfigMessageLink {
+  background: white;
+  color: black;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin: 10px;
+}
+
 .list-header {
+  font-size: 8px !important;
+  min-height: 12px !important;
+  line-height: 12px !important;
+  color: var(--text-color);
+  background: var(--list-header-background-color);
+}
+
+.timestamp .lastupdate,
+.timestamp.list-header {
   font-size: 8px !important;
   min-height: 12px !important;
   line-height: 12px !important;
   color: #ccc !important;
 }
 
-.filler .list-header,
-.compactModeWrapper .list-header  {
-  font-size: 12px !important;
-  min-height: 20px !important;
-  line-height: 20px !important;
-  color: #fff !important;
-  padding-left: 10px !important;
-}
-
-.compactModeWrapper .lastupdate {
-  font-size: 8px !important;
-  min-height: 20px !important;
-  line-height: 20px !important;
-  color: #ccc !important;
+ons-splitter .list-item {
+  border-bottom: none;
 }
 
 .list-item {
   min-height: 55px;
 }
 
-.compactMode .list-item {
-  min-height: 40px;
+.switch .list-item,
+.output .list-item {
+  height: 100%;
 }
 
-.compactMode .list-item__right {
-  padding-top: 0;
-  padding-bottom: 0;
+.button.modalCloseButton {
+  margin: auto;
+  padding: 0;
+  padding-left: 5px;
+}
+.button.modalCloseButton i {
+  height: 40px;
+  width: 40px;
+  line-height: 38px;
+  color: #fff;
+  margin: auto;
+  font-size: 32px;
 }
 
-.compactModeWrapperStart .titletext {
+.modal__content {
+  background: rgba(0, 0, 0, 0.2) !important;
+  padding: 50px !important;
+}
+
+.fab--mini {
+  background: var(--fab-background-color) !important;
+}
+
+.fab--mini--icon {
+  color: var(--fab-text-color);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 23px;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+.titletext {
+  /* padding-top: 5px; */
+  padding-left: 10px;
   display: inline-block;
-  margin-left: -35px;
-  margin-top: 45px;
 }
 
-.compactModeWrapperStart .notitleIcon .titletext {
-  display: inline-block;
-  margin-left: -35px;
-  margin-top: 10px;
-}
+/* .titleIcon .titletext {
+  margin-left: 55px;
+} */
 
 .notitleIcon .titletext {
-  margin-left: -50px;
+  margin-left: 0px;
+}
+
+.title.center {
+  justify-content: center;
+}
+
+.title .titleIcon {
+  float: left;
+  position: relative;
 }
 
 .notitleIcon .titleIcon {
   display: none;
 }
 
-.dunkel ons-row {
-  background: #363636;
+.list-item,
+.list-item__center,
+.list-item__left,
+.list-item__right {
+  border-bottom: 1px solid var(--material-list-item-separator-color);
+  background-image: none !important;
 }
 
-.hell ons-row {
-  background: #fff;
-}
-.hell ons-col {
-  background: #fff;
-  border-left: 1px solid #cccccc;
-}
-.hell iframe {
-  background: #777;
+/* start grid styles */
+
+.gridBox,
+.gridBox .list,
+.gridBox .list-item,
+.gridBox .col,
+.gridBox .list-item__center,
+.gridBox .list-item__left,
+.gridBox .list-item__right,
+.gridBox ons-col {
+  border: none;
+  background-image: none !important;
 }
 
-.dunkel .list-header--material {
-  background: #111;
+.gridBox {
+  background-color: var(--list-background-color);
 }
 
-.hell .list-header--material {
-  background: #ccc;
+.gridBox.borderTop {
+  border-top: 1px solid var(--list-item-separator-color);
 }
+.gridBox.borderRight {
+  border-right: 1px solid var(--list-item-separator-color);
+}
+.gridBox.borderBottom {
+  border-bottom: 1px solid var(--list-item-separator-color);
+}
+.gridBox.borderLeft {
+  border-left: 1px solid var(--list-item-separator-color);
+}
+
+.gridBox ons-list.list {
+  width: 100%;
+  height: 100%;
+}
+
+ons-modal ons-list.list,
+.banner.list {
+  height: auto;
+}
+
+.banner .list-item,
+.banner .center {
+  min-height: 0px;
+  padding: 0;
+  margin: 0;
+}
+
+ons-modal .iconbar {
+  background: transparent;
+}
+
+ons-card .gridBox {
+  background: transparent;
+}
+
+/* end grid styles */
 
 .list-header--material {
   padding: 0 !important;
@@ -135,10 +220,6 @@ ons-col {
   color: #000;
 }
 
-ons-list.list {
-  width: 100%;
-}
-
 ons-col.icon-col {
   min-width: 0%;
   border-left: none;
@@ -147,6 +228,47 @@ ons-col.slider-col {
   min-width: 30%;
   border-left: none;
 }
+
+.sliderIconMax {
+  min-width: 0%;
+  border-left: none;
+  width: 40px;
+  text-align: center;
+  line-height: 31px;
+}
+
+.sliderIconMin {
+  min-width: 0%;
+  border-left: none;
+  width: 40px;
+  text-align: center;
+  line-height: 31px;
+}
+
+/* .sliderWidget .list-item__center {
+  padding: 4px 6px 0 0;
+} */
+
+.range--material__input {
+  background-image: linear-gradient(#fff, #fff) !important;
+}
+
+.sliderWidget .input-range {
+  min-height: 50px;
+}
+
+.hue-picker {
+  width: 50%;
+}
+
+.compactColor-picker {
+  width: 50%;
+}
+
+.colorInput {
+  width: 100%;
+}
+
 span.chart-col,
 span.alarm-col {
   min-width: 100% !important;
@@ -156,6 +278,22 @@ ons-col.chart-col,
 ons-col.alarm-col {
   min-width: 100% !important;
 }
+
+.centerWidget {
+  position: relative;
+  margin: 0 auto;
+}
+.output .centerWidget {
+  padding-bottom: 6px;
+}
+
+/* start myCard */
+.mycard {
+  box-shadow: 2px 2px 6px 3px rgba(0, 0, 0, 0.5) !important;
+  margin: 15px !important;
+}
+
+/* end myCard */
 
 /* start flotoutput */
 .flotoutput .list-item {
@@ -185,13 +323,58 @@ ons-col.alarm-col {
 /* end htmloutput */
 
 /* start imgoutput */
-.imgoutput .list-item {
+/* .imgoutput .list-item {
   padding-left: 2px;
-}
+} */
 .imgoutput .list-item__center {
   padding-top: 2px;
 }
+.imgoutput img {
+  margin: 0 auto;
+}
+
 /* end imgoutput */
+
+/* start imgButton */
+.imgButtonCenter {
+  margin: auto;
+}
+
+.imgButton .button {
+  min-height: auto;
+  line-height: normal;
+}
+.imgButton .ripple {
+  display: none;
+}
+
+/* .imgButton.isEqual .button {
+  transform: scale(1);
+} */
+
+/* end imgButton */
+
+/* start Switch */
+.switchMargin {
+  margin: 0 auto;
+}
+/* end Switch */
+
+/* start Indicator */
+
+.indicatoriconCenter {
+  position: relative;
+  margin: 0 auto;
+  width: 55px;
+  height: 55px;
+  background: transparent;
+}
+
+.indicatoriconCenter.mdi-icon {
+  width: 40px;
+  height: 40px;
+}
+/* end Indicator */
 
 /* start valueSwitcher */
 
@@ -203,8 +386,22 @@ ons-col.alarm-col {
   line-height: 100%;
 }
 
+.valueSwitcherBtnList {
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+.valueSwitcherBtnList .center {
+  padding: 0;
+  margin: 0;
+}
+
+.button .valueSwitcherValue {
+  color: var(--button-bar-active-text-color);
+}
+
 .button--outline .valueSwitcherValue {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .hell .button--outline .valueSwitcherValue {
@@ -213,6 +410,15 @@ ons-col.alarm-col {
 
 .valueSwitcherBtnList .button[disabled] {
   opacity: 1;
+}
+
+.valueSwitcherBtnList .btn-noIcon {
+  min-height: 63px;
+  align-items: center;
+}
+
+.valueSwitcherBtnList .btn-noIcon .valueSwitcherIcon {
+  display: none;
 }
 
 /* end valueSwitcher */
@@ -238,6 +444,25 @@ ons-col.alarm-col {
 
 /* Ende TimeSwitch */
 
+/* Start ColorPicker */
+
+.hue-horizontal div {
+  height: 14px !important;
+  width: 14px !important;
+  margin-top: -1px;
+}
+/* Ende ColorPicker */
+
+/* Start LinkButton */
+
+.linkbutton .button {
+  align-items: center;
+  justify-content: center;
+  min-height: 37px;
+}
+
+/* Ende LinkButton */
+
 /* Start Alarmsystem */
 
 .alarmtable {
@@ -252,7 +477,8 @@ ons-col.alarm-col {
 }
 
 .alarmtable .titlerow {
-  background: #00828b;
+  background: var(--highlight-color);
+  color: var(--text-color);
 }
 
 .alarmtable span {
@@ -347,7 +573,8 @@ ons-col.alarm-col {
 
 .alarmtable .rt-thead .rt-td,
 .alarmtable .rt-thead .rt-th {
-  background: #00828b !important;
+  background: var(--highlight-color) !important;
+  color: var(--button-bar-active-text-color) !important;
   border-right: 1px solid #303030 !important;
 }
 
