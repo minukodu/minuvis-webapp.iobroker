@@ -1,7 +1,8 @@
 import React from "react";
-import * as Ons from "react-onsenui";
+import { Page, List, ListItem } from "react-onsenui";
 import Toolbar from "./widgets/Toolbar";
 import Footer from "./widgets/Footer";
+import Banner from "./widgets/Banner";
 import CSSJSON from "cssjson";
 import { openSourceLicensesHtml } from "./utils/OpenSourceLicenses";
 
@@ -34,50 +35,49 @@ export default class PageInfo extends React.Component {
 
     let styleToInject =
       "<style>" + CSSJSON.toCSS(this.props.pageConfig.css) + "</style>";
+      
+    let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    // console.log(width);
 
     return (
-      <Ons.Page renderToolbar={this.renderToolbar.bind(this)}>
+      <Page renderToolbar={this.renderToolbar.bind(this)}>
         <span
           style={{ display: "none" }}
           dangerouslySetInnerHTML={{ __html: styleToInject }}
         ></span>
-        <ons-row>
-          <ons-col id={"appVersion"}>
-            <ons-list>
-              <ons-list-item>
+        <Banner
+          config={this.props.pageConfig.banner}
+          connected={this.props.connected}
+          socket={this.props.socket}
+          states={this.props.states} />
+
+            <List id={"appVersion"}>
+              <ListItem>
                 <div className="right">
                   <output>
                     {"minuvis for web version " + this.props.version}{" "}
                   </output>
                 </div>
-              </ons-list-item>
-              <ons-list-item>
+              </ListItem>
+              <ListItem>
                 <div className="left titel">url:</div>
                 <div className="right">{this.props.pageConfig.url}</div>
-              </ons-list-item>
-              <ons-list-item>
+              </ListItem>
+              <ListItem>
                 <div className="left titel">file:</div>
                 <div className="right">{this.props.pageConfig.file}</div>
-              </ons-list-item>
-            </ons-list>
-          </ons-col>
-          <ons-col id={"pagInfoSourceCodeList"}>
-            <ons-list>
-              <ons-list-header>
-                <span
-                  className="right lastupdate"
-                  style={{ float: "right", paddingRight: "5px" }}
-                >
-                  {"" /*moment().format("LLL")*/}
-                </span>
-              </ons-list-header>
-              <ons-list-item>
+              </ListItem>
+              <ListItem>
+                <div className="left titel">device width:</div>
+                <div className="right">{width + "px"}</div>
+              </ListItem>
+              <ListItem>
                 <div className="left titel titleIcon">
                   <span className={"titleIcon mfd-icon message_info"}></span>
                   OpenSource Licenses
                 </div>
-              </ons-list-item>
-              <ons-list-item>
+              </ListItem>
+              <ListItem>
                 <div style={{ width: 100 + "%" }}>
                   <div
                     className="htmloutput"
@@ -87,12 +87,10 @@ export default class PageInfo extends React.Component {
                     }}
                   ></div>
                 </div>
-              </ons-list-item>
-            </ons-list>
-          </ons-col>
-        </ons-row>
+              </ListItem>
+            </List>
         <Footer version={this.props.version} />
-      </Ons.Page>
+      </Page>
     );
   }
 }

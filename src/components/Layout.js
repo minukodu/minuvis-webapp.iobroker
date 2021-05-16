@@ -1,14 +1,8 @@
 import React from "react";
+import { List, ListItem, Splitter, SplitterContent, SplitterSide, Page, Navigator, Icon } from "react-onsenui";
 import PageAlarme from "./PageAlarme";
 import PageInfo from "./PageInfo";
 import myPage from "./myPage";
-
-import * as Ons from "react-onsenui";
-
-import "../css/onsenui.css";
-import "../css/react-input-range.css";
-import "../css/mycss.css";
-import "../css/react-table.css";
 
 export default class Layout extends React.Component {
   constructor() {
@@ -17,6 +11,7 @@ export default class Layout extends React.Component {
       isOpen: false
     };
     this.loadPage = this.loadPage.bind(this);
+    this.windowWidth = 600;
   }
 
   _reloadPage() {
@@ -55,6 +50,11 @@ export default class Layout extends React.Component {
   }
 
   renderPage(route, navigator) {
+
+    let pageConfigAlarm = {};
+    pageConfigAlarm.UUID = "PageAlarm";
+    pageConfigAlarm.banner = this.props.appConfig.banner;
+
     route.props = route.props || {};
     route.props.navigator = navigator;
     route.props.showMenu = this.show.bind(this);
@@ -67,11 +67,13 @@ export default class Layout extends React.Component {
     route.props.LinkAlarmPage = this.loadPage.bind(
       this,
       PageAlarme,
-      "PageAlarme"
+      "PageAlarme",
+      pageConfigAlarm
     );
     route.props.flotUrls = this.props.flotUrls;
     route.props.version = this.props.version;
     route.props.pageLinks = this.pageLinks;
+    route.props.windowWidth = this.windowWidth;
 
     return React.createElement(route.component, route.props);
   }
@@ -88,7 +90,7 @@ export default class Layout extends React.Component {
       this.props.appConfig.settings.SplitterOpen === true ||
       this.props.appConfig.settings.SplitterOpen === "true"
     ) {
-      splitterCollapse = "portrait";
+      splitterCollapse = "none"; //"portrait";
     }
     console.log("SplitterOpen: " + this.props.appConfig.settings.SplitterOpen);
     // Anzahl Alarme einstellen
@@ -103,7 +105,7 @@ export default class Layout extends React.Component {
     // console.log(this.props);
 
     let pageList = [];
-    this.pageLinks  = [];
+    this.pageLinks = [];
     if (this.props.appConfig.pages) {
       // Menu-Item in Splitter
       for (var pageId in this.props.appConfig.pages) {
@@ -113,13 +115,15 @@ export default class Layout extends React.Component {
         let pageConfig = this.props.appConfig.pages[pageId];
         // global css to page
         pageConfig.css = this.props.appConfig.css || "";
+        // banner to page
+        pageConfig.banner = this.props.appConfig.banner;
 
         // Create Array with possible Links
         this.pageLinks[pageTitle] = this.loadPage.bind(this, myPage, pageTitle, pageConfig);
 
         // Create Menu-Entry
         pageList.push(
-          <Ons.ListItem
+          <ListItem
             key={this.props.appConfig.pages[pageId].UUID}
             onClick={this.loadPage.bind(this, myPage, pageTitle, pageConfig)} //pages[pageId], pageTitle)}
             tappable
@@ -133,15 +137,15 @@ export default class Layout extends React.Component {
             </div>
             <div className="center">{pageTitle}</div>
             <div className="right"></div>
-          </Ons.ListItem>
+          </ListItem>
         );
 
-        
+
         // console.log("pageId");
         // console.log(pageId);
 
         // set default  startpage
-        if ( pageId == 0 ) {
+        if (pageId == 0) {
           this.startpageKey = "start" + pageTitle;
           this.startpageConfig = pageConfig;
         }
@@ -159,20 +163,21 @@ export default class Layout extends React.Component {
     // Menu-Item alarmPage
     let pageConfigAlarm = {};
     pageConfigAlarm.UUID = "PageAlarm";
+    pageConfigAlarm.banner = this.props.appConfig.banner;
 
     if (this.props.appConfig.alarmpage === true) {
       pageList.push(
-        <Ons.ListItem
+        <ListItem
           key={"PageAlarme"}
           onClick={this.loadPage.bind(this, PageAlarme, "PageAlarme", pageConfigAlarm)}
           tappable
         >
           <div className="left">
-            <ons-icon
+            <Icon
               fixed-width
               className="list-item__icon"
-              icon="ion-ios-bell"
-            ></ons-icon>
+              icon="ion-ios-warning"
+            ></Icon>
           </div>
           <div className="center">Alarme</div>
           <div className="right">
@@ -183,7 +188,7 @@ export default class Layout extends React.Component {
               {this.props.nbAlarm}
             </span>
           </div>
-        </Ons.ListItem>
+        </ListItem>
       );
     }
 
@@ -193,9 +198,10 @@ export default class Layout extends React.Component {
     pageConfigInfo.url = this.props.appConfig.dataprovider.url;
     pageConfigInfo.file = this.props.appConfig.dataprovider.fileName;
     pageConfigInfo.css = this.props.appConfig.css || "";
+    pageConfigInfo.banner = this.props.appConfig.banner;
 
     pageList.push(
-      <Ons.ListItem
+      <ListItem
         key={PageInfo.name}
         onClick={this.loadPage.bind(this, PageInfo, "PageInfo", pageConfigInfo)}
         tappable
@@ -205,12 +211,12 @@ export default class Layout extends React.Component {
         </div>
         <div className="center">Info</div>
         <div className="right"></div>
-      </Ons.ListItem>
+      </ListItem>
     );
 
     return (
-      <Ons.Splitter>
-        <Ons.SplitterSide
+      <Splitter>
+        <SplitterSide
           side="left"
           width={220}
           collapse={splitterCollapse}
@@ -219,26 +225,26 @@ export default class Layout extends React.Component {
           onClose={this.hide.bind(this)}
           onOpen={this.show.bind(this)}
         >
-          <Ons.Page>
-            <Ons.List>
+          <Page>
+            <List>
               {pageList}
 
-              <Ons.ListItem key="Reload" onClick={this._reloadPage} tappable>
+              <ListItem key="Reload" onClick={this._reloadPage} tappable>
                 <div className="left">
-                  <ons-icon
+                  <Icon
                     fixed-width
                     className="list-item__icon"
-                    icon="ion-refresh"
-                  ></ons-icon>
+                    icon="ion-ios-refresh"
+                  ></Icon>
                 </div>
                 <div className="center">reload App</div>
                 <div className="right"></div>
-              </Ons.ListItem>
-            </Ons.List>
-          </Ons.Page>
-        </Ons.SplitterSide>
-        <Ons.SplitterContent>
-          <Ons.Navigator
+              </ListItem>
+            </List>
+          </Page>
+        </SplitterSide>
+        <SplitterContent>
+          <Navigator
             initialRoute={{
               component: myPage,
               props: {
@@ -251,8 +257,8 @@ export default class Layout extends React.Component {
               this.navigator = navigator;
             }}
           />
-        </Ons.SplitterContent>
-      </Ons.Splitter>
+        </SplitterContent>
+      </Splitter>
     );
   }
 }

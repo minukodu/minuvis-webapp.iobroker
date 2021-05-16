@@ -1,21 +1,21 @@
 import React from "react";
-import StyleLoader from "./settings/StyleLoader";
 import io from "socket.io-client";
+import ons from "onsenui";
 import {
   Page,
   Row,
   Col,
   List,
-  ListHeader,
   ListItem,
   ProgressCircular,
 } from "react-onsenui";
+import StyleLoader from "./StyleLoader";
+import MainController from "./MainController";
+import ConfigMessage from "./utils/ConfigMessage";
 
-import HausController from "./HausController";
+import { version } from "../../package.json";
 
 var queryString = require("querystring");
-
-const myStyleSheet = "css/dark-onsen-css-components.css";
 
 export default class ConfigLoader extends React.Component {
   constructor() {
@@ -28,16 +28,22 @@ export default class ConfigLoader extends React.Component {
       loadFileError: null,
       usedStates: null,
     };
+    this.versionError = false;
     this.configFromLocalStorage = false;
     this.loadConfig = this.loadConfig.bind(this);
     this.findAllByKey = this.findAllByKey.bind(this);
+    this.styleLoader = null;
     this.meta = "0_userdata.0";
+
+    //#########################################################################
+    this.mainVersion = parseInt(version, 10);
+    //#########################################################################
   }
 
   findAllByKey = function (obj, keyToFind) {
     return Object.entries(obj).reduce(
       (acc, [key, value]) =>
-        key.startsWith(keyToFind)
+        key == keyToFind
           ? acc.concat(value)
           : typeof value === "object"
           ? acc.concat(this.findAllByKey(value, keyToFind))
@@ -97,7 +103,7 @@ export default class ConfigLoader extends React.Component {
       // checkFileName
       if (myUrlParsed.file.length < 6) {
         this.setState({
-          loadFileError: "filename too short",
+          loadFileError: "config-file: filename too short",
         });
         return;
       }
@@ -112,27 +118,42 @@ export default class ConfigLoader extends React.Component {
           function (error, fileData, mimeType) {
             console.log(mimeType);
             // console.log(fileData);
-            console.log(error);
+            // console.log(error);
             if (error) {
               console.error(
-                new Date() + " Error loding file: " + myUrlParsed.file
+                new Date() + " Error loading file: " + myUrlParsed.file
               );
               console.error(error);
+              let errorText = JSON.stringify(error);
+              if (Object.getOwnPropertyNames(error).length === 0) {
+                errorText = "not found";
+              }
               this.setState({
-                loadFileError: "file " + error,
+                loadFileError: "config-file " + errorText,
               });
             } else {
               let appConfig = JSON.parse(fileData);
-              let usedStates = this.findAllByKey(appConfig, "stateId");
-              // console.log(fileData);
-              console.log(appConfig);
-              console.log(usedStates);
-              this.setState({
-                appConfig,
-                hasAppConfig: true,
-                usedStates,
-              });
-              localStorage.setItem("appConfig", fileData);
+              if (
+                !appConfig.version ||
+                parseInt(appConfig.version, 10) < this.mainVersion
+              ) {
+                let errorText = "has wrong version: < " + this.mainVersion;
+                this.versionError = true;
+                this.setState({
+                  loadFileError: "config-file " + errorText,
+                });
+              } else {
+                let usedStates = this.findAllByKey(appConfig, "stateId");
+                // console.log(fileData);
+                console.log(appConfig);
+                console.log(usedStates);
+                this.setState({
+                  appConfig,
+                  hasAppConfig: true,
+                  usedStates,
+                });
+                localStorage.setItem("appConfig", fileData);
+              }
             }
           }.bind(this)
         );
@@ -144,25 +165,27 @@ export default class ConfigLoader extends React.Component {
     this.loadConfig();
   }
 
-  componentDidMount() {
-    //this.loadConfig();
-  }
-
   render() {
     console.log("Render ConfigLoader");
     console.log(this.state);
 
+    //############################################
+    ons.platform.select("android");
+    //############################################
+
     if (this.state.hasAppConfig === false) {
       return (
         <div>
-          <StyleLoader stylesheetPath={myStyleSheet} />
+          <StyleLoader theme={null} />
           <Page>
             <Row>
               <Col>
                 <List>
-                  <ListHeader>
-                    trying to read config from ioBroker ...
-                  </ListHeader>
+                  <ListItem>
+                    <div className="left titel">
+                      trying to read config from ioBroker ...
+                    </div>
+                  </ListItem>
                   <ListItem>
                     <div className="left titel">url:</div>
                     <div className="right">{this.state.socketUrl}</div>
@@ -172,6 +195,10 @@ export default class ConfigLoader extends React.Component {
                     <div className="right">{this.state.appConfigFile}</div>
                   </ListItem>
                   <ListItem>
+                    <div className="left titel">version of app:</div>
+                    <div className="right">{version}</div>
+                  </ListItem>
+                  <ListItem>
                     <div className="center">
                       <ProgressCircular
                         style={{ margin: "0 auto" }}
@@ -179,7 +206,14 @@ export default class ConfigLoader extends React.Component {
                       />
                     </div>
                   </ListItem>
-                  <ListItem>
+                  <ListItem
+                    style={{
+                      background: this.state.loadFileError
+                        ? "red"
+                        : "transparent",
+                      fontWeight: "bold",
+                    }}
+                  >
                     <div className="left titel">error:</div>
                     <div className="right">
                       {this.state.loadFileError
@@ -187,6 +221,11 @@ export default class ConfigLoader extends React.Component {
                         : "no error"}
                     </div>
                   </ListItem>
+                  <ConfigMessage
+                    show={this.versionError}
+                    configFileName={this.state.appConfigFile}
+                    builderLink="/minuvis/builder/"
+                  />
                 </List>
               </Col>
             </Row>
@@ -195,11 +234,15 @@ export default class ConfigLoader extends React.Component {
       );
     } else {
       return (
-        <HausController
-          appConfig={this.state.appConfig}
-          hasAppConfig={this.state.hasAppConfig}
-          usedStates={this.state.usedStates}
-        />
+        <div>
+          <StyleLoader theme={this.state.appConfig.theme} />
+          <MainController
+            appConfig={this.state.appConfig}
+            hasAppConfig={this.state.hasAppConfig}
+            usedStates={this.state.usedStates}
+            version={version}
+          />
+        </div>
       );
     }
   }
