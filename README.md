@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.0.0 (2021-05-22)
+* (svallant) security-updates
+
 ### 2.0.0-rc.2 (2021-05-16)
 * (svallant) zoom for output-widget
 * (svallant) zoom for switch-widget
