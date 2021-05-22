@@ -1,8 +1,8 @@
-/*! onsenui - v2.8.3 - 2017-12-14 */
-@import url("ionicons/css/ionicons.min.css");
-@import url("material-design-iconic-font/css/material-design-iconic-font.min.css");
-@import url("font_awesome/css/font-awesome.min.css");
-
+/*! onsenui - v2.11.1 - 2021-01-01 */
+@import url("./ionicons/css/ionicons.min.css");
+@import url("./material-design-iconic-font/css/material-design-iconic-font.min.css");
+@import url("./font_awesome/css/all.min.css");
+@import url("./font_awesome/css/v4-shims.min.css");
 
 ons-page, ons-navigator,
 ons-tabbar,
@@ -76,10 +76,6 @@ ons-bottom-toolbar {
   -ms-touch-action: pan-y;
 }
 
-.page__content--suppress-layer-creation {
-  -webkit-overflow-scrolling: auto;
-}
-
 .page.overflow-visible,
 .page.overflow-visible .page,
 .page.overflow-visible .page__content,
@@ -139,6 +135,10 @@ ons-tabbar[position="top"] .page[status-bar-fill] > .page__content {
 
 .page__content > .list:not(.list--material):first-child {
   margin-top: -1px; /* Avoid double border with toolbar */
+}
+
+.page--wrapper > .page__background {
+  display: none;
 }
 
 ons-action-sheet[disabled],
@@ -246,10 +246,8 @@ ons-carousel[fullscreen] {
   padding: 0 16px 0 6px;
   box-sizing: border-box;
   z-index: 30000;
-  display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
           justify-content: space-between;
   font-size: 12px;
@@ -272,6 +270,13 @@ ons-carousel[fullscreen] {
   bottom: 0;
   position: inherit;
   width: 100%;
+}
+
+.ons-ios-scroll-fix .page:not(.page--wrapper)[shown] > .page__content {
+  overflow-y: hidden;
+}
+.ons-ios-scroll-fix ons-splitter-side > .page:not(.page--wrapper)[shown] > .page__content {
+  overflow-y: auto;
 }
 
 ons-row {
@@ -467,6 +472,14 @@ limitations under the License.
 
 .ons-icon--5x {
   font-size: 5em;
+}
+
+/**
+ * ons-icon with Font Awesome backward compatibility
+ */
+.ons-icon.fa {
+  font-family: 'Font Awesome 5 Brands', 'Font Awesome 5 Free';
+  font-weight: 900;
 }
 
 ons-input, ons-radio, ons-checkbox, ons-search-input {
@@ -677,20 +690,15 @@ limitations under the License.
 }
 
 .ons-swiper-target {
-  display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   height: 100%;
   z-index: 1;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: row;
           flex-direction: row;
 }
 
 .ons-swiper-target--vertical {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
 }
@@ -702,6 +710,10 @@ limitations under the License.
   box-sizing: border-box;
   width: 100%;
   position: relative !important;
+}
+
+.ons-swiper-target.active:not(.swiping) > .page:not([shown]) {
+  visibility: hidden;
 }
 
 .ons-swiper-tabbar .tabbar--material__button:after {

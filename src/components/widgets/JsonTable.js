@@ -1,7 +1,6 @@
 import React from "react";
+import { Button, List, ListItem, ListHeader } from "react-onsenui";
 import ReactTable from "react-table";
-import Title from "./Title";
-import { Button } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -27,42 +26,6 @@ export default class JsonTable extends React.Component {
     };
   }
 
-  componentWillMount() {
-    // console.dir(this.props.states);
-    // console.log(typeof this.props.states[this.props.stateId]);
-
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // console.log("Received States");
-            // console.dir(states);
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      // console.log("Read " + this.props.stateId);
-      try {
-        this.setState({
-          val: this.props.states[this.props.stateId].val,
-          ts: this.props.states[this.props.stateId].ts,
-        });
-      } catch (e) {}
-    }
-  }
-
   render() {
     // init
     let val = '[{"noData":"noData"}]';
@@ -70,15 +33,14 @@ export default class JsonTable extends React.Component {
     let ts = moment();
 
     // read value and timestamp from props if available
-    console.log(this.props.stateId);
-    console.log(this.props.states[this.props.stateId]);
+    // console.log(this.props.widgetData.stateId);
+    // console.log(this.props.widgetData.states[this.props.widgetData.stateId]);
     if (
-      typeof this.props.states[this.props.stateId] !== "undefined" &&
-      this.props.states[this.props.stateId] &&
-      this.props.states[this.props.stateId].val
+      this.props.widgetData.states[this.props.widgetData.stateId] &&
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true
     ) {
-      val = this.props.states[this.props.stateId].val;
-      ts = this.props.states[this.props.stateId].ts;
+      val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+      ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     }
 
     //val = '[{"ts":1601652352418,"time":"2020-10-02T17:25:52.418","zone":"Badezimmer","trigger":"Motion Bathroom","targetsAll":"Bathroom Light","targetsSet":"","targetsSkipped":"Bathroom Light","motionTimer":10,"alwaysOffTimer":0}]';
@@ -91,13 +53,13 @@ export default class JsonTable extends React.Component {
     console.log(data);
 
     // column headers
-    let colHeaders = this.props.colheader.split(",");
+    let colHeaders = this.props.widgetData.colheader.split(",");
     // column widths
-    let colSizes = this.props.colsize.split(",");
+    let colSizes = this.props.widgetData.colsize.split(",");
     // lineBreaks
-    let lineBreaks = this.props.lineBreaks.split(",");
+    let lineBreaks = this.props.widgetData.lineBreaks.split(",");
     // contentTypes
-    let contentTypes = this.props.contentTypes.split(",");
+    let contentTypes = this.props.widgetData.contentTypes.split(",");
     console.log("contentTypes");
     console.log(contentTypes);
     
@@ -143,39 +105,31 @@ export default class JsonTable extends React.Component {
     }
     console.log(columns);
 
-    let title = "";
-    if (this.props.title !== "NONE") {
-      title = (
-        <ons-list-item>
-          <Title
-            title={this.props.title}
-            titleIcon={this.props.titleIcon}
-            titleIconFamily={this.props.titleIconFamily}
-            compactMode={false}
-          />
-        </ons-list-item>
+
+    let timestamp = null;
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment(ts).format("DD.MM.YY HH:mm")}
+          </span>
+        </ListHeader>
       );
     }
 
     return (
-      <ons-col id={this.props.UUID}>
-        <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment().format("LLL")}
-            </span>
-          </ons-list-header>
-          {title}
-          <ons-list-item>
+      <List id={this.props.widgetData.UUID}>
+          {timestamp}
+          <ListItem>
             <ReactTable
               className={"jsontable alarmtable"}
               data={data}
               columns={columns}
-              defaultPageSize={this.props.rowsPerPage}
-              minRows={this.props.rowsPerPage}
+              defaultPageSize={this.props.widgetData.rowsPerPage}
+              minRows={this.props.widgetData.rowsPerPage || 5}
               previousText="prev"
               nextText="next"
               loadingText="Loading..."
@@ -188,9 +142,8 @@ export default class JsonTable extends React.Component {
               PreviousComponent={PrevButton}
               NextComponent={NextButton}
             />
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </ListItem>
+      </List>
     );
   }
 }

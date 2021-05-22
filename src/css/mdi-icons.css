@@ -55,7 +55,7 @@
   width: 55px;
   height: 55px;
   background-color: transparent;
-  color: #fff;
+  color: var(--text-color);
   position: absolute;
   top: 10px;
   left: 10px;
@@ -64,12 +64,13 @@
 }
 
 .indicatoricon.mdi-icon {
-  width: 60px;
-  height: 85px;
+  width: 44px;
+  height: 44px;
   background-color: transparent;
   color: #aaa;
-  font-size: 60px;
-  line-height: 85px;
+  font-size: 40px;
+  line-height: 30px;
+  margin: auto;
 }
 
 .compactMode.mdi-icon {
@@ -94,7 +95,7 @@
   height: 30px;
   font-size: 30px;
   line-height: 30px;
-} 
+}
 
 .hell .titleIcon.mdi-icon {
   color: #1f1f21;
@@ -108,7 +109,7 @@
   width: 30px;
   height: 30px;
   background-color: transparent;
-  color: #fff;
+  color: var(--text-color);
   display: inline-block;
   font-size: 20px;
   line-height: 30px;
@@ -123,7 +124,7 @@
   width: 50px;
   height: 50px;
   background-color: transparent;
-  color: #fff;
+  color: var(--text-color);
   display: inline-block;
   font-size: 35px;
   line-height: 50px;
@@ -135,13 +136,20 @@
 
 .valueSwitcherIcon.mdi-icon {
   background-color: transparent;
-  color: #fff;
   display: block;
   width: 35px;
-  height: 50px;
+  height: 40px;
   margin: 0 auto;
   font-size: 35px;
-  line-height: 50px;
+  line-height: 40px;
+}
+
+.button .valueSwitcherIcon.mdi-icon {
+  color: var(--button-bar-active-text-color);
+}
+
+.button--outline .valueSwitcherIcon.mdi-icon {
+  color: var(--text-color);
 }
 
 .hell .valueSwitcherIcon.mdi-icon {

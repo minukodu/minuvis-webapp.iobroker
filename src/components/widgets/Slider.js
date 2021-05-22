@@ -8,7 +8,6 @@ moment.locale("de-DE");
 export default class MySlider extends React.Component {
   constructor() {
     super();
-    this._stateId_subscribed = false;
     this.state = {
       val: 0,
       ts: moment(),
@@ -17,56 +16,16 @@ export default class MySlider extends React.Component {
 
   sendValue(e) {
     let valueToSend = e.target.value;
-    if (this.props.stateIdType === "number") {
+    if (this.props.widgetData.stateIdType === "number") {
       valueToSend = parseInt(e.target.value, 10);
     }
 
-    this.props.socket.emit("setState", this.props.stateId, valueToSend);
+    this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, valueToSend);
     // State nachführen
     this.setState({
       val: e.target.value,
       ts: moment(),
     });
-  }
-
-  componentWillMount() {
-    // console.log("componentWillMount Switch");
-    // console.dir(this.props.states);
-    // console.log(typeof this.props.states[this.props.stateId]);
-
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // console.log("Received States");
-            // console.dir(states);
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      // console.log("Read " + this.props.stateId);
-      this.setState({
-        val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts,
-      });
-    }
-
-    // console.log("Switch connected:");
-    // console.log(this.props);
-    // console.log(this.props.connected);
-    // console.log(!this.props.connected);
   }
 
   render() {
@@ -75,45 +34,45 @@ export default class MySlider extends React.Component {
     let ts = moment();
     // read value and timestamp from props if available
     if (
-      this.props.states[this.props.stateId] &&
-      typeof this.props.states[this.props.stateId] !== "undefined"
+      this.props.widgetData.states[this.props.widgetData.stateId] &&
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true 
     ) {
-      val = this.props.states[this.props.stateId].val || 0;
-      ts = this.props.states[this.props.stateId].ts || moment();
+      val = this.props.widgetData.states[this.props.widgetData.stateId].val || 0;
+      ts = this.props.widgetData.states[this.props.widgetData.stateId].ts || moment();
     } else {
       // read from this.state
       val = this.state.val || 0;
       ts = this.state.ts;
     }
 
-    let maxIcon = this.props.maxIcon || "text_max";
-    let minIcon = this.props.minIcon || "text_min";
+    let maxIcon = this.props.widgetData.maxIcon || "text_max";
+    let minIcon = this.props.widgetData.minIcon || "text_min";
 
     let title = (
       <ons-list-item>
         <Title
-          title={this.props.title}
-          titleIcon={this.props.titleIcon}
-          titleIconFamily={this.props.titleIconFamily}
+          title={this.props.widgetData.title}
+          titleIcon={this.props.widgetData.titleIcon}
+          titleIconFamily={this.props.widgetData.titleIconFamily}
         />
         <div className="right">
           <Input
             disable-auto-styling
-            disabled={!this.props.connected}
+            disabled={!this.props.widgetData.connected}
             onChange={this.sendValue.bind(this)}
             type="number"
             placeholder=""
             value={val.toString()}
-            min={this.props.min}
-            max={this.props.max}
-            step={this.props.step}
+            min={this.props.widgetData.min}
+            max={this.props.widgetData.max}
+            step={this.props.widgetData.step}
           ></Input>
-          {this.props.unit}
+          {this.props.widgetData.unit}
         </div>
       </ons-list-item>
     );
 
-    if (this.props.title == "NONE") {
+    if (this.props.widgetData.title == "NONE") {
       title = null;
     }
 
@@ -132,7 +91,7 @@ export default class MySlider extends React.Component {
     let disableAutoStyling = "true";
     let modifier = null;
 
-    if (this.props.compactMode === true) {
+    if (this.props.widgetData.compactMode === true) {
       title = null;
       header = null;
       compactModeClass = "compactMode";
@@ -142,7 +101,7 @@ export default class MySlider extends React.Component {
     }
 
     return (
-      <ons-col id={this.props.UUID} class={"sliderWidget " + compactModeClass} >
+      <ons-col id={this.props.widgetData.UUID} class={"sliderWidget " + compactModeClass} >
         <ons-list>
           {header}
           {title}
@@ -157,7 +116,7 @@ export default class MySlider extends React.Component {
                     "sliderIcon min  " +
                     compactModeClass +
                     " " +
-                    this.props.minIconFamily +
+                    this.props.widgetData.minIconFamily +
                     " " +
                     minIcon
                   }
@@ -167,12 +126,12 @@ export default class MySlider extends React.Component {
                 <Range
                   disable-auto-styling={disableAutoStyling}
                   modifier={modifier}
-                  disabled={!this.props.connected}
+                  disabled={!this.props.widgetData.connected}
                   onChange={this.sendValue.bind(this)}
                   value={parseInt(val, 10)}
-                  min={this.props.min}
-                  max={this.props.max}
-                  step={this.props.step}
+                  min={this.props.widgetData.min}
+                  max={this.props.widgetData.max}
+                  step={this.props.widgetData.step}
                   style={{ width: 100 + "%" }}
                   className={compactModeClass}
                 ></Range>
@@ -186,7 +145,7 @@ export default class MySlider extends React.Component {
                     "sliderIcon max " +
                     compactModeClass +
                     " " +
-                    this.props.maxIconFamily +
+                    this.props.widgetData.maxIconFamily +
                     " " +
                     maxIcon
                   }

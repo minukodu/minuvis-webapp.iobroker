@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "./Title";
+import { List, ListItem, ListHeader } from "react-onsenui";
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -14,46 +14,8 @@ export default class OpenStreetMap extends React.Component {
     this.lng = 8.803739547729492;
     this.val = "[" + this.lng + "," + this.lat + "]";
     this.ts = moment();
-    this.zommFaktor = 10000;
-    this.boxZoom = 50/this.zommFaktor;
-    this.setState({
-      val: this.val,
-      ts: this.ts,
-    });
-  }
-
-  componentWillMount() {
-    // console.dir(this.props.states);
-    // console.log(typeof this.props.states[this.props.stateId]);
-
-    if (typeof this.props.states[this.props.stateId] === "undefined") {
-      if (this._stateId_subscribed === false) {
-        // Subscribe state
-        // console.log("Subscribe " + this.props.stateId);
-        this.props.socket.emit("subscribe", this.props.stateId);
-        this._stateId_subscribed = true;
-        // Read state
-        this.props.socket.emit(
-          "getStates",
-          [this.props.stateId],
-          function (err, states) {
-            // console.log("Received States");
-            // console.dir(states);
-            // eintragen
-            this.setState({
-              val: states[this.props.stateId].val,
-              ts: states[this.props.stateId].ts,
-            });
-          }.bind(this)
-        );
-      }
-    } else {
-      // console.log("Read " + this.props.stateId);
-      this.setState({
-        val: this.props.states[this.props.stateId].val,
-        ts: this.props.states[this.props.stateId].ts,
-      });
-    }
+    this.zoomFactor = 10000;
+    this.boxZoom = 50 / this.zoomFactor;
   }
 
   render() {
@@ -62,17 +24,17 @@ export default class OpenStreetMap extends React.Component {
 
     // read value and timestamp from props if available
     if (
-      this.props.states[this.props.stateId] &&
-      typeof this.props.states[this.props.stateId] !== "undefined"
+      this.props.widgetData.states[this.props.widgetData.stateId] &&
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true
     ) {
-      this.val = this.props.states[this.props.stateId].val;
-      this.ts = this.props.states[this.props.stateId].ts;
+      this.val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+      this.ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     }
 
     console.log(this.val);
-    console.log(this.props.zoom);
+    console.log(this.props.widgetData.zoom);
 
-    this.boxZoom = parseFloat(this.props.zoom)/this.zommFaktor;
+    this.boxZoom = parseFloat(this.props.widgetData.zoom) / this.zoomFactor;
 
     try {
       let objVal = JSON.parse(this.val);
@@ -101,49 +63,43 @@ export default class OpenStreetMap extends React.Component {
       "," +
       this.lng;
 
-    let title = (
-      <ons-list-item>
-        <Title
-          title={this.props.title}
-          titleIcon={this.props.titleIcon}
-          titleIconFamily={this.props.titleIconFamily}
-        />
-      </ons-list-item>
-    );
-
-    if (this.props.title == "NONE") {
-      title = null;
+    let timestamp = null;
+    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
+      timestamp = (
+        <ListHeader>
+          <span
+            className="right lastupdate"
+            style={{ float: "right", paddingRight: "5px" }}
+          >
+            {moment().format("DD.MM.YY HH.mm")}
+          </span>
+        </ListHeader>
+      );
     }
+    let height = this.props.widgetData.widgetHeight * this.props.widgetData.rowHeight;
+    height = height + "px";
 
     return (
-      <ons-col id={this.props.UUID} class={"openstreetmap iframeoutput"}>
-        <ons-list>
-          <ons-list-header>
-            <span
-              className="right lastupdate"
-              style={{ float: "right", paddingRight: "5px" }}
-            >
-              {moment().format("LLL")}
-            </span>
-          </ons-list-header>
-          {title}
-          <ons-list-item>
+      <List id={this.props.widgetData.UUID} class={"openstreetmap iframeoutput"}>
+          {timestamp}
+          <ListItem>
             <div
               className="openstreetmap iframeoutput"
-              style={{ width: 100 + "%" }}
+              style={{
+                width: "100%"
+              }}
             >
               <iframe
                 src={src}
                 style={{
                   width: "100%",
-                  height: this.props.height,
+                  height: height,
                 }}
                 frameBorder="0"
               />
             </div>
-          </ons-list-item>
-        </ons-list>
-      </ons-col>
+          </ListItem>
+      </List>
     );
   }
 }
