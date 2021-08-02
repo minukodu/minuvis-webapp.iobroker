@@ -6,6 +6,10 @@
 @import url("mdi-icons.css");
 /* Ende mdi-Icons */
 
+/* em-Icons */
+@import url("em-icons.css");
+/* Ende em-Icons */
+
 .hidden {
   display: none !important;
 }
@@ -462,6 +466,65 @@ ons-col.alarm-col {
 }
 
 /* Ende LinkButton */
+
+/* Start Schedex */
+
+.schedexDialog .dialog-content {
+  padding: 10px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.schedexDialog .withOkButton .alert-dialog-button {
+  width: 50%;
+  float: left;
+}
+
+.schedexDialog .noOkButton .alert-dialog-button.okButton {
+  display: none;
+}
+
+.schedexDialog .text-input:disabled,
+.schedexDialog .select-input:disabled,
+.schedexDialog ons-input[disabled],
+.schedexDialog ons-radio[disabled],
+.schedexDialog ons-checkbox[disabled],
+.schedexDialog ons-segment[disabled],
+.schedexDialog ons-search-input[disabled] {
+  opacity: 1;
+}
+
+.schedexDialog .time-input .icon {
+  width: 30px;
+  height: 30px;
+  color: var(--text-color);
+  display: inline-block;
+  font-size: 25px;
+  padding-right: 25px;
+}
+
+.schedexDialog .valueSwitcherIcon.mfd-icon {
+  background-color: var(--text-color);
+}
+
+.schedexDialog .select-input--material {
+    background-color: var(--list-background-color);
+}
+
+
+/* Ende Schedex */
+
+/* Start DropDown */
+
+.dropDown ons-select {
+  width: 95%;
+}
+
+.dropDown .select-input--material {
+  background-color: var(--list-background-color);
+}
+
+/* Ende DropDown */
 
 /* Start Alarmsystem */
 

@@ -506,11 +506,11 @@ export default class RoundSlider extends React.Component {
                                 ? "calc(50% - " + (iconSize * 0.5) / 2 + "px)"
                                 : "calc(50% - " + (iconSize * 0.7) / 2 + "px)",
                         top:
-                            this.props.settings.iconFamily === "mdi-icon"
+                            this.props.settings.iconFamily !== "mfd-icon" 
                                 ? this.parentRect.height - iconSize / 2 + "px"
                                 : this.parentRect.height - iconSize * 0.7 + "px", // this.parentRect.height - iconSize + "px",
                         backgroundColor:
-                            this.props.settings.iconFamily === "mdi-icon"
+                            this.props.settings.iconFamily !== "mfd-icon"
                                 ? "transparent"
                                 : "var(--text-color)",
                         color: "var(--text-color)",

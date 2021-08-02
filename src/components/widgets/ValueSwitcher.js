@@ -225,7 +225,13 @@ export default class ValueSwitcher extends React.Component {
       if (val > this.props.widgetData.value2 && val <= this.props.widgetData.value3) { highlightBtnNr = 3 };
       if (val > this.props.widgetData.value3) { highlightBtnNr = 4 };
     }
-
+    // boolean
+    if (this.props.widgetData.stateIdType === "boolean") {
+      if (val.toString() == this.props.widgetData.value1) { highlightBtnNr = 1 };
+      if (val.toString() == this.props.widgetData.value2) { highlightBtnNr = 2 };
+      if (val.toString() == this.props.widgetData.value3) { highlightBtnNr = 3 };
+      if (val.toString() == this.props.widgetData.value4) { highlightBtnNr = 4 };
+    }
 
     // make icons for indicator
     let indicatorIcon = this.props.widgetData.icon1;
