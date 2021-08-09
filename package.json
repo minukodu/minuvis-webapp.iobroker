@@ -1,6 +1,6 @@
 {
   "name": "minuvis-webapp",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "homepage": "http://192.168.178.26/minuvis/app",
   "dependencies": {
@@ -30,6 +30,7 @@
     "shelljs": "^0.8.3",
     "socket.io-client": "^2.1.1",
     "socket.io-react": "^1.2.0",
+    "suncalc2": "^1.8.1",
     "ua-parser-js": "^0.7.28",
     "url-parse": "^1.5.0"
   },

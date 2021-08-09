@@ -5,6 +5,7 @@ import MyCard from "./widgets/MyCard";
 import IframeOutput from "./widgets/IframeOutput";
 import MySwitch from "./widgets/Switch";
 import TextInput from "./widgets/TextInput";
+import DropDown from "./widgets/DropDown";
 import ImgButton from "./widgets/ImgButton";
 import MyRange from "./widgets/Range";
 import Donut from "./widgets/Donut";
@@ -12,6 +13,7 @@ import JsonTable from "./widgets/JsonTable";
 import HtmlOutput from "./widgets/HtmlOutput";
 import IMGOutput from "./widgets/IMGOutput";
 import Output from "./widgets/Output";
+import Schedex from "./widgets/Schedex";
 import Indicator from "./widgets/Indicator";
 import HeadLine from "./widgets/HeadLine";
 import TimePicker from "./widgets/TimePicker";
@@ -89,6 +91,9 @@ export default class myPage extends React.Component {
           case "datetime":
             widget = <DateTime widgetData={widgetData} />;
             break;
+          case "schedex":
+            widget = <Schedex widgetData={widgetData} />;
+            break;
           case "openstreetmap":
             widget = <OpenStreetMap widgetData={widgetData} />;
             break;
@@ -100,6 +105,9 @@ export default class myPage extends React.Component {
             break;
           case "textInput":
             widget = <TextInput widgetData={widgetData} />;
+            break;
+          case "dropDown":
+            widget = <DropDown widgetData={widgetData} />;
             break;
           case "imgButton":
             widget = <ImgButton widgetData={widgetData} />;

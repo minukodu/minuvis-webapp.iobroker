@@ -3,6 +3,7 @@ import { Card, Modal, List, ListItem, Fab } from "react-onsenui";
 import IframeOutput from "./IframeOutput";
 import MySwitch from "./Switch";
 import TextInput from "./TextInput";
+import DropDown from "./DropDown";
 import ImgButton from "./ImgButton";
 import MyRange from "./Range";
 import Donut from "./Donut";
@@ -10,6 +11,7 @@ import JsonTable from "./JsonTable";
 import HtmlOutput from "./HtmlOutput";
 import IMGOutput from "./IMGOutput";
 import Output from "./Output";
+import Schedex from "./Schedex";
 import Indicator from "./Indicator";
 import HeadLine from "./HeadLine";
 import TimePicker from "./TimePicker";
@@ -69,6 +71,9 @@ export default class MyCard extends React.Component {
           case "datetime":
             widget = <DateTime widgetData={widgetData} />;
             break;
+          case "schedex":
+            widget = <Schedex widgetData={widgetData} />;
+            break;
           case "openstreetmap":
             widget = <OpenStreetMap widgetData={widgetData} />;
             break;
@@ -81,6 +86,9 @@ export default class MyCard extends React.Component {
           case "textInput":
             widget = <TextInput widgetData={widgetData} />;
             break;
+            case "dropDown":
+              widget = <DropDown widgetData={widgetData} />;
+              break;  
           case "imgButton":
             widget = <ImgButton widgetData={widgetData} />;
             break;
