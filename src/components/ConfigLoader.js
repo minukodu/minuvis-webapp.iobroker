@@ -46,8 +46,8 @@ export default class ConfigLoader extends React.Component {
         key == keyToFind
           ? acc.concat(value)
           : typeof value === "object"
-          ? acc.concat(this.findAllByKey(value, keyToFind))
-          : acc,
+            ? acc.concat(this.findAllByKey(value, keyToFind))
+            : acc,
       []
     );
   };
@@ -87,7 +87,19 @@ export default class ConfigLoader extends React.Component {
           hasAppConfig: true,
           usedStates,
         });
-      } catch (e) {}
+      } catch (e) { }
+    }
+
+    if (!("url" in myUrlParsed)) {
+      // try reading url and filename from localstorage
+      console.log("no url in querystring: trying to read url and filename from localstorage");
+      try {
+        let appProviderLocal = JSON.parse(localStorage.getItem("appProvider"));
+        console.log(appProviderLocal);
+        // overwrite values
+        myUrlParsed.url = appProviderLocal.socketUrl;
+        myUrlParsed.file = appProviderLocal.appConfigFile;
+      } catch (e) { }
     }
 
     if (
@@ -100,6 +112,11 @@ export default class ConfigLoader extends React.Component {
         appConfigFile: myUrlParsed.file,
         socketUrl: myUrlParsed.url,
       });
+      // write url and file in localstorage
+      localStorage.setItem("appProvider", JSON.stringify({
+        appConfigFile: myUrlParsed.file,
+        socketUrl: myUrlParsed.url,
+      }));
       // checkFileName
       if (myUrlParsed.file.length < 6) {
         this.setState({

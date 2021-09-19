@@ -86,9 +86,9 @@ export default class MyCard extends React.Component {
           case "textInput":
             widget = <TextInput widgetData={widgetData} />;
             break;
-            case "dropDown":
-              widget = <DropDown widgetData={widgetData} />;
-              break;  
+          case "dropDown":
+            widget = <DropDown widgetData={widgetData} />;
+            break;
           case "imgButton":
             widget = <ImgButton widgetData={widgetData} />;
             break;
@@ -217,9 +217,14 @@ export default class MyCard extends React.Component {
     let height =
       this.props.widgetData.widgetHeight * this.props.widgetData.rowHeight;
 
+    let classes = this.props.widgetData.classes || "";
+
     if (this.props.widgetData.showInModal === true) {
       return (
-        <List className="modalcard" style={{ height }}>
+        <List
+          className={"modalcard " + classes}
+          style={{ height }}
+        >
           <ListItem>
             <div className="center">
               <div className="centerFab" style={{ margin: "auto" }}>
@@ -267,7 +272,7 @@ export default class MyCard extends React.Component {
       return (
         <Card
           id={this.props.widgetData.UUID}
-          className="mycard"
+          className={"mycard " + classes}
           modifier="material"
         >
           {pageGrid}
