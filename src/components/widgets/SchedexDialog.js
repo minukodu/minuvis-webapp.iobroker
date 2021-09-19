@@ -35,6 +35,10 @@ export default class SchedexDialog extends React.Component {
     };
     this.suncalcValueOnTimeTime = "00:00";
     this.suncalcValueOffTimeTime = "00:00";
+    this.state = {
+      OnTimeInputDisabled: false,
+      OffTimeInputDisabled: false
+    }
   }
 
   sendValue() {
@@ -57,10 +61,18 @@ export default class SchedexDialog extends React.Component {
   onChangeSunCalcInput(event, target) {
     if (event.target.value === "fixedTime" && target === "ontime") {
       this.newSchedexData["ontime"] = this.suncalcValueOnTimeTime;
+      this.setState({ OnTimeInputDisabled: false });
     } else if (event.target.value === "fixedTime" && target === "offtime") {
       this.newSchedexData["offtime"] = this.suncalcValueOffTimeTime;
+      this.setState({ OffTimeInputDisabled: false });
     } else {
       this.newSchedexData[target] = event.target.value;
+      if (target === "ontime") {
+        this.setState({ OnTimeInputDisabled: true });
+      }
+      if (target === "offtime") {
+        this.setState({ OffTimeInputDisabled: true });
+      }
     }
   }
 
@@ -155,7 +167,7 @@ export default class SchedexDialog extends React.Component {
                     disable-auto-styling
                     type={"time"}
                     value={suncalcValueOnTimeTime}
-                    disabled={this.props.widgetData.readOnly}
+                    disabled={this.props.widgetData.readOnly || this.state.OnTimeInputDisabled}
                   ></Input>
                 </ListItem>
                 <ListItem>
@@ -191,7 +203,7 @@ export default class SchedexDialog extends React.Component {
                     disable-auto-styling
                     type={"time"}
                     value={suncalcValueOffTimeTime}
-                    disabled={this.props.widgetData.readOnly}
+                    disabled={this.props.widgetData.readOnly || this.state.OffTimeInputDisabled}
                   ></Input>
                 </ListItem>
                 <ListItem>

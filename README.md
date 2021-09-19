@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.2.0 (2021-09-03)
+* (svallant) custom classnames for card-widget
+
 ### 2.1.0 (2021-07-31)
 * (svallant) new schedex-widget
 * (svallant) new dropDown-widget
