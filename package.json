@@ -1,6 +1,6 @@
 {
   "name": "minuvis-webapp",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "private": true,
   "homepage": "http://192.168.178.26/minuvis/app",
   "dependencies": {
@@ -14,6 +14,7 @@
     "merge": "^2.1.1",
     "numeral": "^2.0.6",
     "onsenui": "^2.10.2",
+    "path-parse": "^1.0.7",
     "prop-types": "^15.6.2",
     "querystring": "^0.2.0",
     "react": "^16.8.6",
@@ -31,8 +32,9 @@
     "socket.io-client": "^2.1.1",
     "socket.io-react": "^1.2.0",
     "suncalc2": "^1.8.1",
+    "tmpl": "^1.0.5",
     "ua-parser-js": "^0.7.28",
-    "url-parse": "^1.5.0"
+    "url-parse": "^1.5.3"
   },
   "devDependencies": {},
   "scripts": {
