@@ -7,7 +7,6 @@ export default class Indicator extends React.Component {
   constructor() {
     super();
     this._stateId_subscribed = false;
-    this.alwaysTrue = false;
     this.state = {
       val: false,
       ts: moment()
@@ -73,26 +72,18 @@ export default class Indicator extends React.Component {
 
   render() {
     //console.debug("Render Indicator");
-
     // init
     let val = false;
     let ts = moment();
-    if (this.alwaysTrue !== true) {
-      // read value and timestamp from props if available
-      if (
-        this.props.widgetData.states[this.props.widgetData.stateId] &&
-        this.props.widgetData.states[this.props.widgetData.stateId].received) {
-        val = this.props.widgetData.states[this.props.widgetData.stateId].val;
-        ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
-      } else {
-        // read from this.state
-        val = this.state.val;
-        ts = this.state.ts;
-      }
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateId] &&
+      this.props.widgetData.states[this.props.widgetData.stateId].received) {
+      val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+      ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     } else {
-      // always true
-      val = true;
-      ts = moment();
+      // read from this.state
+      val = this.state.val;
+      ts = this.state.ts;
     }
 
     let strValue = this.stringToBoolean(val, false).toString();

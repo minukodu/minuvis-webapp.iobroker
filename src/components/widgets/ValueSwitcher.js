@@ -266,8 +266,7 @@ export default class ValueSwitcher extends React.Component {
       icon: indicatorIcon,
       iconFamily: indicatorIconFamily,
       colorWhenTrue: indicatorColor,
-      colorWhenFalse: "#222222",
-      alwaysTrue: true,
+      colorWhenFalse: indicatorColor,
       timestamp: this.props.widgetData.timestamp
     };
 

@@ -24,6 +24,10 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.2.1 (2021-10-30)
+* (svallant) fix bug in indicator when selected from valueswitcher
+* (svallant) fix bug in manifest at add to homescreen in iOS
+
 ### 2.2.0 (2021-09-03)
 * (svallant) custom classnames for card-widget
 
