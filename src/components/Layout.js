@@ -54,6 +54,7 @@ export default class Layout extends React.Component {
     let pageConfigAlarm = {};
     pageConfigAlarm.UUID = "PageAlarm";
     pageConfigAlarm.banner = this.props.appConfig.banner;
+    pageConfigAlarm.minuaru = this.props.appConfig.minuaru;
 
     route.props = route.props || {};
     route.props.navigator = navigator;
@@ -164,6 +165,7 @@ export default class Layout extends React.Component {
     let pageConfigAlarm = {};
     pageConfigAlarm.UUID = "PageAlarm";
     pageConfigAlarm.banner = this.props.appConfig.banner;
+    pageConfigAlarm.minuaru = this.props.appConfig.minuaru;
 
     if (this.props.appConfig.alarmpage === true) {
       pageList.push(

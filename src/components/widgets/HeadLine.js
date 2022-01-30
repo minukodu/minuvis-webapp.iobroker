@@ -16,6 +16,11 @@ export default function HeadLine(props) {
   let fontSize = props.widgetData.fontSize || 100;
   let classes = props.widgetData.classes || "left";
 
+  let color = props.widgetData.color;
+  if (props.widgetData.useThemeColor && props.widgetData.useThemeColor === true) {
+    color = "var(--text-color)";
+  }
+
   return (
     <Col
       id={props.widgetData.UUID}
@@ -31,7 +36,7 @@ export default function HeadLine(props) {
             compactMode={props.widgetData.compactMode}
             classes={classes}
             widgetHeight={props.widgetData.widgetHeight}
-            color={props.widgetData.color}
+            color={color}
           />
         </ListItem>
       </List>

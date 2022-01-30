@@ -50,6 +50,24 @@ export default class MainController extends React.Component {
     //##########################################################################
     //##########################################################################
 
+    //##########################################################################
+    // add states of iobroker.minuaru
+    MyVariableNames.push("minuaru.0.nbAlarmsActive");
+    MyVariableNames.push("minuaru.0.nbAlarmsActiveNotAcknowledged");
+    // AlarmListe Anstehend
+    MyVariableNames.push("minuaru.0.jsonAlarmsActive");
+    // AlarmListe Historie
+    MyVariableNames.push("minuaru.0.jsonAlarmHistory");
+    // AlarmListe Quittiervariable
+    MyVariableNames.push("minuaru.0.stateIdToAcknowledge");
+    // minuVis table settings
+    MyVariableNames.push("minuaru.0.minuVisConfig");
+    // dieser Wert wird im Header angezeigt
+    this.StateIDNbAlarmsMinuaru = "minuaru.0.nbAlarmsActiveNotAcknowledged";
+
+    //##########################################################################
+    //##########################################################################
+
     //console.info(MyVariableNames);
     for (let v in MyVariableNames) {
       states[MyVariableNames[v]] = {};
@@ -164,6 +182,20 @@ export default class MainController extends React.Component {
     console.log("Render MainController");
     // console.log(this.state);
     console.log("Settings: " + JSON.stringify(this.state.appConfig.settings));
+    // get number of alarms 
+    let nbAlarm =
+      this.state.states[this.StateIDNbAlarms]
+        ? this.state.states[this.StateIDNbAlarms].val
+        : 0;
+    let nbAlarmMinuaru =
+      this.state.states[this.StateIDNbAlarmsMinuaru]
+        ? this.state.states[this.StateIDNbAlarmsMinuaru].val
+        : 0;
+
+    // is minuaru active ???
+    if ( this.state.appConfig.minuaru && this.state.appConfig.minuaru === true ) {
+      nbAlarm = nbAlarmMinuaru;
+    }
 
     if (this.props.hasAppConfig === false) {
       return <div>trying to read config from ioBroker ...</div>;
@@ -177,11 +209,7 @@ export default class MainController extends React.Component {
             socket={this.socket}
             appConfig={this.state.appConfig}
             states={this.state.states}
-            nbAlarm={
-              this.state.states[this.StateIDNbAlarms]
-                ? this.state.states[this.StateIDNbAlarms].val
-                : 0
-            }
+            nbAlarm={nbAlarm}
             connected={this.state._socket_connected}
             version={this.props.version}
           />

@@ -2,6 +2,7 @@ import React from 'react';
 import { Page, Row, List, ListItem, Button } from 'react-onsenui';
 import Toolbar from './widgets/Toolbar';
 import BetterAlarmTable from './widgets/BetterAlarmTable';
+import MinuaruAlarmTable from './widgets/MinuaruAlarmTable';
 import Footer from "./widgets/Footer";
 import Banner from "./widgets/Banner";
 
@@ -12,10 +13,9 @@ export default class PageAlarme extends React.Component {
     this.state = {
       showHistory: false,
       pageTitle: "anstehende Alarme",
-      keyAnstehend: "anstehend",
-      keyHistory: "nohistorie"
+      iconClass: "mdi-icon format-list-bulleted-triangle active"
     };
-    console.log("Super: Alarmpage hide History");
+    // console.log("Super: Alarmpage hide History");
   }
 
   renderToolbar() {
@@ -38,7 +38,8 @@ export default class PageAlarme extends React.Component {
   showHistory() {
     this.setState({
       showHistory: true,
-      pageTitle: "Alarmhistorie"
+      pageTitle: "Alarmhistorie",
+      iconClass: "mdi-icon format-list-bulleted-type history"
     });
     // console.log("Alarmpage show History");
     // console.log(this.state.showHistory);
@@ -46,7 +47,8 @@ export default class PageAlarme extends React.Component {
   hideHistory() {
     this.setState({
       showHistory: false,
-      pageTitle: "Anstehende Alarme"
+      pageTitle: "Anstehende Alarme",
+      iconClass: "mdi-icon format-list-bulleted-triangle active"
     });
     // console.log("Alarmpage hide History");
     // console.log(this.state.showHistory);
@@ -70,30 +72,33 @@ export default class PageAlarme extends React.Component {
         <Row>
           <List>
             <ListItem>
-              <div className="left titel">
-                {this.state.pageTitle}
+              <div className="left titel alarmPageTitle">
+                <span>{this.state.pageTitle}</span>
+                <i className={this.state.iconClass + " alarmPageIcon"} />
               </div>
               <div className="center">
               </div>
               <div className="right">
                 <Button
+                  className="alarmPageButton"
                   style={this.state.showHistory ? { display: 'block' } : { display: 'none' }}
                   disable-auto-styling
-                  modifier="outline"
                   onClick={this.hideHistory.bind(this)} >
-                  Anstehende Alarme
+                  <span>Anstehende Alarme</span>
+                  <i className={"mdi-icon format-list-bulleted-triangle active" + " alarmPageIcon"} />
                 </Button>
                 <Button
+                  className="alarmPageButton"
                   style={this.state.showHistory ? { display: 'none' } : { display: 'block' }}
                   disable-auto-styling
-                  modifier="outline"
                   onClick={this.showHistory.bind(this)} >
-                  Alarmhistorie
+                  <span>Historie</span>
+                  <i className={"mdi-icon format-list-bulleted-type history" + " alarmPageIcon"} />
                 </Button>
               </div>
             </ListItem>
           </List>
-          <span className="alarm-col" style={this.state.showHistory ? { display: 'none' } : { display: 'block' }}>
+          <span className="alarm-col" style={this.state.showHistory || this.props.pageConfig.minuaru ? { display: 'none' } : { display: 'block' }}>
             <BetterAlarmTable socket={this.props.socket}
               title='NONE'
               stateId='myAlarme.VisuMeldungen.visuDaten.JSONAlarmeAnstehend'
@@ -105,13 +110,39 @@ export default class PageAlarme extends React.Component {
               showTimeQuit={true}
             />
           </span>
-          <span className="alarm-col" style={this.state.showHistory ? { display: 'block' } : { display: 'none' }}>
+          <span className="alarm-col" style={this.props.pageConfig.minuaru && !this.state.showHistory ? { display: 'block' } : { display: 'none' }}>
+            <MinuaruAlarmTable socket={this.props.socket}
+              title='NONE'
+              stateId='minuaru.0.jsonAlarmsActive'
+              state={this.props.states['minuaru.0.jsonAlarmsActive']}
+              config={this.props.states['minuaru.0.minuVisConfig']}
+              tableClass='active'
+              VarNameQuit='minuaru.0.stateIdToAcknowledge'
+              noDataText="keine anstehenden Alarme"
+              showTimeGoes={false}
+              showTimeQuit={true}
+            />
+          </span>
+          <span className="alarm-col" style={this.state.showHistory && !this.props.pageConfig.minuaru ? { display: 'block' } : { display: 'none' }}>
             <BetterAlarmTable socket={this.props.socket}
               title='NONE'
               stateId='myAlarme.VisuMeldungen.visuDaten.JSONAlarmHistorie'
               state={this.props.states['myAlarme.VisuMeldungen.visuDaten.JSONAlarmHistorie']}
               tableClass='historie'
               VarNameQuit='myAlarme.VisuMeldungen.visuDaten.VarNameZumQuittieren'
+              noDataText="keine Alarme in der Datenbank"
+              showTimeGoes={true}
+              showTimeQuit={true}
+            />
+          </span>
+          <span className="alarm-col" style={this.state.showHistory && this.props.pageConfig.minuaru ? { display: 'block' } : { display: 'none' }}>
+            <MinuaruAlarmTable socket={this.props.socket}
+              title='NONE'
+              stateId='minuaru.0.jsonAlarmHistory'
+              state={this.props.states['minuaru.0.jsonAlarmHistory']}
+              config={this.props.states['minuaru.0.minuVisConfig']}
+              tableClass='history'
+              VarNameQuit='minuaru.0.stateIdToAcknowledge'
               noDataText="keine Alarme in der Datenbank"
               showTimeGoes={true}
               showTimeQuit={true}
