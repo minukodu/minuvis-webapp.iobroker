@@ -528,6 +528,32 @@ ons-col.alarm-col {
 
 /* Start Alarmsystem */
 
+.alarmPageButton span,
+.alarmPageTitle span {
+  display: none;
+}
+
+.alarmPageButton i,
+.alarmPageTitle i {
+  width: 30px;
+  height: 30px;
+}
+
+.alarmPageButton i,
+.alarmPageTitle i {
+  color: var(--text-color);
+  font-size: 30px;
+}
+
+.alarmPageButton{
+  padding-top: 5px;
+}
+
+.alarmPageButton i.active,
+.alarmPageTitle i.active {
+  color: #EE2E2C;
+}
+
 .alarmtable {
   font-size: 80%;
   border: 1px solid #666666;

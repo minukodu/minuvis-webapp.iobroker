@@ -45,6 +45,11 @@ export default class JsonTable extends React.Component {
 
     //val = '[{"ts":1601652352418,"time":"2020-10-02T17:25:52.418","zone":"Badezimmer","trigger":"Motion Bathroom","targetsAll":"Bathroom Light","targetsSet":"","targetsSkipped":"Bathroom Light","motionTimer":10,"alwaysOffTimer":0}]';
 
+    // check for emptiness
+    if ( val.length < 5 ) {
+      val = "[{}]";
+    }  
+
     let newData = JSON.parse(val);
     // check if data is object
     if (typeof newData === "object" && newData !== null) {

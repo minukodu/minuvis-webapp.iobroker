@@ -24,6 +24,11 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.3.0 (2022-01-30)
+* (svallant) fix bug in jsonTable when value is empty
+* (svallant) support for ioBroker.minuaru
+* (svallant) "useThemeColor" for headline-widget
+
 ### 2.2.1 (2021-10-30)
 * (svallant) fix bug in indicator when selected from valueswitcher
 * (svallant) fix bug in manifest at add to homescreen in iOS
