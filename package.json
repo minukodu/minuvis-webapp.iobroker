@@ -28,7 +28,7 @@
     "react-onsenui": "^1.11.3",
     "react-scripts": "0.9.5",
     "react-table": "^6.11.5",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "socket.io-client": "^2.1.1",
     "socket.io-react": "^1.2.0",
     "suncalc2": "^1.8.1",
