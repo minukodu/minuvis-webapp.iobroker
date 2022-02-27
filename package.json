@@ -34,7 +34,7 @@
     "suncalc2": "^1.8.1",
     "tmpl": "^1.0.5",
     "ua-parser-js": "^0.7.28",
-    "url-parse": "^1.5.3"
+    "url-parse": "^1.5.8"
   },
   "devDependencies": {},
   "scripts": {
