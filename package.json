@@ -33,7 +33,7 @@
     "socket.io-react": "^1.2.0",
     "suncalc2": "^1.8.1",
     "tmpl": "^1.0.5",
-    "ua-parser-js": "^0.7.28",
+    "ua-parser-js": "^0.7.33",
     "url-parse": "^1.5.3"
   },
   "devDependencies": {},
