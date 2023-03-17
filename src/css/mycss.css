@@ -526,6 +526,15 @@ ons-col.alarm-col {
 
 /* Ende DropDown */
 
+/* Start TextInput */
+
+.textinputSendIcon {
+  color: var(--material-toolbar-button-color) !important;
+  font-size: 30px !important;
+}
+
+/* Ende TextInput */
+
 /* Start Alarmsystem */
 
 .alarmPageButton span,

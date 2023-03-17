@@ -9,40 +9,81 @@ export default class TextInput extends React.Component {
     this.state = {
       val: false,
       ts: moment(),
+      showSubmit: "none",
+      inputWidth: "99%"
     };
+    this.val = "";
+    this.waitForData = false;
   }
 
   sendValue(e) {
-    // onChange TextInput
-    console.log("onChange TextInput");
-    console.log(e);
-    console.log(e.target.value);
-    this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, e.target.value);
+    this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, this.val);
     // State nachführen
     this.setState({
-      val: e.target.value,
+      showSubmit: "none",
+      inputWidth: "99%",
       ts: moment(),
+    });
+    this.waitForData = true;
+    // reset wait for data after 500ms
+    setTimeout(() => { this.waitForData = false; }, 500)
+  }
+
+  sendValueByEnter(e) {
+    // console.log("keypress textinput");
+    // console.log(e.which);
+    
+    if (e.which == 13) {
+      e.preventDefault();
+      this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, this.val);
+      // State nachführen
+      this.setState({
+        showSubmit: "none",
+        inputWidth: "99%",
+        ts: moment(),
+      });
+      console.log("Textinput hide submit");
+      this.waitForData = true;
+      // reset wait for data after 500ms
+      setTimeout(() => { this.waitForData = false; }, 500)
+    }
+  }
+
+  showSubmit(e) {
+    this.val = e.target.value;
+    this.setState({
+      showSubmit: "inline-block",
+      inputWidth: "80%",
     });
   }
 
   render() {
-    // init
-    let val = "";
-    let ts = moment();
 
-    if (
-      this.props.widgetData.states[this.props.widgetData.stateId] &&
-      this.props.widgetData.states[this.props.widgetData.stateId].received === true
-    ) {
-      val = this.props.widgetData.states[this.props.widgetData.stateId].val;
-      ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
-    } else {
-      // read from this.state
-      val = this.state.val;
-      ts = this.state.ts;
+    let ts = moment();
+    let val;
+
+    if (this.state.showSubmit === "none" && this.waitForData === false) {
+      // init
+      console.log("init textinput")
+
+      val = "";
+
+      if (
+        this.props.widgetData.states[this.props.widgetData.stateId] &&
+        this.props.widgetData.states[this.props.widgetData.stateId].received === true
+      ) {
+        val = this.props.widgetData.states[this.props.widgetData.stateId].val;
+        ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
+      } else {
+        // read from this.state
+        val = this.state.val;
+        ts = this.state.ts;
+      }
+
+      this.val = val || "";
+
     }
 
-    val = val || "";
     ts = ts || moment();
 
     let timestamp = null;
@@ -63,13 +104,21 @@ export default class TextInput extends React.Component {
       <List id={this.props.widgetData.UUID}>
         {timestamp}
         <ListItem>
-          <div className="center">
+          <div className="center textinputwidget">
             <Input
-              style={{ width: "99%" }}
-              value={val.toString()}
+              style={{ width: this.state.inputWidth }}
+              value={this.val.toString()}
               disabled={!this.props.widgetData.connected}
-              onChange={this.sendValue.bind(this)}
+              onChange={this.showSubmit.bind(this)}
+              onKeyPress={this.sendValueByEnter.bind(this)}
             ></Input>
+            <span
+              className="submitbutton"
+              style={{ display: this.state.showSubmit }}
+              onClick={this.sendValue.bind(this)}
+            >
+            <span class="pageIcon textinputSendIcon mdi-icon send-circle-outline"></span>
+            </span>
           </div>
         </ListItem>
       </List>

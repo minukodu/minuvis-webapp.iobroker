@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.3.1 (2023-03-16)
+* (svallant) improve usage of textinput-widget
+
 ### 2.3.0 (2022-01-30)
 * (svallant) fix bug in jsonTable when value is empty
 * (svallant) support for ioBroker.minuaru
