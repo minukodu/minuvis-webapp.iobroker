@@ -114,6 +114,23 @@ export default class ValueSwitcher extends React.Component {
       ts = this.state.ts;
     }
 
+    // disbaled from connected or disabled-state
+    let disabled = !this.props.widgetData.connected;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled].received === true
+    ) {
+      disabled = disabled || this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdDisabled].val);
+    }
+    // display from invisible-state
+    let display = true;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible].received === true
+    ) {
+      display = !this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdInvisible].val);
+    }
+
     let displayBtn1 = "block";
     let displayBtn2 = "block";
     let displayBtn3 = "block";
@@ -271,7 +288,7 @@ export default class ValueSwitcher extends React.Component {
     };
 
     let valueswitcher = (
-      <List id={this.props.widgetData.UUID}>
+      <List id={this.props.widgetData.UUID} style={{ display: display ? "block" : "none" }}>
         {timestamp}
         <ListItem class="valueSwitcherBtnList">
           <Button
@@ -279,7 +296,7 @@ export default class ValueSwitcher extends React.Component {
             disable-auto-styling={"disable-auto-styling"}
             modifier={highlightBtnNr === 1 ? "" : "outline"}
             onClick={this.sendValue1.bind(this)}
-            disabled={this.props.widgetData.readOnly}
+            disabled={this.props.widgetData.readOnly || disabled}
             style={{
               display: displayBtn1,
               width: btnWidth + "%",
@@ -300,7 +317,7 @@ export default class ValueSwitcher extends React.Component {
             disable-auto-styling={"disable-auto-styling"}
             modifier={highlightBtnNr === 2 ? "" : "outline"}
             onClick={this.sendValue2.bind(this)}
-            disabled={this.props.widgetData.readOnly}
+            disabled={this.props.widgetData.readOnly || disabled}
             style={{
               display: displayBtn2,
               width: btnWidth + "%",
@@ -321,7 +338,7 @@ export default class ValueSwitcher extends React.Component {
             disable-auto-styling={"disable-auto-styling"}
             modifier={highlightBtnNr === 3 ? "" : "outline"}
             onClick={this.sendValue3.bind(this)}
-            disabled={this.props.widgetData.readOnly}
+            disabled={this.props.widgetData.readOnly || disabled}
             style={{
               display: displayBtn3,
               width: btnWidth + "%",
@@ -342,7 +359,7 @@ export default class ValueSwitcher extends React.Component {
             disable-auto-styling={"disable-auto-styling"}
             modifier={highlightBtnNr === 4 ? "" : "outline"}
             onClick={this.sendValue4.bind(this)}
-            disabled={this.props.widgetData.readOnly}
+            disabled={this.props.widgetData.readOnly || disabled}
             style={{
               display: displayBtn4,
               width: btnWidth + "%",

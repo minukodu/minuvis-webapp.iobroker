@@ -62,6 +62,23 @@ export default class Dropdown extends React.Component {
     let val = "";
     let ts = moment();
 
+    // disbaled from connected or disabled-state
+    let disabled = !this.props.widgetData.connected;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled].received === true
+    ) {
+      disabled = disabled || this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdDisabled].val);
+    }
+    // display from invisible-state
+    let display = true;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible].received === true
+    ) {
+      display = !this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdInvisible].val);
+    }
+
     if (
       this.props.widgetData.states[this.props.widgetData.stateId] &&
       this.props.widgetData.states[this.props.widgetData.stateId].received === true
@@ -106,13 +123,13 @@ export default class Dropdown extends React.Component {
     console.log(val.toString());
 
     return (
-      <List id={this.props.widgetData.UUID} className="dropDown">
+      <List id={this.props.widgetData.UUID} className="dropDown" style={{ display: display ? "block" : "none" }} >
         {timestamp}
         <ListItem>
           <div className="center">
             <Select
               value={val.toString()}
-              disabled={!this.props.widgetData.connected}
+              disabled={disabled}
               onChange={this.sendValue.bind(this)}
             >
               {dropDownOptions}

@@ -242,28 +242,31 @@ export default class MyCard extends React.Component {
               isOpen={this.state.showModal}
               isCancelable={true}
               modifier="material"
+              className={"modalwithcard " + classes}
             >
-              <List className="iconbar">
-                <ListItem>
-                  <div className="right">
-                    <Fab
-                      mini
-                      className="fab--mini"
-                      modifier="material"
-                      onClick={this.hideModal.bind(this)}
-                    >
-                      <i className="mdi-icon window-close fab--mini--icon" />
-                    </Fab>
-                  </div>
-                </ListItem>
-              </List>
-              <Card
-                id={this.props.widgetData.UUID}
-                className="mycard"
-                modifier="material"
-              >
-                {pageGrid}
-              </Card>
+              <div className={"modal-content " + classes}>
+                <List className="iconbar">
+                  <ListItem>
+                    <div className="right">
+                      <Fab
+                        mini
+                        className="fab--mini"
+                        modifier="material"
+                        onClick={this.hideModal.bind(this)}
+                      >
+                        <i className="mdi-icon window-close fab--mini--icon" />
+                      </Fab>
+                    </div>
+                  </ListItem>
+                </List>
+                <Card
+                  id={this.props.widgetData.UUID}
+                  className="mycard"
+                  modifier="material"
+                >
+                  {pageGrid}
+                </Card>
+              </div>
             </Modal>
           </ListItem>
         </List>

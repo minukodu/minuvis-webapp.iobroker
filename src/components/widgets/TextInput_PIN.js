@@ -1,5 +1,8 @@
 import React from "react";
 import { Input, List, ListItem, ListHeader } from "react-onsenui";
+import PinInput from "../utils/PinInput";
+
+
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -10,38 +13,15 @@ export default class TextInput extends React.Component {
       val: false,
       ts: moment(),
       showSubmit: "none",
-      inputWidth: "99%"
+      inputWidth: "99%",
+      showPinDialog: false
     };
     this.val = "";
     this.waitForData = false;
+    this.onChangePinInput = this.onChangePinInput.bind(this);
+    this.onCancelPinInput = this.onCancelPinInput.bind(this);
   }
 
-  stringToBoolean(val) {
-    if (val === null) {
-      return false;
-    }
-    if (typeof val === "number") {
-      return Boolean(val);
-    }
-    if (typeof val !== "string") {
-      return val;
-    }
-    switch (val.toLowerCase().trim()) {
-      case "on":
-      case "true":
-      case "yes":
-      case "1":
-        return true;
-      case "off":
-      case "false":
-      case "no":
-      case "0":
-      case null:
-        return false;
-      default:
-        return Boolean(val);
-    }
-  }
 
   sendValue(e) {
     this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, this.val);
@@ -54,12 +34,12 @@ export default class TextInput extends React.Component {
     this.waitForData = true;
     // reset wait for data after 500ms
     setTimeout(() => { this.waitForData = false; }, 500)
+    this.hidePinDialog();
   }
 
   sendValueByEnter(e) {
     // console.log("keypress textinput");
     // console.log(e.which);
-
     if (e.which == 13) {
       e.preventDefault();
       this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, this.val);
@@ -73,10 +53,12 @@ export default class TextInput extends React.Component {
       this.waitForData = true;
       // reset wait for data after 500ms
       setTimeout(() => { this.waitForData = false; }, 500)
+      this.hidePinDialog();
     }
   }
 
   showSubmit(e) {
+    this.showPinDialog();
     this.val = e.target.value;
     this.setState({
       showSubmit: "inline-block",
@@ -84,28 +66,36 @@ export default class TextInput extends React.Component {
     });
   }
 
+  showPinDialog() {
+    this.setState({
+      showPinDialog: true
+    });
+  }
+
+  hidePinDialog() {
+    this.setState({
+      showPinDialog: false
+    });
+  }
+
+  onCancelPinInput() {
+    this.setState({
+      showPinDialog: false
+    });
+  }
+
+  onChangePinInput(e) {
+    console.log("onChangePinInput");
+    console.log(e.target.value);
+    if (e.target.value === "1122") {
+      this.hidePinDialog();
+    }
+  }
+
   render() {
 
     let ts = moment();
     let val;
-
-
-    // disbaled from connected or disabled-state
-    let disabled = !this.props.widgetData.connected;
-    if (
-      this.props.widgetData.states[this.props.widgetData.stateIdDisabled] &&
-      this.props.widgetData.states[this.props.widgetData.stateIdDisabled].received === true
-    ) {
-      disabled = disabled || this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdDisabled].val);
-    }
-    // display from invisible-state
-    let display = true;
-    if (
-      this.props.widgetData.states[this.props.widgetData.stateIdInvisible] &&
-      this.props.widgetData.states[this.props.widgetData.stateIdInvisible].received === true
-    ) {
-      display = !this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdInvisible].val);
-    }
 
     if (this.state.showSubmit === "none" && this.waitForData === false) {
       // init
@@ -146,29 +136,37 @@ export default class TextInput extends React.Component {
     }
 
     return (
-      <List 
-        id={this.props.widgetData.UUID}
-        style={{ display: display?"block":"none" }} >
-        {timestamp}
-        <ListItem>
-          <div className="center textinputwidget">
-            <Input
-              style={{ width: this.state.inputWidth }}
-              value={this.val.toString()}
-              disabled={disabled}
-              onChange={this.showSubmit.bind(this)}
-              onKeyPress={this.sendValueByEnter.bind(this)}
-            ></Input>
-            <span
-              className="submitbutton"
-              style={{ display: this.state.showSubmit }}
-              onClick={this.sendValue.bind(this)}
-            >
-              <span className="pageIcon textinputSendIcon mdi-icon send-circle-outline"></span>
-            </span>
-          </div>
-        </ListItem>
-      </List>
+      <React.Fragment>
+        <PinInput
+          show={this.state.showPinDialog}
+          onCancel={this.onCancelPinInput}
+          onChange={this.onChangePinInput}
+          onKeypress={this.onKeypressPinInput}
+        />
+        <List id={this.props.widgetData.UUID}>
+          {timestamp}
+          <ListItem>
+            <div className="center textinputwidget">
+              <Input
+                style={{ width: this.state.inputWidth }}
+                value={this.val.toString()}
+                disabled={!this.props.widgetData.connected}
+                onChange={this.showSubmit.bind(this)}
+                onKeyPress={this.sendValueByEnter.bind(this)}
+              ></Input>
+              <span
+                className="submitbutton"
+                style={{ display: this.state.showSubmit }}
+                onClick={this.sendValue.bind(this)}
+              >
+                <span className="pageIcon textinputSendIcon mdi-icon send-circle-outline"></span>
+              </span>
+            </div>
+          </ListItem>
+        </List>
+
+
+      </React.Fragment>
     );
   }
 }
