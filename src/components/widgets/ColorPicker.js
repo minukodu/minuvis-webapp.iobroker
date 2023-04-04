@@ -54,6 +54,8 @@ export default class ColorPicker extends React.Component {
     }
 
     if (val === null) { val = "#ff0000" };
+    if (typeof(val) !== "string") { val = "#ff0000" };
+    
     val = val.substring(0, 7); //cut all other characters there is no white
 
     let timestamp = null;

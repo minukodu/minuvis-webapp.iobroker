@@ -412,10 +412,6 @@ ons-col.alarm-col {
   color: #1f1f21;
 }
 
-.valueSwitcherBtnList .button[disabled] {
-  opacity: 1;
-}
-
 .valueSwitcherBtnList .btn-noIcon {
   min-height: 63px;
   align-items: center;
@@ -508,9 +504,8 @@ ons-col.alarm-col {
 }
 
 .schedexDialog .select-input--material {
-    background-color: var(--list-background-color);
+  background-color: var(--list-background-color);
 }
-
 
 /* Ende Schedex */
 
@@ -535,6 +530,25 @@ ons-col.alarm-col {
 
 /* Ende TextInput */
 
+/* Start Styling disabled */
+
+ons-input[disabled],
+ons-radio[disabled],
+ons-checkbox[disabled],
+ons-segment[disabled],
+ons-search-input[disabled],
+.select-input:disabled,
+.text-input:disabled,
+.valueSwitcherBtnList .button[disabled] {
+  opacity: 0.8;
+}
+
+.select-input:disabled {
+  opacity: 0.6;
+}
+
+/* End Styling disabled */
+
 /* Start Alarmsystem */
 
 .alarmPageButton span,
@@ -554,13 +568,13 @@ ons-col.alarm-col {
   font-size: 30px;
 }
 
-.alarmPageButton{
+.alarmPageButton {
   padding-top: 5px;
 }
 
 .alarmPageButton i.active,
 .alarmPageTitle i.active {
-  color: #EE2E2C;
+  color: #ee2e2c;
 }
 
 .alarmtable {

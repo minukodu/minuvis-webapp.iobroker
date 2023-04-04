@@ -43,7 +43,8 @@ export default class ConfigLoader extends React.Component {
   findAllByKey = function (obj, keyToFind) {
     return Object.entries(obj).reduce(
       (acc, [key, value]) =>
-        key == keyToFind
+        //key == keyToFind
+        key.startsWith(keyToFind) && !key.includes("Type")
           ? acc.concat(value)
           : typeof value === "object"
             ? acc.concat(this.findAllByKey(value, keyToFind))
@@ -81,6 +82,7 @@ export default class ConfigLoader extends React.Component {
         console.log("appConfig from localStorage");
         let usedStates = this.findAllByKey(appConfig, "stateId");
         console.log(appConfig);
+        console.log("usedStates:");
         console.log(usedStates);
         this.setState({
           appConfig,
@@ -163,6 +165,7 @@ export default class ConfigLoader extends React.Component {
                 let usedStates = this.findAllByKey(appConfig, "stateId");
                 // console.log(fileData);
                 console.log(appConfig);
+                console.log("usedStates:");
                 console.log(usedStates);
                 this.setState({
                   appConfig,

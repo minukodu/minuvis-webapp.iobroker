@@ -24,6 +24,18 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.3.3 (2023-04-04)
+* (svallant) enable invisible for textinput-widget
+* (svallant) enable invisible for dropdown-widget
+* (svallant) enable invisible for valueswitcher-widget
+
+### 2.3.2 (2023-03-26)
+* (svallant) fix bug in color-picker
+* (svallant) fix bug in hue-color-picker
+* (svallant) enable disabled for textinput-widget
+* (svallant) enable disabled for dropdown-widget
+* (svallant) enable disabled for valueswitcher-widget
+
 ### 2.3.1 (2023-03-16)
 * (svallant) improve usage of textinput-widget
 

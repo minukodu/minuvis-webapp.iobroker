@@ -65,6 +65,7 @@ export default class HueColorPicker extends React.Component {
     if (this.val === null) {
       this.val = "#ff0000";
     }
+    if (typeof(this.val) !== "string") { this.val = "#ff0000" };
     this.val = this.val.substring(0, 7); //cut all other characters there is no white
 
     console.log("val: " + this.val);
