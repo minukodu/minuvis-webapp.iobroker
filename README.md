@@ -24,6 +24,15 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.3.4 (2023-12-01)
+* (ph) enable invisible for switch-widget
+* (ph) enable invisible for donut-widget
+* (ph) enable invisible for range-widget
+* (ph) enable disabled for switch-widget
+* (ph) enable disabled for donut-widget
+* (ph) enable disabled for range-widget
+
+
 ### 2.3.3 (2023-04-04)
 * (svallant) enable invisible for textinput-widget
 * (svallant) enable invisible for dropdown-widget
