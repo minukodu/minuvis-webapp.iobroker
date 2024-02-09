@@ -28,6 +28,33 @@ export default class Donut extends React.Component {
     this.max = 100;
   }
 
+  stringToBoolean(val) {
+    if (val === null) {
+      return false;
+    }
+    if (typeof val === "number") {
+      return Boolean(val);
+    }
+    if (typeof val !== "string") {
+      return val;
+    }
+    switch (val.toLowerCase().trim()) {
+      case "on":
+      case "true":
+      case "yes":
+      case "1":
+        return true;
+      case "off":
+      case "false":
+      case "no":
+      case "0":
+      case null:
+        return false;
+      default:
+        return Boolean(val);
+    }
+  }
+
   circleOnChange(value) {
 
     // console.log("circleOnChange: " + value);
@@ -193,8 +220,35 @@ export default class Donut extends React.Component {
     let height = this.props.widgetData.widgetHeight * 57;
     let width = height;
 
+    // disbaled from connected or disabled-state
+    let disabled = !this.props.widgetData.connected;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled].received === true
+    ) {
+      disabled = disabled || this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdDisabled].val);
+      if (disabled === true) {
+        onChangeFunction = null;
+        onChangeEndFunction = null;
+        thumb = null;
+      }
+      console.log("disableLog: " + disabled);
+      console.log("disableTypeOf: " + typeof (disabled));
+    }
+    // display from invisible-state
+    let display = true;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible].received === true
+    ) {
+      display = !this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdInvisible].val);
+    }
+
     return (
-      <List id={this.props.widgetData.UUID} class={"donutWidget"} >
+      <List
+        id={this.props.widgetData.UUID}
+        class={"donutWidget"}
+        style={{ display: display ? "block" : "none" }} >
         {timestamp}
         <ListItem>
           <div
@@ -205,8 +259,10 @@ export default class Donut extends React.Component {
               margin: "auto",
             }}>
             <RoundSlider
+              disabled={disabled}
               parentId={"rs-" + this.props.widgetData.UUID}
               settings={this.props.widgetData}
+              style={{ display: this.state.showSubmit }}
             />
           </div>
         </ListItem>

@@ -42,6 +42,7 @@ export default class RoundSlider extends React.Component {
     get _showHandle() {
         // If handle is shown
         if (this.props.settings.readOnly) return false;
+        if (this.props.disabled) return false;
         if (this.val == null && (this.high == null || this.low == null))
             return false;
         return true;
@@ -432,6 +433,7 @@ export default class RoundSlider extends React.Component {
                 progessStroke = this.props.settings.maxColor;
             }
         }
+
 
         let iconSize = (this.parentRect.width / 300) * 85;
         //console.log("iconSize: " + iconSize);

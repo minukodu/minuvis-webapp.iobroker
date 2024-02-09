@@ -19,6 +19,33 @@ export default class MyRange extends React.Component {
     this.decimals = 0;
   }
 
+  stringToBoolean(val) {
+    if (val === null) {
+      return false;
+    }
+    if (typeof val === "number") {
+      return Boolean(val);
+    }
+    if (typeof val !== "string") {
+      return val;
+    }
+    switch (val.toLowerCase().trim()) {
+      case "on":
+      case "true":
+      case "yes":
+      case "1":
+        return true;
+      case "off":
+      case "false":
+      case "no":
+      case "0":
+      case null:
+        return false;
+      default:
+        return Boolean(val);
+    }
+  }
+
   RangeOnChange(value) {
     let valueToSend = value;
     if (this.props.widgetData.stateIdType === "number") {
@@ -132,8 +159,29 @@ export default class MyRange extends React.Component {
       );
     }
 
+    // disbaled from connected or disabled-state
+    let disabled = !this.props.widgetData.connected;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled].received === true
+    ) {
+      disabled = disabled || this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdDisabled].val);
+    }
+    // display from invisible-state
+    let display = true;
+    if (
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible].received === true
+    ) {
+      display = !this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdInvisible].val);
+    }
+
+
     return (
-      <List id={this.props.widgetData.UUID} class={"sliderWidget"} >
+      <List 
+        id={this.props.widgetData.UUID} 
+        class={"sliderWidget"}
+        style={{ display: display?"block":"none" }} >
         {timestamp}
         <ListItem style={{ padding: 0 }}>
           <div style={{ display: "flex", width: "100%", flexDirection: "row", flexWrap: "nowrap" }}>
@@ -152,7 +200,7 @@ export default class MyRange extends React.Component {
             <Col style={{ borderLeft: "none", flexBasis: "auto", flexGrow: 1, alignSelf: "center" }}>
               <InputRange
                 formatLabel={value => `${fixOutputFloat(this.val, this.decimals)} ${this.props.widgetData.unit}`}
-                disabled={!this.props.widgetData.connected}
+                disabled={disabled}
                 maxValue={this.props.widgetData.max}
                 minValue={this.props.widgetData.min}
                 step={this.props.widgetData.step}
