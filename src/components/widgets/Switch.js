@@ -53,6 +53,33 @@ export default class MySwitch extends React.Component {
     let val = false;
     let ts = moment();
 
+    // disbaled from connected or disabled-state
+    let disabled = !this.props.widgetData.connected;
+    if (
+      this.props.widgetData.stateIdDisabled &&
+      this.props.widgetData.stateIdDisabled != "undefined" &&
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled].received === true
+    ) {
+      disabled = disabled || this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdDisabled].val);
+    }
+    // display from invisible-state
+    let display = true;
+    if (
+      this.props.widgetData.stateIdInvisible &&
+      this.props.widgetData.stateIdInvisible != "undefined" &&
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible] &&
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible].received === true
+    ) {
+      display = !this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdInvisible].val);
+    }
+
+    // Console logs for state checking
+    console.log("State ID Disabled:", this.props.widgetData.stateIdDisabled);
+    console.log("State ID Invisible:", this.props.widgetData.stateIdInvisible);
+    console.log("States:", this.props.widgetData.states);
+
+
     if (
       this.props.widgetData.states[this.props.widgetData.stateId] &&
       this.props.widgetData.states[this.props.widgetData.stateId].received === true
@@ -81,15 +108,19 @@ export default class MySwitch extends React.Component {
 
 
     return (
-      <List id={this.props.widgetData.UUID} className="switch" style={{ transform: "scale(" + (this.props.widgetData.zoom || 100)/100 + ")" }}>
+      <List 
+        id={this.props.widgetData.UUID} 
+        className="switch" 
+        style={{ transform: "scale(" + (this.props.widgetData.zoom || 100)/100 + ")", display: display?"block":"none"  }}>
         {timestamp}
         <ListItem>
           <div className="center">
             <Switch
-              disabled={!this.props.widgetData.connected}
+              disabled={disabled}
               onChange={this.sendValue.bind(this)}
               checked={this.stringToBoolean(val)}
               class={"switchMargin"}
+              style={{ display: this.state.showSubmit }}
             ></Switch>
           </div>
         </ListItem>
@@ -97,3 +128,4 @@ export default class MySwitch extends React.Component {
     );
   }
 }
+

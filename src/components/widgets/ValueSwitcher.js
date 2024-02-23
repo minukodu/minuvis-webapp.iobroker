@@ -117,6 +117,8 @@ export default class ValueSwitcher extends React.Component {
     // disbaled from connected or disabled-state
     let disabled = !this.props.widgetData.connected;
     if (
+      this.props.widgetData.stateIdDisabled &&
+      this.props.widgetData.stateIdDisabled != "undefined" &&
       this.props.widgetData.states[this.props.widgetData.stateIdDisabled] &&
       this.props.widgetData.states[this.props.widgetData.stateIdDisabled].received === true
     ) {
@@ -125,6 +127,8 @@ export default class ValueSwitcher extends React.Component {
     // display from invisible-state
     let display = true;
     if (
+      this.props.widgetData.stateIdInvisible &&
+      this.props.widgetData.stateIdInvisible != "undefined" &&
       this.props.widgetData.states[this.props.widgetData.stateIdInvisible] &&
       this.props.widgetData.states[this.props.widgetData.stateIdInvisible].received === true
     ) {
