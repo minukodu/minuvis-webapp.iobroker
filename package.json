@@ -2,6 +2,7 @@
   "name": "minuvis-webapp",
   "version": "2.5.0",
   "private": true,
+  "homepage": "http://192.168.178.26/minuvis/app",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@iobroker/socket-client": "^4.0.0",
