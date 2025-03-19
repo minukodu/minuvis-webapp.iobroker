@@ -56,11 +56,8 @@ export default class MySwitch extends React.Component {
     // disbaled from connected or disabled-state
     let disabled = !this.props.widgetData.connected;
     if (
-<<<<<<< HEAD
       this.props.widgetData.stateIdDisabled &&
       this.props.widgetData.stateIdDisabled != "undefined" &&
-=======
->>>>>>> 0e8f5b95a548ebcdd72d18336aca4b34018306c0
       this.props.widgetData.states[this.props.widgetData.stateIdDisabled] &&
       this.props.widgetData.states[this.props.widgetData.stateIdDisabled].received === true
     ) {
@@ -69,27 +66,22 @@ export default class MySwitch extends React.Component {
     // display from invisible-state
     let display = true;
     if (
-<<<<<<< HEAD
       this.props.widgetData.stateIdInvisible &&
       this.props.widgetData.stateIdInvisible != "undefined" &&
-=======
->>>>>>> 0e8f5b95a548ebcdd72d18336aca4b34018306c0
       this.props.widgetData.states[this.props.widgetData.stateIdInvisible] &&
       this.props.widgetData.states[this.props.widgetData.stateIdInvisible].received === true
     ) {
       display = !this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdInvisible].val);
     }
 
-<<<<<<< HEAD
     // Console logs for state checking
     console.log("State ID Disabled:", this.props.widgetData.stateIdDisabled);
     console.log("State ID Invisible:", this.props.widgetData.stateIdInvisible);
     console.log("States:", this.props.widgetData.states);
 
 
-=======
->>>>>>> 0e8f5b95a548ebcdd72d18336aca4b34018306c0
     if (
+      this.props.widgetData.states &&
       this.props.widgetData.states[this.props.widgetData.stateId] &&
       this.props.widgetData.states[this.props.widgetData.stateId].received === true
     ) {

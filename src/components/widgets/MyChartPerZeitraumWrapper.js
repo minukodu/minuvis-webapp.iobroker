@@ -1,21 +1,21 @@
 import React from "react";
 import { Modal, Segment, Button, List, ListItem, ListHeader, Fab } from "react-onsenui";
-import FlotDiagrammPerZeitraum from "./FlotDiagrammPerZeitraum";
+import MyChart from "./MyChart";
 import moment from "moment";
 moment.locale("de-DE");
 
-export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
+export default class MyChartPerZeitraumWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.defaultRange = this.props.widgetData.defaultRange || 1;
-    this.timeFormat=["%h:%M", "%h:%M", "%a.", "%d.%m"];
-    this.rangeNames=[
+    this.timeFormat = ["%h:%M", "%h:%M", "%a.", "%d.%m"];
+    this.rangeNames = [
       this.props.widgetData.area1Name,
       this.props.widgetData.area2Name,
       this.props.widgetData.area3Name,
       this.props.widgetData.area4Name,
     ];
-    this.ranges=[
+    this.ranges = [
       this.props.widgetData.area1Time,
       this.props.widgetData.area2Time,
       this.props.widgetData.area3Time,
@@ -88,15 +88,14 @@ export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
     };
 
     let height = widgetHeight * this.props.widgetData.rowHeight;
-    let flotHeight = height - 80;
+    let chartHeight = height - 80;
     height = height + "px";
-    flotHeight = flotHeight + "px";
 
-    console.log("height " + height + " flotHeight " + flotHeight);
+    console.log("height " + height + " chartHeight " + chartHeight);
     console.log(this.props.widgetData.modalWidgetHeight);
 
-    var flotWidget = (
-      <List id={this.props.widgetData.UUID} className="flotoutput" style={{ height }}>
+    var chartWidget = (
+      <List id={this.props.widgetData.UUID} className="chartoutput" style={{ height }}>
         {timestamp}
         <ListItem>
           <Segment
@@ -130,17 +129,11 @@ export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
             </Button>
           </Segment>
         </ListItem>
-        <FlotDiagrammPerZeitraum
-          title="NONE"
-          socket={this.props.widgetData.socket}
-          FlotUrl={this.props.widgetData.url}
-          FlotWidth={this.props.widgetData.FlotWidth || "100%"}
-          FlotHeight={flotHeight}
-          FlotRange={this.state.range}
-          FlotTimeFormat={this.state.timeFormat}
-          FlotWindowBG={this.props.widgetData.FlotWindowBG || "282828"}
-          FlotZoom={this.props.widgetData.FlotZoom || false}
-          FlotHoverDetail={this.props.widgetData.FlotHoverDetail || true}
+        <MyChart
+          key={this.state.range}
+          widgetData={this.props.widgetData}
+          range={this.state.range}
+          chartHeight={chartHeight}
         />
       </List>
     );
@@ -151,7 +144,7 @@ export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
 
     if (this.props.widgetData.showInModal === true) {
       return (
-        <List className="modalflotoutput" style={{ height }}>
+        <List className="modalchartoutput" style={{ height }}>
           <ListItem>
             <div className="center">
               <div className="centerFab" style={{ margin: "auto" }}>
@@ -177,13 +170,13 @@ export default class FlotDiagrammPerZeitraumWrapper extends React.Component {
                   </div>
                 </ListItem>
               </List>
-              {flotWidget}
+              {chartWidget}
             </Modal>
           </ListItem >
         </List >
       );
     } else {
-      return flotWidget;
+      return chartWidget;
     }
   }
 }

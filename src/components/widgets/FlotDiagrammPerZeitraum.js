@@ -11,7 +11,7 @@ export default class FlotDiagrammPerZeitraum extends React.Component {
 		super(props);
 		this.state = {
 			iframeKey: 0,
-			lastUpdateDate: Date.now()
+			lastUpdateDate: Date.now(),
 		};
 		this.srcUrl = this.props.FlotUrl;
 	}
@@ -21,26 +21,26 @@ export default class FlotDiagrammPerZeitraum extends React.Component {
 		// Set Auto-Time-Format
 		// timeFormat={["%h:%M", "%h:%M", "%a.", "%d.%m"]}
 		let timeFormat = "%h:%M";
-		if ( this.props.FlotRange > 3*60*24 ){
+		if (this.props.FlotRange > 3 * 60 * 24) {
 			timeFormat = "%a.";
 		}
-		if ( this.props.FlotRange > 14*60*24 ){
+		if (this.props.FlotRange > 14 * 60 * 24) {
 			timeFormat = "%d.%m";
 		}
-		if ( this.props.FlotRange > 3*30*60*24 ){
+		if (this.props.FlotRange > 3 * 30 * 60 * 24) {
 			timeFormat = "%m/%Y";
 		}
 
 
 		// read and manipulate URL
 		var srcUrlQuery = urlParse(this.srcUrl);
-		console.dir(srcUrlQuery);
+		//console.dir(srcUrlQuery);
 		var srcUrlQueryString = srcUrlQuery.query;
 		// remove ?
 		srcUrlQueryString = srcUrlQueryString.substring(1, srcUrlQueryString.length);
 
 		var srcUrlParsed = queryString.parse(srcUrlQueryString);
-		console.dir(srcUrlParsed);
+		//console.dir(srcUrlParsed);
 
 		// manipulate Range in URL
 		srcUrlParsed.range = this.props.FlotRange
@@ -63,7 +63,7 @@ export default class FlotDiagrammPerZeitraum extends React.Component {
 
 		//console.log(queryString.stringify(srcUrlParsed));
 		var srcUrlNew = srcUrlQuery.protocol + "//" + srcUrlQuery.hostname + port + srcUrlQuery.pathname + "?" + queryString.stringify(srcUrlParsed)
-		console.log(srcUrlNew);
+		//console.log(srcUrlNew);
 		return (
 			<ons-col>
 				<ons-list>
@@ -77,7 +77,7 @@ export default class FlotDiagrammPerZeitraum extends React.Component {
 							/>
 						</div>
 					</ons-list-item>
-				</ons-list>
+				</ons-list> 
 			</ons-col>
 		);
 	}

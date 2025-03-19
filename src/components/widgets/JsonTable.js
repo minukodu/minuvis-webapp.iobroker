@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, List, ListItem, ListHeader } from "react-onsenui";
-import ReactTable from "react-table";
+
 import moment from "moment";
 moment.locale("de-DE");
 
@@ -129,6 +129,7 @@ export default class JsonTable extends React.Component {
       <List id={this.props.widgetData.UUID}>
           {timestamp}
           <ListItem>
+            {/*
             <ReactTable
               className={"jsontable alarmtable"}
               data={data}
@@ -147,6 +148,7 @@ export default class JsonTable extends React.Component {
               PreviousComponent={PrevButton}
               NextComponent={NextButton}
             />
+            */}
           </ListItem>
       </List>
     );

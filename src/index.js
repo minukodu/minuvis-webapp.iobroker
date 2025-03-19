@@ -1,11 +1,12 @@
 // React
-import '@babel/polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 import ConfigLoader from './components/ConfigLoader';
 
 // Render application
-ReactDOM.render(
-  <ConfigLoader />,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <ConfigLoader />
 );
+

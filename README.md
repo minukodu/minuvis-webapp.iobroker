@@ -24,6 +24,11 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.5.0 (2025-03-19)
+* (svallant) update to react v18
+* (svallant) support username and password for connections
+* (svallant) new chart widget
+
 ### 2.3.4 (2023-12-01)
 * (ph) enable invisible for switch-widget
 * (ph) enable invisible for donut-widget

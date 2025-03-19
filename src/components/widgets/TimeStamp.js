@@ -12,7 +12,7 @@ export default class TimeStamp extends React.Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
 
     if (typeof this.props.states[this.props.stateId] === "undefined") {
       if (this._stateId_subscribed === false) {

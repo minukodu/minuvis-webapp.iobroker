@@ -549,6 +549,18 @@ ons-search-input[disabled],
 
 /* End Styling disabled */
 
+/* Start splitterside collapse */
+
+.mysplitterside-collapse {
+  transform: none;
+}
+
+.mysplitterside-open {
+  transform: translate3d(100%, 0px, 0px);
+}
+
+/* End splitterside collapse */
+
 /* Start Alarmsystem */
 
 .alarmPageButton span,

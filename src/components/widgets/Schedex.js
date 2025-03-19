@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, ListItem, Fab, ListHeader } from "react-onsenui";
-import SchedexDialog from "./SchedexDialog";
+// import SchedexDialog from "./SchedexDialog";
 import moment from 'moment';
 moment.locale('de-DE');
 
@@ -119,7 +119,7 @@ export default class Schedex extends React.Component {
               </div>
             </div>
         </ListItem>
-        <SchedexDialog
+        {/* <SchedexDialog
           className={"schedexDialog"}
           showDialog={this.state.showDialog}
           hideDialog={this.hideDialog.bind(this)}
@@ -128,7 +128,7 @@ export default class Schedex extends React.Component {
           schedexData={schedexData}
           weekDays={this.weekDays}
           suncalcValues={this.suncalcValues}
-        />
+        /> */}
       </List>
     );
   }

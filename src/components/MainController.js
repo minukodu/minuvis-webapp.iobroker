@@ -1,6 +1,5 @@
-import React from "react";
-import Layout from "./Layout";
-import io from "socket.io-client";
+import React from 'react';
+import Layout from './Layout';
 
 export default class MainController extends React.Component {
   constructor() {
@@ -11,9 +10,8 @@ export default class MainController extends React.Component {
       _socket_connected: false,
       appConfig: null,
     };
-    this.StateIDNbAlarms = "";
+    this.StateIDNbAlarms = '';
     this.usedVariables = [];
-    this.socket = null;
   }
 
   loadVariableNames = () => {
@@ -24,46 +22,46 @@ export default class MainController extends React.Component {
     // TEST Alalmmeldesystem
     // AlarmAnzahl hinzufügen
     MyVariableNames.push(
-      "myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehend"
+      'myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehend'
     );
     MyVariableNames.push(
-      "myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehendQuittiert"
+      'myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehendQuittiert'
     );
     MyVariableNames.push(
-      "myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehendNichtQuittiert"
+      'myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehendNichtQuittiert'
     );
     // AlarmListe Anstehend
     MyVariableNames.push(
-      "myAlarme.VisuMeldungen.visuDaten.JSONAlarmeAnstehend"
+      'myAlarme.VisuMeldungen.visuDaten.JSONAlarmeAnstehend'
     );
     // AlarmListe Historie
-    MyVariableNames.push("myAlarme.VisuMeldungen.visuDaten.JSONAlarmHistorie");
+    MyVariableNames.push('myAlarme.VisuMeldungen.visuDaten.JSONAlarmHistorie');
     // AlarmListe Quittiervariable
     MyVariableNames.push(
-      "myAlarme.VisuMeldungen.visuDaten.VarNameZumQuittieren"
+      'myAlarme.VisuMeldungen.visuDaten.VarNameZumQuittieren'
     );
 
     // dieser Wert wird im Header angezeigt
     this.StateIDNbAlarms =
-      "myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehendNichtQuittiert";
+      'myAlarme.VisuMeldungen.visuDaten.AnzahlAlarmeAnstehendNichtQuittiert';
 
     //##########################################################################
     //##########################################################################
 
     //##########################################################################
     // add states of iobroker.minuaru
-    MyVariableNames.push("minuaru.0.nbAlarmsActive");
-    MyVariableNames.push("minuaru.0.nbAlarmsActiveNotAcknowledged");
+    MyVariableNames.push('minuaru.0.nbAlarmsActive');
+    MyVariableNames.push('minuaru.0.nbAlarmsActiveNotAcknowledged');
     // AlarmListe Anstehend
-    MyVariableNames.push("minuaru.0.jsonAlarmsActive");
+    MyVariableNames.push('minuaru.0.jsonAlarmsActive');
     // AlarmListe Historie
-    MyVariableNames.push("minuaru.0.jsonAlarmHistory");
+    MyVariableNames.push('minuaru.0.jsonAlarmHistory');
     // AlarmListe Quittiervariable
-    MyVariableNames.push("minuaru.0.stateIdToAcknowledge");
+    MyVariableNames.push('minuaru.0.stateIdToAcknowledge');
     // minuVis table settings
-    MyVariableNames.push("minuaru.0.minuVisConfig");
+    MyVariableNames.push('minuaru.0.minuVisConfig');
     // dieser Wert wird im Header angezeigt
-    this.StateIDNbAlarmsMinuaru = "minuaru.0.nbAlarmsActiveNotAcknowledged";
+    this.StateIDNbAlarmsMinuaru = 'minuaru.0.nbAlarmsActiveNotAcknowledged';
 
     //##########################################################################
     //##########################################################################
@@ -86,8 +84,7 @@ export default class MainController extends React.Component {
     });
   };
 
-  componentWillMount() {
-
+  UNSAFE_componentWillMount() {
     if (this.props.hasAppConfig === false) {
       return;
     }
@@ -96,7 +93,7 @@ export default class MainController extends React.Component {
       appConfig,
     });
 
-    console.info(new Date() + " WillMount HausController");
+    console.info(new Date() + ' WillMount MainController');
     // Read settings
     //let settings = ReadSettings();
     this.setState({
@@ -109,15 +106,11 @@ export default class MainController extends React.Component {
     if (this.props.hasAppConfig === false) {
       return;
     }
-    //######################################################
-    // Verbindung aufbauen
-    this.socket = io.connect(this.props.appConfig.dataprovider.url);
-    //######################################################
 
-    console.info(new Date() + " DidMount HausController");
-    this.socket.connect();
-    this._func_on_stateChange = this.socket.on(
-      "stateChange",
+    console.info(new Date() + ' DidMount MainController');
+
+    this.props.socket.on(
+      'stateChange',
       function (id, state) {
         //console.log(id + " :: " + state.val);
         // "normale" Variable
@@ -130,41 +123,38 @@ export default class MainController extends React.Component {
       }.bind(this)
     );
 
-    this._func_on_Connect = this.socket.on("connect", () => {
-      console.info(new Date() + " Connected HausController");
-
-      // variablen subscriben und holen
-      this.socket.emit("name", "minuvis.0");
-      this.socket.emit("subscribe", this.usedVariables);
-      console.log("Variables subscribed");
-
-      this.socket.emit(
-        "getStates",
-        this.usedVariables,
-        function (err, _states) {
-          console.info(new Date() + " Received all States HausController");
-          console.info(
-            new Date() + " Received " + Object.keys(_states).length + " states."
-          );
-          let states = _states;
-          // console.log("states");
-          // console.log(states);
-          for (var stateID in states) {
-            if (states[stateID]) {
-              states[stateID].received = true;
-            }
+    // variables subscribe and fetch
+    this.props.socket.emit('subscribe', this.usedVariables);
+    console.log('Variables subscribed');
+    console.log('now read all Variables');
+    this.props.socket.emit(
+      'getStates',
+      this.usedVariables,
+      function (err, _states) {
+        console.info(new Date() + ' Received all States MainController');
+        console.info(
+          new Date() + ' Received ' + Object.keys(_states).length + ' states.'
+        );
+        let states = _states;
+        // console.log("states");
+        // console.log(states);
+        for (var stateID in states) {
+          if (states[stateID]) {
+            states[stateID].received = true;
           }
-          //console.debug (states);
-          this.setState({
-            socket: this.socket,
-            states,
-            _socket_connected: true,
-          });
-        }.bind(this)
-      );
-    });
-    this._func_on_Disconnect = this.socket.on("disconnect", () => {
-      console.info(new Date() + " Disconnected HausController");
+        }
+        //console.debug (states);
+        console.log('states received and connected');
+        this.setState({
+          //socket: this.props.socket,
+          states,
+          _socket_connected: true,
+        });
+      }.bind(this)
+    );
+    // });
+    this.props.socket.on('disconnect', () => {
+      console.info(new Date() + ' Disconnected MainController');
       this.setState({
         _socket_connected: false,
       });
@@ -174,46 +164,46 @@ export default class MainController extends React.Component {
     if (this.props.hasAppConfig === false) {
       return;
     }
-    //console.info("Willumount HausController");
-    this.socket.disconnect();
+    //console.info("Willumount MainController");
+    this.props.socket.disconnect();
   }
 
   render() {
-    console.log("Render MainController");
+    console.log('Render MainController');
     // console.log(this.state);
-    console.log("Settings: " + JSON.stringify(this.state.appConfig.settings));
-    // get number of alarms 
-    let nbAlarm =
-      this.state.states[this.StateIDNbAlarms]
-        ? this.state.states[this.StateIDNbAlarms].val
-        : 0;
-    let nbAlarmMinuaru =
-      this.state.states[this.StateIDNbAlarmsMinuaru]
-        ? this.state.states[this.StateIDNbAlarmsMinuaru].val
-        : 0;
+    console.log('Settings: ' + JSON.stringify(this.state.appConfig.settings));
+    // get number of alarms
+    let nbAlarm = this.state.states[this.StateIDNbAlarms]
+      ? this.state.states[this.StateIDNbAlarms].val
+      : 0;
+    let nbAlarmMinuaru = this.state.states[this.StateIDNbAlarmsMinuaru]
+      ? this.state.states[this.StateIDNbAlarmsMinuaru].val
+      : 0;
 
     // is minuaru active ???
-    if ( this.state.appConfig.minuaru && this.state.appConfig.minuaru === true ) {
-      nbAlarm = nbAlarmMinuaru;
+    if (this.state.appConfig.minuaru && this.state.appConfig.minuaru === true) {
+      console.log("minuaru alarm count: " + nbAlarmMinuaru);
+      nbAlarm = nbAlarmMinuaru || 0;
     }
 
     if (this.props.hasAppConfig === false) {
       return <div>trying to read config from ioBroker ...</div>;
     } else {
       return (
-        <div>
-          <div className={true ? "overlay connected" : "overlay notconnected"}>
-            <div className="overlay inner">Daten werden geladen ....</div>
+          <div>
+            <div className={true ? 'overlay connected' : 'overlay notconnected'}>
+              <div className="overlay inner">Daten werden geladen ....</div>
+            </div>
+            <Layout
+              theme={this.props.theme}
+              socket={this.props.socket}
+              appConfig={this.state.appConfig}
+              states={this.state.states}
+              nbAlarm={nbAlarm}
+              connected={this.state._socket_connected}
+              version={this.props.version}
+            />
           </div>
-          <Layout
-            socket={this.socket}
-            appConfig={this.state.appConfig}
-            states={this.state.states}
-            nbAlarm={nbAlarm}
-            connected={this.state._socket_connected}
-            version={this.props.version}
-          />
-        </div>
       );
     }
   }
