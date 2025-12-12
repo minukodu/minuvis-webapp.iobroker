@@ -1,12 +1,12 @@
 import React from 'react';
-import { Grid, _ } from 'gridjs-react';
-import { html } from 'gridjs';
-import { Button } from 'react-onsenui';
+import {memo} from 'react';
+import {Grid, _} from 'gridjs-react';
+import {html} from 'gridjs';
+import {Button} from 'react-onsenui';
 import moment from 'moment';
-moment.locale('de-DE');
+moment.locale ('de-DE');
 
-function MinuaruAlarmTable(props) {
-
+const MinuaruAlarmTable = memo (function MinuaruAlarmTable (props) {
   const defaultConfig = {
     columnNames: 'time comes,time goes,time ack,alarmtext,area,acknowlegde',
     alarm_colorActive: '#ee2e2c',
@@ -23,7 +23,7 @@ function MinuaruAlarmTable(props) {
   // calculate column-widths
   let width = window.innerWidth > 0 ? window.innerWidth : window.screen.width;
   if (props.splitterOpen === true) {
-    width = width - 200; // side-menu 
+    width = width - 200; // side-menu
   }
 
   let columnWidth = width / 6 - 10;
@@ -34,29 +34,30 @@ function MinuaruAlarmTable(props) {
     alarmTextColumnWidth = width - 5 * columnWidth - 30;
   }
 
-  function quitAlarm(variableName, e) {
+  function quitAlarm (variableName, e) {
     //e.preventDefault();
-    console.log('quitAlarm stateID=' + variableName);
-    props.socket.emit('setState', props.VarNameQuit, variableName);
+    console.log ('quitAlarm stateID=' + variableName);
+    props.socket.emit ('setState', props.VarNameQuit, variableName);
     //props.quitAlarm(variableName);
   }
 
   // get data
   let data = [];
   if (props.state && props.state.val) {
-    data = JSON.parse(props.state.val);
+    let newData = props.state.val;
+    data = JSON.parse (newData);
     //console.log ("alarmdata");
     //console.log (data);
   } else {
     // Testdaten
     data = [];
     for (var i = 1; i < 37; i++) {
-      data.push({
-        tsComes: moment().unix() * 1000,
-        tsGoes: Math.random() > 0.5 ? moment().unix() * 1000 : 0,
-        tsAck: Math.random() > 0.5 ? moment().unix() * 1000 : 0,
+      data.push ({
+        tsComes: moment ().unix () * 1000,
+        tsGoes: Math.random () > 0.5 ? moment ().unix () * 1000 : 0,
+        tsAck: Math.random () > 0.5 ? moment ().unix () * 1000 : 0,
         alarmText: 'my alarmtext ' + i,
-        alarmClass: Math.random() > 0.5 ? 'Alarm' : 'Information', // 'Warning'
+        alarmClass: Math.random () > 0.5 ? 'Alarm' : 'Information', // 'Warning'
         alarmArea: 'my area',
         stateID: 'mystate_' + i,
       });
@@ -64,7 +65,7 @@ function MinuaruAlarmTable(props) {
   }
   // get settings
   let config = props.config && props.config.val
-    ? JSON.parse(props.config.val)
+    ? JSON.parse (props.config.val)
     : defaultConfig;
 
   // console.log ('minuaru config');
@@ -73,79 +74,79 @@ function MinuaruAlarmTable(props) {
 
   // get header-titles
   let titles = config.columnNames;
-  let arrTitles = titles.split(',');
+  let arrTitles = titles.split (',');
 
   let columnNames = [];
-  columnNames.push({
+  columnNames.push ({
     id: 'tsComes',
     name: arrTitles[0] || 'time comes',
     width: columnWidth + 'px',
     formatter: cell =>
-      html(
+      html (
         `<div>` +
-        `<div class="date">${cell > 0 ? moment(cell).format('DD.MM.YYYY') : '--'}</div>` +
-        `<div class="time">${cell > 0 ? moment(cell).format('HH:mm:ss') : ''}</div>` +
-        `</div>`
+          `<div class="date">${cell > 0 ? moment (cell).format ('DD.MM.YYYY') : '--'}</div>` +
+          `<div class="time">${cell > 0 ? moment (cell).format ('HH:mm:ss') : ''}</div>` +
+          `</div>`
       ),
     attributes: (cell, row, column) => {
       if (row) {
         return {
-          className: 'tscomes class-' + row._cells[4].data.toLowerCase(),
+          className: 'tscomes class-' + row._cells[4].data.toLowerCase (),
         };
       }
     },
   });
-  columnNames.push({
+  columnNames.push ({
     id: 'tsGoes',
     name: arrTitles[1] || 'time goes',
     width: columnWidth + 'px',
     formatter: cell =>
-      html(
+      html (
         `<div>` +
-        `<div class="date">${cell > 0 ? moment(cell).format('DD.MM.YYYY') : '--'}</div>` +
-        `<div class="time">${cell > 0 ? moment(cell).format('HH:mm:ss') : ''}</div>` +
-        `</div>`
+          `<div class="date">${cell > 0 ? moment (cell).format ('DD.MM.YYYY') : '--'}</div>` +
+          `<div class="time">${cell > 0 ? moment (cell).format ('HH:mm:ss') : ''}</div>` +
+          `</div>`
       ),
     attributes: (cell, row, column) => {
       if (row) {
         return {
-          className: 'tsgoes class-' + row._cells[4].data.toLowerCase(),
+          className: 'tsgoes class-' + row._cells[4].data.toLowerCase (),
         };
       }
     },
   });
-  columnNames.push({
+  columnNames.push ({
     id: 'tsAck',
     name: arrTitles[2] || 'time ack',
     width: columnWidth + 'px',
     formatter: cell =>
-      html(
+      html (
         `<div>` +
-        `<div class="date">${cell > 0 ? moment(cell).format('DD.MM.YYYY') : '--'}</div>` +
-        `<div class="time">${cell > 0 ? moment(cell).format('HH:mm:ss') : ''}</div>` +
-        `</div>`
+          `<div class="date">${cell > 0 ? moment (cell).format ('DD.MM.YYYY') : '--'}</div>` +
+          `<div class="time">${cell > 0 ? moment (cell).format ('HH:mm:ss') : ''}</div>` +
+          `</div>`
       ),
     attributes: (cell, row, column) => {
       if (row) {
         return {
-          className: 'tsack class-' + row._cells[4].data.toLowerCase(),
+          className: 'tsack class-' + row._cells[4].data.toLowerCase (),
         };
       }
     },
   });
-  columnNames.push({
+  columnNames.push ({
     id: 'alarmText',
     name: arrTitles[3] || 'alarmtext',
     width: alarmTextColumnWidth + 'px',
     attributes: (cell, row, column) => {
       if (row) {
         return {
-          className: 'alarmtext class-' + row._cells[4].data.toLowerCase(),
+          className: 'alarmtext class-' + row._cells[4].data.toLowerCase (),
         };
       }
     },
   });
-  columnNames.push({
+  columnNames.push ({
     id: 'alarmClass',
     name: 'alarmclass',
     hidden: true,
@@ -153,27 +154,27 @@ function MinuaruAlarmTable(props) {
       className: 'hidden',
     },
   });
-  columnNames.push({
+  columnNames.push ({
     id: 'alarmArea',
     name: arrTitles[4] || 'area',
     width: columnWidth + 'px',
     attributes: (cell, row, column) => {
       if (row) {
         return {
-          className: 'tscomes class-' + row._cells[4].data.toLowerCase(),
+          className: 'tscomes class-' + row._cells[4].data.toLowerCase (),
         };
       }
     },
   });
-  columnNames.push({
+  columnNames.push ({
     id: 'stateID',
     name: arrTitles[5] || 'acknowledge',
     width: columnWidth + 'px',
     formatter: cell =>
-      _(
+      _ (
         <Button
           onClick={() => {
-            quitAlarm(cell);
+            quitAlarm (cell);
           }}
         >
           {arrTitles[5] || 'acknowlegde'}
@@ -193,7 +194,7 @@ function MinuaruAlarmTable(props) {
     );
   }
 
-  let ts = moment();
+  let ts = moment ();
   if (props.state && props.state.ts) {
     ts = props.state.ts;
   }
@@ -261,8 +262,7 @@ function MinuaruAlarmTable(props) {
       }
       .minuarutable.app .button {
         margin: 5px 0px;
-      }
-          `;
+      }`;
 
   // Grid
   const table = (
@@ -278,6 +278,19 @@ function MinuaruAlarmTable(props) {
       className={{
         table: 'minuarutable app ' + props.tableClass,
       }}
+      language={{
+        pagination: {
+          previous: '<<',
+          next: '>>',
+          showing: '\n',
+          to: ' - ',
+          of: '',
+          results: 'Alarms',
+        },
+        loading: 'Loading...',
+        noRecordsFound: 'No alarms found in list',
+        error: 'An error happened while fetching the data',
+      }}
     />
   );
 
@@ -287,9 +300,9 @@ function MinuaruAlarmTable(props) {
         <ons-list-header>
           <span
             className="right lastupdate"
-            style={{ float: 'right', paddingRight: '5px' }}
+            style={{float: 'right', paddingRight: '5px'}}
           >
-            {moment().format('LLL')}
+            {moment ().format ('LLL')}
           </span>
         </ons-list-header>
         {title}
@@ -302,6 +315,6 @@ function MinuaruAlarmTable(props) {
       </ons-list>
     </ons-col>
   );
-}
+});
 
 export default MinuaruAlarmTable;

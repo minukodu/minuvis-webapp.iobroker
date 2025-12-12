@@ -77,6 +77,8 @@ export default class myPage extends React.Component {
       var rowHeight = 67;
       //////////////////////////////////////////////////////////////////////////////////////////////
 
+      //console.warn(this.props.pageConfig);
+
       for (var widgetId in this.props.pageConfig.widgets) {
         let widgetData = this.props.pageConfig.widgets[widgetId];
 
@@ -86,10 +88,10 @@ export default class myPage extends React.Component {
         widgetData.socket = this.props.socket;
         widgetData.states = this.props.states;
         widgetData.theme = this.props.theme;
+        widgetData.pageLinks = this.props.pageConfig.pageLinks;
 
         switch (widgetData.type) {
           case 'card':
-            widgetData.pageLinks = this.props.pageLinks;
             widget = <MyCard widgetData={widgetData} />;
             break;
           case 'datetime':
@@ -160,7 +162,6 @@ export default class myPage extends React.Component {
             widget = <ValueSwitcher widgetData={widgetData} />;
             break;
           case 'linkbutton':
-            widgetData.pageLinks = this.props.pageLinks;
             widget = <LinkButton widgetData={widgetData} />;
             break;
           case 'filler':
@@ -191,7 +192,7 @@ export default class myPage extends React.Component {
         if (widgetData.borderLeft && widgetData.borderLeft === true) {
           borderClasses += 'borderLeft ';
         }
-        // only 1 high  if schowInModal
+        // only 1 height  if schowInModal
         if (widgetData.showInModal === true) {
           widgetData.widgetHeight = 1;
         }

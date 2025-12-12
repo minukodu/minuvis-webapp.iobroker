@@ -23,7 +23,7 @@ export default class Banner extends React.Component {
     if (this.props.config.useBanner === true && val && val.length > 3) {
       // read value and timestamp from props if available
       if (
-        this.props.widgetData.states &&
+        this.props.states &&
         this.props.states[this.props.config.stateId] &&
         this.props.states[this.props.config.stateId].received === true
       ) {
