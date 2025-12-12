@@ -27,7 +27,7 @@ Love it !!
 ### 2.6.0 (2025-12-12)
 * (svallant) fix bug with authentication
 * (svallant) fix bug in chart widget
-* * (svallant) fix bug in link-button widget
+* (svallant) fix bug in link-button widget
 * (svallant) add links to indicator- and headline-widgets
 
 ### 2.5.0 (2025-03-19)
