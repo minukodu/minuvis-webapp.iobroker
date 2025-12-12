@@ -10,7 +10,10 @@ import {
   ProgressCircular,
   Input,
   Button,
+  Icon,
 } from 'react-onsenui';
+import {ContextData} from './ContextData';
+
 import StyleLoader from './StyleLoader';
 import MainController from './MainController';
 import ConfigMessage from './utils/ConfigMessage';
@@ -29,6 +32,9 @@ export default class ConfigLoader extends React.Component {
       socketUrl: null,
       loadFileError: null,
       usedStates: null,
+      passwordFieldHidden: true,
+      user: null,
+      password: null,
     };
     this.versionError = false;
     this.configFromLocalStorage = false;
@@ -38,11 +44,16 @@ export default class ConfigLoader extends React.Component {
     this.meta = '0_userdata.0';
     this.withAuth = false;
     this.configSocket = null;
+    this.passwordEncrypted = '';
 
     //#########################################################################
     this.mainVersion = parseInt (packageInfo.version, 10);
     //#########################################################################
   }
+
+  setContextData = data => {
+    this.setState ({contextData: data});
+  };
 
   findAllByKey = function (obj, keyToFind) {
     return Object.entries (obj).reduce (
@@ -50,7 +61,7 @@ export default class ConfigLoader extends React.Component {
         //key == keyToFind
         key.startsWith (keyToFind) && !key.includes ('Type')
           ? acc.concat (value)
-          : typeof value === 'object'
+          : typeof value === 'object' && value
               ? acc.concat (this.findAllByKey (value, keyToFind))
               : acc,
       []
@@ -69,12 +80,14 @@ export default class ConfigLoader extends React.Component {
       noConfig: true,
     };
     let user = localStorage.getItem ('user');
-    let password = localStorage.getItem ('password');
-    if (password) {
-      password = atob (password);
+    this.setState ({user: user});
+    let password = '';
+    this.passwordEncrypted = localStorage.getItem ('password');
+    if (this.passwordEncrypted) {
+      password = atob (this.passwordEncrypted);
+      this.setState ({password: password});
     }
     // console.log( appConfigLocal );
-
     //#####################################################
     // parse URL
     let myUrl = window.location.search;
@@ -216,8 +229,17 @@ export default class ConfigLoader extends React.Component {
                   appConfig,
                   hasAppConfig: true,
                   usedStates,
-                });
+                },
+              );
                 localStorage.setItem ('appConfig', fileData);
+                this.setContextData ({
+                  theme: appConfig.theme,
+                  socket: this.configSocket,
+                  appConfig: appConfig,
+                  hasAppConfig: true,
+                  usedStates: usedStates,
+                  version: packageInfo.version,
+                });
               }
             }
           }.bind (this)
@@ -230,9 +252,9 @@ export default class ConfigLoader extends React.Component {
     this.loadConfig ();
   }
 
-  componentDidCatch(error) {
-    console.log("componentDidCatch");
-    console.log(error);
+  componentDidCatch (error) {
+    console.log ('componentDidCatch');
+    console.log (error);
   }
 
   render () {
@@ -249,19 +271,42 @@ export default class ConfigLoader extends React.Component {
         <div>
           <ListItem>
             <div className="left titel">user:</div>
-            <Input
-              className="right"
-              onChange={e => localStorage.setItem ('user', e.target.value)}
-            />
+            <div className="right">
+              <Input
+                className="right"
+                onChange={e => {
+                  localStorage.setItem ('user', e.target.value);
+                  this.setState ({user: e.target.value});
+                }}
+                value={this.state.user}
+              />
+              <Button style={{visibility: 'hidden'}} modifier="outline">
+                <Icon icon={{default: 'ion-eye', material: 'md-eye'}} />
+              </Button>
+            </div>
           </ListItem>
           <ListItem>
             <div className="left titel">password:</div>
-            <Input
-              className="right"
-              type="password"
-              onChange={e =>
-                localStorage.setItem ('password', btoa (e.target.value))}
-            />
+            <div className="right">
+              <Input
+                type={this.state.passwordFieldHidden ? 'password' : 'text'}
+                onChange={e => {
+                  localStorage.setItem ('password', btoa (e.target.value));
+                  this.setState ({password: e.target.value});
+                }}
+                value={this.state.password}
+              />
+
+              <Button
+                onClick={e =>
+                  this.setState ({
+                    passwordFieldHidden: !this.state.passwordFieldHidden,
+                  })}
+                modifier="outline"
+              >
+                <Icon icon={{default: 'ion-eye', material: 'md-eye'}} />
+              </Button>
+            </div>
           </ListItem>
           <ListItem>
             <Button modifier="large--cta" onClick={this.loadConfig}>
@@ -339,20 +384,18 @@ export default class ConfigLoader extends React.Component {
         </div>
       );
     } else {
+      const contextValue = {
+        data: this.state.contextData,
+        setContextData: this.setContextData,
+      };
+
       return (
-        <div>
+        <ContextData.Provider value={contextValue}>
           <StyleLoader theme={this.state.appConfig.theme} />
           {
-            <MainController
-              theme={this.state.appConfig.theme}
-              socket={this.configSocket}
-              appConfig={this.state.appConfig}
-              hasAppConfig={this.state.hasAppConfig}
-              usedStates={this.state.usedStates}
-              version={packageInfo.version}
-            />
+            <MainController/>
           }
-        </div>
+        </ContextData.Provider>
       );
     }
   }

@@ -1,83 +1,93 @@
-import React from "react";
-import { List, ListItem, ListHeader } from "react-onsenui";
-import moment from "moment";
-moment.locale("de-DE");
+import React from 'react';
+import {List, ListItem, ListHeader} from 'react-onsenui';
+import moment from 'moment';
+moment.locale ('de-DE');
 
 export default class Indicator extends React.Component {
-  constructor() {
-    super();
+  constructor () {
+    super ();
     this._stateId_subscribed = false;
     this.state = {
       val: false,
-      ts: moment()
+      ts: moment (),
     };
   }
 
-  stringToBoolean(val, neg) {
+  gotoTarget () {
+    if (this.props.widgetData.isLink === true) {
+      // console.warn ('this.props.widgetData.pageLinks:');
+      // console.warn (this.props.widgetData.pageLinks);
+      // console.warn (this.props.widgetData.targetpage);
+      this.props.widgetData.pageLinks[this.props.widgetData.targetpage] ();
+    }
+  }
+
+  stringToBoolean (val, neg) {
     if (val === null) {
       return false;
     }
     if (neg === true) {
-      if (typeof val === "boolean") {
+      if (typeof val === 'boolean') {
         return !val;
       }
-      if (typeof val === "number") {
-        return !Boolean(val);
+      if (typeof val === 'number') {
+        return !Boolean (val);
       }
-      if (typeof val !== "string") {
+      if (typeof val !== 'string') {
         return val;
       }
-      switch (val.toLowerCase().trim()) {
-        case "on":
-        case "true":
-        case "yes":
-        case "1":
+      switch (val.toLowerCase ().trim ()) {
+        case 'on':
+        case 'true':
+        case 'yes':
+        case '1':
           return false;
-        case "off":
-        case "false":
-        case "no":
-        case "0":
+        case 'off':
+        case 'false':
+        case 'no':
+        case '0':
         case null:
           return true;
         default:
-          return !Boolean(val);
+          return !Boolean (val);
       }
     } else {
-      if (typeof val === "boolean") {
+      if (typeof val === 'boolean') {
         return val;
       }
-      if (typeof val === "number") {
-        return Boolean(val);
+      if (typeof val === 'number') {
+        return Boolean (val);
       }
-      if (typeof val !== "string") {
+      if (typeof val !== 'string') {
         return val;
       }
-      switch (val.toLowerCase().trim()) {
-        case "on":
-        case "true":
-        case "yes":
-        case "1":
+      switch (val.toLowerCase ().trim ()) {
+        case 'on':
+        case 'true':
+        case 'yes':
+        case '1':
           return true;
-        case "off":
-        case "false":
-        case "no":
-        case "0":
+        case 'off':
+        case 'false':
+        case 'no':
+        case '0':
         case null:
           return false;
         default:
-          return Boolean(val);
+          return Boolean (val);
       }
     }
   }
 
-  render() {
+  render () {
     //console.debug("Render Indicator");
     // init
     let val = false;
-    let ts = moment();
+    let ts = moment ();
     if (
       this.props.widgetData.states[this.props.widgetData.stateId] &&
-      this.props.widgetData.states[this.props.widgetData.stateId].received) {
+      this.props.widgetData.states[this.props.widgetData.stateId].received
+    ) {
       val = this.props.widgetData.states[this.props.widgetData.stateId].val;
       ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
     } else {
@@ -86,49 +96,65 @@ export default class Indicator extends React.Component {
       ts = this.state.ts;
     }
 
-    let strValue = this.stringToBoolean(val, false).toString();
+    let strValue = this.stringToBoolean (val, false).toString ();
 
     let iconColor = this.props.widgetData.colorWhenFalse;
-    let bgIconColor = "transparent";
-    if (this.stringToBoolean(val, false)) {
+    let bgIconColor = 'transparent';
+    if (this.stringToBoolean (val, false)) {
       iconColor = this.props.widgetData.colorWhenTrue;
     }
 
-    if (this.props.widgetData.iconFamily === "mfd-icon") {
+    if (this.props.widgetData.iconFamily === 'mfd-icon') {
       bgIconColor = iconColor;
     }
 
     let timestamp = null;
-    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
+    if (
+      this.props.widgetData.timestamp &&
+      this.props.widgetData.timestamp === true
+    ) {
       timestamp = (
         <ListHeader>
-          <span className="right lastupdate" style={{ float: 'right', paddingRight: '5px' }}>{moment(ts).format('DD.MM.YY HH:mm')}</span>
+          <span
+            className="right lastupdate"
+            style={{float: 'right', paddingRight: '5px'}}
+          >
+            {moment (ts).format ('DD.MM.YY HH:mm')}
+          </span>
         </ListHeader>
-      )
+      );
     }
 
-    let displayIcon = "block";
-    if (this.props.widgetData.iconFamily === "noIcon") {
-      displayIcon = "none";
+    let displayIcon = 'block';
+    if (this.props.widgetData.iconFamily === 'noIcon') {
+      displayIcon = 'none';
     }
 
     return (
       <List id={this.props.widgetData.UUID} className="indicator">
         {timestamp}
-        <ListItem>
+        <ListItem onClick={this.gotoTarget.bind (this)}>
           <div className="center">
-            <div className={"indicatoriconCenter " + this.props.widgetData.iconFamily}>
+            <div
+              className={
+                'indicatoriconCenter ' + this.props.widgetData.iconFamily
+              }
+            >
               <span
-                style={{ display: displayIcon, background: bgIconColor, color: iconColor }}
+                style={{
+                  display: displayIcon,
+                  background: bgIconColor,
+                  color: iconColor,
+                }}
                 className={
-                  "indicatoricon " +
-                  this.props.widgetData.iconFamily +
-                  " " +
-                  this.props.widgetData.icon +
-                  " " +
-                  strValue
+                  'indicatoricon ' +
+                    this.props.widgetData.iconFamily +
+                    ' ' +
+                    this.props.widgetData.icon +
+                    ' ' +
+                    strValue
                 }
-              ></span>
+              />
             </div>
           </div>
         </ListItem>

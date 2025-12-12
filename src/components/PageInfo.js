@@ -1,5 +1,5 @@
 import React from 'react';
-import {Page, List, ListItem} from 'react-onsenui';
+import {Page, List, ListItem, Button} from 'react-onsenui';
 import Toolbar from './widgets/Toolbar';
 import Footer from './widgets/Footer';
 import Banner from './widgets/Banner';
@@ -28,6 +28,11 @@ export default class PageInfo extends React.Component {
   }
 
   pushPage () {}
+
+  clearCredentials = () => {
+    localStorage.clear ();
+    window.location.reload();
+  };
 
   render () {
     console.info ('Render PageInfo.js');
@@ -76,6 +81,11 @@ export default class PageInfo extends React.Component {
           <ListItem>
             <div className="left titel">device width:</div>
             <div className="right">{width + 'px'}</div>
+          </ListItem>
+          <ListItem>
+            <Button modifier="large--cta" onClick={this.clearCredentials}>
+              clear user and password
+            </Button>
           </ListItem>
           <ListItem>
             <div className="left titel titleIcon">
