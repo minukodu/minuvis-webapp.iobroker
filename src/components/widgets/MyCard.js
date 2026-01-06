@@ -44,6 +44,24 @@ export default class MyCard extends React.Component {
     this.setState ({showModal: false});
   }
 
+  componentDidUpdate (prevProps, prevState) {
+    console.log ('myCard componentDidUpdate');
+    if (
+      this.props.widgetData.linkReference &&
+      !this.state.showModal &&
+      this.props.showModal === ("ref@" + this.props.widgetData.linkReference)
+    ) {
+      console.log (
+        'open modal myCard: ' +
+          this.props.showModal +
+          ' :: ' +
+          this.props.widgetData.linkReference
+      );
+      this.setState ({showModal: true});
+      this.props.resetShowModal ();
+    }
+  }
+
   render () {
     let widget = '';
 
@@ -171,8 +189,15 @@ export default class MyCard extends React.Component {
         }
         gridBoxes.push (
           <div
-            className={'gridBox ' + borderClasses}
-            key={'card_gridbox_' + this.props.widgetData.UUID}
+            className={
+              'gridBox card_gridbox_' + gridBoxes.length + ' ' + borderClasses
+            }
+            key={
+              'card_gridbox_' +
+                gridBoxes.length +
+                '_' +
+                this.props.widgetData.UUID
+            }
             style={{
               gridColumnStart: widgetData.widgetPosX + 1,
               gridColumnEnd: widgetData.widgetPosX + widgetData.widgetWidth + 1,
@@ -205,7 +230,7 @@ export default class MyCard extends React.Component {
 
     pageGrid.push (
       <div
-        key={"grid_" + this.props.widgetData.UUID}
+        key={'gridwrapper_' + this.props.widgetData.UUID}
         className="gridWrapper"
         style={{
           display: 'grid',
@@ -226,10 +251,16 @@ export default class MyCard extends React.Component {
 
     let classes = this.props.widgetData.classes || '';
 
+    let fabStyle = {display: "block"};
+
+    if (this.props.widgetData.showInModal && this.props.widgetData.hideModalIcon) {
+      fabStyle = {display: "none"};
+    }
+
     if (this.props.widgetData.showInModal === true) {
       return (
         <List className={'modalcard ' + classes} style={{height}}>
-          <ListItem>
+          <ListItem style={fabStyle}>
             <div className="center">
               <div className="centerFab" style={{margin: 'auto'}}>
                 <Fab

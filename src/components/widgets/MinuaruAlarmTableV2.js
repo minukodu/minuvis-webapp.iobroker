@@ -99,6 +99,7 @@ const MinuaruAlarmTable = memo (function MinuaruAlarmTable (props) {
   columnNames.push ({
     id: 'tsGoes',
     name: arrTitles[1] || 'time goes',
+    hidden: !props.showTimeGoes,
     width: columnWidth + 'px',
     formatter: cell =>
       html (
@@ -192,11 +193,6 @@ const MinuaruAlarmTable = memo (function MinuaruAlarmTable (props) {
         <div className="left titel"> {props.title} </div>
       </ons-list-item>
     );
-  }
-
-  let ts = moment ();
-  if (props.state && props.state.ts) {
-    ts = props.state.ts;
   }
 
   let css = `

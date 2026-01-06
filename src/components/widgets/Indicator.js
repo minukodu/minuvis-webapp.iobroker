@@ -18,7 +18,13 @@ export default class Indicator extends React.Component {
       // console.warn ('this.props.widgetData.pageLinks:');
       // console.warn (this.props.widgetData.pageLinks);
       // console.warn (this.props.widgetData.targetpage);
-      this.props.widgetData.pageLinks[this.props.widgetData.targetpage] ();
+      let targetpage = this.props.widgetData.targetpage;
+      
+      if (targetpage.startsWith ('ref@')) {
+        this.props.setShowModal (targetpage);
+      } else {
+        this.props.widgetData.pageLinks[targetpage] ();
+      }
     }
   }
 

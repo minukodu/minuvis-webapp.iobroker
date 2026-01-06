@@ -12,19 +12,17 @@ import {
   Button,
   Icon,
 } from 'react-onsenui';
-import {ContextData} from './ContextData';
-
 import StyleLoader from './StyleLoader';
 import MainController from './MainController';
 import ConfigMessage from './utils/ConfigMessage';
 
 import packageInfo from '../../package.json';
 
-var queryString = require ('querystring');
+var queryString = require('querystring');
 
 export default class ConfigLoader extends React.Component {
-  constructor () {
-    super ();
+  constructor() {
+    super();
     this.state = {
       appConfig: null,
       hasAppConfig: false,
@@ -32,106 +30,103 @@ export default class ConfigLoader extends React.Component {
       socketUrl: null,
       loadFileError: null,
       usedStates: null,
-      passwordFieldHidden: true,
-      user: null,
-      password: null,
+      _socket_connected: false,
     };
     this.versionError = false;
     this.configFromLocalStorage = false;
-    this.loadConfig = this.loadConfig.bind (this);
-    this.findAllByKey = this.findAllByKey.bind (this);
+    this.loadConfig = this.loadConfig.bind(this);
+    this.findAllByKey = this.findAllByKey.bind(this);
     this.styleLoader = null;
     this.meta = '0_userdata.0';
     this.withAuth = false;
     this.configSocket = null;
-    this.passwordEncrypted = '';
 
     //#########################################################################
-    this.mainVersion = parseInt (packageInfo.version, 10);
+    this.mainVersion = parseInt(packageInfo.version, 10);
     //#########################################################################
   }
 
-  setContextData = data => {
-    this.setState ({contextData: data});
-  };
-
   findAllByKey = function (obj, keyToFind) {
-    return Object.entries (obj).reduce (
+    return Object.entries(obj).reduce(
       (acc, [key, value]) =>
         //key == keyToFind
-        key.startsWith (keyToFind) && !key.includes ('Type')
-          ? acc.concat (value)
+        key.startsWith(keyToFind) && !key.includes('Type')
+          ? acc.concat(value)
           : typeof value === 'object' && value
-              ? acc.concat (this.findAllByKey (value, keyToFind))
-              : acc,
+            ? acc.concat(this.findAllByKey(value, keyToFind))
+            : acc,
       []
     );
   };
 
   clearCredentials = () => {
-    localStorage.clear ();
+    localStorage.clear();
+    window.location.reload();
   };
 
   loadConfig = () => {
-    console.log ('load Config');
+    console.log('load Config');
     //####################################################
     // try to read localStorage
-    let appConfigLocal = localStorage.getItem ('appConfig') || {
+    let appConfigLocal = localStorage.getItem('appConfig') || {
       noConfig: true,
     };
-    let user = localStorage.getItem ('user');
-    this.setState ({user: user});
+    let user = localStorage.getItem('user');
+    this.setState({ user: user });
     let password = '';
-    this.passwordEncrypted = localStorage.getItem ('password');
+    this.passwordEncrypted = localStorage.getItem('password');
     if (this.passwordEncrypted) {
-      password = atob (this.passwordEncrypted);
-      this.setState ({password: password});
+      password = atob(this.passwordEncrypted);
+      this.setState({ password: password });
+    } else {
+      this.setState({ password: "" });
     }
     // console.log( appConfigLocal );
+
     //#####################################################
     // parse URL
     let myUrl = window.location.search;
-    let myUrlToParse = myUrl.substring (1, myUrl.length);
-    let myUrlParsed = queryString.parse (myUrlToParse);
+    let myUrlToParse = myUrl.substring(1, myUrl.length);
+    let myUrlParsed = queryString.parse(myUrlToParse);
     let filePath = 'minukodu';
-    console.log ('this is myUrlParsed:');
-    console.log (myUrlParsed);
+    console.log('this is myUrlParsed:');
+    console.log(myUrlParsed);
 
     if ('forceUpdate' in myUrlParsed || appConfigLocal.noConfig) {
       // read config from file
-      console.log ('appConfig from file');
+      console.log('appConfig from file');
     } else {
       // read config from localStorage
       try {
-        let appConfig = JSON.parse (appConfigLocal);
+        let appConfig = JSON.parse(appConfigLocal);
         this.configFromLocalStorage = true;
-        console.log ('appConfig from localStorage');
-        let usedStates = this.findAllByKey (appConfig, 'stateId');
-        console.log (appConfig);
-        console.log ('usedStates:');
-        console.log (usedStates);
-        this.setState ({
+        console.log('appConfig from localStorage');
+        let usedStates = this.findAllByKey(appConfig, 'stateId');
+        console.log(appConfig);
+        console.log('usedStates:');
+        console.log(usedStates);
+        this.setState({
           appConfig,
           hasAppConfig: true,
           usedStates,
         });
-      } catch (e) {}
+      } catch (e) { }
     }
 
     if (!('url' in myUrlParsed)) {
       // try reading url and filename from localstorage
-      console.log (
+      console.log(
         'no url in querystring: trying to read url and filename from localstorage'
       );
       try {
-        let appProviderLocal = JSON.parse (
-          localStorage.getItem ('appProvider')
+        let appProviderLocal = JSON.parse(
+          localStorage.getItem('appProvider')
         );
-        console.log (appProviderLocal);
+        console.log(appProviderLocal);
         // overwrite values
         myUrlParsed.url = appProviderLocal.socketUrl;
         myUrlParsed.file = appProviderLocal.appConfigFile;
-      } catch (e) {}
+      } catch (e) { }
     }
 
     // prepare authentication
@@ -142,7 +137,7 @@ export default class ConfigLoader extends React.Component {
         user: user,
         pass: password,
       };
-      console.info ('try to Connect configSocket with authQuery');
+      console.info('try to Connect configSocket with authQuery');
     }
 
     if (
@@ -150,119 +145,118 @@ export default class ConfigLoader extends React.Component {
       myUrlParsed.url &&
       myUrlParsed.file
     ) {
-      console.log ('url + file in querystring !');
-      this.setState ({
+      console.log('url + file in querystring !');
+      this.setState({
         appConfigFile: myUrlParsed.file,
         socketUrl: myUrlParsed.url,
       });
       // write url and file in localstorage
-      localStorage.setItem (
+      localStorage.setItem(
         'appProvider',
-        JSON.stringify ({
+        JSON.stringify({
           appConfigFile: myUrlParsed.file,
           socketUrl: myUrlParsed.url,
         })
       );
       // checkFileName
       if (myUrlParsed.file.length < 6) {
-        this.setState ({
+        this.setState({
           loadFileError: 'config-file: filename too short',
         });
         return;
       }
       // Verbindung aufbauen
 
-      console.info ('try to Connect configSocket');
+      console.info('try to Connect configSocket');
       const query = this.authQuery;
-      this.configSocket = io.connect (myUrlParsed.url, {
+      this.configSocket = io.connect(myUrlParsed.url, {
         query,
       });
 
-      this.configSocket.on ('connect', () => {
-        console.info (new Date () + ' Connected configSocket');
-        console.info (
-          new Date () +
-            ' read config file: ' +
-            filePath +
-            '/' +
-            myUrlParsed.file
+      this.configSocket.on('disconnect', () => {
+        console.warn(new Date() + ' disconnected configSocket');
+        this.setState({
+          _socket_connected: false,
+        });
+      });
+
+      this.configSocket.on('connect', () => {
+        console.warn(new Date() + ' Connected configSocket');
+        console.info(
+          new Date() +
+          ' read config file: ' +
+          filePath +
+          '/' +
+          myUrlParsed.file
         );
-        this.configSocket.emit ('name', 'minuvis.0');
-        this.configSocket.emit (
+        this.configSocket.emit('name', 'minuvis.0');
+        this.configSocket.emit(
           'readFile',
           this.meta,
           filePath + '/' + myUrlParsed.file,
           function (error, fileData, mimeType) {
-            console.log (mimeType);
+            console.log(mimeType);
             // console.log(fileData);
             // console.log(error);
             if (error) {
-              console.error (
-                new Date () + ' Error loading file: ' + myUrlParsed.file
+              console.error(
+                new Date() + ' Error loading file: ' + myUrlParsed.file
               );
-              console.error (error);
-              let errorText = JSON.stringify (error);
-              if (Object.getOwnPropertyNames (error).length === 0) {
+              console.error(error);
+              let errorText = JSON.stringify(error);
+              if (Object.getOwnPropertyNames(error).length === 0) {
                 errorText = 'not found';
               }
-              this.setState ({
+              this.setState({
                 loadFileError: 'config-file ' + errorText,
               });
             } else {
-              let appConfig = JSON.parse (fileData);
+              let appConfig = JSON.parse(fileData);
               if (
                 !appConfig.version ||
-                parseInt (appConfig.version, 10) < this.mainVersion
+                parseInt(appConfig.version, 10) < this.mainVersion
               ) {
                 let errorText = 'has wrong version: < ' + this.mainVersion;
                 this.versionError = true;
-                this.setState ({
+                this.setState({
                   loadFileError: 'config-file ' + errorText,
                 });
               } else {
-                let usedStates = this.findAllByKey (appConfig, 'stateId');
+                let usedStates = this.findAllByKey(appConfig, 'stateId');
                 // console.log(fileData);
-                console.log (appConfig);
-                console.log ('usedStates:');
-                console.log (usedStates);
-                this.setState ({
+                console.log(appConfig);
+                console.log('usedStates:');
+                console.log(usedStates);
+                this.setState({
                   appConfig,
                   hasAppConfig: true,
                   usedStates,
-                },
-              );
-                localStorage.setItem ('appConfig', fileData);
-                this.setContextData ({
-                  theme: appConfig.theme,
-                  socket: this.configSocket,
-                  appConfig: appConfig,
-                  hasAppConfig: true,
-                  usedStates: usedStates,
-                  version: packageInfo.version,
+                  _socket_connected: true,
                 });
+                localStorage.setItem('appConfig', fileData);
               }
             }
-          }.bind (this)
+          }.bind(this)
         );
       });
     }
   };
 
-  componentDidMount () {
-    this.loadConfig ();
+  componentDidMount() {
+    this.loadConfig();
   }
 
-  componentDidCatch (error) {
-    console.log ('componentDidCatch');
-    console.log (error);
+  componentDidCatch(error) {
+    console.log('componentDidCatch');
+    console.log(error);
   }
 
-  render () {
-    console.log ('Render ConfigLoader');
-    console.log (this.state);
+  render() {
+    console.log('Render ConfigLoader');
+    console.log(this.state);
 
     //############################################
-    ons.platform.select ('android');
+    ons.platform.select('android');
     //############################################
 
     let credentialsInput = null;
@@ -275,36 +269,34 @@ export default class ConfigLoader extends React.Component {
               <Input
                 className="right"
                 onChange={e => {
-                  localStorage.setItem ('user', e.target.value);
-                  this.setState ({user: e.target.value});
+                  localStorage.setItem('user', e.target.value);
+                  this.setState({ user: e.target.value });
                 }}
                 value={this.state.user}
               />
-              <Button style={{visibility: 'hidden'}} modifier="outline">
-                <Icon icon={{default: 'ion-eye', material: 'md-eye'}} />
+              <Button style={{ visibility: 'hidden' }} modifier="outline">
+                <Icon icon={{ default: 'ion-eye', material: 'md-eye' }} />
               </Button>
             </div>
           </ListItem>
           <ListItem>
-            <div className="left titel">password:</div>
             <div className="right">
               <Input
                 type={this.state.passwordFieldHidden ? 'password' : 'text'}
                 onChange={e => {
-                  localStorage.setItem ('password', btoa (e.target.value));
-                  this.setState ({password: e.target.value});
+                  localStorage.setItem('password', btoa(e.target.value));
+                  this.setState({ password: e.target.value });
                 }}
                 value={this.state.password}
               />
-
               <Button
                 onClick={e =>
-                  this.setState ({
+                  this.setState({
                     passwordFieldHidden: !this.state.passwordFieldHidden,
                   })}
                 modifier="outline"
               >
-                <Icon icon={{default: 'ion-eye', material: 'md-eye'}} />
+                <Icon icon={{ default: 'ion-eye', material: 'md-eye' }} />
               </Button>
             </div>
           </ListItem>
@@ -339,7 +331,7 @@ export default class ConfigLoader extends React.Component {
                   <ListItem>
                     <div className="center">
                       <ProgressCircular
-                        style={{margin: '0 auto'}}
+                        style={{ margin: '0 auto' }}
                         indeterminate
                       />
                     </div>
@@ -384,18 +376,21 @@ export default class ConfigLoader extends React.Component {
         </div>
       );
     } else {
-      const contextValue = {
-        data: this.state.contextData,
-        setContextData: this.setContextData,
-      };
-
       return (
-        <ContextData.Provider value={contextValue}>
+        <div>
           <StyleLoader theme={this.state.appConfig.theme} />
           {
-            <MainController/>
+            <MainController
+              theme={this.state.appConfig.theme}
+              socket={this.configSocket}
+              connected={this.state._socket_connected}
+              appConfig={this.state.appConfig}
+              hasAppConfig={this.state.hasAppConfig}
+              usedStates={this.state.usedStates}
+              version={packageInfo.version}
+            />
           }
-        </ContextData.Provider>
+        </div>
       );
     }
   }
