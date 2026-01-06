@@ -11,7 +11,13 @@ export default function HeadLine (props) {
       // console.warn ('props.widgetData.pageLinks:');
       // console.warn (props.widgetData.pageLinks);
       // console.warn (props.widgetData.targetpage);
-      props.widgetData.pageLinks[props.widgetData.targetpage] ();
+      let targetpage = props.widgetData.targetpage;
+
+      if (targetpage.startsWith ('ref@')) {
+        props.setShowModal (targetpage);
+      } else {
+        props.widgetData.pageLinks[targetpage] ();
+      }
     }
   }
 

@@ -8,13 +8,11 @@ import {
   Page,
   Icon,
 } from 'react-onsenui';
-import {ContextData} from './ContextData';
 import PageAlarme from './PageAlarme';
 import PageInfo from './PageInfo';
 import MyPage from './MyPage';
 
 export default class Layout extends React.Component {
-  static contextType = ContextData;
   constructor () {
     super ();
     this.state = {
@@ -96,9 +94,6 @@ export default class Layout extends React.Component {
   }
 
   UNSAFE_componentWillMount () {
-    //console.warn ('Layout will mount contextData');
-    //console.warn (this.context);
-
     // get overall props
     this.routeProps = this.createRouteProps ();
   }
@@ -200,7 +195,6 @@ export default class Layout extends React.Component {
         }
       }
     }
-    //this.context.setContextData(this.context.data);
 
     // Menu-Item alarmPage
     let pageConfigAlarm = {};

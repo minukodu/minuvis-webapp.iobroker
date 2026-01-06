@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page } from 'react-onsenui';
+import {Page} from 'react-onsenui';
 import Toolbar from './widgets/Toolbar';
 import MyCard from './widgets/MyCard';
 import IframeOutput from './widgets/IframeOutput';
@@ -33,15 +33,20 @@ import Message from './widgets/Message';
 import CSSJSON from 'cssjson';
 
 export default class myPage extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
+    this.state = {
+      showModal: '',
+    };
+    this.setShowModal = this.setShowModal.bind (this);
+    this.resetShowModal = this.resetShowModal.bind (this);
   }
 
-  renderToolbar() {
+  renderToolbar () {
     return (
       <Toolbar
         title={this.props.pageConfig.title}
-        showMenu={this.showMenu.bind(this)}
+        showMenu={this.showMenu.bind (this)}
         nbAlarm={this.props.nbAlarm}
         displayNbAlarm={this.props.displayNbAlarm}
         LinkAlarmPage={this.props.LinkAlarmPage}
@@ -50,16 +55,24 @@ export default class myPage extends React.Component {
     );
   }
 
-  showMenu() {
+  showMenu () {
     //console.log(this.props);
-    this.props.showMenu();
+    this.props.showMenu ();
   }
 
-  pushPage() { }
+  setShowModal (targetpage) {
+    this.setState ({showModal: targetpage});
+  }
 
-  render() {
-    console.log('render mypage ' + this.props.pageConfig.title);
-    console.log(this.props);
+  resetShowModal () {
+    this.setState ({showModal: ''});
+  }
+
+  pushPage () {}
+
+  render () {
+    console.log ('render mypage ' + this.props.pageConfig.title);
+    console.log (this.props);
 
     let widget = '';
 
@@ -92,7 +105,13 @@ export default class myPage extends React.Component {
 
         switch (widgetData.type) {
           case 'card':
-            widget = <MyCard widgetData={widgetData} />;
+            widget = (
+              <MyCard
+                widgetData={widgetData}
+                showModal={this.state.showModal}
+                resetShowModal={this.resetShowModal.bind (this)}
+              />
+            );
             break;
           case 'datetime':
             widget = <DateTime widgetData={widgetData} />;
@@ -138,7 +157,12 @@ export default class myPage extends React.Component {
             widget = <Output widgetData={widgetData} />;
             break;
           case 'indicator':
-            widget = <Indicator widgetData={widgetData} />;
+            widget = (
+              <Indicator
+                widgetData={widgetData}
+                setShowModal={this.setShowModal.bind (this)}
+              />
+            );
             break;
           case 'timepicker':
             widget = <TimePicker widgetData={widgetData} />;
@@ -162,11 +186,21 @@ export default class myPage extends React.Component {
             widget = <ValueSwitcher widgetData={widgetData} />;
             break;
           case 'linkbutton':
-            widget = <LinkButton widgetData={widgetData} />;
+            widget = (
+              <LinkButton
+                widgetData={widgetData}
+                setShowModal={this.setShowModal.bind (this)}
+              />
+            );
             break;
           case 'filler':
           case 'headline':
-            widget = <HeadLine widgetData={widgetData} />;
+            widget = (
+              <HeadLine
+                widgetData={widgetData}
+                setShowModal={this.setShowModal.bind (this)}
+              />
+            );
             break;
           default:
             widget = (
@@ -178,7 +212,7 @@ export default class myPage extends React.Component {
         } // switch
 
         //////////////////////////////////////////////////////////////////////////////////////////////
-        console.log(this.props.windowWidth);
+        console.log (this.props.windowWidth);
         var borderClasses = '';
         if (widgetData.borderTop && widgetData.borderTop === true) {
           borderClasses += 'borderTop ';
@@ -197,7 +231,7 @@ export default class myPage extends React.Component {
           widgetData.widgetHeight = 1;
         }
 
-        gridBoxes.push(
+        gridBoxes.push (
           <div
             key={
               'gridBox_' + widgetData.widgetPosX + '_' + widgetData.widgetPosY
@@ -217,19 +251,19 @@ export default class myPage extends React.Component {
 
         if (widgetData.widgetPosY + widgetData.widgetHeight > maxRow) {
           maxRow =
-            parseFloat(widgetData.widgetPosY) +
-            parseFloat(widgetData.widgetHeight);
+            parseFloat (widgetData.widgetPosY) +
+            parseFloat (widgetData.widgetHeight);
         }
         //////////////////////////////////////////////////////////////////////////////////////////////
       } // for
     } // if WidgetData
 
     // inject css
-    console.log('this.props.pageConfig.css');
-    console.log(this.props.pageConfig.css);
+    console.log ('this.props.pageConfig.css');
+    console.log (this.props.pageConfig.css);
 
     let styleToInject =
-      '<style>' + CSSJSON.toCSS(this.props.pageConfig.css) + '</style>';
+      '<style>' + CSSJSON.toCSS (this.props.pageConfig.css) + '</style>';
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -242,7 +276,7 @@ export default class myPage extends React.Component {
     // console.log(rowStyle);
     //console.log(innerWidth);
 
-    pageGrid.push(
+    pageGrid.push (
       <div
         key="gridWrapper"
         className="gridWrapper"
@@ -260,15 +294,15 @@ export default class myPage extends React.Component {
     );
     //////////////////////////////////////////////////////////////////////////////////////////////
 
-    console.log('render myPage');
-    console.log(this.props);
-    console.log(this.props.socket);
+    console.log ('render myPage');
+    console.log (this.props);
+    console.log (this.props.socket);
 
-    console.log(
+    console.log (
       'MyPage check UUID: ' +
-      this.props.pageConfig.UUID +
-      ' active: ' +
-      this.props.activePageName
+        this.props.pageConfig.UUID +
+        ' active: ' +
+        this.props.activePageName
     );
 
     // nur anzeigen wenn erforderlich
@@ -277,10 +311,10 @@ export default class myPage extends React.Component {
     }
 
     return (
-      <Page renderToolbar={this.renderToolbar.bind(this)}>
+      <Page renderToolbar={this.renderToolbar.bind (this)}>
         <span
-          style={{ display: 'none' }}
-          dangerouslySetInnerHTML={{ __html: styleToInject }}
+          style={{display: 'none'}}
+          dangerouslySetInnerHTML={{__html: styleToInject}}
         />
         <Banner
           config={this.props.pageConfig.banner}

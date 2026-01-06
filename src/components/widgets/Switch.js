@@ -1,89 +1,102 @@
-import React from "react";
-import { Switch, List, ListItem, ListHeader } from "react-onsenui";
-import moment from "moment";
-moment.locale("de-DE");
+import React from 'react';
+import {Switch, Checkbox, List, ListItem, ListHeader} from 'react-onsenui';
+import moment from 'moment';
+moment.locale ('de-DE');
 
 export default class MySwitch extends React.Component {
-  constructor() {
-    super();
+  constructor () {
+    super ();
     this.state = {
       val: false,
-      ts: moment(),
+      ts: moment (),
     };
   }
 
-  sendValue(e) {
-    this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, e.target.checked);
+  sendValue (e) {
+    this.props.widgetData.socket.emit (
+      'setState',
+      this.props.widgetData.stateId,
+      e.target.checked
+    );
     // State nachführen
-    this.setState({
+    this.setState ({
       val: e.target.checked,
-      ts: moment(),
+      ts: moment (),
     });
   }
 
-  stringToBoolean(val) {
+  stringToBoolean (val) {
     if (val === null) {
       return false;
     }
-    if (typeof val === "number") {
-      return Boolean(val);
+    if (typeof val === 'number') {
+      return Boolean (val);
     }
-    if (typeof val !== "string") {
+    if (typeof val !== 'string') {
       return val;
     }
-    switch (val.toLowerCase().trim()) {
-      case "on":
-      case "true":
-      case "yes":
-      case "1":
+    switch (val.toLowerCase ().trim ()) {
+      case 'on':
+      case 'true':
+      case 'yes':
+      case '1':
         return true;
-      case "off":
-      case "false":
-      case "no":
-      case "0":
+      case 'off':
+      case 'false':
+      case 'no':
+      case '0':
       case null:
         return false;
       default:
-        return Boolean(val);
+        return Boolean (val);
     }
   }
 
-  render() {
+  render () {
     // init
     let val = false;
-    let ts = moment();
+    let ts = moment ();
 
     // disbaled from connected or disabled-state
     let disabled = !this.props.widgetData.connected;
     if (
       this.props.widgetData.stateIdDisabled &&
-      this.props.widgetData.stateIdDisabled != "undefined" &&
+      this.props.widgetData.stateIdDisabled != 'undefined' &&
       this.props.widgetData.states[this.props.widgetData.stateIdDisabled] &&
-      this.props.widgetData.states[this.props.widgetData.stateIdDisabled].received === true
+      this.props.widgetData.states[this.props.widgetData.stateIdDisabled]
+        .received === true
     ) {
-      disabled = disabled || this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdDisabled].val);
+      disabled =
+        disabled ||
+        this.stringToBoolean (
+          this.props.widgetData.states[this.props.widgetData.stateIdDisabled]
+            .val
+        );
     }
     // display from invisible-state
     let display = true;
     if (
       this.props.widgetData.stateIdInvisible &&
-      this.props.widgetData.stateIdInvisible != "undefined" &&
+      this.props.widgetData.stateIdInvisible != 'undefined' &&
       this.props.widgetData.states[this.props.widgetData.stateIdInvisible] &&
-      this.props.widgetData.states[this.props.widgetData.stateIdInvisible].received === true
+      this.props.widgetData.states[this.props.widgetData.stateIdInvisible]
+        .received === true
     ) {
-      display = !this.stringToBoolean(this.props.widgetData.states[this.props.widgetData.stateIdInvisible].val);
+      display = !this.stringToBoolean (
+        this.props.widgetData.states[this.props.widgetData.stateIdInvisible].val
+      );
     }
 
     // Console logs for state checking
-    console.log("State ID Disabled:", this.props.widgetData.stateIdDisabled);
-    console.log("State ID Invisible:", this.props.widgetData.stateIdInvisible);
-    console.log("States:", this.props.widgetData.states);
-
+    console.log ('State ID Disabled:', this.props.widgetData.stateIdDisabled);
+    console.log ('State ID Invisible:', this.props.widgetData.stateIdInvisible);
+    console.log ('States:', this.props.widgetData.states);
 
     if (
       this.props.widgetData.states &&
       this.props.widgetData.states[this.props.widgetData.stateId] &&
-      this.props.widgetData.states[this.props.widgetData.stateId].received === true
+      this.props.widgetData.states[this.props.widgetData.stateId].received ===
+        true
     ) {
       val = this.props.widgetData.states[this.props.widgetData.stateId].val;
       ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
@@ -94,39 +107,61 @@ export default class MySwitch extends React.Component {
     }
 
     let timestamp = null;
-    if (this.props.widgetData.timestamp && this.props.widgetData.timestamp === true) {
+    if (
+      this.props.widgetData.timestamp &&
+      this.props.widgetData.timestamp === true
+    ) {
       timestamp = (
         <ListHeader>
           <span
             className="right lastupdate"
-            style={{ float: "right", paddingRight: "5px" }}
+            style={{float: 'right', paddingRight: '5px'}}
           >
-            {moment(ts).format("DD.MM.YY HH:mm")}
+            {moment (ts).format ('DD.MM.YY HH:mm')}
           </span>
         </ListHeader>
       );
     }
 
+    let showAsCheckbox = false;
+    if (
+      this.props.widgetData.showAsCheckbox &&
+      this.props.widgetData.showAsCheckbox === true
+    ) {
+      showAsCheckbox = true;
+    }
 
     return (
-      <List 
-        id={this.props.widgetData.UUID} 
-        className="switch" 
-        style={{ transform: "scale(" + (this.props.widgetData.zoom || 100)/100 + ")", display: display?"block":"none"  }}>
+      <List
+        id={this.props.widgetData.UUID}
+        className="switch"
+        style={{
+          transform: 'scale(' + (this.props.widgetData.zoom || 100) / 100 + ')',
+          display: display ? 'block' : 'none',
+        }}
+      >
         {timestamp}
         <ListItem>
           <div className="center">
-            <Switch
-              disabled={disabled}
-              onChange={this.sendValue.bind(this)}
-              checked={this.stringToBoolean(val)}
-              class={"switchMargin"}
-              style={{ display: this.state.showSubmit }}
-            ></Switch>
+            {!showAsCheckbox &&
+              <Switch
+                disabled={disabled}
+                onChange={this.sendValue.bind (this)}
+                checked={this.stringToBoolean (val)}
+                class={'switchMargin'}
+                style={{display: this.state.showSubmit}}
+              />}
+            {showAsCheckbox &&
+              <Checkbox
+                disabled={disabled}
+                onChange={this.sendValue.bind (this)}
+                checked={this.stringToBoolean (val)}
+                class={'switchMargin'}
+                style={{display: this.state.showSubmit}}
+              />}
           </div>
         </ListItem>
       </List>
     );
   }
 }
-

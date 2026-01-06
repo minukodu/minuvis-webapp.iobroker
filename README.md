@@ -24,10 +24,17 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
-### 2.6.0 (2025-12-12)
+### 2.6.2 (2026-01-05)
+* (svallant) link to card for indicator, linkbutton and headline
+* (svallant) add hide open-icon in modal-mode for card
+* (svallant) fix bug with connected-flag
+
+### 2.6.1 (2025-12-21)
+* (svallant) new mode for switch widget: checkbox
+  
+### 2.6.0 (2025-11-29)
 * (svallant) fix bug with authentication
 * (svallant) fix bug in chart widget
-* (svallant) fix bug in link-button widget
 * (svallant) add links to indicator- and headline-widgets
 
 ### 2.5.0 (2025-03-19)
