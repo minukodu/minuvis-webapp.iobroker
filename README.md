@@ -24,6 +24,10 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.6.3 (2026-01-18)
+* (svallant) link to card for donut- and html-widgets
+* (svallant) bugfix timepicker
+
 ### 2.6.2 (2026-01-05)
 * (svallant) link to card for indicator, linkbutton and headline
 * (svallant) add hide open-icon in modal-mode for card

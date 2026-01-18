@@ -30,6 +30,21 @@ export default class Donut extends React.Component {
     this.max = 100;
   }
 
+  gotoTarget() {
+    if (this.props.widgetData.isLink && this.props.widgetData.isLink === true) {
+      console.warn('this.props.widgetData.pageLinks:');
+      // console.warn (this.props.widgetData.pageLinks);
+      // console.warn (this.props.widgetData.targetpage);
+      let targetpage = this.props.widgetData.targetpage;
+
+      if (targetpage.startsWith('ref@')) {
+        this.props.setShowModal(targetpage);
+      } else {
+        this.props.widgetData.pageLinks[targetpage]();
+      }
+    }
+  }
+
   stringToBoolean(val) {
     if (val === null) {
       return false;
@@ -256,7 +271,7 @@ export default class Donut extends React.Component {
         class={"donutWidget"}
         style={{ display: display ? "block" : "none" }} >
         {timestamp}
-        <ListItem>
+        <ListItem onClick={this.gotoTarget.bind(this)}>
           <div
             id={"rs-" + this.props.widgetData.UUID}
             style={{

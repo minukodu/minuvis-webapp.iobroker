@@ -7,7 +7,7 @@ export default function HeadLine (props) {
   console.log (props);
 
   function gotoTarget () {
-    if (props.widgetData.isLink === true) {
+    if (props.widgetData.isLink && props.widgetData.isLink === true) {
       // console.warn ('props.widgetData.pageLinks:');
       // console.warn (props.widgetData.pageLinks);
       // console.warn (props.widgetData.targetpage);

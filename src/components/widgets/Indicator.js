@@ -14,7 +14,7 @@ export default class Indicator extends React.Component {
   }
 
   gotoTarget () {
-    if (this.props.widgetData.isLink === true) {
+    if (this.props.widgetData.isLink && this.props.widgetData.isLink === true) {
       // console.warn ('this.props.widgetData.pageLinks:');
       // console.warn (this.props.widgetData.pageLinks);
       // console.warn (this.props.widgetData.targetpage);
