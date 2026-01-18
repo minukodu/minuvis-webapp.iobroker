@@ -12,6 +12,21 @@ export default class HtmlOutput extends React.Component {
     };
   }
 
+  gotoTarget() {
+    if (this.props.widgetData.isLink && this.props.widgetData.isLink === true) {
+      // console.warn ('this.props.widgetData.pageLinks:');
+      // console.warn (this.props.widgetData.pageLinks);
+      // console.warn (this.props.widgetData.targetpage);
+      let targetpage = this.props.widgetData.targetpage;
+
+      if (targetpage.startsWith('ref@')) {
+        this.props.setShowModal(targetpage);
+      } else {
+        this.props.widgetData.pageLinks[targetpage]();
+      }
+    }
+  }
+
   render() {
     //console.debug("Render HTMLOutput");
 
@@ -21,7 +36,7 @@ export default class HtmlOutput extends React.Component {
     // read value and timestamp from props if available
     if (
       this.props.widgetData.states[this.props.widgetData.stateId] &&
-      this.props.widgetData.states[this.props.widgetData.stateId].received === true 
+      this.props.widgetData.states[this.props.widgetData.stateId].received === true
     ) {
       val = this.props.widgetData.states[this.props.widgetData.stateId].val;
       ts = this.props.widgetData.states[this.props.widgetData.stateId].ts;
@@ -52,16 +67,16 @@ export default class HtmlOutput extends React.Component {
 
     return (
       <List id={this.props.widgetData.UUID} class={"htmloutput"}>
-          {timestamp}
-          <ListItem>
-            <div style={{ width: 100 + "%" }}>
-              <div
-                className="htmloutput"
-                style={{ width: 100 + "%" }}
-                dangerouslySetInnerHTML={{ __html: val }}
-              ></div>
-            </div>
-          </ListItem>
+        {timestamp}
+        <ListItem onClick={this.gotoTarget.bind(this)}>
+          <div style={{ width: 100 + "%" }}>
+            <div
+              className="htmloutput"
+              style={{ width: 100 + "%" }}
+              dangerouslySetInnerHTML={{ __html: val }}
+            ></div>
+          </div>
+        </ListItem>
       </List>
     );
   }

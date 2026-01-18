@@ -13,6 +13,7 @@ export default class TimePicker extends React.Component {
   }
 
   sendValue(e) {
+    console.log("TimePicker change Event");
     // only if type = "input"; chrome on android fires 2 events: "change" + "input"
     if (e.type === "input") {
       this.props.widgetData.socket.emit("setState", this.props.widgetData.stateId, e.target.value);
@@ -31,8 +32,8 @@ export default class TimePicker extends React.Component {
     // console.debug("Render Output");
 
     // init
-    let val = "00:00";
-    let ts = moment();
+    let val = this.props.widgetData.states[this.props.widgetData.stateId].val || "00:00";
+    let ts = this.props.widgetData.states[this.props.widgetData.stateId].ts || moment();
     // read value and timestamp from props if available
     if (
       this.props.widgetData.states[this.props.widgetData.stateId] &&
@@ -70,6 +71,7 @@ export default class TimePicker extends React.Component {
                 disable-auto-styling
                 data-iobroker={this.props.widgetData.stateId}
                 onChange={this.sendValue.bind(this)}
+                onInput={this.sendValue.bind(this)}
                 type={"time"}
                 value={val}
               ></Input>
