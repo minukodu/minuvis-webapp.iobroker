@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.6.4 (2026-01-19)
+* (svallant) bugfix links in card-widget
+
 ### 2.6.3 (2026-01-18)
 * (svallant) link to card for donut- and html-widgets
 * (svallant) bugfix timepicker

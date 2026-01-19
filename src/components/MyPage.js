@@ -110,6 +110,7 @@ export default class myPage extends React.Component {
                 widgetData={widgetData}
                 showModal={this.state.showModal}
                 resetShowModal={this.resetShowModal.bind(this)}
+                setShowModal={this.setShowModal.bind(this)}
               />
             );
             break;

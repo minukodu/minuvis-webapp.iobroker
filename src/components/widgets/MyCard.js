@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Modal, List, ListItem, Fab} from 'react-onsenui';
+import { Card, Modal, List, ListItem, Fab } from 'react-onsenui';
 import IframeOutput from './IframeOutput';
 import MySwitch from './Switch';
 import TextInput from './TextInput';
@@ -27,42 +27,42 @@ import DateTime from './DateTime';
 import Message from './Message';
 
 import moment from 'moment';
-moment.locale ('de-DE');
+moment.locale('de-DE');
 
 export default class MyCard extends React.Component {
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
     this.state = {
       showModal: false,
     };
   }
 
-  showModal () {
-    this.setState ({showModal: true});
+  showModal() {
+    this.setState({ showModal: true });
   }
-  hideModal () {
-    this.setState ({showModal: false});
+  hideModal() {
+    this.setState({ showModal: false });
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    console.log ('myCard componentDidUpdate');
+  componentDidUpdate(prevProps, prevState) {
+    console.log('myCard componentDidUpdate');
     if (
       this.props.widgetData.linkReference &&
       !this.state.showModal &&
       this.props.showModal === ("ref@" + this.props.widgetData.linkReference)
     ) {
-      console.log (
+      console.log(
         'open modal myCard: ' +
-          this.props.showModal +
-          ' :: ' +
-          this.props.widgetData.linkReference
+        this.props.showModal +
+        ' :: ' +
+        this.props.widgetData.linkReference
       );
-      this.setState ({showModal: true});
-      this.props.resetShowModal ();
+      this.setState({ showModal: true });
+      this.props.resetShowModal();
     }
   }
 
-  render () {
+  render() {
     let widget = '';
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -118,13 +118,17 @@ export default class MyCard extends React.Component {
             widget = <MyRange widgetData={widgetData} />;
             break;
           case 'donut':
-            widget = <Donut widgetData={widgetData} />;
+            widget = <Donut
+              widgetData={widgetData}
+              setShowModal={this.props.setShowModal} />;
             break;
           case 'jsontable':
             widget = <JsonTable widgetData={widgetData} />;
             break;
           case 'html':
-            widget = <HtmlOutput widgetData={widgetData} />;
+            widget = <HtmlOutput
+              widgetData={widgetData}
+              setShowModal={this.props.setShowModal} />;
             break;
           case 'imgoutput':
             widget = <IMGOutput widgetData={widgetData} />;
@@ -133,7 +137,9 @@ export default class MyCard extends React.Component {
             widget = <Output widgetData={widgetData} />;
             break;
           case 'indicator':
-            widget = <Indicator widgetData={widgetData} />;
+            widget = <Indicator
+              widgetData={widgetData}
+              setShowModal={this.props.setShowModal} />;
             break;
           case 'timepicker':
             widget = <TimePicker widgetData={widgetData} />;
@@ -157,11 +163,14 @@ export default class MyCard extends React.Component {
             widget = <ValueSwitcher widgetData={widgetData} />;
             break;
           case 'linkbutton':
-            widget = <LinkButton widgetData={widgetData} />;
+            widget = <LinkButton
+              widgetData={widgetData}
+              setShowModal={this.props.setShowModal} />;
             break;
           case 'filler':
           case 'headline':
-            widget = <HeadLine widgetData={widgetData} />;
+            widget = <HeadLine widgetData={widgetData}
+              setShowModal={this.props.setShowModal} />;
             break;
           default:
             widget = (
@@ -187,16 +196,16 @@ export default class MyCard extends React.Component {
         if (widgetData.borderLeft && widgetData.borderLeft === true) {
           borderClasses += 'borderLeft ';
         }
-        gridBoxes.push (
+        gridBoxes.push(
           <div
             className={
               'gridBox card_gridbox_' + gridBoxes.length + ' ' + borderClasses
             }
             key={
               'card_gridbox_' +
-                gridBoxes.length +
-                '_' +
-                this.props.widgetData.UUID
+              gridBoxes.length +
+              '_' +
+              this.props.widgetData.UUID
             }
             style={{
               gridColumnStart: widgetData.widgetPosX + 1,
@@ -212,8 +221,8 @@ export default class MyCard extends React.Component {
 
         if (widgetData.widgetPosY + widgetData.widgetHeight > maxRow) {
           maxRow =
-            parseFloat (widgetData.widgetPosY) +
-            parseFloat (widgetData.widgetHeight);
+            parseFloat(widgetData.widgetPosY) +
+            parseFloat(widgetData.widgetHeight);
         }
         //////////////////////////////////////////////////////////////////////////////////////////////
       } // for
@@ -228,7 +237,7 @@ export default class MyCard extends React.Component {
     // console.log("maxRow="+ maxRow);
     // console.log(rowStyle);
 
-    pageGrid.push (
+    pageGrid.push(
       <div
         key={'gridwrapper_' + this.props.widgetData.UUID}
         className="gridWrapper"
@@ -251,23 +260,23 @@ export default class MyCard extends React.Component {
 
     let classes = this.props.widgetData.classes || '';
 
-    let fabStyle = {display: "block"};
+    let fabStyle = { display: "block" };
 
     if (this.props.widgetData.showInModal && this.props.widgetData.hideModalIcon) {
-      fabStyle = {display: "none"};
+      fabStyle = { display: "none" };
     }
 
     if (this.props.widgetData.showInModal === true) {
       return (
-        <List className={'modalcard ' + classes} style={{height}}>
+        <List className={'modalcard ' + classes} style={{ height }}>
           <ListItem style={fabStyle}>
             <div className="center">
-              <div className="centerFab" style={{margin: 'auto'}}>
+              <div className="centerFab" style={{ margin: 'auto' }}>
                 <Fab
                   mini
                   className="fab--mini"
                   modifier="material"
-                  onClick={this.showModal.bind (this)}
+                  onClick={this.showModal.bind(this)}
                 >
                   <i className="mdi-icon open-in-new fab--mini--icon" />
                 </Fab>
@@ -287,7 +296,7 @@ export default class MyCard extends React.Component {
                         mini
                         className="fab--mini"
                         modifier="material"
-                        onClick={this.hideModal.bind (this)}
+                        onClick={this.hideModal.bind(this)}
                       >
                         <i className="mdi-icon window-close fab--mini--icon" />
                       </Fab>
