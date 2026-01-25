@@ -35,8 +35,8 @@ export default class DatePicker extends React.Component {
     // console.log(this.props.widgetData.format)
 
     // init
-    let val = "01.01.1970";
-    let ts = moment();
+    let val = this.props.widgetData.states[this.props.widgetData.stateId].val || "01.01.1970";
+    let ts = this.props.widgetData.states[this.props.widgetData.stateId].ts || moment();
     // read value and timestamp from props if available
     if (
       this.props.widgetData.states[this.props.widgetData.stateId] &&
@@ -76,6 +76,7 @@ export default class DatePicker extends React.Component {
                 disable-auto-styling
                 data-iobroker={this.props.widgetData.stateId}
                 onChange={this.sendValue.bind(this)}
+                onInput={this.sendValue.bind(this)}
                 type={"date"}
                 value={val}
               ></Input>

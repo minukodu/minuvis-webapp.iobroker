@@ -13,62 +13,79 @@ import PageInfo from './PageInfo';
 import MyPage from './MyPage';
 
 export default class Layout extends React.Component {
-  constructor () {
-    super ();
+  constructor() {
+    super();
     this.state = {
       isOpen: false,
       collapsed: 'collapse',
       activePage: null,
       activePageName: 'PageInfo',
     };
-    this.loadPage = this.loadPage.bind (this);
+    this.loadPage = this.loadPage.bind(this);
     this.windowWidth = 600;
     this.routeProps = {};
     this.startPageName = 'PageInfo';
     this.splitterLocked = false;
+    this.allHiddenCards = [];
   }
 
-  _reloadPage () {
-    window.location.reload ();
+  _reloadPage() {
+    window.location.reload();
   }
 
-  hide () {
+  findAllHiddenCards(appconfig) {
+    //console.warn ("findAllHiddenCards");
+    this.allHiddenCards = [];
+    for (const page of appconfig.pages) {
+      //console.warn (page);
+      let pageUUID = page.UUID;
+      for (let widget of page.widgets) {
+        if (widget.type === "card" && widget.hideModalIcon === true) {
+          widget._parentPageUUID = pageUUID;
+          this.allHiddenCards.push(widget);
+        }
+      }
+    }
+    //console.warn (this.allHiddenCards)
+  }
+
+  hide() {
     if (this.splitterLocked === false) {
-      this.setState ({isOpen: false, collapsed: 'collapse'});
+      this.setState({ isOpen: false, collapsed: 'collapse' });
     }
   }
 
-  show () {
+  show() {
     if (this.splitterLocked === false) {
-      this.setState ({isOpen: true, collapsed: 'open'});
+      this.setState({ isOpen: true, collapsed: 'open' });
     }
   }
 
-  makePageElement (PageElem, pageName, pageConfig) {
+  makePageElement(PageElem, pageName, pageConfig) {
     return (
       <PageElem
         {...this.props}
         key={pageName}
         theme={this.props.theme}
         pageConfig={pageConfig}
-        showMenu={this.show.bind (this)}
-        LinkAlarmPage={this.loadPage.bind (this, 'PageAlarme')}
+        showMenu={this.show.bind(this)}
+        LinkAlarmPage={this.loadPage.bind(this, 'PageAlarme')}
         displayNbAlarm={this.props.nbAlarm > 0 ? 'inline' : 'none'}
         activePageName={this.state.activePageName}
       />
     );
   }
 
-  loadPage (pageName) {
-    console.log ('loadPage:: ' + pageName);
-    this.setState ({
+  loadPage(pageName) {
+    console.log('loadPage:: ' + pageName);
+    this.setState({
       activePageName: pageName,
     });
     // hide menu
-    this.hide ();
+    this.hide();
   }
 
-  createRouteProps () {
+  createRouteProps() {
     //console.log('createRouteProps with this.props:');
     //console.log(this.props);
 
@@ -78,14 +95,14 @@ export default class Layout extends React.Component {
     pageConfigAlarm.minuaru = this.props.appConfig.minuaru;
 
     let routeProps = {};
-    routeProps.showMenu = this.show.bind (this);
+    routeProps.showMenu = this.show.bind(this);
     routeProps.socket = this.props.socket;
     routeProps.states = this.props.states;
     routeProps.connected = this.props.connected;
     routeProps.nbAlarm = this.props.nbAlarm;
     routeProps.displayNbAlarm = this.props.nbAlarm > 0 ? 'inline' : 'none';
     routeProps.AlarmStates = this.props.AlarmStates;
-    routeProps.LinkAlarmPage = this.loadPage.bind (this, 'PageAlarme');
+    routeProps.LinkAlarmPage = this.loadPage.bind(this, 'PageAlarme');
     routeProps.flotUrls = this.props.flotUrls;
     routeProps.version = this.props.version;
     routeProps.windowWidth = this.windowWidth;
@@ -93,18 +110,20 @@ export default class Layout extends React.Component {
     return routeProps;
   }
 
-  UNSAFE_componentWillMount () {
+  UNSAFE_componentWillMount() {
     // get overall props
-    this.routeProps = this.createRouteProps ();
+    this.routeProps = this.createRouteProps();
+    // find all hidden cards
+    this.findAllHiddenCards(this.props.appConfig);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     // launch Startpage
-    this.loadPage (this.startPageName);
+    this.loadPage(this.startPageName);
   }
 
-  render () {
-    console.log ('Render Layout.js');
+  render() {
+    console.log('Render Layout.js');
     // Init
     this.startpageKey = '';
     this.startpageConfig = {};
@@ -117,7 +136,7 @@ export default class Layout extends React.Component {
     ) {
       splitterCollapse = 'none'; //"portrait";
     }
-    console.log ('SplitterOpen: ' + this.props.appConfig.settings.SplitterOpen);
+    console.log('SplitterOpen: ' + this.props.appConfig.settings.SplitterOpen);
     // Anzahl Alarme einstellen
     let displayNbAlarm = 'none';
     if (this.props.nbAlarm > 0) {
@@ -136,7 +155,7 @@ export default class Layout extends React.Component {
         // Create Array with possible Links
         this.pageLinks[
           this.props.appConfig.pages[pageId].title
-        ] = this.loadPage.bind (this, this.props.appConfig.pages[pageId].UUID);
+        ] = this.loadPage.bind(this, this.props.appConfig.pages[pageId].UUID);
       }
       // Menu-Item in Splitter
       for (var pageId in this.props.appConfig.pages) {
@@ -151,14 +170,39 @@ export default class Layout extends React.Component {
         // add pageLinks
         pageConfig.pageLinks = this.pageLinks;
 
+        // console.warn("V2.6.5 add hidden Cards for popup");
+        // console.warn(this.props.appConfig.pages[pageId].UUID);
+        // console.warn("Nr of allHiddenCards: " + this.allHiddenCards.length);
+        // console.warn(pageConfig);
+
+        // V2.6.5 add hidden Cards for popup
+        for (const card of this.allHiddenCards) {
+          // nur hinzufügen wenn noch nicht auf page vorhanden
+          if (card._parentPageUUID !== this.props.appConfig.pages[pageId].UUID) {
+            let hiddenCardUUID = card.UUID;
+            let pushCardToPage = true;
+            for (const widget of this.props.appConfig.pages[pageId].widgets) {
+              if (widget.UUID === hiddenCardUUID) {
+                pushCardToPage = false;
+                break;
+              }
+            }
+            if (pushCardToPage === true) {
+              pageConfig.widgets.push(card)
+            }
+          }
+        }
+        // console.warn(pageConfig);
+        // console.warn(pageConfig.widgets.length);
+
         // make page elements
-        pages.push (this.makePageElement (MyPage, pageConfig.UUID, pageConfig));
+        pages.push(this.makePageElement(MyPage, pageConfig.UUID, pageConfig));
 
         // Create Menu-Entry
-        pageList.push (
+        pageList.push(
           <ListItem
             key={this.props.appConfig.pages[pageId].UUID}
-            onClick={this.loadPage.bind (
+            onClick={this.loadPage.bind(
               this,
               this.props.appConfig.pages[pageId].UUID
             )} //pages[pageId], pageTitle)}
@@ -168,9 +212,9 @@ export default class Layout extends React.Component {
               <span
                 className={
                   'pageIcon ' +
-                    this.props.appConfig.pages[pageId].iconFamily +
-                    ' ' +
-                    this.props.appConfig.pages[pageId].icon
+                  this.props.appConfig.pages[pageId].iconFamily +
+                  ' ' +
+                  this.props.appConfig.pages[pageId].icon
                 }
               />
             </div>
@@ -203,10 +247,10 @@ export default class Layout extends React.Component {
     pageConfigAlarm.minuaru = this.props.appConfig.minuaru;
 
     if (this.props.appConfig.alarmpage === true) {
-      pageList.push (
+      pageList.push(
         <ListItem
           key={'PageAlarme'}
-          onClick={this.loadPage.bind (this, 'PageAlarme')}
+          onClick={this.loadPage.bind(this, 'PageAlarme')}
           tappable
         >
           <div className="left">
@@ -220,7 +264,7 @@ export default class Layout extends React.Component {
           <div className="right">
             <span
               className="alarme-icon notification"
-              style={{display: displayNbAlarm, verticalAlign: -4}}
+              style={{ display: displayNbAlarm, verticalAlign: -4 }}
             >
               {this.props.nbAlarm}
             </span>
@@ -228,8 +272,8 @@ export default class Layout extends React.Component {
         </ListItem>
       );
       // make page element
-      pages.push (
-        this.makePageElement (PageAlarme, pageConfigAlarm.UUID, pageConfigAlarm)
+      pages.push(
+        this.makePageElement(PageAlarme, pageConfigAlarm.UUID, pageConfigAlarm)
       );
     }
 
@@ -243,10 +287,10 @@ export default class Layout extends React.Component {
 
     //console.log("Render Layout.js before pageList.push");
 
-    pageList.push (
+    pageList.push(
       <ListItem
         key={PageInfo.name}
-        onClick={this.loadPage.bind (this, 'PageInfo')}
+        onClick={this.loadPage.bind(this, 'PageInfo')}
         tappable
       >
         <div className="left pageIconHolder">
@@ -257,8 +301,8 @@ export default class Layout extends React.Component {
       </ListItem>
     );
     // make page element
-    pages.push (
-      this.makePageElement (PageInfo, pageConfigInfo.UUID, pageConfigInfo)
+    pages.push(
+      this.makePageElement(PageInfo, pageConfigInfo.UUID, pageConfigInfo)
     );
 
     //console.log("Render Layout.js after pageList.push");
