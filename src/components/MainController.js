@@ -11,6 +11,7 @@ export default class MainController extends React.Component {
     };
     this.StateIDNbAlarms = '';
     this.usedVariables = [];
+    this._socket_connected = false;
   }
 
   loadVariableNames = () => {
@@ -101,13 +102,7 @@ export default class MainController extends React.Component {
     this.loadVariableNames();
   }
 
-  componentDidMount() {
-    if (this.props.hasAppConfig === false) {
-      return;
-    }
-
-    console.info(new Date() + ' DidMount MainController');
-
+  subcribe_states = () => {
     this.props.socket.on(
       'stateChange',
       function (id, state) {
@@ -151,6 +146,16 @@ export default class MainController extends React.Component {
       }.bind(this)
     );
   }
+
+  componentDidMount() {
+    if (this.props.hasAppConfig === false) {
+      return;
+    }
+    console.info(new Date() + ' DidMount MainController');
+    this.subcribe_states();
+
+
+  }
   componentWillUnmount() {
     if (this.props.hasAppConfig === false) {
       return;
@@ -161,6 +166,12 @@ export default class MainController extends React.Component {
 
   render() {
     console.log('Render MainController');
+    // subscribe states if new conntected
+    if ( this._socket_connected === false && this.props.connected === true) {
+      this.subcribe_states();
+    }
+    this._socket_connected = this.props.connected;
+
     // console.log(this.state);
     console.log('Settings: ' + JSON.stringify(this.state.appConfig.settings));
     // get number of alarms
@@ -181,20 +192,20 @@ export default class MainController extends React.Component {
       return <div>trying to read config from ioBroker ...</div>;
     } else {
       return (
-          <div>
-            <div className={true ? 'overlay connected' : 'overlay notconnected'}>
-              <div className="overlay inner">Daten werden geladen ....</div>
-            </div>
-            <Layout
-              theme={this.props.theme}
-              socket={this.props.socket}
-              appConfig={this.state.appConfig}
-              states={this.state.states}
-              nbAlarm={nbAlarm}
-              connected={this.props.connected}
-              version={this.props.version}
-            />
+        <div>
+          <div className={true ? 'overlay connected' : 'overlay notconnected'}>
+            <div className="overlay inner">Daten werden geladen ....</div>
           </div>
+          <Layout
+            theme={this.props.theme}
+            socket={this.props.socket}
+            appConfig={this.state.appConfig}
+            states={this.state.states}
+            nbAlarm={nbAlarm}
+            connected={this.props.connected}
+            version={this.props.version}
+          />
+        </div>
       );
     }
   }

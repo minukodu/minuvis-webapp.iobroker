@@ -24,6 +24,12 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.6.5 (2026-01-25)
+* (svallant) extend link to modal card on all pages
+* (svallant) bugfix new subscribe of states after reconnection
+* (svallant) bugfix datepicker
+
+
 ### 2.6.4 (2026-01-19)
 * (svallant) bugfix links in card-widget
 
