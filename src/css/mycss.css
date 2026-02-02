@@ -209,6 +209,10 @@ ons-card .gridBox {
   background: transparent;
 }
 
+.gridBox:has(.modalcard.hide-modal-icon) {
+  display:none;
+}
+
 /* end grid styles */
 
 .list-header--material {

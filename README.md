@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.6.6 (2026-02-01)
+* (svallant) bugfix hidden card
+
 ### 2.6.5 (2026-01-25)
 * (svallant) extend link to modal card on all pages
 * (svallant) bugfix new subscribe of states after reconnection
