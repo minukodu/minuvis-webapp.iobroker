@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.7.0 (2026-02-15)
+* (svallant) no changes: align version with adapter
+
 ### 2.6.6 (2026-02-01)
 * (svallant) bugfix hidden card
 
