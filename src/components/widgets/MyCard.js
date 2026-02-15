@@ -261,14 +261,16 @@ export default class MyCard extends React.Component {
     let classes = this.props.widgetData.classes || '';
 
     let fabStyle = { display: "block" };
+    let modalIconClass = "show-modal-icon";
 
     if (this.props.widgetData.showInModal && this.props.widgetData.hideModalIcon) {
       fabStyle = { display: "none" };
+      modalIconClass = "hide-modal-icon";
     }
 
     if (this.props.widgetData.showInModal === true) {
       return (
-        <List className={'modalcard ' + classes} style={{ height }}>
+        <List className={'modalcard ' + classes + ' ' + modalIconClass} style={{ height }}>
           <ListItem style={fabStyle}>
             <div className="center">
               <div className="centerFab" style={{ margin: 'auto' }}>
