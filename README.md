@@ -24,6 +24,9 @@ Big thanks to authors for these icon sets.
 Love it !!
 
 ## Changelog
+### 2.7.2 (2026-03-13)
+* (svallant) fix bug in jsontable-Widget
+
 ### 2.7.0 (2026-02-15)
 * (svallant) no changes: align version with adapter
 
