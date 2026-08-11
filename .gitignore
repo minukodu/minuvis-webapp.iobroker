@@ -8,6 +8,7 @@
 
 # production
 /build
+/build-capacitor
 
 # misc
 .DS_Store

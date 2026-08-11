@@ -1,5 +1,5 @@
 import React from 'react';
-import {Page, List, ListItem} from 'react-onsenui';
+import {Page, List, ListItem, Button} from 'react-onsenui';
 import Toolbar from './widgets/Toolbar';
 import Footer from './widgets/Footer';
 import Banner from './widgets/Banner';
@@ -10,6 +10,13 @@ import moment from 'moment';
 moment.locale ('de-DE');
 
 export default class PageInfo extends React.Component {
+  deleteServerConfig () {
+    localStorage.removeItem ('appProvider');
+    localStorage.removeItem ('appConfig');
+    localStorage.removeItem ('appAuthEnabled');
+    window.location.reload ();
+  }
+
   renderToolbar () {
     return (
       <Toolbar
@@ -72,6 +79,14 @@ export default class PageInfo extends React.Component {
           <ListItem>
             <div className="left titel">file:</div>
             <div className="right">{this.props.pageConfig.file}</div>
+          </ListItem>
+          <ListItem>
+            <Button
+              modifier="large--cta"
+              onClick={this.deleteServerConfig.bind (this)}
+            >
+              Server-Konfiguration löschen
+            </Button>
           </ListItem>
           <ListItem>
             <div className="left titel">device width:</div>

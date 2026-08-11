@@ -31,6 +31,10 @@ export default class ConfigLoader extends React.Component {
       loadFileError: null,
       usedStates: null,
       _socket_connected: false,
+      needsManualSetup: false,
+      manualUrl: '',
+      manualFile: '',
+      manualAuthEnabled: false,
     };
     this.versionError = false;
     this.configFromLocalStorage = false;
@@ -42,9 +46,21 @@ export default class ConfigLoader extends React.Component {
     this.configSocket = null;
 
     //#########################################################################
-    this.mainVersion = parseInt(packageInfo.version, 10);
+    // Mindest-Config-Version, unabhängig von der App-Version (packageInfo.version)
+    this.minConfigVersion = '2.7.0';
     //#########################################################################
   }
+
+  compareVersions = function (a, b) {
+    const partsA = String(a).split('.').map(Number);
+    const partsB = String(b).split('.').map(Number);
+    for (let i = 0; i < Math.max(partsA.length, partsB.length); i++) {
+      const numA = partsA[i] || 0;
+      const numB = partsB[i] || 0;
+      if (numA !== numB) return numA - numB;
+    }
+    return 0;
+  };
 
   findAllByKey = function (obj, keyToFind) {
     return Object.entries(obj).reduce(
@@ -62,6 +78,34 @@ export default class ConfigLoader extends React.Component {
   clearCredentials = () => {
     localStorage.clear();
     window.location.reload();
+  };
+
+  resetServerConfig = () => {
+    localStorage.removeItem('appProvider');
+    localStorage.removeItem('appConfig');
+    localStorage.removeItem('appAuthEnabled');
+    window.location.reload();
+  };
+
+  saveManualServerConfig = () => {
+    const url = (this.state.manualUrl || '').trim();
+    const file = (this.state.manualFile || '').trim();
+    if (!url || file.length < 6) {
+      this.setState({
+        loadFileError: 'Server-Adresse oder Dateiname ungültig (Dateiname min. 6 Zeichen)',
+      });
+      return;
+    }
+    localStorage.setItem(
+      'appProvider',
+      JSON.stringify({ appConfigFile: file, socketUrl: url })
+    );
+    localStorage.setItem(
+      'appAuthEnabled',
+      this.state.manualAuthEnabled ? '1' : '0'
+    );
+    this.setState({ needsManualSetup: false, loadFileError: null });
+    this.loadConfig();
   };
 
   loadConfig = () => {
@@ -129,9 +173,17 @@ export default class ConfigLoader extends React.Component {
       } catch (e) { }
     }
 
+    // no server configured at all (fresh install, no querystring possible e.g. in native app)
+    if (!myUrlParsed.url || !myUrlParsed.file) {
+      console.log('no server configured yet - showing manual setup');
+      this.setState({ needsManualSetup: true });
+      return;
+    }
+    this.setState({ needsManualSetup: false });
+
     // prepare authentication
     this.authQuery = {};
-    if ('auth' in myUrlParsed) {
+    if ('auth' in myUrlParsed || localStorage.getItem('appAuthEnabled') === '1') {
       this.withAuth = true;
       this.authQuery = {
         user: user,
@@ -141,7 +193,6 @@ export default class ConfigLoader extends React.Component {
     }
 
     if (
-      this.configFromLocalStorage === false &&
       myUrlParsed.url &&
       myUrlParsed.file
     ) {
@@ -214,9 +265,9 @@ export default class ConfigLoader extends React.Component {
               let appConfig = JSON.parse(fileData);
               if (
                 !appConfig.version ||
-                parseInt(appConfig.version, 10) < this.mainVersion
+                this.compareVersions(appConfig.version, this.minConfigVersion) < 0
               ) {
-                let errorText = 'has wrong version: < ' + this.mainVersion;
+                let errorText = 'has wrong version: < ' + this.minConfigVersion;
                 this.versionError = true;
                 this.setState({
                   loadFileError: 'config-file ' + errorText,
@@ -316,6 +367,88 @@ export default class ConfigLoader extends React.Component {
     }
 
     if (this.state.hasAppConfig === false) {
+      if (this.state.needsManualSetup) {
+        return (
+          <div>
+            <StyleLoader theme={null} />
+            <Page>
+              <Row>
+                <Col>
+                  <List>
+                    <ListItem>
+                      <div className="left titel">Server-Einrichtung</div>
+                    </ListItem>
+                    <ListItem>
+                      <div className="left">
+                        ioBroker Socket-Adresse (z.B. http://192.168.1.10:8084):
+                      </div>
+                    </ListItem>
+                    <ListItem>
+                      <Input
+                        style={{ width: '100%' }}
+                        placeholder="http://192.168.1.10:8084"
+                        onChange={e =>
+                          this.setState({ manualUrl: e.target.value })}
+                        value={this.state.manualUrl}
+                      />
+                    </ListItem>
+                    <ListItem>
+                      <div className="left">
+                        Config-Dateiname (z.B. minukodu.json):
+                      </div>
+                    </ListItem>
+                    <ListItem>
+                      <Input
+                        style={{ width: '100%' }}
+                        placeholder="minukodu.json"
+                        onChange={e =>
+                          this.setState({ manualFile: e.target.value })}
+                        value={this.state.manualFile}
+                      />
+                    </ListItem>
+                    <ListItem>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={this.state.manualAuthEnabled}
+                          onChange={e =>
+                            this.setState({
+                              manualAuthEnabled: e.target.checked,
+                            })}
+                        />{' '}
+                        Anmeldung mit Benutzername/Passwort erforderlich
+                      </label>
+                    </ListItem>
+                    <ListItem
+                      style={{
+                        background: this.state.loadFileError
+                          ? 'red'
+                          : 'transparent',
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      <div className="left titel">error:</div>
+                      <div className="right">
+                        {this.state.loadFileError
+                          ? this.state.loadFileError
+                          : 'no error'}
+                      </div>
+                    </ListItem>
+                    <ListItem>
+                      <Button
+                        modifier="large--cta"
+                        onClick={this.saveManualServerConfig}
+                      >
+                        Verbinden
+                      </Button>
+                    </ListItem>
+                  </List>
+                </Col>
+              </Row>
+            </Page>
+          </div>
+        );
+      }
       return (
         <div>
           <StyleLoader theme={null} />
@@ -369,6 +502,14 @@ export default class ConfigLoader extends React.Component {
                     configFileName={this.state.appConfigFile}
                     builderLink="/minuvis/builder/"
                   />
+                  <ListItem>
+                    <Button
+                      modifier="large--cta"
+                      onClick={this.resetServerConfig}
+                    >
+                      Server-Adresse ändern
+                    </Button>
+                  </ListItem>
                 </List>
               </Col>
             </Row>

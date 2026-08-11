@@ -1,10 +1,14 @@
 {
   "name": "minuvis-webapp",
-  "version": "2.7.2",
+  "version": "3.0.0",
   "private": true,
   "homepage": "http://192.168.178.26/minuvis/app",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/core": "^8.5.0",
+    "@capacitor/ios": "^8.5.0",
     "@iobroker/socket-client": "^4.0.0",
     "@tanstack/react-table": "^8.20.6",
     "@testing-library/jest-dom": "^6.6.3",
@@ -40,7 +44,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:capacitor": "cross-env PUBLIC_URL=/ BUILD_PATH=build-capacitor react-scripts build",
+    "cap:sync": "npm run build:capacitor && npx cap sync",
+    "cap:android": "npm run cap:sync && npx cap open android",
+    "cap:ios": "npm run cap:sync && npx cap open ios"
   },
   "eslintConfig": {
     "extends": [
@@ -59,5 +67,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.0",
+    "cross-env": "^10.1.0"
   }
 }

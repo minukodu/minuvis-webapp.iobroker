@@ -23,7 +23,19 @@ Big thanks to authors for these icon sets.
 
 Love it !!
 
+## Native App (Android/iOS) via Capacitor
+
+- Clone repository, `npm install`
+- `npm run build:capacitor` (baut mit root-relativen Pfaden statt `homepage`)
+- `npx cap sync` (kopiert Build in `android/` und `ios/`)
+- `npm run cap:android` öffnet Android Studio, `npm run cap:ios` öffnet Xcode (nur auf macOS)
+- Beim ersten Start der nativen App: Server-URL und Config-Dateiname manuell eingeben (kein Query-String möglich wie im Browser)
+
 ## Changelog
+### 3.0.0 (2026-08-10)
+* (svallant) native App via Capacitor (Android + iOS Grundgerüst)
+* (svallant) manuelles Server-Setup (URL/Config-Datei) für native App, da Query-String im WebView nicht verfügbar
+
 ### 2.7.2 (2026-03-13)
 * (svallant) fix bug in jsontable-Widget
 

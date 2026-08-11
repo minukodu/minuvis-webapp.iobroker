@@ -22,12 +22,8 @@
             "src": "/minuvis/app/favicon-32x32.png?v=A0700zz4O5",
             "sizes": "32x32",
             "type": "image/png"
-        },
-        {
-            "src": "/minuvis/app/favicon.png?v=A0700zz4O5",
-            "type": "image/png"
         }
-        
+
     ],
     "display": "standalone",
     "theme_color": "#00828b",

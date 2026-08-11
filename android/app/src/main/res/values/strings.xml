@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MINUVIS SmartHome App</string>
+    <string name="title_activity_main">MINUVIS SmartHome App</string>
+    <string name="package_name">com.minuvis.smarthome</string>
+    <string name="custom_url_scheme">com.minuvis.smarthome</string>
+</resources>
