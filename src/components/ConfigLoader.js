@@ -15,6 +15,7 @@ import {
 import StyleLoader from './StyleLoader';
 import MainController from './MainController';
 import ConfigMessage from './utils/ConfigMessage';
+import QrScanner from './QrScanner';
 
 import packageInfo from '../../package.json';
 
@@ -35,6 +36,7 @@ export default class ConfigLoader extends React.Component {
       manualUrl: '',
       manualFile: '',
       manualAuthEnabled: false,
+      showQrScanner: false,
     };
     this.versionError = false;
     this.configFromLocalStorage = false;
@@ -85,6 +87,41 @@ export default class ConfigLoader extends React.Component {
     localStorage.removeItem('appConfig');
     localStorage.removeItem('appAuthEnabled');
     window.location.reload();
+  };
+
+  handleQrScan = rawText => {
+    let data;
+    try {
+      data = JSON.parse(rawText);
+    } catch (e) {
+      this.setState({
+        showQrScanner: false,
+        loadFileError: 'QR-Code enthält keine gültige Konfiguration',
+      });
+      return;
+    }
+    if (!data.url || !data.fileName) {
+      this.setState({
+        showQrScanner: false,
+        loadFileError: 'QR-Code: url oder fileName fehlt',
+      });
+      return;
+    }
+    if (data.user) {
+      localStorage.setItem('user', data.user);
+    }
+    if (data.pass) {
+      localStorage.setItem('password', btoa(data.pass));
+    }
+    this.setState({
+      manualUrl: data.url,
+      manualFile: data.fileName,
+      manualAuthEnabled: !!data.useAuth,
+      user: data.user || this.state.user,
+      password: data.pass || this.state.password,
+      showQrScanner: false,
+      loadFileError: null,
+    });
   };
 
   saveManualServerConfig = () => {
@@ -371,12 +408,26 @@ export default class ConfigLoader extends React.Component {
         return (
           <div>
             <StyleLoader theme={null} />
+            {this.state.showQrScanner ? (
+              <QrScanner
+                onScan={this.handleQrScan}
+                onClose={() => this.setState({ showQrScanner: false })}
+              />
+            ) : null}
             <Page>
               <Row>
                 <Col>
                   <List>
                     <ListItem>
                       <div className="left titel">Server-Einrichtung</div>
+                    </ListItem>
+                    <ListItem>
+                      <Button
+                        modifier="large--cta"
+                        onClick={() => this.setState({ showQrScanner: true })}
+                      >
+                        QR-Code scannen
+                      </Button>
                     </ListItem>
                     <ListItem>
                       <div className="left">
