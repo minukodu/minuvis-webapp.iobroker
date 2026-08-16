@@ -10,7 +10,7 @@ and the Material Design Icons Community Icons from https://github.com/Templarian
 
 Big thanks to authors for these icon sets.
 
-## Quick Start:
+## Quickstart webApp:
 
 - goto https://github.com/SVallant/minuvis-webapp.iobroker/releases
 - download and put on your WebServer on WEBROOT/minuvis/app/
@@ -32,9 +32,10 @@ Love it !!
 - Beim ersten Start der nativen App: Server-URL und Config-Dateiname manuell eingeben (kein Query-String möglich wie im Browser)
 
 ## Changelog
-### 3.0.0 (2026-08-10)
+### 3.0.0 (2026-08-16)
 * (svallant) native App via Capacitor (Android + iOS Grundgerüst)
 * (svallant) manuelles Server-Setup (URL/Config-Datei) für native App, da Query-String im WebView nicht verfügbar
+* (svallant) QR-Code-Scanner für Server-Einrichtung (URL/Config-Datei/Zugangsdaten per Scan übernehmen)
 
 ### 2.7.2 (2026-03-13)
 * (svallant) fix bug in jsontable-Widget
