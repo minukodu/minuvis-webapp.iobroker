@@ -232,7 +232,7 @@ export default class MyChart extends React.Component {
       }
 
       chart = (
-        <div style={{width: 100 + '%', height: this.props.chartHeight + 'px'}}>
+        <div style={{width: 'calc(100% - 30px)', height: this.props.chartHeight + 'px'}}>
           <Line
             height={this.props.chartHeight}
             datasetIdKey="id"
