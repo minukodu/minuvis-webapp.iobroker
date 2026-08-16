@@ -26,54 +26,1599 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/google/material-design-icons</td>
     </tr>
     <tr>
-    <td>@babel/polyfill@7.0.0-beta.51</td>
+    <td>@adobe/css-tools@4.4.1</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-polyfill</td>
+    <td>https://github.com/adobe/css-tools</td>
     </tr>
     <tr>
-    <td>@onsenui/custom-elements@1.0.0</td>
+    <td>@alloc/quick-lru@5.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/quick-lru</td>
+    </tr>
+    <tr>
+    <td>@ampproject/remapping@2.3.0</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/ampproject/remapping</td>
+    </tr>
+    <tr>
+    <td>@apideck/better-ajv-errors@0.3.6</td>
+    <td>MIT</td>
+    <td>https://github.com/apideck-libraries/better-ajv-errors</td>
+    </tr>
+    <tr>
+    <td>@babel/code-frame@7.26.2</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/compat-data@7.26.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/core@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/eslint-parser@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/generator@7.26.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-annotate-as-pure@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-compilation-targets@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-create-class-features-plugin@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-create-regexp-features-plugin@7.26.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-define-polyfill-provider@0.6.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel-polyfills</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-member-expression-to-functions@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-module-imports@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-module-transforms@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-optimise-call-expression@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-plugin-utils@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-remap-async-to-generator@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-replace-supers@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-skip-transparent-expression-wrappers@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-string-parser@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-validator-identifier@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-validator-option@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helper-wrap-function@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/helpers@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/parser@7.26.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-bugfix-firefox-class-in-computed-class-key@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-bugfix-safari-class-field-initializer-scope@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-bugfix-v8-static-class-fields-redefine-readonly@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-proposal-class-properties@7.18.6</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-proposal-decorators@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-proposal-nullish-coalescing-operator@7.18.6</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-proposal-numeric-separator@7.18.6</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-proposal-optional-chaining@7.21.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-proposal-private-methods@7.18.6</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-proposal-private-property-in-object@7.21.0-placeholder-for-preset-env.2</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel-plugin-proposal-private-property-in-object</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-proposal-private-property-in-object@7.21.11</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-async-generators@7.8.4</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-async-generators</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-bigint@7.8.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-bigint</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-class-properties@7.12.13</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-class-static-block@7.14.5</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-decorators@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-flow@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-import-assertions@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-import-attributes@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-import-meta@7.10.4</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-json-strings@7.8.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-json-strings</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-jsx@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-logical-assignment-operators@7.10.4</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-nullish-coalescing-operator@7.8.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-nullish-coalescing-operator</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-numeric-separator@7.10.4</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-object-rest-spread@7.8.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-object-rest-spread</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-optional-catch-binding@7.8.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-optional-catch-binding</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-optional-chaining@7.8.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-optional-chaining</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-private-property-in-object@7.14.5</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-top-level-await@7.14.5</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-typescript@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-syntax-unicode-sets-regex@7.18.6</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-arrow-functions@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-async-generator-functions@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-async-to-generator@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-block-scoped-functions@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-block-scoping@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-class-properties@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-class-static-block@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-classes@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-computed-properties@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-destructuring@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-dotall-regex@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-duplicate-keys@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-duplicate-named-capturing-groups-regex@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-dynamic-import@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-exponentiation-operator@7.26.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-export-namespace-from@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-flow-strip-types@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-for-of@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-function-name@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-json-strings@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-literals@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-logical-assignment-operators@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-member-expression-literals@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-modules-amd@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-modules-commonjs@7.26.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-modules-systemjs@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-modules-umd@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-named-capturing-groups-regex@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-new-target@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-nullish-coalescing-operator@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-numeric-separator@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-object-rest-spread@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-object-super@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-optional-catch-binding@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-optional-chaining@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-parameters@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-private-methods@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-private-property-in-object@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-property-literals@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-react-constant-elements@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-react-display-name@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-react-jsx-development@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-react-jsx@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-react-pure-annotations@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-regenerator@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-regexp-modifiers@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-reserved-words@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-runtime@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-shorthand-properties@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-spread@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-sticky-regex@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-template-literals@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-typeof-symbol@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-typescript@7.26.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-unicode-escapes@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-unicode-property-regex@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-unicode-regex@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/plugin-transform-unicode-sets-regex@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/preset-env@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/preset-modules@0.1.6-no-external-plugins</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/preset-modules</td>
+    </tr>
+    <tr>
+    <td>@babel/preset-react@7.26.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/preset-typescript@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/runtime@7.26.0</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/template@7.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/traverse@7.26.4</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@babel/types@7.26.3</td>
+    <td>MIT</td>
+    <td>https://github.com/babel/babel</td>
+    </tr>
+    <tr>
+    <td>@bcoe/v8-coverage@0.2.3</td>
+    <td>MIT</td>
+    <td>https://github.com/demurgos/v8-coverage</td>
+    </tr>
+    <tr>
+    <td>@capacitor/android@8.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/capacitor</td>
+    </tr>
+    <tr>
+    <td>@capacitor/app@8.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/capacitor-plugins</td>
+    </tr>
+    <tr>
+    <td>@capacitor/cli@8.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/capacitor</td>
+    </tr>
+    <tr>
+    <td>@capacitor/core@8.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/capacitor</td>
+    </tr>
+    <tr>
+    <td>@capacitor/ios@8.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/capacitor</td>
+    </tr>
+    <tr>
+    <td>@csstools/normalize.css@12.1.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/normalize.css</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-cascade-layers@1.1.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-color-function@1.1.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-font-format-keywords@1.0.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-hwb-function@1.0.2</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-ic-unit@1.0.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-is-pseudo-class@2.0.7</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-nested-calc@1.0.0</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-normalize-display-values@1.0.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-oklab-function@1.1.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-progressive-custom-properties@1.3.0</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-stepped-value-functions@1.0.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-text-decoration-shorthand@1.0.0</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-trigonometric-functions@1.0.2</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/postcss-unset-value@1.0.2</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@csstools/selector-specificity@2.2.0</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>@epic-web/invariant@1.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/epicweb-dev/invariant</td>
+    </tr>
+    <tr>
+    <td>@eslint-community/eslint-utils@4.4.1</td>
+    <td>MIT</td>
+    <td>https://github.com/eslint-community/eslint-utils</td>
+    </tr>
+    <tr>
+    <td>@eslint-community/regexpp@4.12.1</td>
+    <td>MIT</td>
+    <td>https://github.com/eslint-community/regexpp</td>
+    </tr>
+    <tr>
+    <td>@eslint/eslintrc@2.1.4</td>
+    <td>MIT</td>
+    <td>https://github.com/eslint/eslintrc</td>
+    </tr>
+    <tr>
+    <td>@eslint/js@8.57.1</td>
+    <td>MIT</td>
+    <td>https://github.com/eslint/eslint</td>
+    </tr>
+    <tr>
+    <td>@humanwhocodes/config-array@0.13.0</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/humanwhocodes/config-array</td>
+    </tr>
+    <tr>
+    <td>@humanwhocodes/module-importer@1.0.1</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/humanwhocodes/module-importer</td>
+    </tr>
+    <tr>
+    <td>@humanwhocodes/object-schema@2.0.3</td>
     <td>BSD-3-Clause</td>
-    <td>https://github.com/OnsenUI/custom-elements</td>
+    <td>https://github.com/humanwhocodes/object-schema</td>
     </tr>
     <tr>
-    <td>@onsenui/fastclick@1.1.1</td>
+    <td>@icons/material@0.2.4</td>
     <td>MIT</td>
-    <td>https://github.com/OnsenUI/fastclick</td>
+    <td>https://github.com/at-icons/material</td>
     </tr>
     <tr>
-    <td>abab@1.0.4</td>
+    <td>@iobroker/socket-client@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ioBroker/socket-client</td>
+    </tr>
+    <tr>
+    <td>@ionic/cli-framework-output@2.2.8</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/ionic-cli</td>
+    </tr>
+    <tr>
+    <td>@ionic/utils-array@2.1.6</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/ionic-cli</td>
+    </tr>
+    <tr>
+    <td>@ionic/utils-fs@3.1.7</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/ionic-cli</td>
+    </tr>
+    <tr>
+    <td>@ionic/utils-object@2.1.6</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/ionic-cli</td>
+    </tr>
+    <tr>
+    <td>@ionic/utils-process@2.1.12</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/ionic-cli</td>
+    </tr>
+    <tr>
+    <td>@ionic/utils-stream@3.1.7</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/ionic-cli</td>
+    </tr>
+    <tr>
+    <td>@ionic/utils-subprocess@3.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/ionic-cli</td>
+    </tr>
+    <tr>
+    <td>@ionic/utils-terminal@2.3.5</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/ionic-cli</td>
+    </tr>
+    <tr>
+    <td>@isaacs/cliui@8.0.2</td>
     <td>ISC</td>
+    <td>https://github.com/yargs/cliui</td>
+    </tr>
+    <tr>
+    <td>@isaacs/fs-minipass@4.0.1</td>
+    <td>ISC</td>
+    <td>https://github.com/npm/fs-minipass</td>
+    </tr>
+    <tr>
+    <td>@istanbuljs/load-nyc-config@1.1.0</td>
+    <td>ISC</td>
+    <td>https://github.com/istanbuljs/load-nyc-config</td>
+    </tr>
+    <tr>
+    <td>@istanbuljs/schema@0.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/istanbuljs/schema</td>
+    </tr>
+    <tr>
+    <td>@jest/console@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/console@28.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/core@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/environment@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/fake-timers@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/globals@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/reporters@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/schemas@28.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/source-map@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/test-result@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/test-result@28.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/test-sequencer@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/transform@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/types@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jest/types@28.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>@jridgewell/gen-mapping@0.3.8</td>
+    <td>MIT</td>
+    <td>https://github.com/jridgewell/gen-mapping</td>
+    </tr>
+    <tr>
+    <td>@jridgewell/resolve-uri@3.1.2</td>
+    <td>MIT</td>
+    <td>https://github.com/jridgewell/resolve-uri</td>
+    </tr>
+    <tr>
+    <td>@jridgewell/set-array@1.2.1</td>
+    <td>MIT</td>
+    <td>https://github.com/jridgewell/set-array</td>
+    </tr>
+    <tr>
+    <td>@jridgewell/source-map@0.3.6</td>
+    <td>MIT</td>
+    <td>https://github.com/jridgewell/source-map</td>
+    </tr>
+    <tr>
+    <td>@jridgewell/sourcemap-codec@1.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/jridgewell/sourcemap-codec</td>
+    </tr>
+    <tr>
+    <td>@jridgewell/trace-mapping@0.3.25</td>
+    <td>MIT</td>
+    <td>https://github.com/jridgewell/trace-mapping</td>
+    </tr>
+    <tr>
+    <td>@kurkle/color@0.3.4</td>
+    <td>MIT</td>
+    <td>https://github.com/kurkle/color</td>
+    </tr>
+    <tr>
+    <td>@leichtgewicht/ip-codec@2.0.5</td>
+    <td>MIT</td>
+    <td>https://github.com/martinheidegger/ip-codec</td>
+    </tr>
+    <tr>
+    <td>@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1</td>
+    <td>MIT</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>@nodelib/fs.scandir@2.1.5</td>
+    <td>MIT</td>
+    <td>https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.scandir</td>
+    </tr>
+    <tr>
+    <td>@nodelib/fs.stat@2.0.5</td>
+    <td>MIT</td>
+    <td>https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.stat</td>
+    </tr>
+    <tr>
+    <td>@nodelib/fs.walk@1.2.8</td>
+    <td>MIT</td>
+    <td>https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.walk</td>
+    </tr>
+    <tr>
+    <td>@pkgjs/parseargs@0.11.0</td>
+    <td>MIT</td>
+    <td>https://github.com/pkgjs/parseargs</td>
+    </tr>
+    <tr>
+    <td>@pmmmwh/react-refresh-webpack-plugin@0.5.15</td>
+    <td>MIT</td>
+    <td>https://github.com/pmmmwh/react-refresh-webpack-plugin</td>
+    </tr>
+    <tr>
+    <td>@rollup/plugin-babel@5.3.1</td>
+    <td>MIT</td>
+    <td>https://github.com/rollup/plugins</td>
+    </tr>
+    <tr>
+    <td>@rollup/plugin-node-resolve@11.2.1</td>
+    <td>MIT</td>
+    <td>https://github.com/rollup/plugins</td>
+    </tr>
+    <tr>
+    <td>@rollup/plugin-replace@2.4.2</td>
+    <td>MIT</td>
+    <td>https://github.com/rollup/plugins</td>
+    </tr>
+    <tr>
+    <td>@rollup/pluginutils@3.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/rollup/plugins</td>
+    </tr>
+    <tr>
+    <td>@rtsao/scc@1.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/rtsao/scc</td>
+    </tr>
+    <tr>
+    <td>@rushstack/eslint-patch@1.10.4</td>
+    <td>MIT</td>
+    <td>https://github.com/microsoft/rushstack</td>
+    </tr>
+    <tr>
+    <td>@sinclair/typebox@0.24.51</td>
+    <td>MIT</td>
+    <td>https://github.com/sinclairzx81/typebox</td>
+    </tr>
+    <tr>
+    <td>@sinonjs/commons@1.8.6</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/sinonjs/commons</td>
+    </tr>
+    <tr>
+    <td>@sinonjs/fake-timers@8.1.0</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/sinonjs/fake-timers</td>
+    </tr>
+    <tr>
+    <td>@surma/rollup-plugin-off-main-thread@2.2.3</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/surma/rollup-plugin-off-main-thread</td>
+    </tr>
+    <tr>
+    <td>@svgr/babel-plugin-add-jsx-attribute@5.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-add-jsx-attribute</td>
+    </tr>
+    <tr>
+    <td>@svgr/babel-plugin-remove-jsx-attribute@5.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-remove-jsx-attribute</td>
+    </tr>
+    <tr>
+    <td>@svgr/babel-plugin-remove-jsx-empty-expression@5.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-remove-jsx-empty-expression</td>
+    </tr>
+    <tr>
+    <td>@svgr/babel-plugin-replace-jsx-attribute-value@5.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-replace-jsx-attribute-value</td>
+    </tr>
+    <tr>
+    <td>@svgr/babel-plugin-svg-dynamic-title@5.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-svg-dynamic-title</td>
+    </tr>
+    <tr>
+    <td>@svgr/babel-plugin-svg-em-dimensions@5.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-svg-em-dimensions</td>
+    </tr>
+    <tr>
+    <td>@svgr/babel-plugin-transform-react-native-svg@5.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-react-native-svg</td>
+    </tr>
+    <tr>
+    <td>@svgr/babel-plugin-transform-svg-component@5.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/babel-plugin-transform-svg-component</td>
+    </tr>
+    <tr>
+    <td>@svgr/babel-preset@5.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/babel-preset</td>
+    </tr>
+    <tr>
+    <td>@svgr/core@5.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/core</td>
+    </tr>
+    <tr>
+    <td>@svgr/hast-util-to-babel-ast@5.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/hast-util-to-babel-ast</td>
+    </tr>
+    <tr>
+    <td>@svgr/plugin-jsx@5.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/plugin-jsx</td>
+    </tr>
+    <tr>
+    <td>@svgr/plugin-svgo@5.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/plugin-svgo</td>
+    </tr>
+    <tr>
+    <td>@svgr/webpack@5.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gregberge/svgr/tree/master/packages/webpack</td>
+    </tr>
+    <tr>
+    <td>@tanstack/react-table@8.20.6</td>
+    <td>MIT</td>
+    <td>https://github.com/TanStack/table</td>
+    </tr>
+    <tr>
+    <td>@tanstack/table-core@8.20.5</td>
+    <td>MIT</td>
+    <td>https://github.com/TanStack/table</td>
+    </tr>
+    <tr>
+    <td>@testing-library/dom@10.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/testing-library/dom-testing-library</td>
+    </tr>
+    <tr>
+    <td>@testing-library/jest-dom@6.6.3</td>
+    <td>MIT</td>
+    <td>https://github.com/testing-library/jest-dom</td>
+    </tr>
+    <tr>
+    <td>@testing-library/react@16.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/testing-library/react-testing-library</td>
+    </tr>
+    <tr>
+    <td>@testing-library/user-event@14.5.2</td>
+    <td>MIT</td>
+    <td>https://github.com/testing-library/user-event</td>
+    </tr>
+    <tr>
+    <td>@tootallnate/once@1.1.2</td>
+    <td>MIT</td>
+    <td>https://github.com/TooTallNate/once</td>
+    </tr>
+    <tr>
+    <td>@trysound/sax@0.2.0</td>
+    <td>ISC</td>
+    <td>https://github.com/svg/sax</td>
+    </tr>
+    <tr>
+    <td>@types/aria-query@5.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/babel__core@7.20.5</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/babel__generator@7.6.8</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/babel__template@7.4.4</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/babel__traverse@7.20.6</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/body-parser@1.19.5</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/bonjour@3.5.13</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/connect-history-api-fallback@1.5.4</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/connect@3.4.38</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/eslint-scope@3.7.7</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/eslint@8.56.12</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/estree@0.0.39</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/estree@1.0.6</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/express-serve-static-core@4.19.6</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/express-serve-static-core@5.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/express@4.17.21</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/fs-extra@8.1.5</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/graceful-fs@4.1.9</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/hammerjs@2.0.46</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/html-minifier-terser@6.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/http-errors@2.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/http-proxy@1.17.15</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/istanbul-lib-coverage@2.0.6</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/istanbul-lib-report@3.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/istanbul-reports@3.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/json-schema@7.0.15</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/json5@0.0.29</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/mime@1.3.5</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/node-forge@1.3.11</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/node@22.10.2</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/parse-json@4.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/prettier@2.7.3</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/q@1.5.8</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/qs@6.9.17</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/range-parser@1.2.7</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/resolve@1.17.1</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/retry@0.12.0</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/semver@7.5.8</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/send@0.17.4</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/serve-index@1.9.4</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/serve-static@1.15.7</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/slice-ansi@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/sockjs@0.3.36</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/stack-utils@2.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/trusted-types@2.0.7</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/ws@8.5.13</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/yargs-parser@21.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/yargs@16.0.9</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@types/yargs@17.0.33</td>
+    <td>MIT</td>
+    <td>https://github.com/DefinitelyTyped/DefinitelyTyped</td>
+    </tr>
+    <tr>
+    <td>@typescript-eslint/eslint-plugin@5.62.0</td>
+    <td>MIT</td>
+    <td>https://github.com/typescript-eslint/typescript-eslint</td>
+    </tr>
+    <tr>
+    <td>@typescript-eslint/experimental-utils@5.62.0</td>
+    <td>MIT</td>
+    <td>https://github.com/typescript-eslint/typescript-eslint</td>
+    </tr>
+    <tr>
+    <td>@typescript-eslint/parser@5.62.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/typescript-eslint/typescript-eslint</td>
+    </tr>
+    <tr>
+    <td>@typescript-eslint/scope-manager@5.62.0</td>
+    <td>MIT</td>
+    <td>https://github.com/typescript-eslint/typescript-eslint</td>
+    </tr>
+    <tr>
+    <td>@typescript-eslint/type-utils@5.62.0</td>
+    <td>MIT</td>
+    <td>https://github.com/typescript-eslint/typescript-eslint</td>
+    </tr>
+    <tr>
+    <td>@typescript-eslint/types@5.62.0</td>
+    <td>MIT</td>
+    <td>https://github.com/typescript-eslint/typescript-eslint</td>
+    </tr>
+    <tr>
+    <td>@typescript-eslint/typescript-estree@5.62.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/typescript-eslint/typescript-eslint</td>
+    </tr>
+    <tr>
+    <td>@typescript-eslint/utils@5.62.0</td>
+    <td>MIT</td>
+    <td>https://github.com/typescript-eslint/typescript-eslint</td>
+    </tr>
+    <tr>
+    <td>@typescript-eslint/visitor-keys@5.62.0</td>
+    <td>MIT</td>
+    <td>https://github.com/typescript-eslint/typescript-eslint</td>
+    </tr>
+    <tr>
+    <td>@ungap/structured-clone@1.2.1</td>
+    <td>ISC</td>
+    <td>https://github.com/ungap/structured-clone</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/ast@1.14.1</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/floating-point-hex-parser@1.13.2</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/helper-api-error@1.13.2</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/helper-buffer@1.14.1</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/helper-numbers@1.13.2</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/helper-wasm-bytecode@1.13.2</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/helper-wasm-section@1.14.1</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/ieee754@1.13.2</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/leb128@1.13.2</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/utf8@1.13.2</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/wasm-edit@1.14.1</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/wasm-gen@1.14.1</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/wasm-opt@1.14.1</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/wasm-parser@1.14.1</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@webassemblyjs/wast-printer@1.14.1</td>
+    <td>MIT</td>
+    <td>https://github.com/xtuc/webassemblyjs</td>
+    </tr>
+    <tr>
+    <td>@xmldom/xmldom@0.9.10</td>
+    <td>MIT</td>
+    <td>https://github.com/xmldom/xmldom</td>
+    </tr>
+    <tr>
+    <td>@xtuc/ieee754@1.2.0</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/feross/ieee754</td>
+    </tr>
+    <tr>
+    <td>@xtuc/long@4.2.2</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/dcodeIO/long.js</td>
+    </tr>
+    <tr>
+    <td>abab@2.0.6</td>
+    <td>BSD-3-Clause</td>
     <td>https://github.com/jsdom/abab</td>
     </tr>
     <tr>
-    <td>accepts@1.3.5</td>
+    <td>accepts@1.3.8</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/accepts</td>
     </tr>
     <tr>
-    <td>acorn-globals@3.1.0</td>
+    <td>acorn-globals@6.0.0</td>
     <td>MIT</td>
     <td>https://github.com/ForbesLindesay/acorn-globals</td>
     </tr>
     <tr>
-    <td>acorn-jsx@3.0.1</td>
+    <td>acorn-jsx@5.3.2</td>
     <td>MIT</td>
-    <td>https://github.com/RReverser/acorn-jsx</td>
+    <td>https://github.com/acornjs/acorn-jsx</td>
     </tr>
     <tr>
-    <td>acorn@3.3.0</td>
-    <td>MIT</td>
-    <td>https://github.com/ternjs/acorn</td>
-    </tr>
-    <tr>
-    <td>acorn@4.0.13</td>
-    <td>MIT</td>
-    <td>https://github.com/ternjs/acorn</td>
-    </tr>
-    <tr>
-    <td>acorn@5.7.1</td>
+    <td>acorn-walk@7.2.0</td>
     <td>MIT</td>
     <td>https://github.com/acornjs/acorn</td>
+    </tr>
+    <tr>
+    <td>acorn@7.4.1</td>
+    <td>MIT</td>
+    <td>https://github.com/acornjs/acorn</td>
+    </tr>
+    <tr>
+    <td>acorn@8.14.0</td>
+    <td>MIT</td>
+    <td>https://github.com/acornjs/acorn</td>
+    </tr>
+    <tr>
+    <td>address@1.2.2</td>
+    <td>MIT</td>
+    <td>https://github.com/node-modules/address</td>
+    </tr>
+    <tr>
+    <td>adjust-sourcemap-loader@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/bholloway/adjust-sourcemap-loader</td>
     </tr>
     <tr>
     <td>after@0.8.2</td>
@@ -81,69 +1626,59 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/Raynos/after</td>
     </tr>
     <tr>
-    <td>ajv-keywords@1.5.1</td>
+    <td>agent-base@6.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/TooTallNate/node-agent-base</td>
+    </tr>
+    <tr>
+    <td>ajv-formats@2.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/ajv-validator/ajv-formats</td>
+    </tr>
+    <tr>
+    <td>ajv-keywords@3.5.2</td>
     <td>MIT</td>
     <td>https://github.com/epoberezkin/ajv-keywords</td>
     </tr>
     <tr>
-    <td>ajv@4.11.8</td>
+    <td>ajv-keywords@5.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/epoberezkin/ajv</td>
+    <td>https://github.com/epoberezkin/ajv-keywords</td>
     </tr>
     <tr>
-    <td>ajv@5.5.2</td>
+    <td>ajv@6.12.6</td>
     <td>MIT</td>
-    <td>https://github.com/epoberezkin/ajv</td>
+    <td>https://github.com/ajv-validator/ajv</td>
     </tr>
     <tr>
-    <td>ajv@6.10.2</td>
+    <td>ajv@8.17.1</td>
     <td>MIT</td>
-    <td>https://github.com/epoberezkin/ajv</td>
+    <td>https://github.com/ajv-validator/ajv</td>
     </tr>
     <tr>
-    <td>align-text@0.1.4</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/align-text</td>
-    </tr>
-    <tr>
-    <td>alphanum-sort@1.0.2</td>
-    <td>MIT</td>
-    <td>https://github.com/TrySound/alphanum-sort</td>
-    </tr>
-    <tr>
-    <td>amdefine@1.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/jrburke/amdefine</td>
-    </tr>
-    <tr>
-    <td>ansi-escapes@1.4.0</td>
+    <td>ansi-escapes@4.3.2</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/ansi-escapes</td>
     </tr>
     <tr>
-    <td>ansi-escapes@3.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/ansi-escapes</td>
+    <td>ansi-html-community@0.0.8</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/mahdyar/ansi-html-community</td>
     </tr>
     <tr>
-    <td>ansi-html@0.0.5</td>
-    <td>Apache*</td>
+    <td>ansi-html@0.0.9</td>
+    <td>Apache-2.0</td>
     <td>https://github.com/Tjatse/ansi-html</td>
     </tr>
     <tr>
-    <td>ansi-regex@2.1.1</td>
+    <td>ansi-regex@5.0.1</td>
     <td>MIT</td>
     <td>https://github.com/chalk/ansi-regex</td>
     </tr>
     <tr>
-    <td>ansi-regex@3.0.0</td>
+    <td>ansi-regex@6.1.0</td>
     <td>MIT</td>
     <td>https://github.com/chalk/ansi-regex</td>
-    </tr>
-    <tr>
-    <td>ansi-styles@2.2.1</td>
-    <td>MIT</td>
-    <td>https://github.com/chalk/ansi-styles</td>
     </tr>
     <tr>
     <td>ansi-styles@3.2.1</td>
@@ -151,19 +1686,34 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/chalk/ansi-styles</td>
     </tr>
     <tr>
-    <td>ansicolors@0.3.2</td>
+    <td>ansi-styles@4.3.0</td>
     <td>MIT</td>
-    <td>https://github.com/thlorenz/ansicolors</td>
+    <td>https://github.com/chalk/ansi-styles</td>
     </tr>
     <tr>
-    <td>anymatch@1.3.2</td>
+    <td>ansi-styles@5.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/chalk/ansi-styles</td>
+    </tr>
+    <tr>
+    <td>ansi-styles@6.2.1</td>
+    <td>MIT</td>
+    <td>https://github.com/chalk/ansi-styles</td>
+    </tr>
+    <tr>
+    <td>any-promise@1.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/kevinbeaty/any-promise</td>
+    </tr>
+    <tr>
+    <td>anymatch@3.1.3</td>
     <td>ISC</td>
-    <td>https://github.com/es128/anymatch</td>
+    <td>https://github.com/micromatch/anymatch</td>
     </tr>
     <tr>
-    <td>append-transform@1.0.0</td>
+    <td>arg@5.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/istanbuljs/append-transform</td>
+    <td>https://github.com/vercel/arg</td>
     </tr>
     <tr>
     <td>argparse@1.0.10</td>
@@ -171,24 +1721,24 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/nodeca/argparse</td>
     </tr>
     <tr>
-    <td>aria-query@0.3.0</td>
+    <td>argparse@2.0.1</td>
+    <td>Python-2.0</td>
+    <td>https://github.com/nodeca/argparse</td>
+    </tr>
+    <tr>
+    <td>aria-query@5.3.0</td>
     <td>Apache-2.0</td>
     <td>https://github.com/A11yance/aria-query</td>
     </tr>
     <tr>
-    <td>arr-diff@2.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/arr-diff</td>
+    <td>aria-query@5.3.2</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/A11yance/aria-query</td>
     </tr>
     <tr>
-    <td>arr-flatten@1.1.0</td>
+    <td>array-buffer-byte-length@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/arr-flatten</td>
-    </tr>
-    <tr>
-    <td>array-equal@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/component/array-equal</td>
+    <td>https://github.com/inspect-js/array-buffer-byte-length</td>
     </tr>
     <tr>
     <td>array-flatten@1.1.1</td>
@@ -196,19 +1746,49 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/blakeembrey/array-flatten</td>
     </tr>
     <tr>
-    <td>array-union@1.0.2</td>
+    <td>array-includes@3.1.8</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/array-includes</td>
+    </tr>
+    <tr>
+    <td>array-union@2.1.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/array-union</td>
     </tr>
     <tr>
-    <td>array-uniq@1.0.3</td>
+    <td>array.prototype.findlast@1.2.5</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/array-uniq</td>
+    <td>https://github.com/es-shims/Array.prototype.findLast</td>
     </tr>
     <tr>
-    <td>array-unique@0.2.1</td>
+    <td>array.prototype.findlastindex@1.2.5</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/array-unique</td>
+    <td>https://github.com/es-shims/Array.prototype.findLastIndex</td>
+    </tr>
+    <tr>
+    <td>array.prototype.flat@1.3.3</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/Array.prototype.flat</td>
+    </tr>
+    <tr>
+    <td>array.prototype.flatmap@1.3.3</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/Array.prototype.flatMap</td>
+    </tr>
+    <tr>
+    <td>array.prototype.reduce@1.0.7</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/Array.prototype.reduce</td>
+    </tr>
+    <tr>
+    <td>array.prototype.tosorted@1.1.4</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/Array.prototype.toSorted</td>
+    </tr>
+    <tr>
+    <td>arraybuffer.prototype.slice@1.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/ArrayBuffer.prototype.slice</td>
     </tr>
     <tr>
     <td>arraybuffer.slice@0.0.7</td>
@@ -216,62 +1796,22 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/rase-/arraybuffer.slice</td>
     </tr>
     <tr>
-    <td>arrify@1.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/arrify</td>
-    </tr>
-    <tr>
     <td>asap@2.0.6</td>
     <td>MIT</td>
     <td>https://github.com/kriskowal/asap</td>
     </tr>
     <tr>
-    <td>asn1@0.2.4</td>
+    <td>ast-types-flow@0.0.8</td>
     <td>MIT</td>
-    <td>https://github.com/joyent/node-asn1</td>
-    </tr>
-    <tr>
-    <td>assert-plus@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/mcavage/node-assert-plus</td>
-    </tr>
-    <tr>
-    <td>assert@1.4.1</td>
-    <td>MIT</td>
-    <td>https://github.com/defunctzombie/commonjs-assert</td>
-    </tr>
-    <tr>
-    <td>ast-types-flow@0.0.7</td>
-    <td>ISC</td>
     <td>https://github.com/kyldvs/ast-types-flow</td>
     </tr>
     <tr>
-    <td>async-each@1.0.1</td>
+    <td>astral-regex@2.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/paulmillr/async-each</td>
+    <td>https://github.com/kevva/astral-regex</td>
     </tr>
     <tr>
-    <td>async-limiter@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/strml/async-limiter</td>
-    </tr>
-    <tr>
-    <td>async@0.2.10</td>
-    <td>MIT</td>
-    <td>https://github.com/caolan/async</td>
-    </tr>
-    <tr>
-    <td>async@0.9.2</td>
-    <td>MIT</td>
-    <td>https://github.com/caolan/async</td>
-    </tr>
-    <tr>
-    <td>async@1.5.2</td>
-    <td>MIT</td>
-    <td>https://github.com/caolan/async</td>
-    </tr>
-    <tr>
-    <td>async@2.6.1</td>
+    <td>async@3.2.6</td>
     <td>MIT</td>
     <td>https://github.com/caolan/async</td>
     </tr>
@@ -281,414 +1821,94 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/alexindigo/asynckit</td>
     </tr>
     <tr>
-    <td>autobind-decorator@1.4.3</td>
-    <td>MIT</td>
-    <td>https://github.com/andreypopp/autobind-decorator</td>
+    <td>at-least-node@1.0.0</td>
+    <td>ISC</td>
+    <td>https://github.com/RyanZim/at-least-node</td>
     </tr>
     <tr>
-    <td>autoprefixer@6.7.2</td>
+    <td>autoprefixer@10.4.20</td>
     <td>MIT</td>
     <td>https://github.com/postcss/autoprefixer</td>
     </tr>
     <tr>
-    <td>aws-sign2@0.7.0</td>
+    <td>available-typed-arrays@1.0.7</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/available-typed-arrays</td>
+    </tr>
+    <tr>
+    <td>axe-core@4.10.2</td>
+    <td>MPL-2.0</td>
+    <td>https://github.com/dequelabs/axe-core</td>
+    </tr>
+    <tr>
+    <td>axobject-query@4.1.0</td>
     <td>Apache-2.0</td>
-    <td>https://github.com/mikeal/aws-sign</td>
+    <td>https://github.com/A11yance/axobject-query</td>
     </tr>
     <tr>
-    <td>aws4@1.7.0</td>
+    <td>babel-jest@27.5.1</td>
     <td>MIT</td>
-    <td>https://github.com/mhart/aws4</td>
-    </tr>
-    <tr>
-    <td>aws4@1.8.0</td>
-    <td>MIT</td>
-    <td>https://github.com/mhart/aws4</td>
-    </tr>
-    <tr>
-    <td>babel-code-frame@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-code-frame</td>
-    </tr>
-    <tr>
-    <td>babel-core@6.22.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-core</td>
-    </tr>
-    <tr>
-    <td>babel-core@6.26.3</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-core</td>
-    </tr>
-    <tr>
-    <td>babel-eslint@7.1.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel-eslint</td>
-    </tr>
-    <tr>
-    <td>babel-generator@6.26.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-generator</td>
-    </tr>
-    <tr>
-    <td>babel-helper-builder-binary-assignment-operator-visitor@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-builder-binary-assignment-operator-visitor</td>
-    </tr>
-    <tr>
-    <td>babel-helper-builder-react-jsx@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-builder-react-jsx</td>
-    </tr>
-    <tr>
-    <td>babel-helper-call-delegate@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-call-delegate</td>
-    </tr>
-    <tr>
-    <td>babel-helper-define-map@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-define-map</td>
-    </tr>
-    <tr>
-    <td>babel-helper-explode-assignable-expression@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-explode-assignable-expression</td>
-    </tr>
-    <tr>
-    <td>babel-helper-function-name@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-function-name</td>
-    </tr>
-    <tr>
-    <td>babel-helper-get-function-arity@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-get-function-arity</td>
-    </tr>
-    <tr>
-    <td>babel-helper-hoist-variables@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-hoist-variables</td>
-    </tr>
-    <tr>
-    <td>babel-helper-optimise-call-expression@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-optimise-call-expression</td>
-    </tr>
-    <tr>
-    <td>babel-helper-regex@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-regex</td>
-    </tr>
-    <tr>
-    <td>babel-helper-remap-async-to-generator@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-remap-async-to-generator</td>
-    </tr>
-    <tr>
-    <td>babel-helper-replace-supers@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helper-replace-supers</td>
-    </tr>
-    <tr>
-    <td>babel-helpers@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-helpers</td>
-    </tr>
-    <tr>
-    <td>babel-jest@18.0.0</td>
-    <td>BSD-3-Clause</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>babel-loader@6.2.10</td>
+    <td>babel-loader@8.4.1</td>
     <td>MIT</td>
     <td>https://github.com/babel/babel-loader</td>
     </tr>
     <tr>
-    <td>babel-messages@6.23.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-messages</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-check-es2015-constants@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-check-es2015-constants</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-istanbul@3.1.2</td>
+    <td>babel-plugin-istanbul@6.1.1</td>
     <td>BSD-3-Clause</td>
     <td>https://github.com/istanbuljs/babel-plugin-istanbul</td>
     </tr>
     <tr>
-    <td>babel-plugin-jest-hoist@18.0.0</td>
-    <td>BSD-3-Clause</td>
+    <td>babel-plugin-jest-hoist@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>babel-plugin-syntax-async-functions@6.13.0</td>
+    <td>babel-plugin-macros@3.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-async-functions</td>
+    <td>https://github.com/kentcdodds/babel-plugin-macros</td>
     </tr>
     <tr>
-    <td>babel-plugin-syntax-class-properties@6.13.0</td>
+    <td>babel-plugin-named-asset-import@0.3.8</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-class-properties</td>
+    <td>https://github.com/facebook/create-react-app</td>
     </tr>
     <tr>
-    <td>babel-plugin-syntax-exponentiation-operator@6.13.0</td>
+    <td>babel-plugin-polyfill-corejs2@0.4.12</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-exponentation-operator</td>
+    <td>https://github.com/babel/babel-polyfills</td>
     </tr>
     <tr>
-    <td>babel-plugin-syntax-flow@6.18.0</td>
+    <td>babel-plugin-polyfill-corejs3@0.10.6</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-flow</td>
+    <td>https://github.com/babel/babel-polyfills</td>
     </tr>
     <tr>
-    <td>babel-plugin-syntax-jsx@6.18.0</td>
+    <td>babel-plugin-polyfill-regenerator@0.6.3</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-jsx</td>
+    <td>https://github.com/babel/babel-polyfills</td>
     </tr>
     <tr>
-    <td>babel-plugin-syntax-object-rest-spread@6.13.0</td>
+    <td>babel-plugin-transform-react-remove-prop-types@0.4.24</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-object-rest-spread</td>
+    <td>https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types</td>
     </tr>
     <tr>
-    <td>babel-plugin-syntax-trailing-function-commas@6.22.0</td>
+    <td>babel-preset-current-node-syntax@1.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-trailing-function-commas</td>
+    <td>https://github.com/nicolo-ribaudo/babel-preset-current-node-syntax</td>
     </tr>
     <tr>
-    <td>babel-plugin-transform-async-to-generator@6.24.1</td>
+    <td>babel-preset-jest@27.5.1</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-async-to-generator</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-class-properties@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-class-properties</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-arrow-functions@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-arrow-functions</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-block-scoped-functions@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-block-scoped-functions</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-block-scoping@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-block-scoping</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-classes@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-classes</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-computed-properties@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-computed-properties</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-destructuring@6.23.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-destructuring</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-duplicate-keys@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-duplicate-keys</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-for-of@6.23.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-for-of</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-function-name@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-function-name</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-literals@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-literals</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-modules-amd@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-modules-amd</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-modules-commonjs@6.26.2</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-modules-commonjs</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-modules-systemjs@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-modules-systemjs</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-modules-umd@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-modules-umd</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-object-super@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-object-super</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-parameters@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-parameters</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-shorthand-properties@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-shorthand-properties</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-spread@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-spread</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-sticky-regex@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-sticky-regex</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-template-literals@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-template-literals</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-typeof-symbol@6.23.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-typeof-symbol</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-es2015-unicode-regex@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-unicode-regex</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-exponentiation-operator@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-exponentiation-operator</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-flow-strip-types@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-flow-strip-types</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-object-rest-spread@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-object-rest-spread</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-react-constant-elements@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-constant-elements</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-react-display-name@6.25.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-display-name</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-react-jsx-self@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-self</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-react-jsx-source@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-source</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-react-jsx@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-regenerator@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-regenerator</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-runtime@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-runtime</td>
-    </tr>
-    <tr>
-    <td>babel-plugin-transform-strict-mode@6.24.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-strict-mode</td>
-    </tr>
-    <tr>
-    <td>babel-preset-env@1.2.1</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel-preset-env</td>
-    </tr>
-    <tr>
-    <td>babel-preset-jest@18.0.0</td>
-    <td>BSD-3-Clause</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>babel-preset-react-app@2.2.0</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/facebookincubator/create-react-app</td>
-    </tr>
-    <tr>
-    <td>babel-preset-react@6.22.0</td>
+    <td>babel-preset-react-app@10.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-preset-react</td>
-    </tr>
-    <tr>
-    <td>babel-register@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-register</td>
-    </tr>
-    <tr>
-    <td>babel-runtime@6.22.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-runtime</td>
-    </tr>
-    <tr>
-    <td>babel-runtime@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-runtime</td>
-    </tr>
-    <tr>
-    <td>babel-template@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-template</td>
-    </tr>
-    <tr>
-    <td>babel-traverse@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-traverse</td>
-    </tr>
-    <tr>
-    <td>babel-types@6.26.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babel/tree/master/packages/babel-types</td>
-    </tr>
-    <tr>
-    <td>babylon@6.18.0</td>
-    <td>MIT</td>
-    <td>https://github.com/babel/babylon</td>
+    <td>https://github.com/facebook/create-react-app</td>
     </tr>
     <tr>
     <td>backo2@1.0.2</td>
@@ -696,29 +1916,24 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/mokesmokes/backo</td>
     </tr>
     <tr>
-    <td>balanced-match@0.4.2</td>
+    <td>balanced-match@1.0.2</td>
     <td>MIT</td>
     <td>https://github.com/juliangruber/balanced-match</td>
     </tr>
     <tr>
-    <td>balanced-match@1.0.0</td>
+    <td>balanced-match@4.0.4</td>
     <td>MIT</td>
     <td>https://github.com/juliangruber/balanced-match</td>
     </tr>
     <tr>
-    <td>base64-arraybuffer@0.1.5</td>
+    <td>base64-arraybuffer@0.1.4</td>
     <td>MIT</td>
     <td>https://github.com/niklasvh/base64-arraybuffer</td>
     </tr>
     <tr>
-    <td>base64-js@1.3.0</td>
+    <td>base64-js@1.5.1</td>
     <td>MIT</td>
     <td>https://github.com/beatgammit/base64-js</td>
-    </tr>
-    <tr>
-    <td>batch-processor@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/wnr/batch-processor</td>
     </tr>
     <tr>
     <td>batch@0.6.1</td>
@@ -726,44 +1941,44 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/visionmedia/batch</td>
     </tr>
     <tr>
-    <td>bcrypt-pbkdf@1.0.2</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/joyent/node-bcrypt-pbkdf</td>
+    <td>bfj@7.1.0</td>
+    <td>MIT</td>
+    <td>git+https://gitlab.com/philbooth/bfj</td>
     </tr>
     <tr>
-    <td>better-assert@1.0.2</td>
-    <td>MIT*</td>
-    <td>https://github.com/visionmedia/better-assert</td>
+    <td>big-integer@1.6.52</td>
+    <td>Unlicense</td>
+    <td>https://github.com/peterolson/BigInteger.js</td>
     </tr>
     <tr>
-    <td>big.js@3.2.0</td>
+    <td>big.js@5.2.2</td>
     <td>MIT</td>
     <td>https://github.com/MikeMcl/big.js</td>
     </tr>
     <tr>
-    <td>binary-extensions@1.11.0</td>
+    <td>binary-extensions@2.3.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/binary-extensions</td>
     </tr>
     <tr>
-    <td>blob@0.0.4</td>
-    <td>MIT*</td>
-    <td>https://github.com/rase-/blob</td>
+    <td>blob@0.0.5</td>
+    <td>MIT</td>
+    <td>https://github.com/webmodules/blob</td>
     </tr>
     <tr>
-    <td>bluebird@3.5.1</td>
+    <td>bluebird@3.7.2</td>
     <td>MIT</td>
     <td>https://github.com/petkaantonov/bluebird</td>
     </tr>
     <tr>
-    <td>bluebird@3.5.5</td>
-    <td>MIT</td>
-    <td>https://github.com/petkaantonov/bluebird</td>
-    </tr>
-    <tr>
-    <td>body-parser@1.18.2</td>
+    <td>body-parser@1.20.3</td>
     <td>MIT</td>
     <td>https://github.com/expressjs/body-parser</td>
+    </tr>
+    <tr>
+    <td>bonjour-service@1.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/onlxltd/bonjour-service</td>
     </tr>
     <tr>
     <td>boolbase@1.0.0</td>
@@ -771,139 +1986,129 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/fb55/boolbase</td>
     </tr>
     <tr>
+    <td>bplist-creator@0.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/nearinfinity/node-bplist-creator</td>
+    </tr>
+    <tr>
+    <td>bplist-parser@0.3.1</td>
+    <td>MIT</td>
+    <td>https://github.com/nearinfinity/node-bplist-parser</td>
+    </tr>
+    <tr>
+    <td>bplist-parser@0.3.2</td>
+    <td>MIT</td>
+    <td>https://github.com/nearinfinity/node-bplist-parser</td>
+    </tr>
+    <tr>
     <td>brace-expansion@1.1.11</td>
     <td>MIT</td>
     <td>https://github.com/juliangruber/brace-expansion</td>
     </tr>
     <tr>
-    <td>braces@1.8.5</td>
+    <td>brace-expansion@2.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/braces</td>
+    <td>https://github.com/juliangruber/brace-expansion</td>
     </tr>
     <tr>
-    <td>browser-resolve@1.11.3</td>
+    <td>brace-expansion@5.0.9</td>
     <td>MIT</td>
-    <td>https://github.com/shtylman/node-browser-resolve</td>
+    <td>https://github.com/juliangruber/brace-expansion</td>
     </tr>
     <tr>
-    <td>browserify-aes@0.4.0</td>
+    <td>braces@3.0.3</td>
     <td>MIT</td>
-    <td>https://github.com/calvinmetcalf/browserify-aes</td>
+    <td>https://github.com/micromatch/braces</td>
     </tr>
     <tr>
-    <td>browserify-zlib@0.1.4</td>
-    <td>MIT</td>
-    <td>https://github.com/devongovett/browserify-zlib</td>
+    <td>browser-process-hrtime@1.0.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/kumavis/browser-process-hrtime</td>
     </tr>
     <tr>
-    <td>browserslist@1.7.7</td>
+    <td>browserslist@4.24.3</td>
     <td>MIT</td>
-    <td>https://github.com/ai/browserslist</td>
+    <td>https://github.com/browserslist/browserslist</td>
     </tr>
     <tr>
-    <td>bser@1.0.2</td>
+    <td>bser@2.1.1</td>
     <td>Apache-2.0</td>
     <td>https://github.com/facebook/watchman</td>
     </tr>
     <tr>
-    <td>buffer-from@1.1.0</td>
+    <td>buffer-crc32@0.2.13</td>
+    <td>MIT</td>
+    <td>https://github.com/brianloveswords/buffer-crc32</td>
+    </tr>
+    <tr>
+    <td>buffer-from@1.1.2</td>
     <td>MIT</td>
     <td>https://github.com/LinusU/buffer-from</td>
     </tr>
     <tr>
-    <td>buffer@4.9.1</td>
-    <td>MIT</td>
-    <td>https://github.com/feross/buffer</td>
-    </tr>
-    <tr>
-    <td>builtin-modules@1.1.1</td>
+    <td>builtin-modules@3.3.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/builtin-modules</td>
     </tr>
     <tr>
-    <td>builtin-status-codes@3.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/bendrucker/builtin-status-codes</td>
-    </tr>
-    <tr>
-    <td>bytes@3.0.0</td>
+    <td>bytes@3.1.2</td>
     <td>MIT</td>
     <td>https://github.com/visionmedia/bytes.js</td>
     </tr>
     <tr>
-    <td>caller-path@0.1.0</td>
+    <td>call-bind-apply-helpers@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/caller-path</td>
+    <td>https://github.com/ljharb/call-bind-apply-helpers</td>
     </tr>
     <tr>
-    <td>callsite@1.0.0</td>
-    <td>MIT*</td>
-    <td> </td>
+    <td>call-bind@1.0.8</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/call-bind</td>
     </tr>
     <tr>
-    <td>callsites@0.2.0</td>
+    <td>call-bound@1.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/call-bound</td>
+    </tr>
+    <tr>
+    <td>callsites@3.1.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/callsites</td>
     </tr>
     <tr>
-    <td>callsites@2.0.0</td>
+    <td>camel-case@4.1.2</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/callsites</td>
+    <td>https://github.com/blakeembrey/change-case</td>
     </tr>
     <tr>
-    <td>camel-case@3.0.0</td>
+    <td>camelcase-css@2.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/blakeembrey/camel-case</td>
+    <td>https://github.com/stevenvachon/camelcase-css</td>
     </tr>
     <tr>
-    <td>camelcase@1.2.1</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/camelcase</td>
-    </tr>
-    <tr>
-    <td>camelcase@3.0.0</td>
+    <td>camelcase@5.3.1</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/camelcase</td>
     </tr>
     <tr>
-    <td>caniuse-api@1.6.1</td>
+    <td>camelcase@6.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/camelcase</td>
+    </tr>
+    <tr>
+    <td>caniuse-api@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/nyalab/caniuse-api</td>
     </tr>
     <tr>
-    <td>caniuse-db@1.0.30000862</td>
+    <td>caniuse-lite@1.0.30001761</td>
     <td>CC-BY-4.0</td>
-    <td>https://github.com/Fyrd/caniuse</td>
+    <td>https://github.com/browserslist/caniuse-lite</td>
     </tr>
     <tr>
-    <td>cardinal@2.1.1</td>
-    <td>MIT</td>
-    <td>https://github.com/thlorenz/cardinal</td>
-    </tr>
-    <tr>
-    <td>case-sensitive-paths-webpack-plugin@1.1.4</td>
+    <td>case-sensitive-paths-webpack-plugin@2.4.0</td>
     <td>MIT</td>
     <td>https://github.com/Urthen/case-sensitive-paths-webpack-plugin</td>
-    </tr>
-    <tr>
-    <td>caseless@0.12.0</td>
-    <td>Apache-2.0</td>
-    <td>https://github.com/mikeal/caseless</td>
-    </tr>
-    <tr>
-    <td>center-align@0.1.3</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/center-align</td>
-    </tr>
-    <tr>
-    <td>chalk@1.1.3</td>
-    <td>MIT</td>
-    <td>https://github.com/chalk/chalk</td>
-    </tr>
-    <tr>
-    <td>chalk@2.4.1</td>
-    <td>MIT</td>
-    <td>https://github.com/chalk/chalk</td>
     </tr>
     <tr>
     <td>chalk@2.4.2</td>
@@ -911,84 +2116,84 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/chalk/chalk</td>
     </tr>
     <tr>
-    <td>chart.js@2.7.2</td>
+    <td>chalk@3.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/chalk/chalk</td>
+    </tr>
+    <tr>
+    <td>chalk@4.1.2</td>
+    <td>MIT</td>
+    <td>https://github.com/chalk/chalk</td>
+    </tr>
+    <tr>
+    <td>char-regex@1.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/Richienb/char-regex</td>
+    </tr>
+    <tr>
+    <td>char-regex@2.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/Richienb/char-regex</td>
+    </tr>
+    <tr>
+    <td>chart.js@4.4.7</td>
     <td>MIT</td>
     <td>https://github.com/chartjs/Chart.js</td>
     </tr>
     <tr>
-    <td>chartjs-color-string@0.5.0</td>
+    <td>chartjs-adapter-luxon@1.3.1</td>
     <td>MIT</td>
-    <td>https://github.com/chartjs/chartjs-color-string</td>
+    <td>https://github.com/chartjs/chartjs-adapter-luxon</td>
     </tr>
     <tr>
-    <td>chartjs-color@2.2.0</td>
+    <td>chartjs-plugin-zoom@2.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/chartjs/chartjs-color</td>
+    <td>https://github.com/chartjs/chartjs-plugin-zoom</td>
     </tr>
     <tr>
-    <td>chokidar@1.7.0</td>
+    <td>chartjs-scale-timestack@1.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/jkmnt/chartjs-scale-timestack</td>
+    </tr>
+    <tr>
+    <td>check-types@11.2.3</td>
+    <td>MIT</td>
+    <td>git+https://gitlab.com/philbooth/check-types.js</td>
+    </tr>
+    <tr>
+    <td>chokidar@3.6.0</td>
     <td>MIT</td>
     <td>https://github.com/paulmillr/chokidar</td>
     </tr>
     <tr>
-    <td>ci-info@1.1.3</td>
+    <td>chownr@3.0.0</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/chownr</td>
+    </tr>
+    <tr>
+    <td>chrome-trace-event@1.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/samccone/chrome-trace-event</td>
+    </tr>
+    <tr>
+    <td>ci-info@3.9.0</td>
     <td>MIT</td>
     <td>https://github.com/watson/ci-info</td>
     </tr>
     <tr>
-    <td>circular-json@0.3.3</td>
+    <td>cjs-module-lexer@1.4.1</td>
     <td>MIT</td>
-    <td>https://github.com/WebReflection/circular-json</td>
+    <td>https://github.com/nodejs/cjs-module-lexer</td>
     </tr>
     <tr>
-    <td>clap@1.2.3</td>
+    <td>clean-css@5.3.3</td>
     <td>MIT</td>
-    <td>https://github.com/lahmatiy/clap</td>
+    <td>https://github.com/clean-css/clean-css</td>
     </tr>
     <tr>
-    <td>classnames@2.2.6</td>
-    <td>MIT</td>
-    <td>https://github.com/JedWatson/classnames</td>
-    </tr>
-    <tr>
-    <td>clean-css@4.1.11</td>
-    <td>MIT</td>
-    <td>https://github.com/jakubpawlowicz/clean-css</td>
-    </tr>
-    <tr>
-    <td>cli-cursor@1.0.2</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/cli-cursor</td>
-    </tr>
-    <tr>
-    <td>cli-table@0.3.1</td>
-    <td>MIT*</td>
-    <td>https://github.com/Automattic/cli-table</td>
-    </tr>
-    <tr>
-    <td>cli-usage@0.1.9</td>
-    <td>MIT</td>
-    <td>https://github.com/mikaelbr/cli-usage</td>
-    </tr>
-    <tr>
-    <td>cli-width@2.2.0</td>
-    <td>ISC</td>
-    <td>https://github.com/knownasilya/cli-width</td>
-    </tr>
-    <tr>
-    <td>cliui@2.1.0</td>
-    <td>ISC</td>
-    <td>https://github.com/bcoe/cliui</td>
-    </tr>
-    <tr>
-    <td>cliui@3.2.0</td>
+    <td>cliui@7.0.4</td>
     <td>ISC</td>
     <td>https://github.com/yargs/cliui</td>
-    </tr>
-    <tr>
-    <td>clone@1.0.4</td>
-    <td>MIT</td>
-    <td>https://github.com/pvorb/node-clone</td>
     </tr>
     <tr>
     <td>co@4.6.0</td>
@@ -996,29 +2201,24 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/tj/co</td>
     </tr>
     <tr>
-    <td>coa@1.0.4</td>
+    <td>coa@2.0.2</td>
     <td>MIT</td>
     <td>https://github.com/veged/coa</td>
     </tr>
     <tr>
-    <td>code-point-at@1.1.0</td>
+    <td>collect-v8-coverage@1.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/code-point-at</td>
+    <td>https://github.com/SimenB/collect-v8-coverage</td>
     </tr>
     <tr>
-    <td>color-convert@0.5.3</td>
-    <td>MIT*</td>
-    <td>https://github.com/harthur/color-convert</td>
-    </tr>
-    <tr>
-    <td>color-convert@1.9.2</td>
+    <td>color-convert@1.9.3</td>
     <td>MIT</td>
     <td>https://github.com/Qix-/color-convert</td>
     </tr>
     <tr>
-    <td>color-name@1.1.1</td>
+    <td>color-convert@2.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/dfcreative/color-name</td>
+    <td>https://github.com/Qix-/color-convert</td>
     </tr>
     <tr>
     <td>color-name@1.1.3</td>
@@ -1026,34 +2226,19 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/dfcreative/color-name</td>
     </tr>
     <tr>
-    <td>color-string@0.3.0</td>
+    <td>color-name@1.1.4</td>
     <td>MIT</td>
-    <td>https://github.com/harthur/color-string</td>
+    <td>https://github.com/colorjs/color-name</td>
     </tr>
     <tr>
-    <td>color@0.11.4</td>
+    <td>colord@2.9.3</td>
     <td>MIT</td>
-    <td>https://github.com/Qix-/color</td>
+    <td>https://github.com/omgovich/colord</td>
     </tr>
     <tr>
-    <td>colormin@1.1.2</td>
+    <td>colorette@2.0.20</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/colormin</td>
-    </tr>
-    <tr>
-    <td>colors@1.0.3</td>
-    <td>MIT</td>
-    <td>https://github.com/Marak/colors.js</td>
-    </tr>
-    <tr>
-    <td>colors@1.1.2</td>
-    <td>MIT</td>
-    <td>https://github.com/Marak/colors.js</td>
-    </tr>
-    <tr>
-    <td>combined-stream@1.0.6</td>
-    <td>MIT</td>
-    <td>https://github.com/felixge/node-combined-stream</td>
+    <td>https://github.com/jorgebucaran/colorette</td>
     </tr>
     <tr>
     <td>combined-stream@1.0.8</td>
@@ -1061,14 +2246,34 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/felixge/node-combined-stream</td>
     </tr>
     <tr>
-    <td>commander@2.16.0</td>
+    <td>commander@12.1.0</td>
     <td>MIT</td>
     <td>https://github.com/tj/commander.js</td>
     </tr>
     <tr>
-    <td>commander@2.20.0</td>
+    <td>commander@2.20.3</td>
     <td>MIT</td>
     <td>https://github.com/tj/commander.js</td>
+    </tr>
+    <tr>
+    <td>commander@4.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/tj/commander.js</td>
+    </tr>
+    <tr>
+    <td>commander@7.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/tj/commander.js</td>
+    </tr>
+    <tr>
+    <td>commander@8.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/tj/commander.js</td>
+    </tr>
+    <tr>
+    <td>common-tags@1.8.2</td>
+    <td>MIT</td>
+    <td>https://github.com/zspecza/common-tags</td>
     </tr>
     <tr>
     <td>commondir@1.0.1</td>
@@ -1076,19 +2281,14 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/substack/node-commondir</td>
     </tr>
     <tr>
-    <td>compare-versions@3.3.0</td>
-    <td>MIT</td>
-    <td>https://github.com/omichelsen/compare-versions</td>
-    </tr>
-    <tr>
     <td>component-bind@1.0.0</td>
     <td>MIT*</td>
     <td>https://github.com/component/bind</td>
     </tr>
     <tr>
-    <td>component-emitter@1.2.1</td>
+    <td>component-emitter@1.3.1</td>
     <td>MIT</td>
-    <td>https://github.com/component/emitter</td>
+    <td>https://github.com/sindresorhus/component-emitter</td>
     </tr>
     <tr>
     <td>component-inherit@0.0.3</td>
@@ -1096,12 +2296,12 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/component/inherit</td>
     </tr>
     <tr>
-    <td>compressible@2.0.14</td>
+    <td>compressible@2.0.18</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/compressible</td>
     </tr>
     <tr>
-    <td>compression@1.7.2</td>
+    <td>compression@1.7.5</td>
     <td>MIT</td>
     <td>https://github.com/expressjs/compression</td>
     </tr>
@@ -1111,47 +2311,32 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/substack/node-concat-map</td>
     </tr>
     <tr>
-    <td>concat-stream@1.6.2</td>
+    <td>confusing-browser-globals@1.0.11</td>
     <td>MIT</td>
-    <td>https://github.com/maxogden/concat-stream</td>
+    <td>https://github.com/facebook/create-react-app</td>
     </tr>
     <tr>
-    <td>connect-history-api-fallback@1.3.0</td>
+    <td>connect-history-api-fallback@2.0.0</td>
     <td>MIT</td>
     <td>https://github.com/bripkens/connect-history-api-fallback</td>
     </tr>
     <tr>
-    <td>console-browserify@1.1.0</td>
-    <td>MIT</td>
-    <td>https://github.com/Raynos/console-browserify</td>
-    </tr>
-    <tr>
-    <td>constants-browserify@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/juliangruber/constants-browserify</td>
-    </tr>
-    <tr>
-    <td>contains-path@0.1.0</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/contains-path</td>
-    </tr>
-    <tr>
-    <td>content-disposition@0.5.2</td>
+    <td>content-disposition@0.5.4</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/content-disposition</td>
     </tr>
     <tr>
-    <td>content-type-parser@1.0.2</td>
-    <td>MIT</td>
-    <td>https://github.com/jsdom/content-type-parser</td>
-    </tr>
-    <tr>
-    <td>content-type@1.0.4</td>
+    <td>content-type@1.0.5</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/content-type</td>
     </tr>
     <tr>
-    <td>convert-source-map@1.5.1</td>
+    <td>convert-source-map@1.9.0</td>
+    <td>MIT</td>
+    <td>https://github.com/thlorenz/convert-source-map</td>
+    </tr>
+    <tr>
+    <td>convert-source-map@2.0.0</td>
     <td>MIT</td>
     <td>https://github.com/thlorenz/convert-source-map</td>
     </tr>
@@ -1161,67 +2346,137 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/visionmedia/node-cookie-signature</td>
     </tr>
     <tr>
-    <td>cookie@0.3.1</td>
+    <td>cookie@0.7.1</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/cookie</td>
     </tr>
     <tr>
-    <td>core-js@1.2.7</td>
+    <td>core-js-compat@3.39.0</td>
     <td>MIT</td>
     <td>https://github.com/zloirock/core-js</td>
     </tr>
     <tr>
-    <td>core-js@2.5.7</td>
+    <td>core-js-pure@3.39.0</td>
     <td>MIT</td>
     <td>https://github.com/zloirock/core-js</td>
     </tr>
     <tr>
-    <td>core-util-is@1.0.2</td>
+    <td>core-js@3.39.0</td>
+    <td>MIT</td>
+    <td>https://github.com/zloirock/core-js</td>
+    </tr>
+    <tr>
+    <td>core-util-is@1.0.3</td>
     <td>MIT</td>
     <td>https://github.com/isaacs/core-util-is</td>
     </tr>
     <tr>
-    <td>cosmiconfig@2.2.2</td>
+    <td>cosmiconfig@6.0.0</td>
     <td>MIT</td>
     <td>https://github.com/davidtheclark/cosmiconfig</td>
     </tr>
     <tr>
-    <td>cross-spawn@4.0.2</td>
+    <td>cosmiconfig@7.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/IndigoUnited/node-cross-spawn</td>
+    <td>https://github.com/davidtheclark/cosmiconfig</td>
     </tr>
     <tr>
-    <td>crypto-browserify@3.3.0</td>
+    <td>cra-template@1.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/dominictarr/crypto-browserify</td>
+    <td>https://github.com/facebook/create-react-app</td>
     </tr>
     <tr>
-    <td>css-color-names@0.0.4</td>
+    <td>cross-env@10.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/bahamas10/css-color-names</td>
+    <td>https://github.com/kentcdodds/cross-env</td>
     </tr>
     <tr>
-    <td>css-loader@0.26.1</td>
+    <td>cross-spawn@7.0.6</td>
     <td>MIT</td>
-    <td>https://github.com/webpack/css-loader</td>
+    <td>https://github.com/moxystudio/node-cross-spawn</td>
     </tr>
     <tr>
-    <td>css-select@1.2.0</td>
-    <td>BSD*</td>
+    <td>crypto-random-string@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/crypto-random-string</td>
+    </tr>
+    <tr>
+    <td>css-blank-pseudo@3.0.3</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>css-declaration-sorter@6.4.1</td>
+    <td>ISC</td>
+    <td>https://github.com/Siilwyn/css-declaration-sorter</td>
+    </tr>
+    <tr>
+    <td>css-has-pseudo@3.0.4</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>css-loader@6.11.0</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack-contrib/css-loader</td>
+    </tr>
+    <tr>
+    <td>css-minimizer-webpack-plugin@3.4.1</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack-contrib/css-minimizer-webpack-plugin</td>
+    </tr>
+    <tr>
+    <td>css-prefers-color-scheme@6.0.3</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>css-select-base-adapter@0.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/nrkn/css-select-base-adapter</td>
+    </tr>
+    <tr>
+    <td>css-select@2.1.0</td>
+    <td>BSD-2-Clause</td>
     <td>https://github.com/fb55/css-select</td>
     </tr>
     <tr>
-    <td>css-selector-tokenizer@0.7.0</td>
-    <td>MIT</td>
-    <td>https://github.com/css-modules/css-selector-tokenizer</td>
+    <td>css-select@4.3.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/fb55/css-select</td>
     </tr>
     <tr>
-    <td>css-what@2.1.0</td>
-    <td>BSD*</td>
+    <td>css-tree@1.0.0-alpha.37</td>
+    <td>MIT</td>
+    <td>https://github.com/csstree/csstree</td>
+    </tr>
+    <tr>
+    <td>css-tree@1.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/csstree/csstree</td>
+    </tr>
+    <tr>
+    <td>css-what@3.4.2</td>
+    <td>BSD-2-Clause</td>
     <td>https://github.com/fb55/css-what</td>
     </tr>
     <tr>
-    <td>cssesc@0.1.0</td>
+    <td>css-what@6.1.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/fb55/css-what</td>
+    </tr>
+    <tr>
+    <td>css.escape@1.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/mathiasbynens/CSS.escape</td>
+    </tr>
+    <tr>
+    <td>cssdb@7.11.2</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/cssdb</td>
+    </tr>
+    <tr>
+    <td>cssesc@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/mathiasbynens/cssesc</td>
     </tr>
@@ -1231,49 +2486,64 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/aramk/CSSJSON</td>
     </tr>
     <tr>
-    <td>cssnano@3.10.0</td>
+    <td>cssnano-preset-default@5.2.14</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/cssnano</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>csso@2.3.2</td>
+    <td>cssnano-utils@3.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>cssnano@5.1.15</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>csso@4.2.0</td>
     <td>MIT</td>
     <td>https://github.com/css/csso</td>
     </tr>
     <tr>
-    <td>cssom@0.3.4</td>
+    <td>cssom@0.3.8</td>
     <td>MIT</td>
     <td>https://github.com/NV/CSSOM</td>
     </tr>
     <tr>
-    <td>cssstyle@0.2.37</td>
+    <td>cssom@0.4.4</td>
     <td>MIT</td>
-    <td>https://github.com/chad3814/CSSStyleDeclaration</td>
+    <td>https://github.com/NV/CSSOM</td>
     </tr>
     <tr>
-    <td>d@1.0.0</td>
+    <td>cssstyle@2.3.0</td>
     <td>MIT</td>
-    <td>https://github.com/medikoo/d</td>
+    <td>https://github.com/jsdom/cssstyle</td>
     </tr>
     <tr>
-    <td>damerau-levenshtein@1.0.4</td>
+    <td>damerau-levenshtein@1.0.8</td>
     <td>BSD-2-Clause</td>
-    <td>https://github.com/lzrski/node-damerau-levenshtein</td>
+    <td>https://github.com/tad-lispy/node-damerau-levenshtein</td>
     </tr>
     <tr>
-    <td>dashdash@1.14.1</td>
+    <td>data-urls@2.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/trentm/node-dashdash</td>
+    <td>https://github.com/jsdom/data-urls</td>
     </tr>
     <tr>
-    <td>date-now@0.1.4</td>
+    <td>data-view-buffer@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/Colingo/date-now</td>
+    <td>https://github.com/ljharb/data-view-buffer</td>
     </tr>
     <tr>
-    <td>debug@2.2.0</td>
+    <td>data-view-byte-length@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/visionmedia/debug</td>
+    <td>https://github.com/ljharb/data-view-byte-length</td>
+    </tr>
+    <tr>
+    <td>data-view-byte-offset@1.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/data-view-byte-offset</td>
     </tr>
     <tr>
     <td>debug@2.6.9</td>
@@ -1286,29 +2556,54 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/visionmedia/debug</td>
     </tr>
     <tr>
-    <td>decamelize@1.2.0</td>
+    <td>debug@3.2.7</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/decamelize</td>
+    <td>https://github.com/visionmedia/debug</td>
     </tr>
     <tr>
-    <td>deep-is@0.1.3</td>
+    <td>debug@4.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/debug-js/debug</td>
+    </tr>
+    <tr>
+    <td>decimal.js@10.4.3</td>
+    <td>MIT</td>
+    <td>https://github.com/MikeMcl/decimal.js</td>
+    </tr>
+    <tr>
+    <td>dedent@0.7.0</td>
+    <td>MIT</td>
+    <td>https://github.com/dmnd/dedent</td>
+    </tr>
+    <tr>
+    <td>deep-is@0.1.4</td>
     <td>MIT</td>
     <td>https://github.com/thlorenz/deep-is</td>
     </tr>
     <tr>
-    <td>default-require-extensions@2.0.0</td>
+    <td>deepmerge@4.3.1</td>
     <td>MIT</td>
-    <td>https://github.com/avajs/default-require-extensions</td>
+    <td>https://github.com/TehShrike/deepmerge</td>
     </tr>
     <tr>
-    <td>defined@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/substack/defined</td>
+    <td>default-gateway@6.0.3</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/silverwind/default-gateway</td>
     </tr>
     <tr>
-    <td>del@2.2.2</td>
+    <td>define-data-property@1.1.4</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/del</td>
+    <td>https://github.com/ljharb/define-data-property</td>
+    </tr>
+    <tr>
+    <td>define-lazy-prop@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/define-lazy-prop</td>
+    </tr>
+    <tr>
+    <td>define-properties@1.2.1</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/define-properties</td>
     </tr>
     <tr>
     <td>delayed-stream@1.0.0</td>
@@ -1316,99 +2611,159 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/felixge/node-delayed-stream</td>
     </tr>
     <tr>
-    <td>depd@1.1.1</td>
-    <td>MIT</td>
-    <td>https://github.com/dougwilson/nodejs-depd</td>
-    </tr>
-    <tr>
     <td>depd@1.1.2</td>
     <td>MIT</td>
     <td>https://github.com/dougwilson/nodejs-depd</td>
     </tr>
     <tr>
-    <td>destroy@1.0.4</td>
+    <td>depd@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/dougwilson/nodejs-depd</td>
+    </tr>
+    <tr>
+    <td>dequal@2.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/lukeed/dequal</td>
+    </tr>
+    <tr>
+    <td>destroy@1.2.0</td>
     <td>MIT</td>
     <td>https://github.com/stream-utils/destroy</td>
     </tr>
     <tr>
-    <td>detect-indent@4.0.0</td>
+    <td>detect-newline@3.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/detect-indent</td>
+    <td>https://github.com/sindresorhus/detect-newline</td>
     </tr>
     <tr>
-    <td>detect-port@1.1.0</td>
+    <td>detect-node@2.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/iliakan/detect-node</td>
+    </tr>
+    <tr>
+    <td>detect-port-alt@1.1.6</td>
     <td>MIT</td>
     <td>https://github.com/node-modules/detect-port</td>
     </tr>
     <tr>
-    <td>diff@3.5.0</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/kpdecker/jsdiff</td>
+    <td>didyoumean@1.2.2</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/dcporter/didyoumean.js</td>
     </tr>
     <tr>
-    <td>doctrine@1.3.0</td>
-    <td>BSD</td>
+    <td>diff-sequences@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>dir-glob@3.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/kevva/dir-glob</td>
+    </tr>
+    <tr>
+    <td>dlv@1.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/developit/dlv</td>
+    </tr>
+    <tr>
+    <td>dns-packet@5.6.1</td>
+    <td>MIT</td>
+    <td>https://github.com/mafintosh/dns-packet</td>
+    </tr>
+    <tr>
+    <td>doctrine@2.1.0</td>
+    <td>Apache-2.0</td>
     <td>https://github.com/eslint/doctrine</td>
     </tr>
     <tr>
-    <td>doctrine@1.5.0</td>
-    <td>BSD</td>
+    <td>doctrine@3.0.0</td>
+    <td>Apache-2.0</td>
     <td>https://github.com/eslint/doctrine</td>
     </tr>
     <tr>
-    <td>dom-converter@0.1.4</td>
+    <td>dom-accessibility-api@0.5.16</td>
+    <td>MIT</td>
+    <td>https://github.com/eps1lon/dom-accessibility-api</td>
+    </tr>
+    <tr>
+    <td>dom-accessibility-api@0.6.3</td>
+    <td>MIT</td>
+    <td>https://github.com/eps1lon/dom-accessibility-api</td>
+    </tr>
+    <tr>
+    <td>dom-converter@0.2.0</td>
     <td>MIT</td>
     <td>https://github.com/AriaMinaei/dom-converter</td>
     </tr>
     <tr>
-    <td>dom-serializer@0.1.0</td>
+    <td>dom-serializer@0.2.2</td>
     <td>MIT</td>
     <td>https://github.com/cheeriojs/dom-renderer</td>
     </tr>
     <tr>
-    <td>domain-browser@1.2.0</td>
+    <td>dom-serializer@1.4.1</td>
     <td>MIT</td>
-    <td>https://github.com/bevry/domain-browser</td>
+    <td>https://github.com/cheeriojs/dom-renderer</td>
     </tr>
     <tr>
-    <td>domelementtype@1.1.3</td>
-    <td>BSD*</td>
-    <td>https://github.com/FB55/domelementtype</td>
+    <td>domelementtype@1.3.1</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/fb55/domelementtype</td>
     </tr>
     <tr>
-    <td>domelementtype@1.3.0</td>
-    <td>BSD*</td>
-    <td>https://github.com/FB55/domelementtype</td>
+    <td>domelementtype@2.3.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/fb55/domelementtype</td>
     </tr>
     <tr>
-    <td>domhandler@2.1.0</td>
-    <td>BSD*</td>
+    <td>domexception@2.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/jsdom/domexception</td>
+    </tr>
+    <tr>
+    <td>domhandler@4.3.1</td>
+    <td>BSD-2-Clause</td>
     <td>https://github.com/fb55/domhandler</td>
     </tr>
     <tr>
-    <td>domutils@1.1.6</td>
-    <td>BSD*</td>
+    <td>domutils@1.7.0</td>
+    <td>BSD-2-Clause</td>
     <td>https://github.com/FB55/domutils</td>
     </tr>
     <tr>
-    <td>domutils@1.5.1</td>
-    <td>BSD*</td>
-    <td>https://github.com/FB55/domutils</td>
+    <td>domutils@2.8.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/fb55/domutils</td>
     </tr>
     <tr>
-    <td>dotenv@2.0.0</td>
+    <td>dot-case@3.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/blakeembrey/change-case</td>
+    </tr>
+    <tr>
+    <td>dotenv-expand@5.1.0</td>
+    <td>BSD-2-Clause</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>dotenv@10.0.0</td>
     <td>BSD-2-Clause</td>
     <td>https://github.com/motdotla/dotenv</td>
     </tr>
     <tr>
-    <td>duplexer@0.1.1</td>
+    <td>dunder-proto@1.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/dunder-proto</td>
+    </tr>
+    <tr>
+    <td>duplexer@0.1.2</td>
     <td>MIT</td>
     <td>https://github.com/Raynos/duplexer</td>
     </tr>
     <tr>
-    <td>ecc-jsbn@0.1.2</td>
+    <td>eastasianwidth@0.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/quartzjer/ecc-jsbn</td>
+    <td>https://github.com/komagata/eastasianwidth</td>
     </tr>
     <tr>
     <td>ee-first@1.1.1</td>
@@ -1416,22 +2771,42 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jonathanong/ee-first</td>
     </tr>
     <tr>
-    <td>electron-to-chromium@1.3.51</td>
+    <td>ejs@3.1.10</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/mde/ejs</td>
+    </tr>
+    <tr>
+    <td>electron-to-chromium@1.5.74</td>
     <td>ISC</td>
     <td>https://github.com/kilian/electron-to-chromium</td>
     </tr>
     <tr>
-    <td>element-resize-detector@1.1.14</td>
-    <td>MIT</td>
-    <td>https://github.com/wnr/element-resize-detector</td>
+    <td>elementtree@0.1.7</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/racker/node-elementtree</td>
     </tr>
     <tr>
-    <td>emoji-regex@6.5.1</td>
+    <td>emittery@0.10.2</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/emittery</td>
+    </tr>
+    <tr>
+    <td>emittery@0.8.1</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/emittery</td>
+    </tr>
+    <tr>
+    <td>emoji-regex@8.0.0</td>
     <td>MIT</td>
     <td>https://github.com/mathiasbynens/emoji-regex</td>
     </tr>
     <tr>
-    <td>emojis-list@2.1.0</td>
+    <td>emoji-regex@9.2.2</td>
+    <td>MIT</td>
+    <td>https://github.com/mathiasbynens/emoji-regex</td>
+    </tr>
+    <tr>
+    <td>emojis-list@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/kikobeats/emojis-list</td>
     </tr>
@@ -1441,34 +2816,34 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/pillarjs/encodeurl</td>
     </tr>
     <tr>
-    <td>encoding@0.1.12</td>
+    <td>encodeurl@2.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/andris9/encoding</td>
+    <td>https://github.com/pillarjs/encodeurl</td>
     </tr>
     <tr>
-    <td>engine.io-client@3.2.1</td>
+    <td>engine.io-client@3.5.4</td>
     <td>MIT</td>
     <td>https://github.com/socketio/engine.io-client</td>
     </tr>
     <tr>
-    <td>engine.io-parser@2.1.2</td>
+    <td>engine.io-parser@2.2.1</td>
     <td>MIT</td>
     <td>https://github.com/socketio/engine.io-parser</td>
     </tr>
     <tr>
-    <td>enhanced-resolve@0.9.1</td>
+    <td>enhanced-resolve@5.17.1</td>
     <td>MIT</td>
     <td>https://github.com/webpack/enhanced-resolve</td>
     </tr>
     <tr>
-    <td>entities@1.1.1</td>
-    <td>BSD*</td>
-    <td>https://github.com/fb55/node-entities</td>
+    <td>entities@2.2.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/fb55/entities</td>
     </tr>
     <tr>
-    <td>errno@0.1.7</td>
+    <td>env-paths@2.2.1</td>
     <td>MIT</td>
-    <td>https://github.com/rvagg/node-errno</td>
+    <td>https://github.com/sindresorhus/env-paths</td>
     </tr>
     <tr>
     <td>error-ex@1.3.2</td>
@@ -1476,34 +2851,64 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/qix-/node-error-ex</td>
     </tr>
     <tr>
-    <td>es5-ext@0.10.45</td>
-    <td>ISC</td>
-    <td>https://github.com/medikoo/es5-ext</td>
+    <td>error-stack-parser@2.1.4</td>
+    <td>MIT</td>
+    <td>https://github.com/stacktracejs/error-stack-parser</td>
     </tr>
     <tr>
-    <td>es6-iterator@2.0.3</td>
+    <td>es-abstract@1.23.6</td>
     <td>MIT</td>
-    <td>https://github.com/medikoo/es6-iterator</td>
+    <td>https://github.com/ljharb/es-abstract</td>
     </tr>
     <tr>
-    <td>es6-map@0.1.5</td>
+    <td>es-array-method-boxes-properly@1.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/medikoo/es6-map</td>
+    <td>https://github.com/ljharb/es-array-method-boxes-properly</td>
     </tr>
     <tr>
-    <td>es6-set@0.1.5</td>
+    <td>es-define-property@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/medikoo/es6-set</td>
+    <td>https://github.com/ljharb/es-define-property</td>
     </tr>
     <tr>
-    <td>es6-symbol@3.1.1</td>
+    <td>es-errors@1.3.0</td>
     <td>MIT</td>
-    <td>https://github.com/medikoo/es6-symbol</td>
+    <td>https://github.com/ljharb/es-errors</td>
     </tr>
     <tr>
-    <td>es6-weak-map@2.0.2</td>
+    <td>es-iterator-helpers@1.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/medikoo/es6-weak-map</td>
+    <td>https://github.com/es-shims/iterator-helpers</td>
+    </tr>
+    <tr>
+    <td>es-module-lexer@1.5.4</td>
+    <td>MIT</td>
+    <td>https://github.com/guybedford/es-module-lexer</td>
+    </tr>
+    <tr>
+    <td>es-object-atoms@1.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/es-object-atoms</td>
+    </tr>
+    <tr>
+    <td>es-set-tostringtag@2.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/es-set-tostringtag</td>
+    </tr>
+    <tr>
+    <td>es-shim-unscopables@1.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/es-shim-unscopables</td>
+    </tr>
+    <tr>
+    <td>es-to-primitive@1.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/es-to-primitive</td>
+    </tr>
+    <tr>
+    <td>escalade@3.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/lukeed/escalade</td>
     </tr>
     <tr>
     <td>escape-html@1.0.3</td>
@@ -1516,74 +2921,114 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/sindresorhus/escape-string-regexp</td>
     </tr>
     <tr>
-    <td>escodegen@1.10.0</td>
+    <td>escape-string-regexp@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/escape-string-regexp</td>
+    </tr>
+    <tr>
+    <td>escape-string-regexp@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/escape-string-regexp</td>
+    </tr>
+    <tr>
+    <td>escodegen@1.14.3</td>
     <td>BSD-2-Clause</td>
     <td>https://github.com/estools/escodegen</td>
     </tr>
     <tr>
-    <td>escope@3.6.0</td>
+    <td>escodegen@2.1.0</td>
     <td>BSD-2-Clause</td>
-    <td>https://github.com/estools/escope</td>
+    <td>https://github.com/estools/escodegen</td>
     </tr>
     <tr>
-    <td>eslint-config-react-app@0.6.2</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/facebookincubator/create-react-app</td>
-    </tr>
-    <tr>
-    <td>eslint-import-resolver-node@0.2.3</td>
+    <td>eslint-config-react-app@7.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/benmosher/eslint-plugin-import</td>
+    <td>https://github.com/facebook/create-react-app</td>
     </tr>
     <tr>
-    <td>eslint-loader@1.6.0</td>
+    <td>eslint-import-resolver-node@0.3.9</td>
     <td>MIT</td>
-    <td>https://github.com/MoOx/eslint-loader</td>
+    <td>https://github.com/import-js/eslint-plugin-import</td>
     </tr>
     <tr>
-    <td>eslint-module-utils@1.0.0</td>
+    <td>eslint-module-utils@2.12.0</td>
     <td>MIT</td>
-    <td>https://github.com/benmosher/eslint-plugin-import</td>
+    <td>https://github.com/import-js/eslint-plugin-import</td>
     </tr>
     <tr>
-    <td>eslint-plugin-flowtype@2.21.0</td>
+    <td>eslint-plugin-flowtype@8.0.3</td>
     <td>BSD-3-Clause</td>
     <td>https://github.com/gajus/eslint-plugin-flowtype</td>
     </tr>
     <tr>
-    <td>eslint-plugin-import@2.0.1</td>
+    <td>eslint-plugin-import@2.31.0</td>
     <td>MIT</td>
-    <td>https://github.com/benmosher/eslint-plugin-import</td>
+    <td>https://github.com/import-js/eslint-plugin-import</td>
     </tr>
     <tr>
-    <td>eslint-plugin-jsx-a11y@4.0.0</td>
+    <td>eslint-plugin-jest@25.7.0</td>
     <td>MIT</td>
-    <td>https://github.com/evcohen/eslint-plugin-jsx-a11y</td>
+    <td>https://github.com/jest-community/eslint-plugin-jest</td>
     </tr>
     <tr>
-    <td>eslint-plugin-react@6.4.1</td>
+    <td>eslint-plugin-jsx-a11y@6.10.2</td>
     <td>MIT</td>
-    <td>https://github.com/yannickcr/eslint-plugin-react</td>
+    <td>https://github.com/jsx-eslint/eslint-plugin-jsx-a11y</td>
     </tr>
     <tr>
-    <td>eslint@3.16.1</td>
+    <td>eslint-plugin-react-hooks@4.6.2</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/react</td>
+    </tr>
+    <tr>
+    <td>eslint-plugin-react@7.37.2</td>
+    <td>MIT</td>
+    <td>https://github.com/jsx-eslint/eslint-plugin-react</td>
+    </tr>
+    <tr>
+    <td>eslint-plugin-testing-library@5.11.1</td>
+    <td>MIT</td>
+    <td>https://github.com/testing-library/eslint-plugin-testing-library</td>
+    </tr>
+    <tr>
+    <td>eslint-scope@5.1.1</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/eslint/eslint-scope</td>
+    </tr>
+    <tr>
+    <td>eslint-scope@7.2.2</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/eslint/eslint-scope</td>
+    </tr>
+    <tr>
+    <td>eslint-visitor-keys@2.1.0</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/eslint/eslint-visitor-keys</td>
+    </tr>
+    <tr>
+    <td>eslint-visitor-keys@3.4.3</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/eslint/eslint-visitor-keys</td>
+    </tr>
+    <tr>
+    <td>eslint-webpack-plugin@3.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack-contrib/eslint-webpack-plugin</td>
+    </tr>
+    <tr>
+    <td>eslint@8.57.1</td>
     <td>MIT</td>
     <td>https://github.com/eslint/eslint</td>
     </tr>
     <tr>
-    <td>espree@3.5.4</td>
+    <td>espree@9.6.1</td>
     <td>BSD-2-Clause</td>
     <td>https://github.com/eslint/espree</td>
     </tr>
     <tr>
-    <td>esprima@2.7.3</td>
-    <td>BSD-2-Clause</td>
-    <td>https://github.com/jquery/esprima</td>
-    </tr>
-    <tr>
-    <td>esprima@3.1.3</td>
-    <td>BSD-2-Clause</td>
-    <td>https://github.com/jquery/esprima</td>
+    <td>esprima@1.2.2</td>
+    <td>BSD</td>
+    <td>https://github.com/ariya/esprima</td>
     </tr>
     <tr>
     <td>esprima@4.0.1</td>
@@ -1591,18 +3036,33 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jquery/esprima</td>
     </tr>
     <tr>
-    <td>esrecurse@4.2.1</td>
+    <td>esquery@1.6.0</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/estools/esquery</td>
+    </tr>
+    <tr>
+    <td>esrecurse@4.3.0</td>
     <td>BSD-2-Clause</td>
     <td>https://github.com/estools/esrecurse</td>
     </tr>
     <tr>
-    <td>estraverse@4.2.0</td>
+    <td>estraverse@4.3.0</td>
     <td>BSD-2-Clause</td>
     <td>https://github.com/estools/estraverse</td>
     </tr>
     <tr>
-    <td>esutils@2.0.2</td>
-    <td>BSD</td>
+    <td>estraverse@5.3.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/estools/estraverse</td>
+    </tr>
+    <tr>
+    <td>estree-walker@1.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/Rich-Harris/estree-walker</td>
+    </tr>
+    <tr>
+    <td>esutils@2.0.3</td>
+    <td>BSD-2-Clause</td>
     <td>https://github.com/estools/esutils</td>
     </tr>
     <tr>
@@ -1611,82 +3071,47 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jshttp/etag</td>
     </tr>
     <tr>
-    <td>event-emitter@0.3.5</td>
-    <td>MIT</td>
-    <td>https://github.com/medikoo/event-emitter</td>
-    </tr>
-    <tr>
-    <td>eventemitter3@3.1.0</td>
+    <td>eventemitter3@4.0.7</td>
     <td>MIT</td>
     <td>https://github.com/primus/eventemitter3</td>
     </tr>
     <tr>
-    <td>events@1.1.1</td>
+    <td>events@3.3.0</td>
     <td>MIT</td>
     <td>https://github.com/Gozala/events</td>
     </tr>
     <tr>
-    <td>eventsource@0.1.6</td>
+    <td>execa@5.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/aslakhellesoy/eventsource-node</td>
+    <td>https://github.com/sindresorhus/execa</td>
     </tr>
     <tr>
-    <td>exec-sh@0.2.2</td>
+    <td>exit@0.1.2</td>
     <td>MIT</td>
-    <td>https://github.com/tsertkov/exec-sh</td>
+    <td>https://github.com/cowboy/node-exit</td>
     </tr>
     <tr>
-    <td>exit-hook@1.1.1</td>
+    <td>expect@27.5.1</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/exit-hook</td>
+    <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>expand-brackets@0.1.5</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/expand-brackets</td>
-    </tr>
-    <tr>
-    <td>expand-range@1.8.2</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/expand-range</td>
-    </tr>
-    <tr>
-    <td>express@4.16.3</td>
+    <td>express@4.21.2</td>
     <td>MIT</td>
     <td>https://github.com/expressjs/express</td>
     </tr>
     <tr>
-    <td>extend@3.0.2</td>
-    <td>MIT</td>
-    <td>https://github.com/justmoon/node-extend</td>
-    </tr>
-    <tr>
-    <td>extglob@0.3.2</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/extglob</td>
-    </tr>
-    <tr>
-    <td>extract-text-webpack-plugin@1.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/webpack/extract-text-webpack-plugin</td>
-    </tr>
-    <tr>
-    <td>extsprintf@1.3.0</td>
-    <td>MIT</td>
-    <td>https://github.com/davepacheco/node-extsprintf</td>
-    </tr>
-    <tr>
-    <td>fast-deep-equal@1.1.0</td>
+    <td>fast-deep-equal@3.1.3</td>
     <td>MIT</td>
     <td>https://github.com/epoberezkin/fast-deep-equal</td>
     </tr>
     <tr>
-    <td>fast-deep-equal@2.0.1</td>
+    <td>fast-glob@3.3.2</td>
     <td>MIT</td>
-    <td>https://github.com/epoberezkin/fast-deep-equal</td>
+    <td>https://github.com/mrmlnc/fast-glob</td>
     </tr>
     <tr>
-    <td>fast-json-stable-stringify@2.0.0</td>
+    <td>fast-json-stable-stringify@2.1.0</td>
     <td>MIT</td>
     <td>https://github.com/epoberezkin/fast-json-stable-stringify</td>
     </tr>
@@ -1696,129 +3121,124 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/hiddentao/fast-levenshtein</td>
     </tr>
     <tr>
-    <td>fastparse@1.1.1</td>
-    <td>MIT</td>
-    <td>https://github.com/webpack/fastparse</td>
+    <td>fast-uri@3.0.3</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/fastify/fast-uri</td>
     </tr>
     <tr>
-    <td>faye-websocket@0.10.0</td>
-    <td>MIT</td>
+    <td>fastq@1.17.1</td>
+    <td>ISC</td>
+    <td>https://github.com/mcollina/fastq</td>
+    </tr>
+    <tr>
+    <td>faye-websocket@0.11.4</td>
+    <td>Apache-2.0</td>
     <td>https://github.com/faye/faye-websocket-node</td>
     </tr>
     <tr>
-    <td>faye-websocket@0.11.1</td>
-    <td>MIT</td>
-    <td>https://github.com/faye/faye-websocket-node</td>
-    </tr>
-    <tr>
-    <td>faye-websocket@0.7.3</td>
-    <td>MIT</td>
-    <td>https://github.com/faye/faye-websocket-node</td>
-    </tr>
-    <tr>
-    <td>fb-watchman@1.9.2</td>
+    <td>fb-watchman@2.0.2</td>
     <td>Apache-2.0</td>
     <td>https://github.com/facebook/watchman</td>
     </tr>
     <tr>
-    <td>fbjs@0.8.17</td>
+    <td>fd-slicer@1.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/facebook/fbjs</td>
+    <td>https://github.com/andrewrk/node-fd-slicer</td>
     </tr>
     <tr>
-    <td>figures@1.7.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/figures</td>
-    </tr>
-    <tr>
-    <td>file-entry-cache@2.0.0</td>
+    <td>file-entry-cache@6.0.1</td>
     <td>MIT</td>
     <td>https://github.com/royriojas/file-entry-cache</td>
     </tr>
     <tr>
-    <td>file-loader@0.10.0</td>
+    <td>file-loader@6.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/webpack/file-loader</td>
+    <td>https://github.com/webpack-contrib/file-loader</td>
     </tr>
     <tr>
-    <td>filename-regex@2.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/regexhq/filename-regex</td>
+    <td>filelist@1.0.4</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/mde/filelist</td>
     </tr>
     <tr>
-    <td>fileset@2.0.3</td>
-    <td>MIT</td>
-    <td>https://github.com/mklabs/node-fileset</td>
-    </tr>
-    <tr>
-    <td>filesize@3.3.0</td>
+    <td>filesize@8.0.7</td>
     <td>BSD-3-Clause</td>
     <td>https://github.com/avoidwork/filesize.js</td>
     </tr>
     <tr>
-    <td>fill-range@2.2.4</td>
+    <td>fill-range@7.1.1</td>
     <td>MIT</td>
     <td>https://github.com/jonschlinkert/fill-range</td>
     </tr>
     <tr>
-    <td>finalhandler@1.1.1</td>
+    <td>finalhandler@1.3.1</td>
     <td>MIT</td>
     <td>https://github.com/pillarjs/finalhandler</td>
     </tr>
     <tr>
-    <td>find-cache-dir@0.1.1</td>
+    <td>find-cache-dir@3.3.2</td>
     <td>MIT</td>
-    <td>https://github.com/jamestalmage/find-cache-dir</td>
+    <td>https://github.com/avajs/find-cache-dir</td>
     </tr>
     <tr>
-    <td>find-up@1.1.2</td>
+    <td>find-up@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/find-up</td>
     </tr>
     <tr>
-    <td>flat-cache@1.3.0</td>
+    <td>find-up@4.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/royriojas/flat-cache</td>
+    <td>https://github.com/sindresorhus/find-up</td>
     </tr>
     <tr>
-    <td>flatten@1.0.2</td>
+    <td>find-up@5.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/jesusabdullah/node-flatten</td>
+    <td>https://github.com/sindresorhus/find-up</td>
     </tr>
     <tr>
-    <td>follow-redirects@1.5.0</td>
+    <td>flat-cache@3.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/olalonde/follow-redirects</td>
+    <td>https://github.com/jaredwray/flat-cache</td>
     </tr>
     <tr>
-    <td>for-in@1.0.2</td>
+    <td>flatted@3.3.2</td>
+    <td>ISC</td>
+    <td>https://github.com/WebReflection/flatted</td>
+    </tr>
+    <tr>
+    <td>follow-redirects@1.15.9</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/for-in</td>
+    <td>https://github.com/follow-redirects/follow-redirects</td>
     </tr>
     <tr>
-    <td>for-own@0.1.5</td>
+    <td>for-each@0.3.3</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/for-own</td>
+    <td>https://github.com/Raynos/for-each</td>
     </tr>
     <tr>
-    <td>forever-agent@0.6.1</td>
-    <td>Apache-2.0</td>
-    <td>https://github.com/mikeal/forever-agent</td>
+    <td>foreground-child@3.3.0</td>
+    <td>ISC</td>
+    <td>https://github.com/tapjs/foreground-child</td>
     </tr>
     <tr>
-    <td>form-data@2.3.2</td>
+    <td>fork-ts-checker-webpack-plugin@6.5.3</td>
+    <td>MIT</td>
+    <td>https://github.com/TypeStrong/fork-ts-checker-webpack-plugin</td>
+    </tr>
+    <tr>
+    <td>form-data@3.0.2</td>
     <td>MIT</td>
     <td>https://github.com/form-data/form-data</td>
     </tr>
     <tr>
-    <td>form-data@2.3.3</td>
-    <td>MIT</td>
-    <td>https://github.com/form-data/form-data</td>
-    </tr>
-    <tr>
-    <td>forwarded@0.1.2</td>
+    <td>forwarded@0.2.0</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/forwarded</td>
+    </tr>
+    <tr>
+    <td>fraction.js@4.3.7</td>
+    <td>MIT</td>
+    <td>https://github.com/rawify/Fraction.js</td>
     </tr>
     <tr>
     <td>fresh@0.5.2</td>
@@ -1826,9 +3246,24 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jshttp/fresh</td>
     </tr>
     <tr>
-    <td>fs-extra@0.30.0</td>
+    <td>fs-extra@10.1.0</td>
     <td>MIT</td>
     <td>https://github.com/jprichardson/node-fs-extra</td>
+    </tr>
+    <tr>
+    <td>fs-extra@11.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/jprichardson/node-fs-extra</td>
+    </tr>
+    <tr>
+    <td>fs-extra@9.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/jprichardson/node-fs-extra</td>
+    </tr>
+    <tr>
+    <td>fs-monkey@1.0.6</td>
+    <td>Unlicense</td>
+    <td>https://github.com/streamich/fs-monkey</td>
     </tr>
     <tr>
     <td>fs.realpath@1.0.0</td>
@@ -1836,109 +3271,169 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/isaacs/fs.realpath</td>
     </tr>
     <tr>
-    <td>function-bind@1.1.1</td>
+    <td>function-bind@1.1.2</td>
     <td>MIT</td>
     <td>https://github.com/Raynos/function-bind</td>
     </tr>
     <tr>
-    <td>generate-function@2.0.0</td>
+    <td>function.prototype.name@1.1.7</td>
     <td>MIT</td>
-    <td>https://github.com/mafintosh/generate-function</td>
+    <td>https://github.com/es-shims/Function.prototype.name</td>
     </tr>
     <tr>
-    <td>generate-object-property@1.2.0</td>
+    <td>functions-have-names@1.2.3</td>
     <td>MIT</td>
-    <td>https://github.com/mafintosh/generate-object-property</td>
+    <td>https://github.com/inspect-js/functions-have-names</td>
     </tr>
     <tr>
-    <td>get-caller-file@1.0.2</td>
+    <td>gensync@1.0.0-beta.2</td>
+    <td>MIT</td>
+    <td>https://github.com/loganfsmyth/gensync</td>
+    </tr>
+    <tr>
+    <td>get-caller-file@2.0.5</td>
     <td>ISC</td>
     <td>https://github.com/stefanpenner/get-caller-file</td>
     </tr>
     <tr>
-    <td>get-content@1.0.2</td>
+    <td>get-intrinsic@1.2.6</td>
     <td>MIT</td>
-    <td>https://github.com/lambda2/get-content</td>
+    <td>https://github.com/ljharb/get-intrinsic</td>
     </tr>
     <tr>
-    <td>getpass@0.1.7</td>
-    <td>MIT</td>
-    <td>https://github.com/arekinath/node-getpass</td>
-    </tr>
-    <tr>
-    <td>glob-base@0.3.0</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/glob-base</td>
-    </tr>
-    <tr>
-    <td>glob-parent@2.0.0</td>
+    <td>get-own-enumerable-property-symbols@3.0.2</td>
     <td>ISC</td>
-    <td>https://github.com/es128/glob-parent</td>
+    <td>https://github.com/mightyiam/get-own-enumerable-property-symbols</td>
     </tr>
     <tr>
-    <td>glob@7.1.2</td>
+    <td>get-package-type@0.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/cfware/get-package-type</td>
+    </tr>
+    <tr>
+    <td>get-stream@6.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/get-stream</td>
+    </tr>
+    <tr>
+    <td>get-symbol-description@1.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/get-symbol-description</td>
+    </tr>
+    <tr>
+    <td>glob-parent@5.1.2</td>
+    <td>ISC</td>
+    <td>https://github.com/gulpjs/glob-parent</td>
+    </tr>
+    <tr>
+    <td>glob-parent@6.0.2</td>
+    <td>ISC</td>
+    <td>https://github.com/gulpjs/glob-parent</td>
+    </tr>
+    <tr>
+    <td>glob-to-regexp@0.4.1</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/fitzgen/glob-to-regexp</td>
+    </tr>
+    <tr>
+    <td>glob@10.4.5</td>
     <td>ISC</td>
     <td>https://github.com/isaacs/node-glob</td>
     </tr>
     <tr>
-    <td>glob@7.1.4</td>
+    <td>glob@13.0.6</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/node-glob</td>
+    </tr>
+    <tr>
+    <td>glob@7.2.3</td>
     <td>ISC</td>
     <td>https://github.com/isaacs/node-glob</td>
     </tr>
     <tr>
-    <td>globals@9.18.0</td>
+    <td>global-modules@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/jonschlinkert/global-modules</td>
+    </tr>
+    <tr>
+    <td>global-prefix@3.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/jonschlinkert/global-prefix</td>
+    </tr>
+    <tr>
+    <td>globals@11.12.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/globals</td>
     </tr>
     <tr>
-    <td>globby@5.0.0</td>
+    <td>globals@13.24.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/globals</td>
+    </tr>
+    <tr>
+    <td>globalthis@1.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/System.global</td>
+    </tr>
+    <tr>
+    <td>globby@11.1.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/globby</td>
     </tr>
     <tr>
-    <td>graceful-fs@4.1.11</td>
+    <td>gopd@1.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/gopd</td>
+    </tr>
+    <tr>
+    <td>graceful-fs@4.2.11</td>
     <td>ISC</td>
     <td>https://github.com/isaacs/node-graceful-fs</td>
     </tr>
     <tr>
-    <td>growly@1.3.0</td>
+    <td>graphemer@1.4.0</td>
     <td>MIT</td>
-    <td>https://github.com/theabraham/growly</td>
+    <td>https://github.com/flmnt/graphemer</td>
     </tr>
     <tr>
-    <td>gzip-size@3.0.0</td>
+    <td>gridjs-react@6.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/grid-js/gridjs-react</td>
+    </tr>
+    <tr>
+    <td>gridjs@6.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/grid-js/gridjs</td>
+    </tr>
+    <tr>
+    <td>gzip-size@6.0.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/gzip-size</td>
     </tr>
     <tr>
-    <td>handlebars@4.2.0</td>
+    <td>hammerjs@2.0.8</td>
     <td>MIT</td>
-    <td>https://github.com/wycats/handlebars.js</td>
+    <td>https://github.com/hammerjs/hammer.js</td>
     </tr>
     <tr>
-    <td>har-schema@2.0.0</td>
-    <td>ISC</td>
-    <td>https://github.com/ahmadnassri/har-schema</td>
-    </tr>
-    <tr>
-    <td>har-validator@5.0.3</td>
-    <td>ISC</td>
-    <td>https://github.com/ahmadnassri/har-validator</td>
-    </tr>
-    <tr>
-    <td>har-validator@5.1.3</td>
+    <td>handle-thing@2.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/ahmadnassri/node-har-validator</td>
+    <td>https://github.com/indutny/handle-thing</td>
     </tr>
     <tr>
-    <td>has-ansi@2.0.0</td>
+    <td>harmony-reflect@1.6.2</td>
+    <td>(Apache-2.0 OR MPL-1.1)</td>
+    <td>git+https://tvcutsem@github.com/tvcutsem/harmony-reflect</td>
+    </tr>
+    <tr>
+    <td>has-bigints@1.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/has-ansi</td>
+    <td>https://github.com/ljharb/has-bigints</td>
     </tr>
     <tr>
     <td>has-binary2@1.0.3</td>
     <td>MIT</td>
-    <td> </td>
+    <td></td>
     </tr>
     <tr>
     <td>has-cors@1.1.0</td>
@@ -1946,74 +3441,89 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/component/has-cors</td>
     </tr>
     <tr>
-    <td>has-flag@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/has-flag</td>
-    </tr>
-    <tr>
-    <td>has-flag@2.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/has-flag</td>
-    </tr>
-    <tr>
     <td>has-flag@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/has-flag</td>
     </tr>
     <tr>
-    <td>has@1.0.3</td>
+    <td>has-flag@4.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/tarruda/has</td>
+    <td>https://github.com/sindresorhus/has-flag</td>
     </tr>
     <tr>
-    <td>he@1.1.1</td>
+    <td>has-property-descriptors@1.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/has-property-descriptors</td>
+    </tr>
+    <tr>
+    <td>has-proto@1.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/has-proto</td>
+    </tr>
+    <tr>
+    <td>has-symbols@1.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/has-symbols</td>
+    </tr>
+    <tr>
+    <td>has-tostringtag@1.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/has-tostringtag</td>
+    </tr>
+    <tr>
+    <td>hasown@2.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/hasOwn</td>
+    </tr>
+    <tr>
+    <td>he@1.2.0</td>
     <td>MIT</td>
     <td>https://github.com/mathiasbynens/he</td>
     </tr>
     <tr>
-    <td>home-or-tmp@2.0.0</td>
+    <td>hoopy@0.1.4</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/home-or-tmp</td>
+    <td>git+https://gitlab.com/philbooth/hoopy</td>
     </tr>
     <tr>
-    <td>hosted-git-info@2.6.1</td>
-    <td>ISC</td>
-    <td>https://github.com/npm/hosted-git-info</td>
-    </tr>
-    <tr>
-    <td>html-comment-regex@1.1.1</td>
+    <td>hpack.js@2.1.6</td>
     <td>MIT</td>
-    <td>https://github.com/stevemao/html-comment-regex</td>
+    <td>https://github.com/indutny/hpack.js</td>
     </tr>
     <tr>
-    <td>html-encoding-sniffer@1.0.2</td>
+    <td>html-encoding-sniffer@2.0.1</td>
     <td>MIT</td>
     <td>https://github.com/jsdom/html-encoding-sniffer</td>
     </tr>
     <tr>
-    <td>html-entities@1.2.0</td>
+    <td>html-entities@2.5.2</td>
     <td>MIT</td>
-    <td>https://github.com/mdevils/node-html-entities</td>
+    <td>https://github.com/mdevils/html-entities</td>
     </tr>
     <tr>
-    <td>html-minifier@3.5.18</td>
+    <td>html-escaper@2.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/kangax/html-minifier</td>
+    <td>https://github.com/WebReflection/html-escaper</td>
     </tr>
     <tr>
-    <td>html-webpack-plugin@2.24.0</td>
+    <td>html-minifier-terser@6.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/ampedandwired/html-webpack-plugin</td>
+    <td>https://github.com/terser/html-minifier-terser</td>
     </tr>
     <tr>
-    <td>htmlparser2@3.3.0</td>
+    <td>html-webpack-plugin@5.6.3</td>
+    <td>MIT</td>
+    <td>https://github.com/jantimon/html-webpack-plugin</td>
+    </tr>
+    <tr>
+    <td>htmlparser2@6.1.0</td>
     <td>MIT</td>
     <td>https://github.com/fb55/htmlparser2</td>
     </tr>
     <tr>
-    <td>http-errors@1.6.2</td>
+    <td>http-deceiver@1.2.7</td>
     <td>MIT</td>
-    <td>https://github.com/jshttp/http-errors</td>
+    <td>https://github.com/indutny/http-deceiver</td>
     </tr>
     <tr>
     <td>http-errors@1.6.3</td>
@@ -2021,54 +3531,84 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jshttp/http-errors</td>
     </tr>
     <tr>
-    <td>http-parser-js@0.4.13</td>
+    <td>http-errors@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/jshttp/http-errors</td>
+    </tr>
+    <tr>
+    <td>http-parser-js@0.5.8</td>
     <td>MIT</td>
     <td>https://github.com/creationix/http-parser-js</td>
     </tr>
     <tr>
-    <td>http-proxy-middleware@0.17.3</td>
+    <td>http-proxy-agent@4.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/TooTallNate/node-http-proxy-agent</td>
+    </tr>
+    <tr>
+    <td>http-proxy-middleware@2.0.7</td>
     <td>MIT</td>
     <td>https://github.com/chimurai/http-proxy-middleware</td>
     </tr>
     <tr>
-    <td>http-proxy@1.17.0</td>
+    <td>http-proxy@1.18.1</td>
     <td>MIT</td>
-    <td>https://github.com/nodejitsu/node-http-proxy</td>
+    <td>https://github.com/http-party/node-http-proxy</td>
     </tr>
     <tr>
-    <td>http-signature@1.2.0</td>
+    <td>https-proxy-agent@5.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/joyent/node-http-signature</td>
+    <td>https://github.com/TooTallNate/node-https-proxy-agent</td>
     </tr>
     <tr>
-    <td>https-browserify@0.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/substack/https-browserify</td>
+    <td>human-signals@2.1.0</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/ehmicky/human-signals</td>
     </tr>
     <tr>
-    <td>iconv-lite@0.4.19</td>
-    <td>MIT</td>
-    <td>https://github.com/ashtuchkin/iconv-lite</td>
-    </tr>
-    <tr>
-    <td>iconv-lite@0.4.23</td>
+    <td>iconv-lite@0.4.24</td>
     <td>MIT</td>
     <td>https://github.com/ashtuchkin/iconv-lite</td>
     </tr>
     <tr>
-    <td>icss-replace-symbols@1.1.0</td>
+    <td>iconv-lite@0.6.3</td>
+    <td>MIT</td>
+    <td>https://github.com/ashtuchkin/iconv-lite</td>
+    </tr>
+    <tr>
+    <td>icss-utils@5.1.0</td>
     <td>ISC</td>
-    <td>https://github.com/css-modules/icss-replace-symbols</td>
+    <td>https://github.com/css-modules/icss-utils</td>
     </tr>
     <tr>
-    <td>ieee754@1.1.12</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/feross/ieee754</td>
+    <td>idb@7.1.1</td>
+    <td>ISC</td>
+    <td>https://github.com/jakearchibald/idb</td>
     </tr>
     <tr>
-    <td>ignore@3.3.10</td>
+    <td>identity-obj-proxy@3.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/keyanzhang/identity-obj-proxy</td>
+    </tr>
+    <tr>
+    <td>ignore@5.3.2</td>
     <td>MIT</td>
     <td>https://github.com/kaelzhang/node-ignore</td>
+    </tr>
+    <tr>
+    <td>immer@9.0.21</td>
+    <td>MIT</td>
+    <td>https://github.com/immerjs/immer</td>
+    </tr>
+    <tr>
+    <td>import-fresh@3.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/import-fresh</td>
+    </tr>
+    <tr>
+    <td>import-local@3.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/import-local</td>
     </tr>
     <tr>
     <td>imurmurhash@0.1.4</td>
@@ -2076,24 +3616,19 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jensyt/imurmurhash-js</td>
     </tr>
     <tr>
-    <td>indexes-of@1.0.1</td>
+    <td>indent-string@4.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/dominictarr/indexes-of</td>
+    <td>https://github.com/sindresorhus/indent-string</td>
     </tr>
     <tr>
     <td>indexof@0.0.1</td>
     <td>MIT*</td>
-    <td> </td>
+    <td></td>
     </tr>
     <tr>
     <td>inflight@1.0.6</td>
     <td>ISC</td>
     <td>https://github.com/npm/inflight</td>
-    </tr>
-    <tr>
-    <td>inherits@2.0.1</td>
-    <td>ISC</td>
-    <td>https://github.com/isaacs/inherits</td>
     </tr>
     <tr>
     <td>inherits@2.0.3</td>
@@ -2106,44 +3641,34 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/isaacs/inherits</td>
     </tr>
     <tr>
-    <td>inquirer@0.12.0</td>
-    <td>MIT</td>
-    <td>https://github.com/SBoudrias/Inquirer.js</td>
+    <td>ini@1.3.8</td>
+    <td>ISC</td>
+    <td>https://github.com/isaacs/ini</td>
     </tr>
     <tr>
-    <td>interpret@0.6.6</td>
-    <td>MIT</td>
-    <td>https://github.com/tkellen/node-interpret</td>
+    <td>ini@4.1.3</td>
+    <td>ISC</td>
+    <td>https://github.com/npm/ini</td>
     </tr>
     <tr>
-    <td>interpret@1.1.0</td>
+    <td>internal-slot@1.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/tkellen/node-interpret</td>
+    <td>https://github.com/ljharb/internal-slot</td>
     </tr>
     <tr>
-    <td>interpret@1.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/gulpjs/interpret</td>
-    </tr>
-    <tr>
-    <td>invariant@2.2.4</td>
-    <td>MIT</td>
-    <td>https://github.com/zertosh/invariant</td>
-    </tr>
-    <tr>
-    <td>invert-kv@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/invert-kv</td>
-    </tr>
-    <tr>
-    <td>ipaddr.js@1.6.0</td>
+    <td>ipaddr.js@1.9.1</td>
     <td>MIT</td>
     <td>https://github.com/whitequark/ipaddr.js</td>
     </tr>
     <tr>
-    <td>is-absolute-url@2.1.0</td>
+    <td>ipaddr.js@2.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/is-absolute-url</td>
+    <td>https://github.com/whitequark/ipaddr.js</td>
+    </tr>
+    <tr>
+    <td>is-array-buffer@3.0.5</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/is-array-buffer</td>
     </tr>
     <tr>
     <td>is-arrayish@0.2.1</td>
@@ -2151,49 +3676,49 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/qix-/node-is-arrayish</td>
     </tr>
     <tr>
-    <td>is-binary-path@1.0.1</td>
+    <td>is-async-function@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/is-async-function</td>
+    </tr>
+    <tr>
+    <td>is-bigint@1.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/is-bigint</td>
+    </tr>
+    <tr>
+    <td>is-binary-path@2.1.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/is-binary-path</td>
     </tr>
     <tr>
-    <td>is-buffer@1.1.6</td>
+    <td>is-boolean-object@1.2.1</td>
     <td>MIT</td>
-    <td>https://github.com/feross/is-buffer</td>
+    <td>https://github.com/inspect-js/is-boolean-object</td>
     </tr>
     <tr>
-    <td>is-builtin-module@1.0.0</td>
+    <td>is-callable@1.2.7</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/is-builtin-module</td>
+    <td>https://github.com/inspect-js/is-callable</td>
     </tr>
     <tr>
-    <td>is-ci@1.1.0</td>
+    <td>is-core-module@2.16.0</td>
     <td>MIT</td>
-    <td>https://github.com/watson/is-ci</td>
+    <td>https://github.com/inspect-js/is-core-module</td>
     </tr>
     <tr>
-    <td>is-directory@0.3.1</td>
+    <td>is-data-view@1.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-directory</td>
+    <td>https://github.com/inspect-js/is-data-view</td>
     </tr>
     <tr>
-    <td>is-dotfile@1.0.3</td>
+    <td>is-date-object@1.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-dotfile</td>
+    <td>https://github.com/inspect-js/is-date-object</td>
     </tr>
     <tr>
-    <td>is-equal-shallow@0.1.3</td>
+    <td>is-docker@2.2.1</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-equal-shallow</td>
-    </tr>
-    <tr>
-    <td>is-extendable@0.1.1</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-extendable</td>
-    </tr>
-    <tr>
-    <td>is-extglob@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-extglob</td>
+    <td>https://github.com/sindresorhus/is-docker</td>
     </tr>
     <tr>
     <td>is-extglob@2.1.1</td>
@@ -2201,99 +3726,119 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jonschlinkert/is-extglob</td>
     </tr>
     <tr>
-    <td>is-finite@1.0.2</td>
+    <td>is-finalizationregistry@1.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/is-finite</td>
+    <td>https://github.com/inspect-js/is-finalizationregistry</td>
     </tr>
     <tr>
-    <td>is-fullwidth-code-point@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/is-fullwidth-code-point</td>
-    </tr>
-    <tr>
-    <td>is-fullwidth-code-point@2.0.0</td>
+    <td>is-fullwidth-code-point@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/is-fullwidth-code-point</td>
     </tr>
     <tr>
-    <td>is-glob@2.0.1</td>
+    <td>is-generator-fn@2.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-glob</td>
+    <td>https://github.com/sindresorhus/is-generator-fn</td>
     </tr>
     <tr>
-    <td>is-glob@3.1.0</td>
+    <td>is-generator-function@1.0.10</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-glob</td>
+    <td>https://github.com/inspect-js/is-generator-function</td>
     </tr>
     <tr>
-    <td>is-my-ip-valid@1.0.0</td>
+    <td>is-glob@4.0.3</td>
     <td>MIT</td>
-    <td>https://github.com/LinusU/is-my-ip-valid</td>
+    <td>https://github.com/micromatch/is-glob</td>
     </tr>
     <tr>
-    <td>is-my-json-valid@2.17.2</td>
+    <td>is-map@2.0.3</td>
     <td>MIT</td>
-    <td>https://github.com/mafintosh/is-my-json-valid</td>
+    <td>https://github.com/inspect-js/is-map</td>
     </tr>
     <tr>
-    <td>is-number@2.1.0</td>
+    <td>is-module@1.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/component/is-module</td>
+    </tr>
+    <tr>
+    <td>is-negative-zero@2.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/is-negative-zero</td>
+    </tr>
+    <tr>
+    <td>is-number-object@1.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/is-number-object</td>
+    </tr>
+    <tr>
+    <td>is-number@7.0.0</td>
     <td>MIT</td>
     <td>https://github.com/jonschlinkert/is-number</td>
     </tr>
     <tr>
-    <td>is-number@4.0.0</td>
+    <td>is-obj@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-number</td>
+    <td>https://github.com/sindresorhus/is-obj</td>
     </tr>
     <tr>
-    <td>is-path-cwd@1.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/is-path-cwd</td>
-    </tr>
-    <tr>
-    <td>is-path-in-cwd@1.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/is-path-in-cwd</td>
-    </tr>
-    <tr>
-    <td>is-path-inside@1.0.1</td>
+    <td>is-path-inside@3.0.3</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/is-path-inside</td>
     </tr>
     <tr>
-    <td>is-plain-obj@1.1.0</td>
+    <td>is-plain-obj@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/is-plain-obj</td>
     </tr>
     <tr>
-    <td>is-posix-bracket@0.1.1</td>
+    <td>is-potential-custom-element-name@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-posix-bracket</td>
+    <td>https://github.com/mathiasbynens/is-potential-custom-element-name</td>
     </tr>
     <tr>
-    <td>is-primitive@2.0.0</td>
+    <td>is-regex@1.2.1</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/is-primitive</td>
+    <td>https://github.com/inspect-js/is-regex</td>
     </tr>
     <tr>
-    <td>is-property@1.0.2</td>
+    <td>is-regexp@1.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/mikolalysenko/is-property</td>
+    <td>https://github.com/sindresorhus/is-regexp</td>
     </tr>
     <tr>
-    <td>is-resolvable@1.1.0</td>
-    <td>ISC</td>
-    <td>https://github.com/shinnn/is-resolvable</td>
+    <td>is-root@2.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/is-root</td>
     </tr>
     <tr>
-    <td>is-stream@1.1.0</td>
+    <td>is-set@2.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/is-set</td>
+    </tr>
+    <tr>
+    <td>is-shared-array-buffer@1.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/is-shared-array-buffer</td>
+    </tr>
+    <tr>
+    <td>is-stream@2.0.1</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/is-stream</td>
     </tr>
     <tr>
-    <td>is-svg@2.1.0</td>
+    <td>is-string@1.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/is-svg</td>
+    <td>https://github.com/inspect-js/is-string</td>
+    </tr>
+    <tr>
+    <td>is-symbol@1.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/is-symbol</td>
+    </tr>
+    <tr>
+    <td>is-typed-array@1.1.13</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/is-typed-array</td>
     </tr>
     <tr>
     <td>is-typedarray@1.0.0</td>
@@ -2301,19 +3846,24 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/hughsk/is-typedarray</td>
     </tr>
     <tr>
-    <td>is-url@1.2.4</td>
+    <td>is-weakmap@2.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/segmentio/is-url</td>
+    <td>https://github.com/inspect-js/is-weakmap</td>
     </tr>
     <tr>
-    <td>is-utf8@0.2.1</td>
+    <td>is-weakref@1.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/wayfind/is-utf8</td>
+    <td>https://github.com/inspect-js/is-weakref</td>
     </tr>
     <tr>
-    <td>isarray@0.0.1</td>
+    <td>is-weakset@2.0.4</td>
     <td>MIT</td>
-    <td>https://github.com/juliangruber/isarray</td>
+    <td>https://github.com/inspect-js/is-weakset</td>
+    </tr>
+    <tr>
+    <td>is-wsl@2.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/is-wsl</td>
     </tr>
     <tr>
     <td>isarray@1.0.0</td>
@@ -2326,199 +3876,279 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/juliangruber/isarray</td>
     </tr>
     <tr>
+    <td>isarray@2.0.5</td>
+    <td>MIT</td>
+    <td>https://github.com/juliangruber/isarray</td>
+    </tr>
+    <tr>
     <td>isexe@2.0.0</td>
     <td>ISC</td>
     <td>https://github.com/isaacs/isexe</td>
     </tr>
     <tr>
-    <td>isobject@2.1.0</td>
+    <td>istanbul-lib-coverage@3.2.2</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/istanbuljs/istanbuljs</td>
+    </tr>
+    <tr>
+    <td>istanbul-lib-instrument@5.2.1</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/istanbuljs/istanbuljs</td>
+    </tr>
+    <tr>
+    <td>istanbul-lib-report@3.0.1</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/istanbuljs/istanbuljs</td>
+    </tr>
+    <tr>
+    <td>istanbul-lib-source-maps@4.0.1</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/istanbuljs/istanbuljs</td>
+    </tr>
+    <tr>
+    <td>istanbul-reports@3.1.7</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/istanbuljs/istanbuljs</td>
+    </tr>
+    <tr>
+    <td>iterator.prototype@1.1.4</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/isobject</td>
+    <td>https://github.com/ljharb/Iterator.prototype</td>
     </tr>
     <tr>
-    <td>isomorphic-fetch@2.2.1</td>
+    <td>jackspeak@3.4.3</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/jackspeak</td>
+    </tr>
+    <tr>
+    <td>jake@10.9.2</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/jakejs/jake</td>
+    </tr>
+    <tr>
+    <td>jest-changed-files@27.5.1</td>
     <td>MIT</td>
-    <td>https://github.com/matthew-andrews/isomorphic-fetch</td>
+    <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>isstream@0.1.2</td>
+    <td>jest-circus@27.5.1</td>
     <td>MIT</td>
-    <td>https://github.com/rvagg/isstream</td>
-    </tr>
-    <tr>
-    <td>istanbul-api@1.3.1</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/istanbuljs/istanbuljs</td>
-    </tr>
-    <tr>
-    <td>istanbul-lib-coverage@1.2.0</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/istanbuljs/istanbuljs</td>
-    </tr>
-    <tr>
-    <td>istanbul-lib-hook@1.2.1</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/istanbuljs/istanbuljs</td>
-    </tr>
-    <tr>
-    <td>istanbul-lib-instrument@1.10.1</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/istanbuljs/istanbuljs</td>
-    </tr>
-    <tr>
-    <td>istanbul-lib-report@1.1.4</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/istanbuljs/istanbuljs</td>
-    </tr>
-    <tr>
-    <td>istanbul-lib-source-maps@1.2.5</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/istanbuljs/istanbuljs</td>
-    </tr>
-    <tr>
-    <td>istanbul-reports@1.3.0</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/istanbuljs/istanbuljs</td>
-    </tr>
-    <tr>
-    <td>jest-changed-files@17.0.2</td>
-    <td>BSD-3-Clause</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-cli@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-cli@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-config@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-config@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-diff@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-diff@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-environment-jsdom@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-docblock@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-environment-node@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-each@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-file-exists@17.0.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-environment-jsdom@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-haste-map@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-environment-node@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-jasmine2@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-get-type@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-matcher-utils@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-haste-map@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-matchers@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-jasmine2@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-mock@18.0.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-leak-detector@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-resolve-dependencies@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-matcher-utils@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-resolve@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-message-util@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-runtime@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-message-util@28.1.3</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-snapshot@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-mock@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest-util@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-pnp-resolver@1.2.3</td>
+    <td>MIT</td>
+    <td>https://github.com/arcanis/jest-pnp-resolver</td>
+    </tr>
+    <tr>
+    <td>jest-regex-util@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>jest@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>jest-regex-util@28.0.2</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>js-base64@2.4.5</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/dankogai/js-base64</td>
+    <td>jest-resolve-dependencies@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>js-tokens@3.0.2</td>
+    <td>jest-resolve@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-runner@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-runtime@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-serializer@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-snapshot@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-util@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-util@28.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-validate@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-watch-typeahead@1.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/jest-community/jest-watch-typeahead</td>
+    </tr>
+    <tr>
+    <td>jest-watcher@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-watcher@28.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-worker@26.6.2</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-worker@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest-worker@28.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jest@27.5.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/jest</td>
+    </tr>
+    <tr>
+    <td>jiti@1.21.6</td>
+    <td>MIT</td>
+    <td>https://github.com/unjs/jiti</td>
+    </tr>
+    <tr>
+    <td>js-tokens@4.0.0</td>
     <td>MIT</td>
     <td>https://github.com/lydell/js-tokens</td>
     </tr>
     <tr>
-    <td>js-yaml@3.13.1</td>
+    <td>js-yaml@3.14.1</td>
     <td>MIT</td>
     <td>https://github.com/nodeca/js-yaml</td>
     </tr>
     <tr>
-    <td>js-yaml@3.7.0</td>
+    <td>js-yaml@4.1.0</td>
     <td>MIT</td>
     <td>https://github.com/nodeca/js-yaml</td>
     </tr>
     <tr>
-    <td>jsbn@0.1.1</td>
+    <td>jsdom@16.7.0</td>
     <td>MIT</td>
-    <td>https://github.com/andyperlitch/jsbn</td>
+    <td>https://github.com/jsdom/jsdom</td>
     </tr>
     <tr>
-    <td>jsdom@9.12.0</td>
-    <td>MIT</td>
-    <td>https://github.com/tmpvar/jsdom</td>
-    </tr>
-    <tr>
-    <td>jsesc@0.5.0</td>
+    <td>jsesc@3.0.2</td>
     <td>MIT</td>
     <td>https://github.com/mathiasbynens/jsesc</td>
     </tr>
     <tr>
-    <td>jsesc@1.3.0</td>
+    <td>jsesc@3.1.0</td>
     <td>MIT</td>
     <td>https://github.com/mathiasbynens/jsesc</td>
     </tr>
     <tr>
-    <td>json-loader@0.5.4</td>
+    <td>json-buffer@3.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/webpack/json-loader</td>
+    <td>https://github.com/dominictarr/json-buffer</td>
     </tr>
     <tr>
-    <td>json-schema-traverse@0.3.1</td>
+    <td>json-parse-even-better-errors@2.3.1</td>
     <td>MIT</td>
-    <td>https://github.com/epoberezkin/json-schema-traverse</td>
+    <td>https://github.com/npm/json-parse-even-better-errors</td>
     </tr>
     <tr>
     <td>json-schema-traverse@0.4.1</td>
@@ -2526,79 +4156,99 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/epoberezkin/json-schema-traverse</td>
     </tr>
     <tr>
-    <td>json-schema@0.2.3</td>
-    <td>BSD</td>
+    <td>json-schema-traverse@1.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/epoberezkin/json-schema-traverse</td>
+    </tr>
+    <tr>
+    <td>json-schema@0.4.0</td>
+    <td>(AFL-2.1 OR BSD-3-Clause)</td>
     <td>https://github.com/kriszyp/json-schema</td>
     </tr>
     <tr>
-    <td>json-stable-stringify@1.0.1</td>
+    <td>json-stable-stringify-without-jsonify@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/substack/json-stable-stringify</td>
+    <td>https://github.com/samn/json-stable-stringify</td>
     </tr>
     <tr>
-    <td>json-stringify-safe@5.0.1</td>
-    <td>ISC</td>
-    <td>https://github.com/isaacs/json-stringify-safe</td>
-    </tr>
-    <tr>
-    <td>json3@3.3.2</td>
+    <td>json5@1.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/bestiejs/json3</td>
+    <td>https://github.com/json5/json5</td>
     </tr>
     <tr>
-    <td>json5@0.5.1</td>
+    <td>json5@2.2.3</td>
     <td>MIT</td>
-    <td>https://github.com/aseemk/json5</td>
+    <td>https://github.com/json5/json5</td>
     </tr>
     <tr>
-    <td>jsonfile@2.4.0</td>
+    <td>jsonfile@6.1.0</td>
     <td>MIT</td>
     <td>https://github.com/jprichardson/node-jsonfile</td>
     </tr>
     <tr>
-    <td>jsonify@0.0.0</td>
-    <td>Public Domain</td>
-    <td>https://github.com/substack/jsonify</td>
+    <td>jsonpath@1.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/dchester/jsonpath</td>
     </tr>
     <tr>
-    <td>jsonpointer@4.0.1</td>
+    <td>jsonpointer@5.0.1</td>
     <td>MIT</td>
     <td>https://github.com/janl/node-jsonpointer</td>
     </tr>
     <tr>
-    <td>jsprim@1.4.1</td>
-    <td>MIT</td>
-    <td>https://github.com/joyent/node-jsprim</td>
+    <td>jsqr@1.4.0</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/cozmo/jsQR</td>
     </tr>
     <tr>
-    <td>jsx-ast-utils@1.4.1</td>
+    <td>jsx-ast-utils@3.3.5</td>
     <td>MIT</td>
-    <td>https://github.com/evcohen/jsx-ast-utils</td>
+    <td>https://github.com/jsx-eslint/jsx-ast-utils</td>
     </tr>
     <tr>
-    <td>kind-of@3.2.2</td>
+    <td>keyv@4.5.4</td>
+    <td>MIT</td>
+    <td>https://github.com/jaredwray/keyv</td>
+    </tr>
+    <tr>
+    <td>kind-of@6.0.3</td>
     <td>MIT</td>
     <td>https://github.com/jonschlinkert/kind-of</td>
     </tr>
     <tr>
-    <td>kind-of@6.0.2</td>
+    <td>kleur@3.0.3</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/kind-of</td>
+    <td>https://github.com/lukeed/kleur</td>
     </tr>
     <tr>
-    <td>klaw@1.3.1</td>
+    <td>kleur@4.1.5</td>
     <td>MIT</td>
-    <td>https://github.com/jprichardson/node-klaw</td>
+    <td>https://github.com/lukeed/kleur</td>
     </tr>
     <tr>
-    <td>lazy-cache@1.0.4</td>
+    <td>klona@2.0.6</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/lazy-cache</td>
+    <td>https://github.com/lukeed/klona</td>
     </tr>
     <tr>
-    <td>lcid@1.0.0</td>
+    <td>language-subtag-registry@0.3.23</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/mattcg/language-subtag-registry</td>
+    </tr>
+    <tr>
+    <td>language-tags@1.0.9</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/lcid</td>
+    <td>https://github.com/mattcg/language-tags</td>
+    </tr>
+    <tr>
+    <td>launch-editor@2.9.1</td>
+    <td>MIT</td>
+    <td>https://github.com/yyx990803/launch-editor</td>
+    </tr>
+    <tr>
+    <td>leven@3.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/leven</td>
     </tr>
     <tr>
     <td>levn@0.3.0</td>
@@ -2606,82 +4256,62 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/gkz/levn</td>
     </tr>
     <tr>
-    <td>load-json-file@1.1.0</td>
+    <td>levn@0.4.1</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/load-json-file</td>
+    <td>https://github.com/gkz/levn</td>
     </tr>
     <tr>
-    <td>loader-utils@0.2.17</td>
+    <td>lilconfig@2.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/antonk52/lilconfig</td>
+    </tr>
+    <tr>
+    <td>lilconfig@3.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/antonk52/lilconfig</td>
+    </tr>
+    <tr>
+    <td>lines-and-columns@1.2.4</td>
+    <td>MIT</td>
+    <td>https://github.com/eventualbuddha/lines-and-columns</td>
+    </tr>
+    <tr>
+    <td>loader-runner@4.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack/loader-runner</td>
+    </tr>
+    <tr>
+    <td>loader-utils@2.0.4</td>
     <td>MIT</td>
     <td>https://github.com/webpack/loader-utils</td>
     </tr>
     <tr>
-    <td>lodash._arraycopy@3.0.0</td>
+    <td>loader-utils@3.3.1</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack/loader-utils</td>
+    </tr>
+    <tr>
+    <td>locate-path@3.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/locate-path</td>
+    </tr>
+    <tr>
+    <td>locate-path@5.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/locate-path</td>
+    </tr>
+    <tr>
+    <td>locate-path@6.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/locate-path</td>
+    </tr>
+    <tr>
+    <td>lodash-es@4.17.21</td>
     <td>MIT</td>
     <td>https://github.com/lodash/lodash</td>
     </tr>
     <tr>
-    <td>lodash._arrayeach@3.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash._baseassign@3.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash._baseclone@3.3.0</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash._basecopy@3.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash._basefor@3.0.3</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash._bindcallback@3.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash._getnative@3.9.1</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash.camelcase@4.3.0</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash.clonedeep@3.0.2</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash.cond@4.5.2</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash.isarguments@3.1.0</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash.isarray@3.0.4</td>
-    <td>MIT</td>
-    <td>https://github.com/lodash/lodash</td>
-    </tr>
-    <tr>
-    <td>lodash.keys@3.1.2</td>
+    <td>lodash.debounce@4.0.8</td>
     <td>MIT</td>
     <td>https://github.com/lodash/lodash</td>
     </tr>
@@ -2691,12 +4321,12 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/lodash/lodash</td>
     </tr>
     <tr>
-    <td>lodash.pickby@4.6.0</td>
+    <td>lodash.merge@4.6.2</td>
     <td>MIT</td>
     <td>https://github.com/lodash/lodash</td>
     </tr>
     <tr>
-    <td>lodash.toarray@4.4.0</td>
+    <td>lodash.sortby@4.7.0</td>
     <td>MIT</td>
     <td>https://github.com/lodash/lodash</td>
     </tr>
@@ -2706,44 +4336,64 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/lodash/lodash</td>
     </tr>
     <tr>
-    <td>lodash@4.17.15</td>
+    <td>lodash@4.17.21</td>
     <td>MIT</td>
     <td>https://github.com/lodash/lodash</td>
     </tr>
     <tr>
-    <td>longest@1.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/longest</td>
-    </tr>
-    <tr>
-    <td>loose-envify@1.3.1</td>
+    <td>loose-envify@1.4.0</td>
     <td>MIT</td>
     <td>https://github.com/zertosh/loose-envify</td>
     </tr>
     <tr>
-    <td>lower-case@1.1.4</td>
+    <td>lower-case@2.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/blakeembrey/lower-case</td>
+    <td>https://github.com/blakeembrey/change-case</td>
     </tr>
     <tr>
-    <td>lru-cache@4.1.3</td>
+    <td>lru-cache@10.4.3</td>
     <td>ISC</td>
     <td>https://github.com/isaacs/node-lru-cache</td>
     </tr>
     <tr>
-    <td>makeerror@1.0.11</td>
+    <td>lru-cache@11.5.2</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/node-lru-cache</td>
+    </tr>
+    <tr>
+    <td>lru-cache@5.1.1</td>
+    <td>ISC</td>
+    <td>https://github.com/isaacs/node-lru-cache</td>
+    </tr>
+    <tr>
+    <td>luxon@3.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/moment/luxon</td>
+    </tr>
+    <tr>
+    <td>lz-string@1.5.0</td>
+    <td>MIT</td>
+    <td>https://github.com/pieroxy/lz-string</td>
+    </tr>
+    <tr>
+    <td>magic-string@0.25.9</td>
+    <td>MIT</td>
+    <td>https://github.com/rich-harris/magic-string</td>
+    </tr>
+    <tr>
+    <td>make-dir@3.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/make-dir</td>
+    </tr>
+    <tr>
+    <td>make-dir@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/make-dir</td>
+    </tr>
+    <tr>
+    <td>makeerror@1.0.12</td>
     <td>BSD-3-Clause</td>
     <td>https://github.com/daaku/nodejs-makeerror</td>
-    </tr>
-    <tr>
-    <td>marked-terminal@3.3.0</td>
-    <td>MIT</td>
-    <td>https://github.com/mikaelbr/marked-terminal</td>
-    </tr>
-    <tr>
-    <td>marked@0.6.3</td>
-    <td>MIT</td>
-    <td>https://github.com/markedjs/marked</td>
     </tr>
     <tr>
     <td>material-colors@1.2.6</td>
@@ -2751,14 +4401,19 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/shuhei/material-colors</td>
     </tr>
     <tr>
-    <td>math-expression-evaluator@1.2.17</td>
+    <td>math-intrinsics@1.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/redhivesoftware/math-expression-evaluator.git#readme</td>
+    <td>https://github.com/es-shims/math-intrinsics</td>
     </tr>
     <tr>
-    <td>math-random@1.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/michaelrhodes/math-random</td>
+    <td>mdn-data@2.0.14</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/mdn/data</td>
+    </tr>
+    <tr>
+    <td>mdn-data@2.0.4</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/mdn/data</td>
     </tr>
     <tr>
     <td>media-typer@0.3.0</td>
@@ -2766,29 +4421,24 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jshttp/media-typer</td>
     </tr>
     <tr>
-    <td>memory-fs@0.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/webpack/memory-fs</td>
+    <td>memfs@3.5.3</td>
+    <td>Unlicense</td>
+    <td>https://github.com/streamich/memfs</td>
     </tr>
     <tr>
-    <td>memory-fs@0.3.0</td>
+    <td>merge-descriptors@1.0.3</td>
     <td>MIT</td>
-    <td>https://github.com/webpack/memory-fs</td>
+    <td>https://github.com/sindresorhus/merge-descriptors</td>
     </tr>
     <tr>
-    <td>memory-fs@0.4.1</td>
+    <td>merge-stream@2.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/webpack/memory-fs</td>
+    <td>https://github.com/grncdr/merge-stream</td>
     </tr>
     <tr>
-    <td>merge-descriptors@1.0.1</td>
+    <td>merge2@1.4.1</td>
     <td>MIT</td>
-    <td>https://github.com/component/merge-descriptors</td>
-    </tr>
-    <tr>
-    <td>merge@1.2.1</td>
-    <td>MIT</td>
-    <td>https://github.com/yeikos/js.merge</td>
+    <td>https://github.com/teambition/merge2</td>
     </tr>
     <tr>
     <td>methods@1.1.2</td>
@@ -2796,44 +4446,19 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jshttp/methods</td>
     </tr>
     <tr>
-    <td>micromatch@2.3.11</td>
+    <td>micromatch@4.0.8</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/micromatch</td>
+    <td>https://github.com/micromatch/micromatch</td>
     </tr>
     <tr>
-    <td>mime-db@1.33.0</td>
-    <td>MIT</td>
-    <td>https://github.com/jshttp/mime-db</td>
-    </tr>
-    <tr>
-    <td>mime-db@1.34.0</td>
+    <td>mime-db@1.52.0</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/mime-db</td>
     </tr>
     <tr>
-    <td>mime-db@1.40.0</td>
-    <td>MIT</td>
-    <td>https://github.com/jshttp/mime-db</td>
-    </tr>
-    <tr>
-    <td>mime-types@2.1.18</td>
+    <td>mime-types@2.1.35</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/mime-types</td>
-    </tr>
-    <tr>
-    <td>mime-types@2.1.24</td>
-    <td>MIT</td>
-    <td>https://github.com/jshttp/mime-types</td>
-    </tr>
-    <tr>
-    <td>mime@1.2.11</td>
-    <td>MIT*</td>
-    <td>https://github.com/broofa/node-mime</td>
-    </tr>
-    <tr>
-    <td>mime@1.4.1</td>
-    <td>MIT</td>
-    <td>https://github.com/broofa/node-mime</td>
     </tr>
     <tr>
     <td>mime@1.6.0</td>
@@ -2841,44 +4466,69 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/broofa/node-mime</td>
     </tr>
     <tr>
-    <td>minimatch@3.0.3</td>
+    <td>mimic-fn@2.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/mimic-fn</td>
+    </tr>
+    <tr>
+    <td>min-indent@1.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/thejameskyle/min-indent</td>
+    </tr>
+    <tr>
+    <td>mini-css-extract-plugin@2.9.2</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack-contrib/mini-css-extract-plugin</td>
+    </tr>
+    <tr>
+    <td>minimalistic-assert@1.0.1</td>
+    <td>ISC</td>
+    <td>https://github.com/calvinmetcalf/minimalistic-assert</td>
+    </tr>
+    <tr>
+    <td>minimatch@10.2.6</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/minimatch</td>
+    </tr>
+    <tr>
+    <td>minimatch@3.1.2</td>
     <td>ISC</td>
     <td>https://github.com/isaacs/minimatch</td>
     </tr>
     <tr>
-    <td>minimatch@3.0.4</td>
+    <td>minimatch@5.1.6</td>
     <td>ISC</td>
     <td>https://github.com/isaacs/minimatch</td>
     </tr>
     <tr>
-    <td>minimist@0.0.10</td>
-    <td>MIT</td>
-    <td>https://github.com/substack/minimist</td>
+    <td>minimatch@9.0.5</td>
+    <td>ISC</td>
+    <td>https://github.com/isaacs/minimatch</td>
     </tr>
     <tr>
-    <td>minimist@0.0.8</td>
+    <td>minimist@1.2.8</td>
     <td>MIT</td>
-    <td>https://github.com/substack/minimist</td>
+    <td>https://github.com/minimistjs/minimist</td>
     </tr>
     <tr>
-    <td>minimist@1.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/substack/minimist</td>
+    <td>minipass@7.1.3</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/minipass</td>
     </tr>
     <tr>
-    <td>mkdirp@0.5.1</td>
+    <td>minizlib@3.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/isaacs/minizlib</td>
+    </tr>
+    <tr>
+    <td>mkdirp@0.5.6</td>
     <td>MIT</td>
     <td>https://github.com/substack/node-mkdirp</td>
     </tr>
     <tr>
-    <td>moment@2.22.2</td>
+    <td>moment@2.30.1</td>
     <td>MIT</td>
     <td>https://github.com/moment/moment</td>
-    </tr>
-    <tr>
-    <td>ms@0.7.1</td>
-    <td>MIT*</td>
-    <td>https://github.com/guille/ms.js</td>
     </tr>
     <tr>
     <td>ms@2.0.0</td>
@@ -2886,9 +4536,34 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/zeit/ms</td>
     </tr>
     <tr>
-    <td>mute-stream@0.0.5</td>
-    <td>ISC</td>
-    <td>https://github.com/isaacs/mute-stream</td>
+    <td>ms@2.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/vercel/ms</td>
+    </tr>
+    <tr>
+    <td>multicast-dns@7.2.5</td>
+    <td>MIT</td>
+    <td>https://github.com/mafintosh/multicast-dns</td>
+    </tr>
+    <tr>
+    <td>mz@2.7.0</td>
+    <td>MIT</td>
+    <td>https://github.com/normalize/mz</td>
+    </tr>
+    <tr>
+    <td>nanoid@3.3.8</td>
+    <td>MIT</td>
+    <td>https://github.com/ai/nanoid</td>
+    </tr>
+    <tr>
+    <td>native-run@2.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/ionic-team/native-run</td>
+    </tr>
+    <tr>
+    <td>natural-compare-lite@1.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/litejs/natural-compare-lite</td>
     </tr>
     <tr>
     <td>natural-compare@1.4.0</td>
@@ -2896,34 +4571,29 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/litejs/natural-compare-lite</td>
     </tr>
     <tr>
-    <td>negotiator@0.6.1</td>
+    <td>negotiator@0.6.3</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/negotiator</td>
     </tr>
     <tr>
-    <td>neo-async@2.6.1</td>
+    <td>negotiator@0.6.4</td>
+    <td>MIT</td>
+    <td>https://github.com/jshttp/negotiator</td>
+    </tr>
+    <tr>
+    <td>neo-async@2.6.2</td>
     <td>MIT</td>
     <td>https://github.com/suguru03/neo-async</td>
     </tr>
     <tr>
-    <td>next-tick@1.0.0</td>
+    <td>no-case@3.0.4</td>
     <td>MIT</td>
-    <td>https://github.com/medikoo/next-tick</td>
+    <td>https://github.com/blakeembrey/change-case</td>
     </tr>
     <tr>
-    <td>no-case@2.3.2</td>
-    <td>MIT</td>
-    <td>https://github.com/blakeembrey/no-case</td>
-    </tr>
-    <tr>
-    <td>node-emoji@1.10.0</td>
-    <td>MIT</td>
-    <td>https://github.com/omnidan/node-emoji</td>
-    </tr>
-    <tr>
-    <td>node-fetch@1.7.3</td>
-    <td>MIT</td>
-    <td>https://github.com/bitinn/node-fetch</td>
+    <td>node-forge@1.3.1</td>
+    <td>(BSD-3-Clause OR GPL-2.0)</td>
+    <td>https://github.com/digitalbazaar/forge</td>
     </tr>
     <tr>
     <td>node-int64@0.4.0</td>
@@ -2931,22 +4601,12 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/broofa/node-int64</td>
     </tr>
     <tr>
-    <td>node-libs-browser@0.7.0</td>
+    <td>node-releases@2.0.19</td>
     <td>MIT</td>
-    <td>https://github.com/webpack/node-libs-browser</td>
+    <td>https://github.com/chicoxyzzy/node-releases</td>
     </tr>
     <tr>
-    <td>node-notifier@4.6.1</td>
-    <td>MIT</td>
-    <td>https://github.com/mikaelbr/node-notifier</td>
-    </tr>
-    <tr>
-    <td>normalize-package-data@2.4.0</td>
-    <td>BSD-2-Clause</td>
-    <td>https://github.com/npm/normalize-package-data</td>
-    </tr>
-    <tr>
-    <td>normalize-path@2.1.1</td>
+    <td>normalize-path@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/jonschlinkert/normalize-path</td>
     </tr>
@@ -2956,24 +4616,24 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jamestalmage/normalize-range</td>
     </tr>
     <tr>
-    <td>normalize-url@1.9.1</td>
+    <td>normalize-url@6.1.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/normalize-url</td>
     </tr>
     <tr>
-    <td>nth-check@1.0.1</td>
-    <td>BSD*</td>
+    <td>npm-run-path@4.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/npm-run-path</td>
+    </tr>
+    <tr>
+    <td>nth-check@1.0.2</td>
+    <td>BSD-2-Clause</td>
     <td>https://github.com/fb55/nth-check</td>
     </tr>
     <tr>
-    <td>num2fraction@1.2.2</td>
-    <td>MIT</td>
-    <td>https://github.com/yisibl/num2fraction</td>
-    </tr>
-    <tr>
-    <td>number-is-nan@1.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/number-is-nan</td>
+    <td>nth-check@2.1.1</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/fb55/nth-check</td>
     </tr>
     <tr>
     <td>numeral@2.0.6</td>
@@ -2981,19 +4641,9 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/adamwdraper/Numeral-js</td>
     </tr>
     <tr>
-    <td>nwmatcher@1.4.4</td>
+    <td>nwsapi@2.2.16</td>
     <td>MIT</td>
-    <td>https://github.com/dperini/nwmatcher</td>
-    </tr>
-    <tr>
-    <td>oauth-sign@0.8.2</td>
-    <td>Apache-2.0</td>
-    <td>https://github.com/mikeal/oauth-sign</td>
-    </tr>
-    <tr>
-    <td>oauth-sign@0.9.0</td>
-    <td>Apache-2.0</td>
-    <td>https://github.com/mikeal/oauth-sign</td>
+    <td>https://github.com/dperini/nwsapi</td>
     </tr>
     <tr>
     <td>object-assign@4.1.1</td>
@@ -3001,22 +4651,62 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/sindresorhus/object-assign</td>
     </tr>
     <tr>
-    <td>object-component@0.0.3</td>
-    <td>MIT*</td>
-    <td> </td>
-    </tr>
-    <tr>
-    <td>object.omit@2.0.1</td>
+    <td>object-hash@3.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/object.omit</td>
+    <td>https://github.com/puleos/object-hash</td>
     </tr>
     <tr>
-    <td>on-finished@2.3.0</td>
+    <td>object-inspect@1.13.3</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/object-inspect</td>
+    </tr>
+    <tr>
+    <td>object-keys@1.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/object-keys</td>
+    </tr>
+    <tr>
+    <td>object.assign@4.1.5</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/object.assign</td>
+    </tr>
+    <tr>
+    <td>object.entries@1.1.8</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/Object.entries</td>
+    </tr>
+    <tr>
+    <td>object.fromentries@2.0.8</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/Object.fromEntries</td>
+    </tr>
+    <tr>
+    <td>object.getownpropertydescriptors@2.1.8</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/object.getownpropertydescriptors</td>
+    </tr>
+    <tr>
+    <td>object.groupby@1.0.3</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/Object.groupBy</td>
+    </tr>
+    <tr>
+    <td>object.values@1.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/Object.values</td>
+    </tr>
+    <tr>
+    <td>obuf@1.1.2</td>
+    <td>MIT</td>
+    <td>https://github.com/indutny/offset-buffer</td>
+    </tr>
+    <tr>
+    <td>on-finished@2.4.1</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/on-finished</td>
     </tr>
     <tr>
-    <td>on-headers@1.0.1</td>
+    <td>on-headers@1.0.2</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/on-headers</td>
     </tr>
@@ -3026,107 +4716,117 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/isaacs/once</td>
     </tr>
     <tr>
-    <td>onetime@1.1.0</td>
+    <td>onetime@5.1.2</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/onetime</td>
     </tr>
     <tr>
-    <td>onsenui@2.10.2</td>
+    <td>onsenui@2.12.8</td>
     <td>Apache-2.0</td>
     <td>https://github.com/OnsenUI/OnsenUI</td>
     </tr>
     <tr>
-    <td>open@0.0.5</td>
+    <td>open@8.4.2</td>
     <td>MIT</td>
-    <td>https://github.com/pwnall/node-open</td>
+    <td>https://github.com/sindresorhus/open</td>
     </tr>
     <tr>
-    <td>opn@4.0.2</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/opn</td>
-    </tr>
-    <tr>
-    <td>optimist@0.6.1</td>
-    <td>MIT*</td>
-    <td>https://github.com/substack/node-optimist</td>
-    </tr>
-    <tr>
-    <td>optionator@0.8.2</td>
+    <td>optionator@0.8.3</td>
     <td>MIT</td>
     <td>https://github.com/gkz/optionator</td>
     </tr>
     <tr>
-    <td>original@1.0.1</td>
+    <td>optionator@0.9.4</td>
     <td>MIT</td>
-    <td>https://github.com/unshiftio/original</td>
+    <td>https://github.com/gkz/optionator</td>
     </tr>
     <tr>
-    <td>os-browserify@0.2.1</td>
+    <td>p-limit@2.3.0</td>
     <td>MIT</td>
-    <td>https://github.com/CoderPuppy/os-browserify</td>
+    <td>https://github.com/sindresorhus/p-limit</td>
     </tr>
     <tr>
-    <td>os-homedir@1.0.2</td>
+    <td>p-limit@3.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/os-homedir</td>
+    <td>https://github.com/sindresorhus/p-limit</td>
     </tr>
     <tr>
-    <td>os-locale@1.4.0</td>
+    <td>p-locate@3.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/os-locale</td>
+    <td>https://github.com/sindresorhus/p-locate</td>
     </tr>
     <tr>
-    <td>os-tmpdir@1.0.2</td>
+    <td>p-locate@4.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/os-tmpdir</td>
+    <td>https://github.com/sindresorhus/p-locate</td>
     </tr>
     <tr>
-    <td>pako@0.2.9</td>
+    <td>p-locate@5.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/nodeca/pako</td>
+    <td>https://github.com/sindresorhus/p-locate</td>
     </tr>
     <tr>
-    <td>param-case@2.1.1</td>
+    <td>p-retry@4.6.2</td>
     <td>MIT</td>
-    <td>https://github.com/blakeembrey/param-case</td>
+    <td>https://github.com/sindresorhus/p-retry</td>
     </tr>
     <tr>
-    <td>parse-glob@3.0.4</td>
+    <td>p-try@2.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/parse-glob</td>
+    <td>https://github.com/sindresorhus/p-try</td>
     </tr>
     <tr>
-    <td>parse-json@2.2.0</td>
+    <td>package-json-from-dist@1.0.1</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/package-json-from-dist</td>
+    </tr>
+    <tr>
+    <td>param-case@3.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/blakeembrey/change-case</td>
+    </tr>
+    <tr>
+    <td>parent-module@1.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/parent-module</td>
+    </tr>
+    <tr>
+    <td>parse-json@5.2.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/parse-json</td>
     </tr>
     <tr>
-    <td>parse5@1.5.1</td>
+    <td>parse5@6.0.1</td>
     <td>MIT</td>
     <td>https://github.com/inikulin/parse5</td>
     </tr>
     <tr>
-    <td>parseqs@0.0.5</td>
+    <td>parseqs@0.0.6</td>
     <td>MIT</td>
     <td>https://github.com/get/querystring</td>
     </tr>
     <tr>
-    <td>parseuri@0.0.5</td>
+    <td>parseuri@0.0.6</td>
     <td>MIT</td>
     <td>https://github.com/get/parseuri</td>
     </tr>
     <tr>
-    <td>parseurl@1.3.2</td>
+    <td>parseurl@1.3.3</td>
     <td>MIT</td>
     <td>https://github.com/pillarjs/parseurl</td>
     </tr>
     <tr>
-    <td>path-browserify@0.0.0</td>
+    <td>pascal-case@3.1.2</td>
     <td>MIT</td>
-    <td>https://github.com/substack/path-browserify</td>
+    <td>https://github.com/blakeembrey/change-case</td>
     </tr>
     <tr>
-    <td>path-exists@2.1.0</td>
+    <td>path-exists@3.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/path-exists</td>
+    </tr>
+    <tr>
+    <td>path-exists@4.0.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/path-exists</td>
     </tr>
@@ -3136,34 +4836,39 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/sindresorhus/path-is-absolute</td>
     </tr>
     <tr>
-    <td>path-is-inside@1.0.2</td>
+    <td>path-key@3.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/domenic/path-is-inside</td>
+    <td>https://github.com/sindresorhus/path-key</td>
     </tr>
     <tr>
-    <td>path-parse@1.0.5</td>
-    <td>MIT</td>
-    <td>https://github.com/jbgutierrez/path-parse</td>
-    </tr>
-    <tr>
-    <td>path-parse@1.0.6</td>
+    <td>path-parse@1.0.7</td>
     <td>MIT</td>
     <td>https://github.com/jbgutierrez/path-parse</td>
     </tr>
     <tr>
-    <td>path-to-regexp@0.1.7</td>
-    <td>MIT</td>
-    <td>https://github.com/component/path-to-regexp</td>
+    <td>path-scurry@1.11.1</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/path-scurry</td>
     </tr>
     <tr>
-    <td>path-type@1.1.0</td>
+    <td>path-scurry@2.0.2</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/path-scurry</td>
+    </tr>
+    <tr>
+    <td>path-to-regexp@0.1.12</td>
+    <td>MIT</td>
+    <td>https://github.com/pillarjs/path-to-regexp</td>
+    </tr>
+    <tr>
+    <td>path-type@4.0.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/path-type</td>
     </tr>
     <tr>
-    <td>pbkdf2-compat@2.0.1</td>
+    <td>pend@1.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/dcousens/pbkdf2-compat</td>
+    <td>https://github.com/andrewrk/node-pend</td>
     </tr>
     <tr>
     <td>performance-now@2.1.0</td>
@@ -3171,224 +4876,419 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/braveg1rl/performance-now</td>
     </tr>
     <tr>
+    <td>picocolors@0.2.1</td>
+    <td>ISC</td>
+    <td>https://github.com/alexeyraspopov/picocolors</td>
+    </tr>
+    <tr>
+    <td>picocolors@1.1.1</td>
+    <td>ISC</td>
+    <td>https://github.com/alexeyraspopov/picocolors</td>
+    </tr>
+    <tr>
+    <td>picomatch@2.3.1</td>
+    <td>MIT</td>
+    <td>https://github.com/micromatch/picomatch</td>
+    </tr>
+    <tr>
     <td>pify@2.3.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/pify</td>
     </tr>
     <tr>
-    <td>pinkie-promise@2.0.1</td>
+    <td>pirates@4.0.6</td>
     <td>MIT</td>
-    <td>https://github.com/floatdrop/pinkie-promise</td>
+    <td>https://github.com/danez/pirates</td>
     </tr>
     <tr>
-    <td>pinkie@2.0.4</td>
-    <td>MIT</td>
-    <td>https://github.com/floatdrop/pinkie</td>
-    </tr>
-    <tr>
-    <td>pkg-dir@1.0.0</td>
+    <td>pkg-dir@4.2.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/pkg-dir</td>
     </tr>
     <tr>
-    <td>pkg-up@1.0.0</td>
+    <td>pkg-up@3.1.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/pkg-up</td>
     </tr>
     <tr>
-    <td>pluralize@1.2.1</td>
+    <td>plist@3.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/blakeembrey/pluralize</td>
+    <td>https://github.com/TooTallNate/node-plist</td>
     </tr>
     <tr>
-    <td>postcss-calc@5.3.1</td>
+    <td>possible-typed-array-names@1.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/possible-typed-array-names</td>
+    </tr>
+    <tr>
+    <td>postcss-attribute-case-insensitive@5.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-browser-comments@4.0.0</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-browser-comments</td>
+    </tr>
+    <tr>
+    <td>postcss-calc@8.2.4</td>
     <td>MIT</td>
     <td>https://github.com/postcss/postcss-calc</td>
     </tr>
     <tr>
-    <td>postcss-colormin@2.2.2</td>
+    <td>postcss-clamp@4.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-colormin</td>
+    <td>https://github.com/polemius/postcss-clamp</td>
     </tr>
     <tr>
-    <td>postcss-convert-values@2.6.1</td>
-    <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-convert-values</td>
+    <td>postcss-color-functional-notation@4.2.4</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-discard-comments@2.0.4</td>
+    <td>postcss-color-hex-alpha@8.0.4</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-discard-comments</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-discard-duplicates@2.1.0</td>
-    <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-discard-duplicates</td>
+    <td>postcss-color-rebeccapurple@7.1.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-discard-empty@2.1.0</td>
+    <td>postcss-colormin@5.3.1</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-discard-empty</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-discard-overridden@0.1.1</td>
+    <td>postcss-convert-values@5.1.3</td>
     <td>MIT</td>
-    <td>https://github.com/Justineo/postcss-discard-overridden</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-discard-unused@2.2.3</td>
+    <td>postcss-custom-media@8.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-discard-unused</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-filter-plugins@2.0.3</td>
+    <td>postcss-custom-properties@12.1.11</td>
     <td>MIT</td>
-    <td>https://github.com/postcss/postcss-filter-plugins</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-load-config@1.2.0</td>
+    <td>postcss-custom-selectors@6.0.3</td>
     <td>MIT</td>
-    <td>https://github.com/michael-ciniawsky/postcss-load-config</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-load-options@1.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/michael-ciniawsky/postcss-load-options</td>
+    <td>postcss-dir-pseudo-class@6.0.5</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-load-plugins@2.3.0</td>
+    <td>postcss-discard-comments@5.1.2</td>
     <td>MIT</td>
-    <td>https://github.com/michael-ciniawsky/postcss-load-plugins</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-loader@1.2.2</td>
+    <td>postcss-discard-duplicates@5.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/postcss/postcss-loader</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-merge-idents@2.1.7</td>
+    <td>postcss-discard-empty@5.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-merge-idents</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-merge-longhand@2.0.2</td>
+    <td>postcss-discard-overridden@5.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-merge-longhand</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-merge-rules@2.1.2</td>
-    <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-merge-rules</td>
+    <td>postcss-double-position-gradients@3.1.2</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-message-helpers@2.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/MoOx/postcss-message-helpers</td>
+    <td>postcss-env-function@4.0.6</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-minify-font-values@1.0.5</td>
+    <td>postcss-flexbugs-fixes@5.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/TrySound/postcss-minify-font-values</td>
+    <td>https://github.com/luisrudge/postcss-flexbugs-fixes</td>
     </tr>
     <tr>
-    <td>postcss-minify-gradients@1.0.5</td>
-    <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-minify-gradients</td>
+    <td>postcss-focus-visible@6.0.4</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-minify-params@1.2.2</td>
-    <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-minify-params</td>
+    <td>postcss-focus-within@5.0.4</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-minify-selectors@2.1.1</td>
+    <td>postcss-font-variant@5.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-minify-selectors</td>
+    <td>https://github.com/postcss/postcss-font-variant</td>
     </tr>
     <tr>
-    <td>postcss-modules-extract-imports@1.1.0</td>
+    <td>postcss-gap-properties@3.0.5</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-image-set-function@4.0.7</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-import@15.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/postcss/postcss-import</td>
+    </tr>
+    <tr>
+    <td>postcss-initial@4.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/maximkoretskiy/postcss-initial</td>
+    </tr>
+    <tr>
+    <td>postcss-js@4.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/postcss/postcss-js</td>
+    </tr>
+    <tr>
+    <td>postcss-lab-function@4.2.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-load-config@4.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/postcss/postcss-load-config</td>
+    </tr>
+    <tr>
+    <td>postcss-loader@6.2.1</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack-contrib/postcss-loader</td>
+    </tr>
+    <tr>
+    <td>postcss-logical@5.0.4</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-media-minmax@5.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/postcss/postcss-media-minmax</td>
+    </tr>
+    <tr>
+    <td>postcss-merge-longhand@5.1.7</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-merge-rules@5.1.4</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-minify-font-values@5.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-minify-gradients@5.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-minify-params@5.1.4</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-minify-selectors@5.2.1</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-modules-extract-imports@3.1.0</td>
     <td>ISC</td>
     <td>https://github.com/css-modules/postcss-modules-extract-imports</td>
     </tr>
     <tr>
-    <td>postcss-modules-local-by-default@1.2.0</td>
+    <td>postcss-modules-local-by-default@4.2.0</td>
     <td>MIT</td>
     <td>https://github.com/css-modules/postcss-modules-local-by-default</td>
     </tr>
     <tr>
-    <td>postcss-modules-scope@1.1.0</td>
+    <td>postcss-modules-scope@3.2.1</td>
     <td>ISC</td>
     <td>https://github.com/css-modules/postcss-modules-scope</td>
     </tr>
     <tr>
-    <td>postcss-modules-values@1.3.0</td>
+    <td>postcss-modules-values@4.0.0</td>
     <td>ISC</td>
     <td>https://github.com/css-modules/postcss-modules-values</td>
     </tr>
     <tr>
-    <td>postcss-normalize-charset@1.1.1</td>
+    <td>postcss-nested@6.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-charset</td>
+    <td>https://github.com/postcss/postcss-nested</td>
     </tr>
     <tr>
-    <td>postcss-normalize-url@3.0.8</td>
-    <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-normalize-url</td>
+    <td>postcss-nesting@10.2.0</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
     </tr>
     <tr>
-    <td>postcss-ordered-values@2.2.3</td>
+    <td>postcss-normalize-charset@5.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-ordered-values</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-reduce-idents@2.4.0</td>
+    <td>postcss-normalize-display-values@5.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-reduce-idents</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-reduce-initial@1.0.1</td>
+    <td>postcss-normalize-positions@5.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-reduce-initial</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-reduce-transforms@1.0.4</td>
+    <td>postcss-normalize-repeat-style@5.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-reduce-transforms</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-selector-parser@2.2.3</td>
+    <td>postcss-normalize-string@5.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-normalize-timing-functions@5.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-normalize-unicode@5.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-normalize-url@5.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-normalize-whitespace@5.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-normalize@10.0.1</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-normalize</td>
+    </tr>
+    <tr>
+    <td>postcss-opacity-percentage@1.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/mrcgrtz/postcss-opacity-percentage</td>
+    </tr>
+    <tr>
+    <td>postcss-ordered-values@5.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-overflow-shorthand@3.0.4</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-page-break@3.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/shrpne/postcss-page-break</td>
+    </tr>
+    <tr>
+    <td>postcss-place@7.0.5</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-preset-env@7.8.3</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-pseudo-class-any-link@7.1.6</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-reduce-initial@5.1.2</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-reduce-transforms@5.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-replace-overflow-wrap@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/MattDiMu/postcss-replace-overflow-wrap</td>
+    </tr>
+    <tr>
+    <td>postcss-selector-not@6.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/csstools/postcss-plugins</td>
+    </tr>
+    <tr>
+    <td>postcss-selector-parser@6.1.2</td>
     <td>MIT</td>
     <td>https://github.com/postcss/postcss-selector-parser</td>
     </tr>
     <tr>
-    <td>postcss-svgo@2.1.6</td>
+    <td>postcss-selector-parser@7.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-svgo</td>
+    <td>https://github.com/postcss/postcss-selector-parser</td>
     </tr>
     <tr>
-    <td>postcss-unique-selectors@2.0.2</td>
+    <td>postcss-svgo@5.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-unique-selectors</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>postcss-value-parser@3.3.0</td>
+    <td>postcss-unique-selectors@5.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/cssnano/cssnano</td>
+    </tr>
+    <tr>
+    <td>postcss-value-parser@4.2.0</td>
     <td>MIT</td>
     <td>https://github.com/TrySound/postcss-value-parser</td>
     </tr>
     <tr>
-    <td>postcss-zindex@2.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/ben-eb/postcss-zindex</td>
-    </tr>
-    <tr>
-    <td>postcss@5.2.18</td>
+    <td>postcss@7.0.39</td>
     <td>MIT</td>
     <td>https://github.com/postcss/postcss</td>
     </tr>
     <tr>
-    <td>postcss@6.0.23</td>
+    <td>postcss@8.4.49</td>
     <td>MIT</td>
     <td>https://github.com/postcss/postcss</td>
+    </tr>
+    <tr>
+    <td>preact@10.25.4</td>
+    <td>MIT</td>
+    <td>https://github.com/preactjs/preact</td>
     </tr>
     <tr>
     <td>prelude-ls@1.1.2</td>
@@ -3396,94 +5296,64 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/gkz/prelude-ls</td>
     </tr>
     <tr>
-    <td>prepend-http@1.0.4</td>
+    <td>prelude-ls@1.2.1</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/prepend-http</td>
+    <td>https://github.com/gkz/prelude-ls</td>
     </tr>
     <tr>
-    <td>preserve@0.2.0</td>
+    <td>pretty-bytes@5.6.0</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/preserve</td>
+    <td>https://github.com/sindresorhus/pretty-bytes</td>
     </tr>
     <tr>
-    <td>pretty-error@2.1.1</td>
+    <td>pretty-error@4.0.0</td>
     <td>MIT</td>
     <td>https://github.com/AriaMinaei/pretty-error</td>
     </tr>
     <tr>
-    <td>pretty-format@18.1.0</td>
-    <td>BSD-3-Clause</td>
+    <td>pretty-format@27.5.1</td>
+    <td>MIT</td>
     <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>private@0.1.8</td>
+    <td>pretty-format@28.1.3</td>
     <td>MIT</td>
-    <td>https://github.com/benjamn/private</td>
+    <td>https://github.com/facebook/jest</td>
     </tr>
     <tr>
-    <td>process-nextick-args@2.0.0</td>
+    <td>process-nextick-args@2.0.1</td>
     <td>MIT</td>
     <td>https://github.com/calvinmetcalf/process-nextick-args</td>
     </tr>
     <tr>
-    <td>process@0.11.10</td>
-    <td>MIT</td>
-    <td>https://github.com/shtylman/node-process</td>
-    </tr>
-    <tr>
-    <td>progress@1.1.8</td>
-    <td>MIT*</td>
-    <td>https://github.com/visionmedia/node-progress</td>
-    </tr>
-    <tr>
-    <td>promise@7.1.1</td>
+    <td>promise@8.3.0</td>
     <td>MIT</td>
     <td>https://github.com/then/promise</td>
     </tr>
     <tr>
-    <td>promise@7.3.1</td>
+    <td>prompts@2.4.2</td>
     <td>MIT</td>
-    <td>https://github.com/then/promise</td>
+    <td>https://github.com/terkelg/prompts</td>
     </tr>
     <tr>
-    <td>prop-types@15.6.2</td>
+    <td>prop-types@15.8.1</td>
     <td>MIT</td>
     <td>https://github.com/facebook/prop-types</td>
     </tr>
     <tr>
-    <td>proxy-addr@2.0.3</td>
+    <td>proxy-addr@2.0.7</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/proxy-addr</td>
     </tr>
     <tr>
-    <td>prr@1.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/rvagg/prr</td>
-    </tr>
-    <tr>
-    <td>pseudomap@1.0.2</td>
-    <td>ISC</td>
-    <td>https://github.com/isaacs/pseudomap</td>
-    </tr>
-    <tr>
-    <td>psl@1.3.1</td>
+    <td>psl@1.15.0</td>
     <td>MIT</td>
     <td>https://github.com/lupomontero/psl</td>
     </tr>
     <tr>
-    <td>punycode@1.3.2</td>
+    <td>punycode@2.3.1</td>
     <td>MIT</td>
-    <td>https://github.com/bestiejs/punycode.js</td>
-    </tr>
-    <tr>
-    <td>punycode@1.4.1</td>
-    <td>MIT</td>
-    <td>https://github.com/bestiejs/punycode.js</td>
-    </tr>
-    <tr>
-    <td>punycode@2.1.1</td>
-    <td>MIT</td>
-    <td>https://github.com/bestiejs/punycode.js</td>
+    <td>https://github.com/mathiasbynens/punycode.js</td>
     </tr>
     <tr>
     <td>q@1.5.1</td>
@@ -3491,97 +5361,122 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/kriskowal/q</td>
     </tr>
     <tr>
-    <td>qs@6.5.1</td>
+    <td>qs@6.13.0</td>
     <td>BSD-3-Clause</td>
     <td>https://github.com/ljharb/qs</td>
     </tr>
     <tr>
-    <td>qs@6.5.2</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/ljharb/qs</td>
-    </tr>
-    <tr>
-    <td>query-string@4.3.4</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/query-string</td>
-    </tr>
-    <tr>
-    <td>querystring-es3@0.2.1</td>
-    <td>MIT</td>
-    <td>https://github.com/mike-spainhower/querystring</td>
-    </tr>
-    <tr>
-    <td>querystring@0.2.0</td>
+    <td>querystring@0.2.1</td>
     <td>MIT</td>
     <td>https://github.com/Gozala/querystring</td>
     </tr>
     <tr>
-    <td>querystringify@2.1.1</td>
+    <td>querystringify@2.2.0</td>
     <td>MIT</td>
     <td>https://github.com/unshiftio/querystringify</td>
     </tr>
     <tr>
-    <td>randomatic@3.0.0</td>
+    <td>queue-microtask@1.2.3</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/randomatic</td>
+    <td>https://github.com/feross/queue-microtask</td>
     </tr>
     <tr>
-    <td>range-parser@1.2.0</td>
+    <td>raf@3.4.1</td>
+    <td>MIT</td>
+    <td>https://github.com/chrisdickinson/raf</td>
+    </tr>
+    <tr>
+    <td>randombytes@2.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/crypto-browserify/randombytes</td>
+    </tr>
+    <tr>
+    <td>range-parser@1.2.1</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/range-parser</td>
     </tr>
     <tr>
-    <td>raw-body@2.3.2</td>
+    <td>raw-body@2.5.2</td>
     <td>MIT</td>
     <td>https://github.com/stream-utils/raw-body</td>
     </tr>
     <tr>
-    <td>react-chartjs-2@2.7.2</td>
-    <td>MIT*</td>
-    <td>https://github.com/jerairrest/react-chartjs-2</td>
+    <td>react-app-polyfill@3.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/create-react-app</td>
     </tr>
     <tr>
-    <td>react-color@2.14.1</td>
+    <td>react-chartjs-2@5.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/reactchartjs/react-chartjs-2</td>
+    </tr>
+    <tr>
+    <td>react-circular-input@0.2.4</td>
+    <td>MIT</td>
+    <td>https://github.com/petecorreia/react-circular-input</td>
+    </tr>
+    <tr>
+    <td>react-color@2.19.3</td>
     <td>MIT</td>
     <td>https://github.com/casesandberg/react-color</td>
     </tr>
     <tr>
-    <td>react-container-dimensions@1.3.4</td>
+    <td>react-dev-utils@12.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/okonet/react-container-dimensions</td>
+    <td>https://github.com/facebook/create-react-app</td>
     </tr>
     <tr>
-    <td>react-dev-utils@0.5.2</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/facebookincubator/create-react-app</td>
-    </tr>
-    <tr>
-    <td>react-dom@16.4.1</td>
+    <td>react-dom@18.3.1</td>
     <td>MIT</td>
     <td>https://github.com/facebook/react</td>
     </tr>
     <tr>
-    <td>react-input-range@1.3.0</td>
+    <td>react-error-boundary@5.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/davidchin/react-input-range</td>
+    <td>https://github.com/bvaughn/react-error-boundary</td>
     </tr>
     <tr>
-    <td>react-onsenui@1.11.1</td>
+    <td>react-error-overlay@6.0.11</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/create-react-app</td>
+    </tr>
+    <tr>
+    <td>react-is@16.13.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/react</td>
+    </tr>
+    <tr>
+    <td>react-is@17.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/react</td>
+    </tr>
+    <tr>
+    <td>react-is@18.3.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/react</td>
+    </tr>
+    <tr>
+    <td>react-onsenui@1.13.3</td>
     <td>Apache-2.0</td>
     <td>https://github.com/OnsenUI/OnsenUI</td>
     </tr>
     <tr>
-    <td>react-scripts@0.9.5</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/facebookincubator/create-react-app</td>
-    </tr>
-    <tr>
-    <td>react-table@6.10.2</td>
+    <td>react-range@1.10.0</td>
     <td>MIT</td>
-    <td>https://github.com/react-tools/react-table</td>
+    <td>https://github.com/tajo/react-range</td>
     </tr>
     <tr>
-    <td>react@16.4.1</td>
+    <td>react-refresh@0.11.0</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/react</td>
+    </tr>
+    <tr>
+    <td>react-scripts@5.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/create-react-app</td>
+    </tr>
+    <tr>
+    <td>react@18.3.1</td>
     <td>MIT</td>
     <td>https://github.com/facebook/react</td>
     </tr>
@@ -3591,103 +5486,88 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/casesandberg/reactcss</td>
     </tr>
     <tr>
-    <td>read-pkg-up@1.0.1</td>
+    <td>read-cache@1.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/read-pkg-up</td>
+    <td>https://github.com/TrySound/read-cache</td>
     </tr>
     <tr>
-    <td>read-pkg@1.1.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/read-pkg</td>
-    </tr>
-    <tr>
-    <td>readable-stream@1.0.34</td>
-    <td>MIT</td>
-    <td>https://github.com/isaacs/readable-stream</td>
-    </tr>
-    <tr>
-    <td>readable-stream@2.3.6</td>
+    <td>readable-stream@2.3.8</td>
     <td>MIT</td>
     <td>https://github.com/nodejs/readable-stream</td>
     </tr>
     <tr>
-    <td>readdirp@2.1.0</td>
+    <td>readable-stream@3.6.2</td>
     <td>MIT</td>
-    <td>https://github.com/thlorenz/readdirp</td>
+    <td>https://github.com/nodejs/readable-stream</td>
     </tr>
     <tr>
-    <td>readline2@1.0.1</td>
+    <td>readdirp@3.6.0</td>
     <td>MIT</td>
-    <td>https://github.com/SBoudrias/readline2</td>
+    <td>https://github.com/paulmillr/readdirp</td>
     </tr>
     <tr>
-    <td>rechoir@0.6.2</td>
-    <td>MIT</td>
-    <td>https://github.com/tkellen/node-rechoir</td>
-    </tr>
-    <tr>
-    <td>recursive-readdir@2.1.1</td>
+    <td>recursive-readdir@2.2.3</td>
     <td>MIT</td>
     <td>https://github.com/jergason/recursive-readdir</td>
     </tr>
     <tr>
-    <td>redeyed@2.1.1</td>
+    <td>redent@3.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/thlorenz/redeyed</td>
+    <td>https://github.com/sindresorhus/redent</td>
     </tr>
     <tr>
-    <td>reduce-css-calc@1.3.0</td>
+    <td>reflect.getprototypeof@1.0.8</td>
     <td>MIT</td>
-    <td>https://github.com/MoOx/reduce-css-calc</td>
+    <td>https://github.com/es-shims/Reflect.getPrototypeOf</td>
     </tr>
     <tr>
-    <td>reduce-function-call@1.0.2</td>
+    <td>regenerate-unicode-properties@10.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/MoOx/reduce-function-call</td>
+    <td>https://github.com/mathiasbynens/regenerate-unicode-properties</td>
     </tr>
     <tr>
-    <td>regenerate@1.4.0</td>
+    <td>regenerate@1.4.2</td>
     <td>MIT</td>
     <td>https://github.com/mathiasbynens/regenerate</td>
     </tr>
     <tr>
-    <td>regenerator-runtime@0.10.5</td>
+    <td>regenerator-runtime@0.13.11</td>
     <td>MIT</td>
-    <td>https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime</td>
+    <td>https://github.com/facebook/regenerator/tree/main/packages/runtime</td>
     </tr>
     <tr>
-    <td>regenerator-runtime@0.11.1</td>
+    <td>regenerator-runtime@0.14.1</td>
     <td>MIT</td>
-    <td>https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime</td>
+    <td>https://github.com/facebook/regenerator/tree/main/packages/runtime</td>
     </tr>
     <tr>
-    <td>regenerator-transform@0.9.8</td>
-    <td>BSD*</td>
-    <td>https://github.com/facebook/regenerator/tree/master/packages/regenerator-transform</td>
-    </tr>
-    <tr>
-    <td>regex-cache@0.4.4</td>
+    <td>regenerator-transform@0.15.2</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/regex-cache</td>
+    <td>https://github.com/facebook/regenerator/tree/main/packages/transform</td>
     </tr>
     <tr>
-    <td>regexpu-core@1.0.0</td>
+    <td>regex-parser@2.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/IonicaBizau/regex-parser.js</td>
+    </tr>
+    <tr>
+    <td>regexp.prototype.flags@1.5.3</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/RegExp.prototype.flags</td>
+    </tr>
+    <tr>
+    <td>regexpu-core@6.2.0</td>
     <td>MIT</td>
     <td>https://github.com/mathiasbynens/regexpu-core</td>
     </tr>
     <tr>
-    <td>regexpu-core@2.0.0</td>
+    <td>regjsgen@0.8.0</td>
     <td>MIT</td>
-    <td>https://github.com/mathiasbynens/regexpu-core</td>
+    <td>https://github.com/bnjmnt4n/regjsgen</td>
     </tr>
     <tr>
-    <td>regjsgen@0.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/d10/regjsgen</td>
-    </tr>
-    <tr>
-    <td>regjsparser@0.1.5</td>
-    <td>BSD*</td>
+    <td>regjsparser@0.12.0</td>
+    <td>BSD-2-Clause</td>
     <td>https://github.com/jviereck/regjsparser</td>
     </tr>
     <tr>
@@ -3696,44 +5576,9 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/stevenvachon/relateurl</td>
     </tr>
     <tr>
-    <td>remove-trailing-separator@1.1.0</td>
-    <td>ISC</td>
-    <td>https://github.com/darsain/remove-trailing-separator</td>
-    </tr>
-    <tr>
-    <td>renderkid@2.0.1</td>
+    <td>renderkid@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/AriaMinaei/RenderKid</td>
-    </tr>
-    <tr>
-    <td>repeat-element@1.1.2</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/repeat-element</td>
-    </tr>
-    <tr>
-    <td>repeat-string@1.6.1</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/repeat-string</td>
-    </tr>
-    <tr>
-    <td>repeating@2.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/repeating</td>
-    </tr>
-    <tr>
-    <td>request-promise@3.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/request/request-promise</td>
-    </tr>
-    <tr>
-    <td>request@2.87.0</td>
-    <td>Apache-2.0</td>
-    <td>https://github.com/request/request</td>
-    </tr>
-    <tr>
-    <td>request@2.88.0</td>
-    <td>Apache-2.0</td>
-    <td>https://github.com/request/request</td>
     </tr>
     <tr>
     <td>require-directory@2.1.1</td>
@@ -3741,19 +5586,9 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/troygoode/node-require-directory</td>
     </tr>
     <tr>
-    <td>require-from-string@1.2.1</td>
+    <td>require-from-string@2.0.2</td>
     <td>MIT</td>
     <td>https://github.com/floatdrop/require-from-string</td>
-    </tr>
-    <tr>
-    <td>require-main-filename@1.0.1</td>
-    <td>ISC</td>
-    <td>https://github.com/yargs/require-main-filename</td>
-    </tr>
-    <tr>
-    <td>require-uncached@1.0.3</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/require-uncached</td>
     </tr>
     <tr>
     <td>requires-port@1.0.0</td>
@@ -3761,59 +5596,79 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/unshiftio/requires-port</td>
     </tr>
     <tr>
-    <td>resolve-from@1.0.1</td>
+    <td>resolve-cwd@3.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/resolve-cwd</td>
+    </tr>
+    <tr>
+    <td>resolve-from@4.0.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/resolve-from</td>
     </tr>
     <tr>
-    <td>resolve@1.1.7</td>
+    <td>resolve-from@5.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/substack/node-resolve</td>
+    <td>https://github.com/sindresorhus/resolve-from</td>
     </tr>
     <tr>
-    <td>resolve@1.12.0</td>
+    <td>resolve-url-loader@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/bholloway/resolve-url-loader</td>
+    </tr>
+    <tr>
+    <td>resolve.exports@1.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/lukeed/resolve.exports</td>
+    </tr>
+    <tr>
+    <td>resolve@1.22.9</td>
     <td>MIT</td>
     <td>https://github.com/browserify/resolve</td>
     </tr>
     <tr>
-    <td>resolve@1.8.1</td>
+    <td>resolve@2.0.0-next.5</td>
     <td>MIT</td>
     <td>https://github.com/browserify/resolve</td>
     </tr>
     <tr>
-    <td>restore-cursor@1.0.1</td>
+    <td>retry@0.13.1</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/restore-cursor</td>
+    <td>https://github.com/tim-kos/node-retry</td>
     </tr>
     <tr>
-    <td>right-align@0.1.3</td>
+    <td>reusify@1.0.4</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/right-align</td>
+    <td>https://github.com/mcollina/reusify</td>
     </tr>
     <tr>
-    <td>rimraf@2.6.2</td>
+    <td>rimraf@3.0.2</td>
     <td>ISC</td>
     <td>https://github.com/isaacs/rimraf</td>
     </tr>
     <tr>
-    <td>ripemd160@0.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/cryptocoinjs/ripemd160</td>
+    <td>rimraf@6.1.3</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/rimraf</td>
     </tr>
     <tr>
-    <td>run-async@0.1.0</td>
+    <td>rollup-plugin-terser@7.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/SBoudrias/run-async</td>
+    <td>https://github.com/TrySound/rollup-plugin-terser</td>
     </tr>
     <tr>
-    <td>rx-lite@3.1.2</td>
-    <td>Apache License, Version 2.0</td>
-    <td>https://github.com/Reactive-Extensions/RxJS</td>
+    <td>rollup@2.79.2</td>
+    <td>MIT</td>
+    <td>https://github.com/rollup/rollup</td>
     </tr>
     <tr>
-    <td>safe-buffer@5.1.1</td>
+    <td>run-parallel@1.2.0</td>
     <td>MIT</td>
-    <td>https://github.com/feross/safe-buffer</td>
+    <td>https://github.com/feross/run-parallel</td>
+    </tr>
+    <tr>
+    <td>safe-array-concat@1.1.3</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/safe-array-concat</td>
     </tr>
     <tr>
     <td>safe-buffer@5.1.2</td>
@@ -3821,14 +5676,34 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/feross/safe-buffer</td>
     </tr>
     <tr>
+    <td>safe-buffer@5.2.1</td>
+    <td>MIT</td>
+    <td>https://github.com/feross/safe-buffer</td>
+    </tr>
+    <tr>
+    <td>safe-regex-test@1.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/safe-regex-test</td>
+    </tr>
+    <tr>
     <td>safer-buffer@2.1.2</td>
     <td>MIT</td>
     <td>https://github.com/ChALkeR/safer-buffer</td>
     </tr>
     <tr>
-    <td>sane@1.4.1</td>
+    <td>sanitize.css@13.0.0</td>
+    <td>CC0-1.0</td>
+    <td>https://github.com/csstools/sanitize.css</td>
+    </tr>
+    <tr>
+    <td>sass-loader@12.6.0</td>
     <td>MIT</td>
-    <td>https://github.com/amasad/sane</td>
+    <td>https://github.com/webpack-contrib/sass-loader</td>
+    </tr>
+    <tr>
+    <td>sax@1.1.4</td>
+    <td>ISC</td>
+    <td>https://github.com/isaacs/sax-js</td>
     </tr>
     <tr>
     <td>sax@1.2.4</td>
@@ -3836,14 +5711,69 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/isaacs/sax-js</td>
     </tr>
     <tr>
-    <td>semver@5.5.0</td>
+    <td>saxes@5.0.1</td>
+    <td>ISC</td>
+    <td>https://github.com/lddubeau/saxes</td>
+    </tr>
+    <tr>
+    <td>scheduler@0.23.2</td>
+    <td>MIT</td>
+    <td>https://github.com/facebook/react</td>
+    </tr>
+    <tr>
+    <td>schema-utils@2.7.0</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack/schema-utils</td>
+    </tr>
+    <tr>
+    <td>schema-utils@2.7.1</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack/schema-utils</td>
+    </tr>
+    <tr>
+    <td>schema-utils@3.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack/schema-utils</td>
+    </tr>
+    <tr>
+    <td>schema-utils@4.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack/schema-utils</td>
+    </tr>
+    <tr>
+    <td>select-hose@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/indutny/select-hose</td>
+    </tr>
+    <tr>
+    <td>selfsigned@2.4.1</td>
+    <td>MIT</td>
+    <td>https://github.com/jfromaniello/selfsigned</td>
+    </tr>
+    <tr>
+    <td>semver@6.3.1</td>
     <td>ISC</td>
     <td>https://github.com/npm/node-semver</td>
     </tr>
     <tr>
-    <td>send@0.16.2</td>
+    <td>semver@7.6.3</td>
+    <td>ISC</td>
+    <td>https://github.com/npm/node-semver</td>
+    </tr>
+    <tr>
+    <td>send@0.19.0</td>
     <td>MIT</td>
     <td>https://github.com/pillarjs/send</td>
+    </tr>
+    <tr>
+    <td>serialize-javascript@4.0.0</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/yahoo/serialize-javascript</td>
+    </tr>
+    <tr>
+    <td>serialize-javascript@6.0.2</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/yahoo/serialize-javascript</td>
     </tr>
     <tr>
     <td>serve-index@1.9.1</td>
@@ -3851,29 +5781,19 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/expressjs/serve-index</td>
     </tr>
     <tr>
-    <td>serve-static@1.13.2</td>
+    <td>serve-static@1.16.2</td>
     <td>MIT</td>
     <td>https://github.com/expressjs/serve-static</td>
     </tr>
     <tr>
-    <td>set-blocking@2.0.0</td>
-    <td>ISC</td>
-    <td>https://github.com/yargs/set-blocking</td>
-    </tr>
-    <tr>
-    <td>set-immediate-shim@1.0.1</td>
+    <td>set-function-length@1.2.2</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/set-immediate-shim</td>
+    <td>https://github.com/ljharb/set-function-length</td>
     </tr>
     <tr>
-    <td>setimmediate@1.0.5</td>
+    <td>set-function-name@2.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/YuzuJS/setImmediate</td>
-    </tr>
-    <tr>
-    <td>setprototypeof@1.0.3</td>
-    <td>ISC</td>
-    <td>https://github.com/wesleytodd/setprototypeof</td>
+    <td>https://github.com/ljharb/set-function-name</td>
     </tr>
     <tr>
     <td>setprototypeof@1.1.0</td>
@@ -3881,89 +5801,114 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/wesleytodd/setprototypeof</td>
     </tr>
     <tr>
-    <td>sha.js@2.2.6</td>
+    <td>setprototypeof@1.2.0</td>
+    <td>ISC</td>
+    <td>https://github.com/wesleytodd/setprototypeof</td>
+    </tr>
+    <tr>
+    <td>shebang-command@2.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/dominictarr/sha.js</td>
+    <td>https://github.com/kevva/shebang-command</td>
     </tr>
     <tr>
-    <td>shelljs@0.7.8</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/shelljs/shelljs</td>
-    </tr>
-    <tr>
-    <td>shelljs@0.8.3</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/shelljs/shelljs</td>
-    </tr>
-    <tr>
-    <td>shellwords@0.1.1</td>
+    <td>shebang-regex@3.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/jimmycuadra/shellwords</td>
+    <td>https://github.com/sindresorhus/shebang-regex</td>
     </tr>
     <tr>
-    <td>slash@1.0.0</td>
+    <td>shell-quote@1.8.2</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/shell-quote</td>
+    </tr>
+    <tr>
+    <td>side-channel-list@1.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/side-channel-list</td>
+    </tr>
+    <tr>
+    <td>side-channel-map@1.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/side-channel-map</td>
+    </tr>
+    <tr>
+    <td>side-channel-weakmap@1.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/side-channel-weakmap</td>
+    </tr>
+    <tr>
+    <td>side-channel@1.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ljharb/side-channel</td>
+    </tr>
+    <tr>
+    <td>signal-exit@3.0.7</td>
+    <td>ISC</td>
+    <td>https://github.com/tapjs/signal-exit</td>
+    </tr>
+    <tr>
+    <td>signal-exit@4.1.0</td>
+    <td>ISC</td>
+    <td>https://github.com/tapjs/signal-exit</td>
+    </tr>
+    <tr>
+    <td>simple-plist@1.3.1</td>
+    <td>MIT</td>
+    <td>https://github.com/wollardj/simple-plist</td>
+    </tr>
+    <tr>
+    <td>sisteransi@1.0.5</td>
+    <td>MIT</td>
+    <td>https://github.com/terkelg/sisteransi</td>
+    </tr>
+    <tr>
+    <td>slash@3.0.0</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/slash</td>
     </tr>
     <tr>
-    <td>slice-ansi@0.0.4</td>
+    <td>slash@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/slash</td>
+    </tr>
+    <tr>
+    <td>slice-ansi@4.0.0</td>
     <td>MIT</td>
     <td>https://github.com/chalk/slice-ansi</td>
     </tr>
     <tr>
-    <td>socket.io-client@2.1.1</td>
+    <td>socket.io-client@2.5.0</td>
     <td>MIT</td>
     <td>https://github.com/Automattic/socket.io-client</td>
     </tr>
     <tr>
-    <td>socket.io-parser@3.2.0</td>
+    <td>socket.io-parser@3.3.4</td>
     <td>MIT</td>
     <td>https://github.com/Automattic/socket.io-parser</td>
     </tr>
     <tr>
-    <td>socket.io-react@1.2.0</td>
-    <td>MIT</td>
-    <td>https://github.com/PlatziDev/socket.io-react</td>
-    </tr>
-    <tr>
-    <td>sockjs-client@1.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/sockjs/sockjs-client</td>
-    </tr>
-    <tr>
-    <td>sockjs-client@1.1.5</td>
-    <td>MIT</td>
-    <td>https://github.com/sockjs/sockjs-client</td>
-    </tr>
-    <tr>
-    <td>sockjs@0.3.19</td>
+    <td>sockjs@0.3.24</td>
     <td>MIT</td>
     <td>https://github.com/sockjs/sockjs-node</td>
     </tr>
     <tr>
-    <td>sort-keys@1.1.2</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/sort-keys</td>
-    </tr>
-    <tr>
-    <td>source-list-map@0.1.8</td>
+    <td>source-list-map@2.0.1</td>
     <td>MIT</td>
     <td>https://github.com/webpack/source-list-map</td>
     </tr>
     <tr>
-    <td>source-map-support@0.4.18</td>
+    <td>source-map-js@1.2.1</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/7rulnik/source-map-js</td>
+    </tr>
+    <tr>
+    <td>source-map-loader@3.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack-contrib/source-map-loader</td>
+    </tr>
+    <tr>
+    <td>source-map-support@0.5.21</td>
     <td>MIT</td>
     <td>https://github.com/evanw/node-source-map-support</td>
-    </tr>
-    <tr>
-    <td>source-map@0.4.4</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/mozilla/source-map</td>
-    </tr>
-    <tr>
-    <td>source-map@0.5.7</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/mozilla/source-map</td>
     </tr>
     <tr>
     <td>source-map@0.6.1</td>
@@ -3971,24 +5916,34 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/mozilla/source-map</td>
     </tr>
     <tr>
-    <td>spdx-correct@3.0.0</td>
-    <td>Apache-2.0</td>
-    <td>https://github.com/jslicense/spdx-correct.js</td>
+    <td>source-map@0.7.4</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/mozilla/source-map</td>
     </tr>
     <tr>
-    <td>spdx-exceptions@2.1.0</td>
-    <td>CC-BY-3.0</td>
-    <td>https://github.com/kemitchell/spdx-exceptions.json</td>
+    <td>source-map@0.8.0-beta.0</td>
+    <td>BSD-3-Clause</td>
+    <td>https://github.com/mozilla/source-map</td>
     </tr>
     <tr>
-    <td>spdx-expression-parse@3.0.0</td>
+    <td>sourcemap-codec@1.4.8</td>
     <td>MIT</td>
-    <td>https://github.com/jslicense/spdx-expression-parse.js</td>
+    <td>https://github.com/Rich-Harris/sourcemap-codec</td>
     </tr>
     <tr>
-    <td>spdx-license-ids@3.0.0</td>
-    <td>CC0-1.0</td>
-    <td>https://github.com/shinnn/spdx-license-ids</td>
+    <td>spdy-transport@3.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/spdy-http2/spdy-transport</td>
+    </tr>
+    <tr>
+    <td>spdy@4.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/indutny/node-spdy</td>
+    </tr>
+    <tr>
+    <td>split2@4.2.0</td>
+    <td>ISC</td>
+    <td>https://github.com/mcollina/split2</td>
     </tr>
     <tr>
     <td>sprintf-js@1.0.3</td>
@@ -3996,49 +5951,39 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/alexei/sprintf.js</td>
     </tr>
     <tr>
-    <td>sshpk@1.16.1</td>
+    <td>stable@0.1.8</td>
     <td>MIT</td>
-    <td>https://github.com/joyent/node-sshpk</td>
+    <td>https://github.com/Two-Screen/stable</td>
     </tr>
     <tr>
-    <td>statuses@1.4.0</td>
+    <td>stack-utils@2.0.6</td>
+    <td>MIT</td>
+    <td>https://github.com/tapjs/stack-utils</td>
+    </tr>
+    <tr>
+    <td>stackframe@1.3.4</td>
+    <td>MIT</td>
+    <td>https://github.com/stacktracejs/stackframe</td>
+    </tr>
+    <tr>
+    <td>static-eval@2.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/substack/static-eval</td>
+    </tr>
+    <tr>
+    <td>statuses@1.5.0</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/statuses</td>
     </tr>
     <tr>
-    <td>stream-browserify@2.0.1</td>
+    <td>statuses@2.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/substack/stream-browserify</td>
+    <td>https://github.com/jshttp/statuses</td>
     </tr>
     <tr>
-    <td>stream-cache@0.0.2</td>
-    <td>MIT*</td>
-    <td>https://github.com/felixge/node-stream-cache</td>
-    </tr>
-    <tr>
-    <td>stream-http@2.8.3</td>
-    <td>MIT</td>
-    <td>https://github.com/jhiesey/stream-http</td>
-    </tr>
-    <tr>
-    <td>strict-uri-encode@1.1.0</td>
-    <td>MIT</td>
-    <td>https://github.com/kevva/strict-uri-encode</td>
-    </tr>
-    <tr>
-    <td>string-width@1.0.2</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/string-width</td>
-    </tr>
-    <tr>
-    <td>string-width@2.1.1</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/string-width</td>
-    </tr>
-    <tr>
-    <td>string_decoder@0.10.31</td>
-    <td>MIT</td>
-    <td>https://github.com/rvagg/string_decoder</td>
+    <td>stream-buffers@2.2.0</td>
+    <td>Unlicense</td>
+    <td>https://github.com/samcday/node-stream-buffer</td>
     </tr>
     <tr>
     <td>string_decoder@1.1.1</td>
@@ -4046,19 +5991,79 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/nodejs/string_decoder</td>
     </tr>
     <tr>
-    <td>strip-ansi@3.0.1</td>
+    <td>string_decoder@1.3.0</td>
+    <td>MIT</td>
+    <td>https://github.com/nodejs/string_decoder</td>
+    </tr>
+    <tr>
+    <td>string-length@4.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/string-length</td>
+    </tr>
+    <tr>
+    <td>string-length@5.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/string-length</td>
+    </tr>
+    <tr>
+    <td>string-natural-compare@3.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/nwoltman/string-natural-compare</td>
+    </tr>
+    <tr>
+    <td>string-width@4.2.3</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/string-width</td>
+    </tr>
+    <tr>
+    <td>string-width@5.1.2</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/string-width</td>
+    </tr>
+    <tr>
+    <td>string.prototype.includes@2.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/mathiasbynens/String.prototype.includes</td>
+    </tr>
+    <tr>
+    <td>string.prototype.matchall@4.0.11</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/String.prototype.matchAll</td>
+    </tr>
+    <tr>
+    <td>string.prototype.repeat@1.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/mathiasbynens/String.prototype.repeat</td>
+    </tr>
+    <tr>
+    <td>string.prototype.trim@1.2.10</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/String.prototype.trim</td>
+    </tr>
+    <tr>
+    <td>string.prototype.trimend@1.0.9</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/String.prototype.trimEnd</td>
+    </tr>
+    <tr>
+    <td>string.prototype.trimstart@1.0.8</td>
+    <td>MIT</td>
+    <td>https://github.com/es-shims/String.prototype.trimStart</td>
+    </tr>
+    <tr>
+    <td>stringify-object@3.3.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/yeoman/stringify-object</td>
+    </tr>
+    <tr>
+    <td>strip-ansi@6.0.1</td>
     <td>MIT</td>
     <td>https://github.com/chalk/strip-ansi</td>
     </tr>
     <tr>
-    <td>strip-ansi@4.0.0</td>
+    <td>strip-ansi@7.1.0</td>
     <td>MIT</td>
     <td>https://github.com/chalk/strip-ansi</td>
-    </tr>
-    <tr>
-    <td>strip-bom@2.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/strip-bom</td>
     </tr>
     <tr>
     <td>strip-bom@3.0.0</td>
@@ -4066,29 +6071,49 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/sindresorhus/strip-bom</td>
     </tr>
     <tr>
-    <td>strip-json-comments@2.0.1</td>
+    <td>strip-bom@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/strip-bom</td>
+    </tr>
+    <tr>
+    <td>strip-comments@2.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/jonschlinkert/strip-comments</td>
+    </tr>
+    <tr>
+    <td>strip-final-newline@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/strip-final-newline</td>
+    </tr>
+    <tr>
+    <td>strip-indent@3.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/strip-indent</td>
+    </tr>
+    <tr>
+    <td>strip-json-comments@3.1.1</td>
     <td>MIT</td>
     <td>https://github.com/sindresorhus/strip-json-comments</td>
     </tr>
     <tr>
-    <td>style-loader@0.13.1</td>
+    <td>style-loader@3.3.4</td>
     <td>MIT</td>
-    <td>https://github.com/webpack/style-loader</td>
+    <td>https://github.com/webpack-contrib/style-loader</td>
     </tr>
     <tr>
-    <td>supports-color@2.0.0</td>
+    <td>stylehacks@5.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/chalk/supports-color</td>
+    <td>https://github.com/cssnano/cssnano</td>
     </tr>
     <tr>
-    <td>supports-color@3.2.3</td>
+    <td>sucrase@3.35.0</td>
     <td>MIT</td>
-    <td>https://github.com/chalk/supports-color</td>
+    <td>https://github.com/alangpierce/sucrase</td>
     </tr>
     <tr>
-    <td>supports-color@5.4.0</td>
-    <td>MIT</td>
-    <td>https://github.com/chalk/supports-color</td>
+    <td>suncalc2@1.8.1</td>
+    <td>BSD*</td>
+    <td>https://github.com/andiling/suncalc2</td>
     </tr>
     <tr>
     <td>supports-color@5.5.0</td>
@@ -4096,32 +6121,92 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/chalk/supports-color</td>
     </tr>
     <tr>
-    <td>supports-hyperlinks@1.0.1</td>
+    <td>supports-color@7.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/chalk/supports-color</td>
+    </tr>
+    <tr>
+    <td>supports-color@8.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/chalk/supports-color</td>
+    </tr>
+    <tr>
+    <td>supports-hyperlinks@2.3.0</td>
     <td>MIT</td>
     <td>https://github.com/jamestalmage/supports-hyperlinks</td>
     </tr>
     <tr>
-    <td>svgo@0.7.2</td>
+    <td>supports-preserve-symlinks-flag@1.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/node-supports-preserve-symlinks-flag</td>
+    </tr>
+    <tr>
+    <td>svg-parser@2.0.4</td>
+    <td>MIT</td>
+    <td>https://github.com/Rich-Harris/svg-parser</td>
+    </tr>
+    <tr>
+    <td>svgo@1.3.2</td>
     <td>MIT</td>
     <td>https://github.com/svg/svgo</td>
     </tr>
     <tr>
-    <td>symbol-tree@3.2.2</td>
+    <td>svgo@2.8.0</td>
+    <td>MIT</td>
+    <td>https://github.com/svg/svgo</td>
+    </tr>
+    <tr>
+    <td>symbol-tree@3.2.4</td>
     <td>MIT</td>
     <td>https://github.com/jsdom/js-symbol-tree</td>
     </tr>
     <tr>
-    <td>table@3.8.3</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/gajus/table</td>
+    <td>tailwindcss@3.4.16</td>
+    <td>MIT</td>
+    <td>https://github.com/tailwindlabs/tailwindcss</td>
     </tr>
     <tr>
-    <td>tapable@0.1.10</td>
+    <td>tapable@1.1.3</td>
     <td>MIT</td>
     <td>https://github.com/webpack/tapable</td>
     </tr>
     <tr>
-    <td>test-exclude@3.3.0</td>
+    <td>tapable@2.2.1</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack/tapable</td>
+    </tr>
+    <tr>
+    <td>tar@7.5.22</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/node-tar</td>
+    </tr>
+    <tr>
+    <td>temp-dir@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/temp-dir</td>
+    </tr>
+    <tr>
+    <td>tempy@0.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/tempy</td>
+    </tr>
+    <tr>
+    <td>terminal-link@2.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/terminal-link</td>
+    </tr>
+    <tr>
+    <td>terser-webpack-plugin@5.3.11</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack-contrib/terser-webpack-plugin</td>
+    </tr>
+    <tr>
+    <td>terser@5.37.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/terser/terser</td>
+    </tr>
+    <tr>
+    <td>test-exclude@6.0.0</td>
     <td>ISC</td>
     <td>https://github.com/istanbuljs/test-exclude</td>
     </tr>
@@ -4131,32 +6216,37 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/substack/text-table</td>
     </tr>
     <tr>
-    <td>throat@3.2.0</td>
+    <td>thenify-all@1.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/thenables/thenify-all</td>
+    </tr>
+    <tr>
+    <td>thenify@3.3.1</td>
+    <td>MIT</td>
+    <td>https://github.com/thenables/thenify</td>
+    </tr>
+    <tr>
+    <td>throat@6.0.2</td>
     <td>MIT</td>
     <td>https://github.com/ForbesLindesay/throat</td>
     </tr>
     <tr>
-    <td>through@2.3.8</td>
+    <td>through2@4.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/dominictarr/through</td>
+    <td>https://github.com/rvagg/through2</td>
     </tr>
     <tr>
-    <td>time-stamp@2.0.0</td>
+    <td>thunky@1.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/time-stamp</td>
+    <td>https://github.com/mafintosh/thunky</td>
     </tr>
     <tr>
-    <td>timers-browserify@2.0.10</td>
+    <td>tinycolor2@1.6.0</td>
     <td>MIT</td>
-    <td>https://github.com/jryans/timers-browserify</td>
+    <td>https://github.com/bgrins/TinyColor</td>
     </tr>
     <tr>
-    <td>tinycolor2@1.4.1</td>
-    <td>MIT</td>
-    <td>https://bgrins.github.com/TinyColor</td>
-    </tr>
-    <tr>
-    <td>tmpl@1.0.4</td>
+    <td>tmpl@1.0.5</td>
     <td>BSD-3-Clause</td>
     <td>https://github.com/daaku/nodejs-tmpl</td>
     </tr>
@@ -4166,54 +6256,64 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/Raynos/to-array</td>
     </tr>
     <tr>
-    <td>to-arraybuffer@1.0.1</td>
+    <td>to-regex-range@5.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/jhiesey/to-arraybuffer</td>
+    <td>https://github.com/micromatch/to-regex-range</td>
     </tr>
     <tr>
-    <td>to-fast-properties@1.0.3</td>
+    <td>toidentifier@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/to-fast-properties</td>
+    <td>https://github.com/component/toidentifier</td>
     </tr>
     <tr>
-    <td>toposort@1.0.7</td>
-    <td>MIT</td>
-    <td>https://github.com/marcelklehr/toposort</td>
-    </tr>
-    <tr>
-    <td>tough-cookie@2.3.4</td>
+    <td>tough-cookie@4.1.4</td>
     <td>BSD-3-Clause</td>
     <td>https://github.com/salesforce/tough-cookie</td>
     </tr>
     <tr>
-    <td>tough-cookie@2.4.3</td>
-    <td>BSD-3-Clause</td>
-    <td>https://github.com/salesforce/tough-cookie</td>
-    </tr>
-    <tr>
-    <td>tr46@0.0.3</td>
+    <td>tr46@1.0.1</td>
     <td>MIT</td>
     <td>https://github.com/Sebmaster/tr46.js</td>
     </tr>
     <tr>
-    <td>trim-right@1.0.1</td>
+    <td>tr46@2.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/sindresorhus/trim-right</td>
+    <td>https://github.com/jsdom/tr46</td>
     </tr>
     <tr>
-    <td>tty-browserify@0.0.0</td>
+    <td>tree-kill@1.2.2</td>
     <td>MIT</td>
-    <td>https://github.com/substack/tty-browserify</td>
+    <td>https://github.com/pkrumins/node-tree-kill</td>
     </tr>
     <tr>
-    <td>tunnel-agent@0.6.0</td>
+    <td>tryer@1.0.1</td>
+    <td>MIT</td>
+    <td>git+https://gitlab.com/philbooth/tryer</td>
+    </tr>
+    <tr>
+    <td>ts-interface-checker@0.1.13</td>
     <td>Apache-2.0</td>
-    <td>https://github.com/mikeal/tunnel-agent</td>
+    <td>https://github.com/gristlabs/ts-interface-checker</td>
     </tr>
     <tr>
-    <td>tweetnacl@0.14.5</td>
-    <td>Unlicense</td>
-    <td>https://github.com/dchest/tweetnacl-js</td>
+    <td>tsconfig-paths@3.15.0</td>
+    <td>MIT</td>
+    <td>https://github.com/dividab/tsconfig-paths</td>
+    </tr>
+    <tr>
+    <td>tslib@1.14.1</td>
+    <td>0BSD</td>
+    <td>https://github.com/Microsoft/tslib</td>
+    </tr>
+    <tr>
+    <td>tslib@2.8.1</td>
+    <td>0BSD</td>
+    <td>https://github.com/Microsoft/tslib</td>
+    </tr>
+    <tr>
+    <td>tsutils@3.21.0</td>
+    <td>MIT</td>
+    <td>https://github.com/ajafff/tsutils</td>
     </tr>
     <tr>
     <td>type-check@0.3.2</td>
@@ -4221,54 +6321,114 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/gkz/type-check</td>
     </tr>
     <tr>
-    <td>type-is@1.6.16</td>
+    <td>type-check@0.4.0</td>
+    <td>MIT</td>
+    <td>https://github.com/gkz/type-check</td>
+    </tr>
+    <tr>
+    <td>type-detect@4.0.8</td>
+    <td>MIT</td>
+    <td>https://github.com/chaijs/type-detect</td>
+    </tr>
+    <tr>
+    <td>type-fest@0.16.0</td>
+    <td>(MIT OR CC0-1.0)</td>
+    <td>https://github.com/sindresorhus/type-fest</td>
+    </tr>
+    <tr>
+    <td>type-fest@0.20.2</td>
+    <td>(MIT OR CC0-1.0)</td>
+    <td>https://github.com/sindresorhus/type-fest</td>
+    </tr>
+    <tr>
+    <td>type-fest@0.21.3</td>
+    <td>(MIT OR CC0-1.0)</td>
+    <td>https://github.com/sindresorhus/type-fest</td>
+    </tr>
+    <tr>
+    <td>type-is@1.6.18</td>
     <td>MIT</td>
     <td>https://github.com/jshttp/type-is</td>
     </tr>
     <tr>
-    <td>typedarray@0.0.6</td>
+    <td>typed-array-buffer@1.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/substack/typedarray</td>
+    <td>https://github.com/ljharb/typed-array-buffer</td>
     </tr>
     <tr>
-    <td>ua-parser-js@0.7.18</td>
+    <td>typed-array-byte-length@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/faisalman/ua-parser-js</td>
+    <td>https://github.com/inspect-js/typed-array-byte-length</td>
     </tr>
     <tr>
-    <td>uglify-js@2.7.5</td>
-    <td>BSD-2-Clause</td>
-    <td>https://github.com/mishoo/UglifyJS2</td>
-    </tr>
-    <tr>
-    <td>uglify-js@3.4.3</td>
-    <td>BSD-2-Clause</td>
-    <td>https://github.com/mishoo/UglifyJS2</td>
-    </tr>
-    <tr>
-    <td>uglify-js@3.6.0</td>
-    <td>BSD-2-Clause</td>
-    <td>https://github.com/mishoo/UglifyJS2</td>
-    </tr>
-    <tr>
-    <td>uglify-to-browserify@1.0.2</td>
+    <td>typed-array-byte-offset@1.0.3</td>
     <td>MIT</td>
-    <td>https://github.com/ForbesLindesay/uglify-to-browserify</td>
+    <td>https://github.com/inspect-js/typed-array-byte-offset</td>
     </tr>
     <tr>
-    <td>ultron@1.1.1</td>
+    <td>typed-array-length@1.0.7</td>
     <td>MIT</td>
-    <td>https://github.com/unshiftio/ultron</td>
+    <td>https://github.com/inspect-js/typed-array-length</td>
     </tr>
     <tr>
-    <td>uniq@1.0.1</td>
+    <td>typedarray-to-buffer@3.1.5</td>
     <td>MIT</td>
-    <td>https://github.com/mikolalysenko/uniq</td>
+    <td>https://github.com/feross/typedarray-to-buffer</td>
     </tr>
     <tr>
-    <td>uniqs@2.0.0</td>
+    <td>typescript@4.9.5</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/Microsoft/TypeScript</td>
+    </tr>
+    <tr>
+    <td>unbox-primitive@1.1.0</td>
     <td>MIT</td>
-    <td>https://github.com/fgnass/uniqs</td>
+    <td>https://github.com/ljharb/unbox-primitive</td>
+    </tr>
+    <tr>
+    <td>underscore@1.12.1</td>
+    <td>MIT</td>
+    <td>https://github.com/jashkenas/underscore</td>
+    </tr>
+    <tr>
+    <td>undici-types@6.20.0</td>
+    <td>MIT</td>
+    <td>https://github.com/nodejs/undici</td>
+    </tr>
+    <tr>
+    <td>unicode-canonical-property-names-ecmascript@2.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/mathiasbynens/unicode-canonical-property-names-ecmascript</td>
+    </tr>
+    <tr>
+    <td>unicode-match-property-ecmascript@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/mathiasbynens/unicode-match-property-ecmascript</td>
+    </tr>
+    <tr>
+    <td>unicode-match-property-value-ecmascript@2.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/mathiasbynens/unicode-match-property-value-ecmascript</td>
+    </tr>
+    <tr>
+    <td>unicode-property-aliases-ecmascript@2.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/mathiasbynens/unicode-property-aliases-ecmascript</td>
+    </tr>
+    <tr>
+    <td>unique-string@2.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/unique-string</td>
+    </tr>
+    <tr>
+    <td>universalify@0.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/RyanZim/universalify</td>
+    </tr>
+    <tr>
+    <td>universalify@2.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/RyanZim/universalify</td>
     </tr>
     <tr>
     <td>unpipe@1.0.0</td>
@@ -4276,34 +6436,34 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/stream-utils/unpipe</td>
     </tr>
     <tr>
-    <td>upper-case@1.1.3</td>
+    <td>unquote@1.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/blakeembrey/upper-case</td>
+    <td>https://github.com/lakenen/node-unquote</td>
     </tr>
     <tr>
-    <td>uri-js@4.2.2</td>
+    <td>untildify@4.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/untildify</td>
+    </tr>
+    <tr>
+    <td>upath@1.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/anodynos/upath</td>
+    </tr>
+    <tr>
+    <td>update-browserslist-db@1.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/browserslist/update-db</td>
+    </tr>
+    <tr>
+    <td>uri-js@4.4.1</td>
     <td>BSD-2-Clause</td>
     <td>https://github.com/garycourt/uri-js</td>
     </tr>
     <tr>
-    <td>url-loader@0.5.7</td>
-    <td>MIT</td>
-    <td>https://github.com/webpack/url-loader</td>
-    </tr>
-    <tr>
-    <td>url-parse@1.4.7</td>
+    <td>url-parse@1.5.10</td>
     <td>MIT</td>
     <td>https://github.com/unshiftio/url-parse</td>
-    </tr>
-    <tr>
-    <td>url@0.11.0</td>
-    <td>MIT</td>
-    <td>https://github.com/defunctzombie/node-url</td>
-    </tr>
-    <tr>
-    <td>user-home@2.0.0</td>
-    <td>MIT</td>
-    <td>https://github.com/sindresorhus/user-home</td>
     </tr>
     <tr>
     <td>util-deprecate@1.0.2</td>
@@ -4311,19 +6471,9 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/TooTallNate/util-deprecate</td>
     </tr>
     <tr>
-    <td>util@0.10.3</td>
+    <td>util.promisify@1.0.1</td>
     <td>MIT</td>
-    <td>https://github.com/defunctzombie/node-util</td>
-    </tr>
-    <tr>
-    <td>util@0.10.4</td>
-    <td>MIT</td>
-    <td>https://github.com/defunctzombie/node-util</td>
-    </tr>
-    <tr>
-    <td>utila@0.3.3</td>
-    <td>MIT</td>
-    <td>https://github.com/AriaMinaei/utila</td>
+    <td>https://github.com/ljharb/util.promisify</td>
     </tr>
     <tr>
     <td>utila@0.4.0</td>
@@ -4336,19 +6486,19 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jaredhanson/utils-merge</td>
     </tr>
     <tr>
-    <td>uuid@3.3.2</td>
+    <td>uuid@7.0.3</td>
     <td>MIT</td>
-    <td>https://github.com/kelektiv/node-uuid</td>
+    <td>https://github.com/uuidjs/uuid</td>
     </tr>
     <tr>
-    <td>uuid@3.3.3</td>
+    <td>uuid@8.3.2</td>
     <td>MIT</td>
-    <td>https://github.com/kelektiv/node-uuid</td>
+    <td>https://github.com/uuidjs/uuid</td>
     </tr>
     <tr>
-    <td>validate-npm-package-license@3.0.3</td>
-    <td>Apache-2.0</td>
-    <td>https://github.com/kemitchell/validate-npm-package-license.js</td>
+    <td>v8-to-istanbul@8.1.1</td>
+    <td>ISC</td>
+    <td>https://github.com/istanbuljs/v8-to-istanbul</td>
     </tr>
     <tr>
     <td>vary@1.1.2</td>
@@ -4356,39 +6506,34 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jshttp/vary</td>
     </tr>
     <tr>
-    <td>vendors@1.0.2</td>
+    <td>w3c-hr-time@1.0.2</td>
     <td>MIT</td>
-    <td>https://github.com/wooorm/vendors</td>
+    <td>https://github.com/jsdom/w3c-hr-time</td>
     </tr>
     <tr>
-    <td>verror@1.10.0</td>
+    <td>w3c-xmlserializer@2.0.0</td>
     <td>MIT</td>
-    <td>https://github.com/davepacheco/node-verror</td>
+    <td>https://github.com/jsdom/w3c-xmlserializer</td>
     </tr>
     <tr>
-    <td>vm-browserify@0.0.4</td>
-    <td>MIT</td>
-    <td>https://github.com/substack/vm-browserify</td>
-    </tr>
-    <tr>
-    <td>walker@1.0.7</td>
+    <td>walker@1.0.8</td>
     <td>Apache-2.0</td>
     <td>https://github.com/daaku/nodejs-walker</td>
     </tr>
     <tr>
-    <td>watch@0.10.0</td>
-    <td>Apache*</td>
-    <td>https://github.com/mikeal/watch</td>
-    </tr>
-    <tr>
-    <td>watchpack@0.2.9</td>
+    <td>watchpack@2.4.2</td>
     <td>MIT</td>
     <td>https://github.com/webpack/watchpack</td>
     </tr>
     <tr>
-    <td>webidl-conversions@3.0.1</td>
-    <td>BSD-2-Clause</td>
-    <td>https://github.com/jsdom/webidl-conversions</td>
+    <td>wbuf@1.7.3</td>
+    <td>MIT</td>
+    <td>https://github.com/indutny/wbuf</td>
+    </tr>
+    <tr>
+    <td>web-vitals@4.2.4</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/GoogleChrome/web-vitals</td>
     </tr>
     <tr>
     <td>webidl-conversions@4.0.2</td>
@@ -4396,74 +6541,104 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/jsdom/webidl-conversions</td>
     </tr>
     <tr>
-    <td>webpack-core@0.6.9</td>
-    <td>MIT</td>
-    <td>https://github.com/webpack/core</td>
+    <td>webidl-conversions@5.0.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/jsdom/webidl-conversions</td>
     </tr>
     <tr>
-    <td>webpack-dev-middleware@1.12.2</td>
+    <td>webidl-conversions@6.1.0</td>
+    <td>BSD-2-Clause</td>
+    <td>https://github.com/jsdom/webidl-conversions</td>
+    </tr>
+    <tr>
+    <td>webpack-dev-middleware@5.3.4</td>
     <td>MIT</td>
     <td>https://github.com/webpack/webpack-dev-middleware</td>
     </tr>
     <tr>
-    <td>webpack-dev-server@1.16.2</td>
+    <td>webpack-dev-server@4.15.2</td>
     <td>MIT</td>
     <td>https://github.com/webpack/webpack-dev-server</td>
     </tr>
     <tr>
-    <td>webpack-manifest-plugin@1.1.0</td>
+    <td>webpack-manifest-plugin@4.1.1</td>
     <td>MIT</td>
-    <td>https://github.com/danethurber/webpack-manifest-plugin</td>
+    <td>https://github.com/shellscape/webpack-manifest-plugin</td>
     </tr>
     <tr>
-    <td>webpack-sources@0.1.5</td>
+    <td>webpack-sources@1.4.3</td>
     <td>MIT</td>
     <td>https://github.com/webpack/webpack-sources</td>
     </tr>
     <tr>
-    <td>webpack@1.14.0</td>
+    <td>webpack-sources@2.3.1</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack/webpack-sources</td>
+    </tr>
+    <tr>
+    <td>webpack-sources@3.2.3</td>
+    <td>MIT</td>
+    <td>https://github.com/webpack/webpack-sources</td>
+    </tr>
+    <tr>
+    <td>webpack@5.97.1</td>
     <td>MIT</td>
     <td>https://github.com/webpack/webpack</td>
     </tr>
     <tr>
-    <td>websocket-driver@0.7.0</td>
-    <td>MIT</td>
+    <td>websocket-driver@0.7.4</td>
+    <td>Apache-2.0</td>
     <td>https://github.com/faye/websocket-driver-node</td>
     </tr>
     <tr>
-    <td>websocket-extensions@0.1.3</td>
-    <td>MIT</td>
+    <td>websocket-extensions@0.1.4</td>
+    <td>Apache-2.0</td>
     <td>https://github.com/faye/websocket-extensions-node</td>
     </tr>
     <tr>
-    <td>whatwg-encoding@1.0.3</td>
+    <td>whatwg-encoding@1.0.5</td>
     <td>MIT</td>
     <td>https://github.com/jsdom/whatwg-encoding</td>
     </tr>
     <tr>
-    <td>whatwg-fetch@2.0.2</td>
+    <td>whatwg-fetch@3.6.20</td>
     <td>MIT</td>
     <td>https://github.com/github/fetch</td>
     </tr>
     <tr>
-    <td>whatwg-fetch@2.0.4</td>
+    <td>whatwg-mimetype@2.3.0</td>
     <td>MIT</td>
-    <td>https://github.com/github/fetch</td>
+    <td>https://github.com/jsdom/whatwg-mimetype</td>
     </tr>
     <tr>
-    <td>whatwg-url@4.8.0</td>
+    <td>whatwg-url@7.1.0</td>
     <td>MIT</td>
     <td>https://github.com/jsdom/whatwg-url</td>
     </tr>
     <tr>
-    <td>whet.extend@0.9.9</td>
+    <td>whatwg-url@8.7.0</td>
     <td>MIT</td>
-    <td>https://github.com/Meettya/whet.extend</td>
+    <td>https://github.com/jsdom/whatwg-url</td>
     </tr>
     <tr>
-    <td>which-module@1.0.0</td>
-    <td>ISC</td>
-    <td>https://github.com/nexdrew/which-module</td>
+    <td>which-boxed-primitive@1.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/which-boxed-primitive</td>
+    </tr>
+    <tr>
+    <td>which-builtin-type@1.2.1</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/which-builtin-type</td>
+    </tr>
+    <tr>
+    <td>which-collection@1.0.2</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/which-collection</td>
+    </tr>
+    <tr>
+    <td>which-typed-array@1.1.16</td>
+    <td>MIT</td>
+    <td>https://github.com/inspect-js/which-typed-array</td>
     </tr>
     <tr>
     <td>which@1.3.1</td>
@@ -4471,32 +6646,107 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/isaacs/node-which</td>
     </tr>
     <tr>
-    <td>window-size@0.1.0</td>
+    <td>which@2.0.2</td>
+    <td>ISC</td>
+    <td>https://github.com/isaacs/node-which</td>
+    </tr>
+    <tr>
+    <td>word-wrap@1.2.5</td>
     <td>MIT</td>
-    <td>https://github.com/jonschlinkert/window-size</td>
+    <td>https://github.com/jonschlinkert/word-wrap</td>
     </tr>
     <tr>
-    <td>wordwrap@0.0.2</td>
-    <td>MIT*</td>
-    <td>https://github.com/substack/node-wordwrap</td>
-    </tr>
-    <tr>
-    <td>wordwrap@0.0.3</td>
+    <td>workbox-background-sync@6.6.0</td>
     <td>MIT</td>
-    <td>https://github.com/substack/node-wordwrap</td>
+    <td>https://github.com/googlechrome/workbox</td>
     </tr>
     <tr>
-    <td>wordwrap@1.0.0</td>
+    <td>workbox-broadcast-update@6.6.0</td>
     <td>MIT</td>
-    <td>https://github.com/substack/node-wordwrap</td>
+    <td>https://github.com/googlechrome/workbox</td>
     </tr>
     <tr>
-    <td>worker-farm@1.6.0</td>
+    <td>workbox-build@6.6.0</td>
     <td>MIT</td>
-    <td>https://github.com/rvagg/node-worker-farm</td>
+    <td>https://github.com/googlechrome/workbox</td>
     </tr>
     <tr>
-    <td>wrap-ansi@2.1.0</td>
+    <td>workbox-cacheable-response@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-core@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-expiration@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-google-analytics@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-navigation-preload@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-precaching@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-range-requests@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-recipes@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-routing@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-strategies@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-streams@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-sw@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-webpack-plugin@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>workbox-window@6.6.0</td>
+    <td>MIT</td>
+    <td>https://github.com/googlechrome/workbox</td>
+    </tr>
+    <tr>
+    <td>wrap-ansi@7.0.0</td>
+    <td>MIT</td>
+    <td>https://github.com/chalk/wrap-ansi</td>
+    </tr>
+    <tr>
+    <td>wrap-ansi@8.1.0</td>
     <td>MIT</td>
     <td>https://github.com/chalk/wrap-ansi</td>
     </tr>
@@ -4506,59 +6756,104 @@ const openSourceLicensesHtml = () => {
     <td>https://github.com/npm/wrappy</td>
     </tr>
     <tr>
-    <td>write@0.2.1</td>
-    <td>MIT</td>
-    <td>https://github.com/jonschlinkert/write</td>
+    <td>write-file-atomic@3.0.3</td>
+    <td>ISC</td>
+    <td>https://github.com/npm/write-file-atomic</td>
     </tr>
     <tr>
-    <td>ws@3.3.3</td>
+    <td>ws@7.5.10</td>
     <td>MIT</td>
     <td>https://github.com/websockets/ws</td>
     </tr>
     <tr>
-    <td>xml-name-validator@2.0.1</td>
-    <td>WTFPL</td>
+    <td>ws@8.18.0</td>
+    <td>MIT</td>
+    <td>https://github.com/websockets/ws</td>
+    </tr>
+    <tr>
+    <td>xcode@3.0.1</td>
+    <td>Apache-2.0</td>
+    <td>https://github.com/apache/cordova-node-xcode</td>
+    </tr>
+    <tr>
+    <td>xml-name-validator@3.0.0</td>
+    <td>Apache-2.0</td>
     <td>https://github.com/jsdom/xml-name-validator</td>
     </tr>
     <tr>
-    <td>xmlhttprequest-ssl@1.5.5</td>
+    <td>xml2js@0.6.2</td>
+    <td>MIT</td>
+    <td>https://github.com/Leonidas-from-XIV/node-xml2js</td>
+    </tr>
+    <tr>
+    <td>xmlbuilder@11.0.1</td>
+    <td>MIT</td>
+    <td>https://github.com/oozcitak/xmlbuilder-js</td>
+    </tr>
+    <tr>
+    <td>xmlbuilder@15.1.1</td>
+    <td>MIT</td>
+    <td>https://github.com/oozcitak/xmlbuilder-js</td>
+    </tr>
+    <tr>
+    <td>xmlchars@2.2.0</td>
+    <td>MIT</td>
+    <td>https://github.com/lddubeau/xmlchars</td>
+    </tr>
+    <tr>
+    <td>xmlhttprequest-ssl@1.6.3</td>
     <td>MIT</td>
     <td>https://github.com/mjwwit/node-XMLHttpRequest</td>
     </tr>
     <tr>
-    <td>xtend@4.0.1</td>
-    <td>MIT</td>
-    <td>https://github.com/Raynos/xtend</td>
-    </tr>
-    <tr>
-    <td>y18n@3.2.1</td>
+    <td>y18n@5.0.8</td>
     <td>ISC</td>
     <td>https://github.com/yargs/y18n</td>
     </tr>
     <tr>
-    <td>yallist@2.1.2</td>
+    <td>yallist@3.1.1</td>
     <td>ISC</td>
     <td>https://github.com/isaacs/yallist</td>
     </tr>
     <tr>
-    <td>yargs-parser@4.2.1</td>
+    <td>yallist@5.0.0</td>
+    <td>BlueOak-1.0.0</td>
+    <td>https://github.com/isaacs/yallist</td>
+    </tr>
+    <tr>
+    <td>yaml@1.10.2</td>
+    <td>ISC</td>
+    <td>https://github.com/eemeli/yaml</td>
+    </tr>
+    <tr>
+    <td>yaml@2.6.1</td>
+    <td>ISC</td>
+    <td>https://github.com/eemeli/yaml</td>
+    </tr>
+    <tr>
+    <td>yargs-parser@20.2.9</td>
     <td>ISC</td>
     <td>https://github.com/yargs/yargs-parser</td>
     </tr>
     <tr>
-    <td>yargs@3.10.0</td>
-    <td>MIT</td>
-    <td>https://github.com/bcoe/yargs</td>
-    </tr>
-    <tr>
-    <td>yargs@6.6.0</td>
+    <td>yargs@16.2.0</td>
     <td>MIT</td>
     <td>https://github.com/yargs/yargs</td>
+    </tr>
+    <tr>
+    <td>yauzl@2.10.0</td>
+    <td>MIT</td>
+    <td>https://github.com/thejoshwolfe/yauzl</td>
     </tr>
     <tr>
     <td>yeast@0.1.2</td>
     <td>MIT</td>
     <td>https://github.com/unshiftio/yeast</td>
+    </tr>
+    <tr>
+    <td>yocto-queue@0.1.0</td>
+    <td>MIT</td>
+    <td>https://github.com/sindresorhus/yocto-queue</td>
     </tr>
   </tbody></table>`;
 
