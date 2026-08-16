@@ -68,7 +68,7 @@ export default class PageInfo extends React.Component {
           <ListItem>
             <div className="right">
               <output>
-                {'minuvis for web version ' + this.props.version}{' '}
+                {'minuvis version ' + this.props.version}{' '}
               </output>
             </div>
           </ListItem>

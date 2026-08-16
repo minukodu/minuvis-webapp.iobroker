@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
           <ListItem>
             <div className="right" style={{ fontSize: "10px" }}>
               <output>
-                {"minuvis for web version " + this.props.version}{" "}
+                {"minuvis version " + this.props.version}{" "}
               </output>
             </div>
           </ListItem>
