@@ -213,7 +213,12 @@ export default class ConfigLoader extends React.Component {
     // no server configured at all (fresh install, no querystring possible e.g. in native app)
     if (!myUrlParsed.url || !myUrlParsed.file) {
       console.log('no server configured yet - showing manual setup');
-      this.setState({ needsManualSetup: true });
+      this.setState({
+        needsManualSetup: true,
+        manualUrl: myUrlParsed.url || '',
+        manualFile: myUrlParsed.file || '',
+        manualAuthEnabled: 'auth' in myUrlParsed,
+      });
       return;
     }
     this.setState({ needsManualSetup: false });
