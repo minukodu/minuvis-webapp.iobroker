@@ -1,4 +1,4 @@
-package com.minuvis.smarthome;
+package com.minukodu.minuvis;
 
 import android.os.Bundle;
 import android.view.Gravity;

@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.minuvis.smarthome',
+  appId: 'com.minukodu.minuvis',
   appName: 'MINUVIS SmartHome App',
   // eigener Build-Ordner, weil der normale "build" (npm run build) fixe
   // absolute Pfade wie /minuvis/app/... enthält (aus "homepage" in package.json,
