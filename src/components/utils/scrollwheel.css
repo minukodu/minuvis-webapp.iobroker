@@ -1,0 +1,88 @@
+/* ScrollWheel (Donut with showAsScrollWheel) */
+.scrollWheelWrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+}
+
+.scrollWheelWrap.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.scrollWheelWrap.readOnly .scrollWheelScroller {
+  overflow-y: hidden;
+  pointer-events: none;
+}
+
+.scrollWheelScroller {
+  height: 100%;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  perspective: 600px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+}
+
+.scrollWheelScroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* item and band share the same row-layout: [icon][value][unit] */
+.scrollWheelItem,
+.scrollWheelBand {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.scrollWheelItem {
+  scroll-snap-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.scrollWheelBand {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 1px solid rgba(128, 128, 128, 0.6);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.6);
+  pointer-events: none;
+}
+
+.scrollWheelBandContent {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* sizes in em => scale with value-font, same width in item and band */
+.scrollWheelWrap .scrollWheelIcon,
+.scrollWheelWrap .scrollWheelIcon.sliderIcon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 1.3em;
+  height: 1.3em;
+  font-size: 1em;
+  line-height: 1.3em;
+  margin-right: 0.3em;
+  text-align: center;
+}
+
+.scrollWheelUnit {
+  font-size: 0.8em;
+  margin-left: 0.2em;
+}

@@ -32,6 +32,12 @@ Love it !!
 - Beim ersten Start der nativen App: Server-URL und Config-Dateiname manuell eingeben (kein Query-String möglich wie im Browser)
 
 ## Changelog
+### 3.0.1 (2026-11-09)
+* (svallant) Donut: neue Eigenschaft `showAsScrollWheel` - zeigt statt des runden Sliders ein vertikales Scroll-Wheel (z.B. Temperatur-Sollwert), Icon links und Einheit rechts vom Wert, Schrift passt sich der Widget-Breite an
+* (svallant) Donut: Code überarbeitet (Function-Component, ungenutzten Code entfernt)
+* (svallant) Fix: Donut war nach Seitenwechsel/Reload unsichtbar bis zum ersten Klick oder State-Update
+* (svallant) Fix: RoundSlider entfernt seine Event-Listener beim Verlassen der Seite wieder
+
 ### 3.0.0 (2026-08-16)
 * (svallant) native App via Capacitor (Android + iOS Grundgerüst)
 * (svallant) manuelles Server-Setup (URL/Config-Datei) für native App, da Query-String im WebView nicht verfügbar

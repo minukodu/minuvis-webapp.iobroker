@@ -268,33 +268,32 @@ export default class RoundSlider extends React.Component {
         this.staticBoundaries = this._boundaries;
         this.parent = document.getElementById(this.props.parentId);
 
-        if (this.props.settings.readOnly === true) {
+        // first render returned null (parent not yet in DOM) -> render again now,
+        // otherwise the donut stays empty until some state changes
+        this.forceUpdate();
+
+        if (this.props.settings.readOnly === true || !this.parent) {
             return;
         }
 
-        this.parent.addEventListener("touchmove", this.drag.bind(this), {
-            passive: false,
-        });
-        this.parent.addEventListener("touchend", this.dragEnd.bind(this));
-        this.parent.addEventListener("mousemove", this.drag.bind(this), {
-            passive: false,
-        });
-        this.parent.addEventListener("mouseup", this.dragEnd.bind(this));
+        // keep bound handlers, so they can be removed again
+        this._onDrag = this.drag.bind(this);
+        this._onDragEnd = this.dragEnd.bind(this);
+        this.parent.addEventListener("touchmove", this._onDrag, { passive: false });
+        this.parent.addEventListener("touchend", this._onDragEnd);
+        this.parent.addEventListener("mousemove", this._onDrag, { passive: false });
+        this.parent.addEventListener("mouseup", this._onDragEnd);
     }
 
     componentWillUnmount() {
-        if (this.props.settings.readOnly === true) {
+        window.clearTimeout(this.noDragTimer);
+        if (!this.parent || !this._onDrag) {
             return;
         }
-
-        this.parent.removeEventListener("touchmove", this.drag.bind(this), {
-            passive: false,
-        });
-        this.parent.removeEventListener("touchend", this.dragEnd.bind(this));
-        this.parent.removeEventListener("mousemove", this.drag.bind(this), {
-            passive: false,
-        });
-        this.parent.removeEventListener("mouseup", this.dragEnd.bind(this));
+        this.parent.removeEventListener("touchmove", this._onDrag);
+        this.parent.removeEventListener("touchend", this._onDragEnd);
+        this.parent.removeEventListener("mousemove", this._onDrag);
+        this.parent.removeEventListener("mouseup", this._onDragEnd);
     }
 
     _renderArc(start, end) {
