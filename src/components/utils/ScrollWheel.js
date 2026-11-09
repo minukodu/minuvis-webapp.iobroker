@@ -13,6 +13,8 @@ const MIN_FIT = 0.4;
 const MAX_ITEMS = 5000;
 // ms without scroll-event => wheel has stopped
 const SCROLL_END_DELAY = 150;
+// accumulated pixel-delta (trackpad) for one step of the wheel
+const WHEEL_STEP_PX = 50;
 
 /**
  * ScrollWheel
@@ -34,6 +36,8 @@ export default function ScrollWheel({settings, disabled}) {
   const programmatic = useRef (false);
   const lastSentIndex = useRef (null);
   const currentIndex = useRef (0);
+  const wheelTarget = useRef (null);
+  const wheelAccu = useRef (0);
 
   const [viewHeight, setViewHeight] = useState (0);
   const [viewWidth, setViewWidth] = useState (0);
@@ -183,6 +187,8 @@ export default function ScrollWheel({settings, disabled}) {
       const wasUser = userScrolling.current && !programmatic.current;
       userScrolling.current = false;
       programmatic.current = false;
+      wheelTarget.current = null;
+      wheelAccu.current = 0;
       if (wasUser) {
         sendIndex (currentIndex.current);
       }
@@ -203,6 +209,47 @@ export default function ScrollWheel({settings, disabled}) {
       el.scrollTo ({top: idx * ITEM_HEIGHT, behavior: 'smooth'});
     }
   };
+
+  // mouse-wheel: one tick = one position (native scrolling jumps ~100px = 2-3 rows)
+  const lockedRef = useRef (locked);
+  lockedRef.current = locked;
+  const valuesCountRef = useRef (values.length);
+  valuesCountRef.current = values.length;
+  useEffect (() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const onWheel = e => {
+      if (lockedRef.current || e.ctrlKey) return;
+      e.preventDefault ();
+      let dir = 0;
+      if (e.deltaMode !== 0) {
+        // line- / page-mode (Firefox mouse): every event is one tick
+        dir = Math.sign (e.deltaY);
+      } else {
+        // pixel-mode: mouse sends ~100px per tick, trackpad many small deltas
+        wheelAccu.current += e.deltaY;
+        if (Math.abs (wheelAccu.current) >= WHEEL_STEP_PX) {
+          dir = Math.sign (wheelAccu.current);
+          wheelAccu.current = 0;
+        }
+      }
+      if (!dir) return;
+      const base = wheelTarget.current != null ? wheelTarget.current : currentIndex.current;
+      const target = Math.max (0, Math.min (valuesCountRef.current - 1, base + dir));
+      if (target === base) return;
+      wheelTarget.current = target;
+      programmatic.current = false;
+      userScrolling.current = true;
+      if (el.scrollTo) {
+        el.scrollTo ({top: target * ITEM_HEIGHT, behavior: 'smooth'});
+      } else {
+        el.scrollTop = target * ITEM_HEIGHT;
+      }
+    };
+    // passive: false => preventDefault stops the native scroll
+    el.addEventListener ('wheel', onWheel, {passive: false});
+    return () => el.removeEventListener ('wheel', onWheel);
+  }, []);
 
   // measure size of wheel
   useLayoutEffect (() => {
@@ -289,12 +336,20 @@ export default function ScrollWheel({settings, disabled}) {
         'scrollWheelWrap' + (disabled ? ' disabled' : '') + (readOnly ? ' readOnly' : '')
       }
     >
+      {/* strip behind the values, same layout as band => same column width */}
+      <div
+        className="scrollWheelStripLayer"
+        style={{fontSize: FONT_SIZE * CENTER_SCALE * fit + 'px'}}
+      >
+        {iconSlot (false)}
+        <span className="scrollWheelStrip">{widestLabel}</span>
+        {unitSlot (false)}
+      </div>
       <div
         ref={scrollerRef}
         className="scrollWheelScroller"
         onScroll={onScroll}
         onTouchStart={onUserInput}
-        onWheel={onUserInput}
         onMouseDown={onUserInput}
         role="listbox"
         aria-label={settings.stateId}

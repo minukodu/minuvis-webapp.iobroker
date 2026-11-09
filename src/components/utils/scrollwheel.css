@@ -17,6 +17,7 @@
 }
 
 .scrollWheelScroller {
+  position: relative;
   height: 100%;
   overflow-y: scroll;
   overscroll-behavior: contain;
@@ -84,5 +85,37 @@
 
 .scrollWheelUnit {
   font-size: 0.8em;
-  margin-left: 0.2em;
+  margin-left: 0.45em;
+}
+
+/* vertical strip behind the value column (drum look) */
+.scrollWheelStripLayer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.scrollWheelStrip {
+  align-self: stretch;
+  padding: 0 0.35em;
+  margin: 0 -0.35em;
+  border-radius: 6px;
+  color: transparent;
+  background: linear-gradient(
+    to right,
+    rgba(128, 128, 128, 0.14) 0%,
+    rgba(128, 128, 128, 0.33) 50%,
+    rgba(128, 128, 128, 0.14) 100%
+  );
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
 }
